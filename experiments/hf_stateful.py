@@ -15,7 +15,7 @@ from experiments.stateful_study import (config as core_config,verify_freeze as v
     canonical_file,sha,durable,score_stateful)
 
 CONFIG=ROOT/'research/hf-stateful-config.json'
-FREEZE=ROOT/'research/stateful-hf-v1-freeze.json'
+FREEZE=ROOT/'research/stateful-hf-v2-freeze.json'
 SOURCES=('experiments/hf_stateful.py','research/hf-stateful-config.json','research/hf-stateful-catalog.json','research/HF_STATEFUL_PROTOCOL.md',
          'experiments/stateful_release.py','experiments/tests/test_stateful_release.py','experiments/tests/test_hf_stateful.py',
          'research/stateful-main-v2-freeze.json')+CORE_SOURCES
@@ -58,7 +58,7 @@ def freeze():
     f=dict(created=datetime.now(timezone.utc).isoformat(),base_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
            config=config(),source_sha256={n:sha(ROOT/n) for n in SOURCES},core_freeze_sha256=sha(CORE_FREEZE))
     FREEZE.write_text(json.dumps(f,indent=2)+'\n',encoding='utf-8',newline='\n')
-    return dict(freeze_sha256=sha(FREEZE),next='Commit and tag stateful-hf-v1 before inference')
+    return dict(freeze_sha256=sha(FREEZE),next='Commit and tag '+config()['study_id']+' before inference')
 
 def verify_freeze():
     verify_core();f=json.loads(FREEZE.read_text(encoding='utf-8'));tag=config()['study_id']
@@ -90,7 +90,7 @@ def normalize(data):
     return dict(status='completed' if choice.get('finish_reason')=='stop' else 'incomplete',output_text=text)
 
 def run():
-    f=verify_freeze();c=config();out=ROOT/'runs/stateful-hf-v1'
+    f=verify_freeze();c=config();out=ROOT/('runs/'+c['study_id'])
     if out.exists():raise ValueError('HF output exists; no silent retry/resume')
     keys=credentials();key=keys.get('HF_TOKEN')
     if not key:raise ValueError('HF token unavailable')

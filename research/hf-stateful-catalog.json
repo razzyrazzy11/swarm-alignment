@@ -1,19 +1,19 @@
 {
-  "checked": "2026-11-06T20:04:20.728246+00:00",
+  "checked": "2026-11-06T20:20:09.038911+00:00",
   "model": "Qwen/Qwen3.8-27B",
   "provider": {
-    "provider": "cerebras",
+    "provider": "nscale",
     "status": "live",
-    "context_length": 65536,
+    "context_length": 1048576,
     "pricing": {
-      "input": 0.99,
-      "output": 1.49
+      "input": 0.2,
+      "output": 2.5
     },
     "is_free": false,
     "supports_tools": true,
-    "supports_structured_output": false,
-    "first_token_latency_ms": 279.2,
-    "throughput": 709.041531809401,
+    "supports_structured_output": true,
+    "first_token_latency_ms": 551.8,
+    "throughput": 126.19614258471893,
     "is_model_author": false
   }
 }
