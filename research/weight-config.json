@@ -1,0 +1,14 @@
+{
+  "study_id": "weight-audit-v1",
+  "seed_start": 5200000,
+  "qualification_seed_start": 5100000,
+  "instances": 24,
+  "models": ["gemma-4-26b-a4b-it", "gemma-4-31b-it", "meta-llama/Llama-3.3-70B-Instruct:novita"],
+  "tasks": ["repair", "synthesize"],
+  "repair_scalar_budget": 6,
+  "random_controls_per_admitted_artifact": 20,
+  "behavioral_probe_budget": 8,
+  "training_launch": false,
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 619108
+}
