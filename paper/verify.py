@@ -49,6 +49,8 @@ def validate_results(root,content):
         n=len(cfg['stages']['main']['families'])*cfg['stages']['main']['episodes_per_family']
         require(content['stateful_plan']==dict(main_planned_episodes=n,main_planned_calls=n*10*len(cfg['models']),main_completed_calls=q['main_completed_calls'],qualification_calls=q['summary']['attempted_calls'],qualification_pass=q['summary']['qualification_pass'],freeze_tag=cfg['study_id']), 'Stateful plan/result mismatch')
         require(f['config']==cfg and q['main_completed_calls']==0, 'This report contract contains no main results')
+        freeze_hash=hashlib.sha256((root.parent/'research/stateful-main-v2-freeze.json').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        require(q['freeze_sha256']==freeze_hash and q['summary']['freeze_sha256']==freeze_hash, 'Qualification belongs to another registration')
 
 def compact(value):
     value=unicodedata.normalize('NFKC',value).translate(str.maketrans({'\u00ad':'','−':'-','–':'-','—':'-','’':"'",'‘':"'",'“':'"','”':'"'}))

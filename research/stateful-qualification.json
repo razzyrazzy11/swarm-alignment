@@ -1,0 +1,50 @@
+{
+  "status": "excluded operational qualification",
+  "freeze_sha256": "86026f31dbc163e91500966508e3fe3fe8f7380441759a0467a37b0f5bd075f7",
+  "prior_v1_qualification": {
+    "summary": {
+      "stage": "qualification",
+      "planned_calls": 80,
+      "attempted_calls": 80,
+      "retained_responses": 80,
+      "complete": true,
+      "estimated_credits": "0.0071385710",
+      "incomplete": 0,
+      "freeze_sha256": "7c80b7f34cd05665c9e410ec403fd808e1fffcd1174e0042d32562498a51f9d8",
+      "billing": "Token-rate estimate; not final account debit",
+      "qualification_pass": false
+    },
+    "strict_invalid_by_model": {
+      "gemma-4-26b-a4b-it": 28,
+      "gemma-4-31b-it": 2
+    },
+    "raw_responses_sha256": "c094c7701bd8a9cc7e1014ad3cfa92d146db284d6efc00b28d4bbed013db0077"
+  },
+  "summary": {
+    "stage": "qualification",
+    "planned_calls": 80,
+    "attempted_calls": 80,
+    "retained_responses": 80,
+    "complete": true,
+    "estimated_credits": "0.0070972700",
+    "incomplete": 0,
+    "freeze_sha256": "86026f31dbc163e91500966508e3fe3fe8f7380441759a0467a37b0f5bd075f7",
+    "billing": "Token-rate estimate; not final account debit",
+    "qualification_pass": true
+  },
+  "raw_responses_sha256": "f499186f1fc55581cfb5bd96d2209a34628db3a174048e8643d1bab58c41ef20",
+  "models": {
+    "gemma-4-26b-a4b-it": {
+      "calls": 40,
+      "valid_schema": 40,
+      "strict_raw_valid": 16
+    },
+    "gemma-4-31b-it": {
+      "calls": 40,
+      "valid_schema": 40,
+      "strict_raw_valid": 35
+    }
+  },
+  "main_completed_calls": 0,
+  "main_completed_episodes": 0
+}

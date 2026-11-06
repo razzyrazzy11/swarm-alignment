@@ -6,6 +6,8 @@ Recommended focus: Track 4 (Multi-Agent Oversight and Control), with Track 3 rel
 
 The new main implementation is `experiments/stateful.py`: sequential delegation, deferred settlement and an approval-join holdout, with independent compatible-history checking, matched evidence loss and authentic-record restoration. Its precise prospective contract is `research/STATEFUL_PROTOCOL.md`, configuration is `research/stateful-config.json`, and operational sequence is `research/STATEFUL_RUNBOOK.md`. The earlier pilot remains a separate dataset. A committed freeze/tag must pass verification before any fresh qualification/main inference; an implemented study is not a completed result.
 
+Current execution status: `stateful-main-v2` is registered and its 80-call excluded operational qualification passed. V1's 80-call qualification failed bare-JSON validity and remains archived; v2 prospectively permits a single JSON fence while retaining raw strict validity. This is not a measure of correct audit answers. The 3,840-call main benchmark and 216-call influence extension have not been run; the approval-join holdout has no model outputs. Start at step 4 of the runbook, then analyze the main run before the separate influence arm. No SFT job is enabled. `research/stateful-qualification.json` binds the actual stage counts/hashes.
+
 - `research/PILOT_RESULTS.md`: measured development results, iteration history and unresolved billing/source limitations.
 - `research/pilot-results.json`: redacted recomputed counts and raw-file hashes.
 - `research/SUITE_STRATEGY.md`: current suite positioning, optional training/influence gates and full authorized budget allocation.

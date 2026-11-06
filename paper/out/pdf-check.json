@@ -1,8 +1,8 @@
 {
   "pages": 12,
   "main_pages": 7,
-  "pdf_bytes": 108242,
-  "abstract_words": 196,
+  "pdf_bytes": 113673,
+  "abstract_words": 211,
   "render_engine": "Microsoft Word",
   "evidence_status": {
     "status": "development pilot",
@@ -11,11 +11,12 @@
     "fixed_batch_reader_calls": 120,
     "retained_adaption_request_records": 318,
     "hf_smoke_calls": 4,
-    "training_runs": 0
+    "training_runs": 0,
+    "scope": "Original development corpus; stateful qualification reported separately"
   },
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "814977242fb4e5394e3d45eec7f352fb9f91e89564ed181f66ecfcc75bc3cf9b",
-  "builder_sha256": "2d5ea473b960b5b5d9a7014b084e9023bcdd9dc6c9f80259c95c5fac2ade51ca",
-  "docx_sha256": "c1478bdb31612a2c3dd1936b3c67b411924391a656413834265401b09a308d29",
-  "pdf_sha256": "b413d3b676ec8560fe3f8146f8332c2f0aff258848bc04ac4648e1d7925aa3fc"
+  "content_sha256": "d954cb6058ddab74bd4ce6f738f8be597ad9fe14085a29cb5c88c2726b78615b",
+  "builder_sha256": "8a9f0a6ab03f7cf8b17c3be383359e2b275f84fc2892ab4307e375611bbb5f46",
+  "docx_sha256": "c576eb39266815dd4d72bfe51a2cc9a48e79c005b062d9c7daed88113433bd1c",
+  "pdf_sha256": "b84aea897614c78955bc62ee9425dcd9582e08c2e9e72d42e96e9bdcdd8c0667"
 }

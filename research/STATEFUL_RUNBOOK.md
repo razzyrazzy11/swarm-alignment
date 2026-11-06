@@ -1,5 +1,7 @@
 # Run the stateful study in dependency order
 
+Current checkout status: both prospective tags are published; v1 qualification failed, and fresh v2 qualification passed all 80 operational checks. Do not rerun step 3 or delete its folder. The next unexecuted experiment is step 4 (3,840 main calls), followed by step 5 (216 secondary influence calls). Qualification is a transport/encoding gate, not an accuracy claim. No main or holdout model outputs have been collected.
+
 Use the repository root in PowerShell. Existing ignored `.env` keys are read by the orchestrator; never paste them into commands or reports. `python` below means a Python 3.12+ environment with `paper/requirements.txt` installed. The bundled Codex Python is also suitable. All experiment modules otherwise use the standard library. The command `plan` never accesses credentials or generates main cases.
 
 V1 remains archived: its 80-call qualification failed strict encoding validity (30 fenced answers). V2 is a dated pre-main encoding amendment, with fresh seeds and separate folders; no main outcomes informed it.

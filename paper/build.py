@@ -107,7 +107,7 @@ def assemble(content, template):
         body.append(p)
         return p
 
-    def table(rows,widths):
+    def table(rows,widths,keep_caption=False):
         t=E.SubElement(body,W+'tbl')
         props=E.SubElement(t,W+'tblPr')
         tw=E.SubElement(props,W+'tblW');tw.set(W+'w','9360');tw.set(W+'type','dxa')
@@ -127,7 +127,7 @@ def assemble(content, template):
                 p=deepcopy(normal);replace(p,val);cell.append(p)
                 # Keep each short comparison table together; repeated headers on
                 # a split table otherwise interrupt both reading and PDF order.
-                if i<len(rows)-1:
+                if i<len(rows)-1 or keep_caption:
                     pp=p.find(W+'pPr')
                     if pp is None:pp=E.SubElement(p,W+'pPr')
                     if pp.find(W+'keepNext') is None:
@@ -154,7 +154,7 @@ def assemble(content, template):
                     ['Hidden history','Visible packet after erasure','Correct actor'],
                     ['H_A: worker A updates record','Update complete; actor link absent','A'],
                     ['H_B: worker B updates record','Update complete; actor link absent','B']
-                ],[2600,4800,1960])
+                ],[2600,4800,1960],keep_caption=True)
                 add('Figure 1. Two histories collapse to identical evidence. Any monitor restricted to this packet must guess or abstain. Retaining a trustworthy actor–operation receipt makes the observations differ. This construction is analytical, not an observed agent run.')
             else:
                 import re

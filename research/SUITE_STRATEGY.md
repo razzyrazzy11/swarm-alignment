@@ -1,5 +1,7 @@
 # Positioning the suite after actual development tests
 
+Current implementation checkpoint: STATEFUL_PROTOCOL.md and the published stateful-main-v2 tag define the first stateful main run (192 source episodes, 3,840 reader calls, 20-credit nominal cap) inside the broader research allocation below. Its fresh 80-call operational qualification passed; v1's failed encoding gate remains archived. Main and the 216-call influence extension are still unrun. Follow STATEFUL_RUNBOOK.md; this staged cap is not an instruction to spend the whole allocation on an unvalidated grid.
+
 Decision date: 6 November 2026. Start with the outcome we need, then its measurement, then the tool. The 20-rules-of-learning skill is used to keep those dependencies clear, distinguish confusing claims, and connect each design choice to its source. It is not a novelty or eligibility test.
 
 ## Strongest defensible position
