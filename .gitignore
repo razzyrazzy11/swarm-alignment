@@ -231,3 +231,7 @@ id_rsa
 id_ed25519
 .modal.toml
 **/runs*
+
+# OpenCode orchestration state and browser downloads are not research artifacts
+.swarm/
+.playwright-mcp/

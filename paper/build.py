@@ -35,11 +35,16 @@ def replace(p, value, keep_footnote=False):
         p.append(n)
     return p
 
-def main():
-    template = ROOT/'official-template.docx'
-    assert hashlib.sha256(template.read_bytes()).hexdigest() == SHA, 'Template changed'
-    content = json.loads((ROOT/'content.json').read_text(encoding='utf-8'))
-    assert 150 <= len(content['abstract'].split()) <= 250
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def assemble(content, template):
+    require(hashlib.sha256(template.read_bytes()).hexdigest() == SHA, 'Template changed')
+    require(150 <= len(content['abstract'].split()) <= 250, 'Abstract must contain 150–250 words')
+    require(bool(content.get('table1')), 'Missing source-driven table1')
+    require(all(len(row)==3 for row in content['table1']), 'table1 must have three columns')
     with zipfile.ZipFile(template) as z:
         parts = {i.filename:z.read(i.filename) for i in z.infolist()}
     doc = E.fromstring(parts['word/document.xml'])
@@ -54,7 +59,13 @@ def main():
     pr = normal.find(W+'pPr')
     if pr is None:
         pr = E.SubElement(normal,W+'pPr')
-    sp = E.SubElement(pr,W+'spacing')
+    sp = pr.find(W+'spacing')
+    if sp is None:
+        sp=E.Element(W+'spacing')
+        # Spacing precedes indentation, justification and paragraph rPr.
+        later=(W+'ind',W+'contextualSpacing',W+'mirrorIndents',W+'suppressOverlap',W+'jc',W+'textDirection',W+'textAlignment',W+'textboxTightWrap',W+'outlineLvl',W+'divId',W+'cnfStyle',W+'rPr',W+'sectPr',W+'pPrChange')
+        pos=next((i for i,ch in enumerate(pr) if ch.tag in later),len(pr))
+        pr.insert(pos,sp)
     sp.set(W+'after','120')
     title_table = body.findall(W+'tbl')[0]
     title = next(p for p in title_table.xpath('.//w:p',namespaces=NS) if text(p)=='PROJECT TITLE')
@@ -84,7 +95,10 @@ def main():
         replace(p,value)
         if page:
             props = p.find(W+'pPr')
-            E.SubElement(props,W+'pageBreakBefore')
+            # pageBreakBefore precedes spacing/indentation in CT_PPr.
+            earlier=(W+'pStyle',W+'keepNext',W+'keepLines')
+            pos=sum(ch.tag in earlier for ch in props)
+            props.insert(pos,E.Element(W+'pageBreakBefore'))
         body.append(p)
         return p
 
@@ -107,7 +121,10 @@ def main():
                 cw=E.SubElement(cp,W+'tcW');cw.set(W+'w',str(width));cw.set(W+'type','dxa')
                 p=deepcopy(normal);replace(p,val);cell.append(p)
                 if i==0:
-                    for rp in p.xpath('.//w:rPr',namespaces=NS):E.SubElement(rp,W+'b')
+                    for rp in p.xpath('.//w:rPr',namespaces=NS):
+                        # Bold precedes size/language, but follows rStyle/rFonts.
+                        pos=sum(ch.tag in (W+'rStyle',W+'rFonts') for ch in rp)
+                        rp.insert(pos,E.Element(W+'b'))
         return t
 
     for name,paragraphs in content['sections']:
@@ -115,12 +132,7 @@ def main():
         for value in paragraphs:
             if value=='TABLE1':
                 add('Table 1. Existing results and the narrower proposed test. These are research-design comparisons, not measured performance.')
-                table([
-                    ['Prior work','Already established','Proposed extension'],
-                    ['Trace tampering [3]','Integrity and completeness matter','Targeted loss × identity churn'],
-                    ['Evidence binding [6]','Supported findings differ from correct guesses','Coordinated multi-worker missingness'],
-                    ['HELIOS [7]','Joint inference from activation sensors','Black-box preservation tradeoff']
-                ],[2200,3400,3760])
+                table(content['table1'],[2200,3400,3760])
             elif value=='FIGURE1':
                 table([
                     ['Hidden history','Visible packet after erasure','Correct actor'],
@@ -128,26 +140,36 @@ def main():
                     ['H_B: worker B updates record','Update complete; actor link absent','B']
                 ],[2600,4800,1960])
                 add('Figure 1. Two histories collapse to identical evidence. Any monitor restricted to this packet must guess or abstain. Retaining a trustworthy actor–operation receipt makes the observations differ. This construction is analytical, not an observed agent run.')
-            else:add(value)
+            else:
+                import re
+                require(not re.fullmatch(r'(?:TABLE|FIGURE)\d+',value), 'Unknown content marker: '+value)
+                add(value)
     add('References',True,True)
     for ref in content['references']:add(ref)
     for i,(name,paragraphs) in enumerate(content['appendix']):
         add(name,True,i==0)
         for value in paragraphs:add(value)
     body.append(section)
-    assert E.tostring(section)==original_section
+    require(E.tostring(section)==original_section, 'Section geometry changed')
     all_text=text(doc)
-    assert 'Author name' not in all_text and 'How to use this template' not in all_text
-    assert all_text.count('Swarm Alignment') >= 1
+    require('Author name' not in all_text and 'How to use this template' not in all_text, 'Template guidance remains')
     parts['word/document.xml']=E.tostring(doc,xml_declaration=True,encoding='UTF-8',standalone=True)
+    return parts
+
+
+def main():
+    template=ROOT/'official-template.docx'
+    content=json.loads((ROOT/'content.json').read_text(encoding='utf-8'))
+    parts=assemble(content,template)
     out=ROOT/'out';out.mkdir(exist_ok=True)
     target=out/'swarm_audit_scoping.docx'
     with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as z:
         for name,data in parts.items():z.writestr(name,data)
     with zipfile.ZipFile(template) as a,zipfile.ZipFile(target) as b:
         changed=[n for n in a.namelist() if a.read(n)!=b.read(n)]
-    assert changed==['word/document.xml'],changed
-    (out/'build-check.json').write_text(json.dumps({'abstract_words':len(content['abstract'].split()),'template_sha256':SHA,'changed_package_parts':changed,'empirical_experiments':0},indent=2)+'\n',encoding='utf-8')
+    require(changed==['word/document.xml'], 'Unexpected changed parts: '+str(changed))
+    from verify import build_manifest
+    (out/'build-check.json').write_text(json.dumps(build_manifest(ROOT,content),indent=2)+'\n',encoding='utf-8')
     print(target)
 
 if __name__=='__main__':main()

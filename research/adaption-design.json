@@ -1,0 +1,23 @@
+{
+  "status": "prospective costing only; no API calls or empirical results",
+  "accessed": "2026-11-06",
+  "pricing_source": "https://docs.adaptionlabs.ai/inference-stacks/models/",
+  "price_unit": "platform credits per million tokens; account conversion and eligibility unverified",
+  "episodes": 600,
+  "clean_episodes": 300,
+  "packets_per_episode": 6,
+  "prompts": 2,
+  "primary_repetitions": 1,
+  "reliability_episodes": 60,
+  "extra_reliability_repetitions": 2,
+  "pilot_episodes": 20,
+  "input_tokens_per_call_assumption": 6000,
+  "output_tokens_per_call_assumption": 2048,
+  "research_spend_ceiling_credits": 375,
+  "reserved_credits": 125,
+  "models": [
+    {"id": "qwen3.5-397b", "role": "candidate primary", "input": "0.55", "output": "3.50"},
+    {"id": "glm-5.2", "role": "candidate replication", "input": "1.40", "output": "4.40"},
+    {"id": "deepseek-v4-flash", "role": "candidate cost/performance comparator", "input": "0.04444", "output": "0.13332"}
+  ]
+}

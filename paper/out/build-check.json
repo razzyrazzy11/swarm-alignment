@@ -1,6 +1,9 @@
 {
-  "abstract_words": 197,
+  "abstract_words": 193,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
+  "content_sha256": "126746377dad1b66d2204ac9b0da33034a126f7ddd2d84d3acb8118df315f07c",
+  "builder_sha256": "ac6840aac32ba009b8bec4a40af0d40bc805c4bc310feec3559535b79b032663",
+  "docx_sha256": "07a3d91350e6019ac625cdc0d80335b014568e3ed5ed7cde87c3ab85e53be212",
   "changed_package_parts": [
     "word/document.xml"
   ],

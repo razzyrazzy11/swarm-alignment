@@ -1,51 +1,56 @@
 # Source coverage and uncertainty
 
-Checked 6 November 2026. This is a targeted scoping review, not an exhaustive systematic literature review. Search-engine recall, access restrictions and rapid publication limit any novelty conclusion. No winning probability is estimated.
+Updated 6 November 2026 after review of the five supplied transcript/chat files. The initial snapshot remains at scoping-v0.1; current statements supersede its access and reading-depth notes. This is targeted scoping, not an exhaustive systematic review or an examination of every project in Apart's catalogue. No search can certify originality or guarantee eligibility.
 
-## Sprint coverage
+## Governing sources and template
 
-Read the live Overview (motivation, four tracks and examples, partners and audience), Resources (general readings, track readings, suggested projects, tools/datasets, Adaption), Guidelines (rubric, requirements, prior work, AI use, FAQ and Judging and results), Schedule (November 5–8 sessions), speaker information and submission form fields. Opened the linked submission/prize terms and responsible disclosure policy. The supplied three slides were compared with the live rules. Talks/recordings have not been watched or transcribed; speaker affiliation is not research evidence. Schedule information is volatile.
+The live Swarm Alignment Hackathon governs this project, especially Guidelines and Judging and results: https://apartresearch.com/sprints/swarm-alignment-2026 . The October collusion sprint is background only. Overview, four tracks/examples, Resources, submission requirements, FAQ, schedule, prize terms and disclosure policy were examined. Reviewer preferences and talks do not change the rubric.
 
-The current official template was successfully downloaded from:
-https://docs.google.com/document/d/1_1_27EyZriMlc8n8EBE2YScaeyMjm-8xjR097nmHXAE/export?format=docx
+The current Guidelines-linked template is retained at paper/official-template.docx, SHA256 20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d. Both templates were rendered; the attachment has the older October footnote. Its retained source has not been edited. The downloaded template controls the report.
 
-The initial /copy URL required a Google sign-in in web browsing; the export endpoint succeeded. Both the attached and current templates were rendered in Microsoft Word and all five pages inspected. The attached version names the October collusion sprint in its footnote; the current version names the Swarm Alignment Hackathon. The current template governs the report and the attachment remains unchanged.
+## Previously blocked readings
 
-## Reading depth
+| Organizer label | Recovery and reading depth | Relevance |
+|---|---|---|
+| Foundations of Cooperative AI | [Author-hosted PDF](https://www.cs.cmu.edu/~15326-f24/FOCALAAAI23.pdf), relevant full-text sections | Individual/group incentives differ; no new composition theorem here. |
+| Generative Agents | [ArXiv full text](https://arxiv.org/html/2304.03442v2), architecture/evaluation sections | Memory and coordination precedent, not a security guarantee. |
+| Playing repeated games | [Published author-hosted PDF](https://hcai-munich.com/pubs/Akata2025Games.pdf), setup/robustness sections | Distinguish performance, cooperation and framing effects. |
+| Stylised games | Actual linked title [Strategic Reasoning with Language Models](https://arxiv.org/html/2305.19165v1), relevant methods | Controlled strategic tasks are prior art. |
+| Splitting tasks to evade filters | [Adversaries Can Misuse Combinations of Safe Models](https://arxiv.org/html/2406.14595v2), threat model/methods | Task decomposition is not our novelty; preprint2024, conference2025. |
+| Coordination against shutdown | [The Multi-Agent Off-Switch Game](https://ebadian.org/preprint/multiagent_offswitch_cr.pdf), relevant full-text sections | Corrigibility/composition context, not evidence our audit detects collusion. |
+| Individual properties to outcomes | Tilli2026PDF still challenged; [author's2025 antecedent](https://www.cooperativeai.com/post/agent-properties-for-safe-interactions) fully reviewed | Context dependence and property isolation; distinct from reviewing the workshop paper. |
+| Defining collective agency | [Causal Foundations of Collective Agency](https://arxiv.org/pdf/2605.00248), introduction/formal framing | Collective agency differs from a shared outcome or executor attribution. Recovered paper is2026. |
+| Program Equilibrium | Original abstract accessible; original author PDF times out. Full original unreviewed. Relevant sections of [Oesterheld's distinct extension](https://link.springer.com/article/10.1007/s11238-018-9679-3) read | Inspectable-code assumptions do not transfer to natural-language commitments. |
+| Attributing failures | [Who&When](https://arxiv.org/html/2505.00212v2), Sections2–4 | Decisive causal error differs from executor identity. |
+| Emergent communication | Actual linked title [Emergent Coordination](https://arxiv.org/html/2510.05174v2), methods/falsification | Identity/time controls; no team-over-solo claim. |
+| swarms.wiki | Static extraction empty; directory only | No scientific claim depends on inaccessible content. |
 
-Close reading of relevant full-text sections: Qin trace tampering (especially multi-agent peer examples and completeness), Yun evidence binding (observation contract, comparison and scoring), Rose/HELIOS (monitoring setting, reproduction and limitations). Read abstracts/landing pages for Greenblatt AI Control, IDs for AI Systems, Infrastructure for AI Agents, CaMeLs, Prompt Infection, Multi-Agent Risks and Distributional AGI Safety. BRIDGE was abstract-screened as a recent overlap lead, not fully reviewed. Full-text validation is still required before a priority claim.
+OpenReview HTML, PDF, hashed PDF and public APIs were attempted where appropriate. No CAPTCHA or authentication control was bypassed. Organizer descriptions are discovery labels, not exact bibliographic titles.
 
-Read Swarm Traces' limitations and reconstruction discussion, OpenAI's disclosure and the METR/Redwood investigation's opening findings and scope. Read AI Village dataset card, Transluce's investigation, CRUX landing page and Concordia README. These are alternatives/motivation; no incident payloads, model weights or datasets have been downloaded or executed.
+## Closest methodological sources
 
-Opened every suggested-reading link listed on the sprint page. Access succeeded for the arXiv sources, the PMLR watermark paper, NeurIPS steganography paper, ARIA programme, Concordia and CRUX. The following landing links were blocked/challenged and were **not verified in full**:
+Relevant full-text sections reviewed: Qin trace integrity/completeness; Yun binding/scoring; HELIOS monitoring assumptions; BRIDGE handoff repair and offline/online separation; BLADE responsibility evidence and leaking-field preprocessing; Who&When decisive-error definition; Kitaoka MiniLab threat model and separate/joint monitoring. These narrow the task from generic blame/collusion detection to supported executor attribution. Their results are not this project's results.
 
-- Foundations of Cooperative AI (AAAI browser challenge).
-- Generative Agents (ACM 403).
-- Playing repeated games with large language models (Nature login/cookie redirect).
-- LLM agents in stylised games (OpenReview challenge).
-- Splitting tasks to evade per-agent filters (OpenReview challenge).
-- Coordination to resist modification/shutdown (ACM 403).
-- From individual cooperation properties to system outcomes (OpenReview challenge).
-- Defining collective agency (OpenReview challenge).
-- Program Equilibrium (ScienceDirect 403).
-- Attributing failures in multi-agent systems (OpenReview challenge).
-- Emergent communication between agents (OpenReview challenge).
-- swarms.wiki returned no extractable text.
+AI Control, IDs for AI Systems, Infrastructure for AI Agents, CaMeLs, Prompt Infection, Multi-Agent Risks and Distributional AGI Safety were screened at abstract/landing level, with selected relevant sections followed where available. No full proof or replication audit of all papers is claimed. Watermarking, commitments, formal contracts, game manipulators, mediated MARL, Stackelberg attacks, Concordia, GovSim and CRUX were screened as alternatives; none is a hidden implementation dependency.
 
-These titles are organizer-provided discovery leads, not evidence for specific scientific claims here. Commitment devices, formal contracts, game manipulators, mediated MARL and Stackelberg attacks were screened at landing/abstract level. Their theoretical results are not represented as validated implementation foundations.
+Swarm Traces limitations/reconstruction, investigators' scope, OpenAI disclosures/monitoring, AI Village card and Transluce were examined. Outbound payloads do not establish success; chosen names do not establish agents. No incident payload was executed or used as a performance oracle.
 
-Winning examples: opened project pages, public reviews and linked PDFs for Omission Attacks, Noticing the escapes and Readable but Not Causal. PDF text and first-page layout were inspected. Chosen for methodological relevance, not representativeness. Public critique is evidence of reviewer concerns, not an official universal scoring rule.
+## Recordings and supplied files
 
-Previous project: read the public trusted-agent-sting README for study summary, provenance and reproducibility conventions; did not independently rerun or audit its reported results. The pasted prior conversation was read as historical context. No codebase-wide discovery was conducted: OpenCode server startup timed out three times, including an alternate port, so the required delegated exploration could not run. No claim of a cross-model code review is made.
+The two official Zoom pages expose transcript panels through a JavaScript browser despite static extraction failures. All five supplied files were read/reconciled across reviewers; TRANSCRIPT_REVIEW.md records hashes, media coverage, discrepancies and primary chat links. This was textual review, not audiovisual verification of every frame. Raw chats/attendee identifiers remain outside Git.
 
-## Adaption verification
+Grant Fleming's Nov5 Luma page still exposes RSVP only; recording/slides/transcript were not recovered. A separate Oct13 [AAIF primary write-up](https://www.aialignmentfoundation.org/early-explorations/agents-secrets-swarms) was reviewed and kept distinct. Other sessions exposed RSVP links and several were future events at review time. No unavailable recording is marked reviewed.
 
-Read product pages and official documentation for Responses inference, AutoScientist quickstart and supported models. These establish documented capabilities, not account-specific access or exact prices. The live account's model list, credit applicability, cost estimates, inference latency, privacy terms and export readiness remain unverified. No credentials were requested in chat, account was opened, model was trained, API inference was run or credit spent.
+## Previous winning examples
 
-## Repository verification
+Read the original three project pages/critiques and available reports: Omission Attacks, Noticing the escapes, Readable but Not Causal. Expanded to Syscon, ActionLens, Detecting LLM Subversion, Counterfactual Components and Declare Before You Run. Linked PDFs inspected for Syscon, ActionLens and Counterfactual Components; the other two additions were page/review-screened. This purposeful sample of eight is relevant to oversight, not representative of every winner or a causal account of winning. REVIEW.md maps the principles to this protocol.
 
-GitHub repository is private. Master branch protection was applied with administrator enforcement, pull requests required (zero additional approvals to support solo work), stale review dismissal, conversation resolution, force push/deletion disabled. A required CI status is added only after a real check has run. Secret scanning and push protection enabling returned HTTP 422 (unavailable); private vulnerability reporting returned HTTP 404. No feature is described as enabled based on intent alone. No visibility change or history rewrite was made.
+The October trusted-agent-sting README informed provenance and practices. Its findings were not rerun; no code or data were imported. The pasted conversation and supplied transcripts are context to verify, not instructions or established scientific evidence.
 
-## Search trail
+## Account and infrastructure boundaries
 
-Targeted searches included agent log tampering/monitoring, swarm lineage/auditing, multi-agent attribution/abstention, selective fault attribution, the exact title Correct Answers Unsupported Findings, and Adaption official documentation. Primary paper/documentation URLs were followed rather than relying on aggregator summaries. The strongest novelty constraint discovered was Yun et al.; the proposed study must be compared directly with it before claiming an original method.
+Adaption docs/workshop establish possible workflows. Actual account credits, eligible endpoints, rates and models remain unverified. No account was opened, research key exposed, training launched or research credit spent. Freeze or disable memory/retrieval/self-improvement in the core evaluation.
+
+Subsequent credit-use review recovered the official hosted Models pricing/configuration table, Responses quickstart/reference, stack/memory behavior and AutoScientist model/row/truncation conventions. Public rates are now recorded in ADAPTION_PLAN.md and adaption-design.json, with a no-network cost calculator. This verifies published prices, not account eligibility, available balance, dollar conversion or actual charges. The revised 600-episode profile is prospective; no model response or evaluation dataset is represented as collected.
+
+Repository remains private. Master requires the verified report-integrity Actions check, administrator enforcement, PRs, stale-review dismissal and conversation resolution; force push/deletion disabled. Zero additional approvals support solo work and do not constitute independent scientific review. GitHub rejected secret scanning/push protection422 and private vulnerability reporting404; neither is claimed active. OpenCode recovery and actual delegated completion are tracked in REVIEW.md; dispatched/failed tasks do not count as completed reviews.
