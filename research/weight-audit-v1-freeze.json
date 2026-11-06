@@ -1,0 +1,36 @@
+{
+  "created": "2026-11-06T22:18:46.289190+00:00",
+  "base_commit": "738f0faf779cf6b26fc3f999b123b56abe8b2966",
+  "config": {
+    "study_id": "weight-audit-v1",
+    "seed_start": 5200000,
+    "qualification_seed_start": 5100000,
+    "instances": 24,
+    "models": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it",
+      "meta-llama/Llama-3.3-70B-Instruct:novita"
+    ],
+    "tasks": [
+      "repair",
+      "synthesize"
+    ],
+    "repair_scalar_budget": 6,
+    "random_controls_per_admitted_artifact": 20,
+    "behavioral_probe_budget": 8,
+    "training_launch": false,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 619108
+  },
+  "source_sha256": {
+    "experiments/weight_audit.py": "d7a703e501234292ae5bc0f695152888d59f86803f08111e48493a78873b942e",
+    "experiments/weight_study.py": "aa4428bf118a7bae1e5c9e199339e0ce30749a836ce70a2d265494d83c195526",
+    "experiments/tests/test_weight_audit.py": "dc14fe806811b3a4f249052ac5a1966389d7fbc5917777543e6d9922b1aeeeaa",
+    "experiments/tests/test_weight_runner.py": "34a9bc195a54a126005f46a9064c0a98d037c2719b510624cf48fa668276dcd5",
+    "research/weight-config.json": "e130e4ca90cee45ce443cd5bac512cb15772ddcb8f606164d9546636d5ba945a",
+    "research/WEIGHT_SPACE_PROTOCOL.md": "b9a34bd41d9af24250c56e4a139f59bb2a8a647c4750029b78b74f74c85c189b",
+    "research/WEIGHT_SPACE_SOURCES.md": "3cfb2483efa37e9a1188a2f4bca5349cca06ab6cefe89a6c5d1f0c1f797fbf91",
+    "research/live-audit-v2-freeze.json": "97f1c7e92cc3edd90c225f05352f90cdfaf319c256c605c2415a290ac549c79f"
+  },
+  "live_freeze_sha256": "97f1c7e92cc3edd90c225f05352f90cdfaf319c256c605c2415a290ac549c79f"
+}
