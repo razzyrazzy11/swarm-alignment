@@ -1,0 +1,54 @@
+{
+  "created": "2026-11-06T20:16:12.411856+00:00",
+  "base_commit": "13bfeb89644f3c0ab42680d2d611c8ea901ca260",
+  "config": {
+    "study_id": "stateful-hf-v1",
+    "core_registration": "stateful-main-v2",
+    "model": "Qwen/Qwen3.8-27B:cerebras",
+    "catalog_model": "Qwen/Qwen3.8-27B",
+    "provider": "cerebras",
+    "allowed_returned_models": [
+      "qwen-3.8-27b"
+    ],
+    "input_usd_per_million": "0.99",
+    "output_usd_per_million": "1.49",
+    "source_indices_per_family": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "max_output_tokens": 4096,
+    "input_byte_cap": 18000,
+    "nominal_usd_cap": "1.00",
+    "request_order_seed": 619105,
+    "concurrency": 2,
+    "retries": 0
+  },
+  "source_sha256": {
+    "experiments/hf_stateful.py": "9013f43ec95acc7005f8017a67b2ec158069ebf0f90a88b1081131cbc2d532bf",
+    "research/hf-stateful-config.json": "0b7408d0c391ce425f701366346bbc8344f483545fdf9610df3062c1f57f93be",
+    "research/hf-stateful-catalog.json": "f88151ee9a781619b57948418b7e3ea587081ab152daff829afab23ce99b802e",
+    "research/HF_STATEFUL_PROTOCOL.md": "5595459ab746be14adc89e94f5a4b3adc29a888c39d82eb1ce604cb9886b2cb3",
+    "experiments/stateful_release.py": "0d35edc7cdc5e2817ce5ec20d8c9e731ccee9c53b57e60e6ab09259c85d376c2",
+    "experiments/tests/test_stateful_release.py": "f29a4621bc9fa93331d971e80425cadb8942e18b192b9739715aa2d2a95b1d2f",
+    "experiments/tests/test_hf_stateful.py": "b3f4a998ae9239ba35d9403ddfc5271ac2f4811efd0e5784f074d37fb1910df7",
+    "research/stateful-main-v2-freeze.json": "86026f31dbc163e91500966508e3fe3fe8f7380441759a0467a37b0f5bd075f7",
+    "experiments/stateful.py": "175be7a8fd6b990c937b617e55b6257d7ee8f0dfe92fd6ff2a55a052a8c8cf57",
+    "experiments/stateful_reference.py": "a91d2360455ab2c62b0fe58a82a4089a07c7b280ab3f673e206db129234863bb",
+    "experiments/stateful_study.py": "7d96ecbe3c050caa915d84c60a3754f4ff6cc3e5114de4c769d06c439371ee6b",
+    "experiments/stateful_analysis.py": "62021280fe0588444247b45c45c951103c6aa71f3f353a042e2aee06cf99dc05",
+    "experiments/stateful_influence.py": "db1b4dcfc223c3204dd5cd459b988037d6bcb062ab247c2db9d03209d7b68b30",
+    "experiments/access.py": "eb5c041520978ee7047d5528ede8a737a3d2b5d5a5e407a1d4a07e37d3447bf8",
+    "experiments/pilot.py": "b722a9ea5b52d7845e9f1e3e82922aebd05e43d32dd2d7806864262de047acfa",
+    "experiments/tests/test_stateful.py": "ca64958a89ce5dcc908cb225fc1be3c9bdf41a7d7a20ff57f5dd551c0a90d715",
+    "experiments/tests/test_stateful_runner.py": "ee642e267f0fc2f7de749a78b414afd429983897839e167ef4d4cbcc0e1b55c7",
+    "research/stateful-config.json": "94358079bbc1f9f731553458141e465fb1a22f30321800181f2ea2e6895fa829",
+    "research/STATEFUL_PROTOCOL.md": "acd4408ae47c8d6463aa9cc8fb1134dbd07ddf2e6b4c6a0c0218352469bba130"
+  },
+  "core_freeze_sha256": "86026f31dbc163e91500966508e3fe3fe8f7380441759a0467a37b0f5bd075f7"
+}
