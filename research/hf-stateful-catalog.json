@@ -1,0 +1,19 @@
+{
+  "checked": "2026-11-06T20:04:20.728246+00:00",
+  "model": "Qwen/Qwen3.8-27B",
+  "provider": {
+    "provider": "cerebras",
+    "status": "live",
+    "context_length": 65536,
+    "pricing": {
+      "input": 0.99,
+      "output": 1.49
+    },
+    "is_free": false,
+    "supports_tools": true,
+    "supports_structured_output": false,
+    "first_token_latency_ms": 279.2,
+    "throughput": 709.041531809401,
+    "is_model_author": false
+  }
+}

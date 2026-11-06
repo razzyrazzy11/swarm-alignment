@@ -1,0 +1,17 @@
+{
+  "study_id": "stateful-hf-v1",
+  "core_registration": "stateful-main-v2",
+  "model": "Qwen/Qwen3.8-27B:cerebras",
+  "catalog_model": "Qwen/Qwen3.8-27B",
+  "provider": "cerebras",
+  "allowed_returned_models": ["qwen-3.8-27b"],
+  "input_usd_per_million": "0.99",
+  "output_usd_per_million": "1.49",
+  "source_indices_per_family": [0,1,2,3,4,5,6,7],
+  "max_output_tokens": 4096,
+  "input_byte_cap": 18000,
+  "nominal_usd_cap": "1.00",
+  "request_order_seed": 619105,
+  "concurrency": 2,
+  "retries": 0
+}
