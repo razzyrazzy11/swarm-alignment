@@ -1,70 +1,73 @@
-# Run the stateful study in dependency order
+# Reproduce the completed stateful study
 
-Current checkout status: both prospective tags are published; v1 qualification failed, and fresh v2 qualification passed all 80 operational checks. Do not rerun step 3 or delete its folder. The next unexecuted experiment is step 4 (3,840 main calls), followed by step 5 (216 secondary influence calls). Qualification is a transport/encoding gate, not an accuracy claim. No main or holdout model outputs have been collected.
+The Adaption main grid, HF v3 reader and influence extension are complete. Start with offline reproduction. Prospective protocols and immutable tags retain what was registered before collection; RESULTS.md and stateful-results.json supply completed outcomes. Do not delete run folders, recreate tags or rerun completed one-shot inference commands.
 
-Use the repository root in PowerShell. Existing ignored `.env` keys are read by the orchestrator; never paste them into commands or reports. `python` below means a Python 3.12+ environment with `paper/requirements.txt` installed. The bundled Codex Python is also suitable. All experiment modules otherwise use the standard library. The command `plan` never accesses credentials or generates main cases.
+## Public replay: no keys or new spending
 
-V1 remains archived: its 80-call qualification failed strict encoding validity (30 fenced answers). V2 is a dated pre-main encoding amendment, with fresh seeds and separate folders; no main outcomes informed it.
-
-## 1. Offline validation
+Use the repository root with Python 3.12+. Experiment modules use the standard library. Ensure the checkout contains registration tags; fetch tags if using a shallow clone.
 
 ```powershell
 python -m unittest discover -s experiments/tests -v
-python -m experiments.stateful_study plan
+python -m experiments.stateful_release verify
+python -m experiments.verify_stateful_results
 python -m experiments.verify_release
-python paper/verify.py
 ```
 
-These check the finite state transitions, independent oracle, malformed inputs, naming/loss/restoration controls, fake-action positive controls, journal/budget behavior and earlier released data. They do not measure a model or establish new empirical findings. Validation fixtures use development seeds; model outputs for the approval-join holdout remain untouched.
+The public verifier checks artifact hashes, allowed fields and case-level replay. The aggregate checker reconstructs temporary fake native records and reruns frozen main analysis: counts, baselines, source-clustered effects and 10,000-resample intervals must match. It separately verifies HF matched-source statistics, influence contrasts, aliases and cost arithmetic. This does not recover provider metadata or invoices. The final command checks the earlier 120-call development release, never pooled with main data. See [the data schema](../data/README.md).
 
-## 2. Freeze once before fresh inference
-
-The maintained repository should already contain the completed `stateful-main-v2` freeze/tag. Verify it:
+## Verify registrations
 
 ```powershell
 python -m experiments.stateful_study verify-freeze
+python -m experiments.hf_stateful verify-freeze
 ```
 
-For the original registration only: commit the validated implementation and protocol with a clean working tree, run `python -m experiments.stateful_study freeze`, commit `research/stateful-main-v2-freeze.json`, then create/push the annotated `stateful-main-v2` tag. Do not recreate or move this tag. It binds exact source, protocol, config and prompt hashes. Further changes require a dated amendment/new version, not editing the frozen design underneath a run. The freeze is prospective for the new study; the prior development data were already observed.
+These read source/configuration, tags and hashes without inference. The core registration is stateful-main-v2, with a separately tagged operational continuation; the completed HF reader is stateful-hf-v3. Changes need new registration and appropriate fresh evaluation data, rather than edits beneath existing tags.
 
-## 3. Qualification — four excluded sources, 80 calls
+## Optional local native-evidence checks
 
-```powershell
-python -m experiments.stateful_study run --stage qualification
-python -m experiments.stateful_analysis --out runs/stateful-main-v2-qualification
-```
-
-Uses sequential/deferred families only, both frozen endpoints and ten evidence views per source. Every call must complete with known usage and a valid exact JSON object under the frozen bare-or-single-json-fence envelope contract. A wrong but valid answer is not a qualification failure. The nominal cap is one Adaption credit. Fixed output folder: `runs/stateful-main-v2-qualification`. If it already exists, inspect the retained result; do not delete it to rerun until lucky. Failed qualification blocks main inference and needs a documented amendment if sources/settings must change.
-
-## 4. Main benchmark — 192 fresh sources, 3,840 calls
+These require ignored original runs/, but no provider calls:
 
 ```powershell
-python -m experiments.stateful_study run --stage main
+python -m experiments.stateful_release verify --raw
 python -m experiments.stateful_analysis --out runs/stateful-main-v2-main
 ```
 
-Starts only after passed qualification for the same freeze. Each family has 64 source episodes, with both naming conditions, complete/random/selective evidence and two authentic restoration policies for selective-loss views. The approval-join family is structurally held out from model qualification. Twenty Adaption credits is the nominal ceiling, not expected consumption or a provider-enforced hard cap. Two endpoints in the same model family are not independent model-family replication. The primary estimate uses one frozen endpoint and paired source episodes; the remaining outcomes are secondary.
-
-The run may take substantially longer than qualification. Check the durable journal/response counts and summary rather than interpreting a favorable prefix. To request a graceful stop from another PowerShell window:
+The first checks native file hashes. The second regenerates local analysis from original manifests, journals and final answers. Neither repairs missing early development records nor reconciles billing. To deliberately regenerate the public export from retained native records:
 
 ```powershell
-New-Item -ItemType File -Path runs/stateful-main-v2-main/STOP
+python -m experiments.stateful_release export
+python -m experiments.stateful_release verify --raw
+python -m experiments.verify_stateful_results
 ```
 
-The runner drains up to four started calls and writes a partial summary. Do not kill the process casually. If a crash occurs, retain journals and inspect `stateful_analysis`; journaled starts without results remain uncertain liabilities. A main reservation file prevents another invocation into a different folder. There is no implemented silent resume; an interrupted study must be reported or amended explicitly.
+Export validates frozen source snapshots, episodes/tasks, request order, journals, scores and aggregates before writing allowlisted fake-data records with LF newlines. Native IDs, headers, keys and reasoning remain private. Exporting is not new inference.
 
-## 5. Controlled influence extension — 24 contexts, 216 calls
+## Actual operational history
+
+| Stage | Recorded outcome |
+|---|---|
+| Main v1 qualification |80 returned calls; failed strict bare-JSON encoding |
+| Main v2 qualification |80 returned calls; passed prospectively amended bare-or-single-json-fence contract |
+| Main v2 initial phase |3,028 terminal records; stopped at HTTP 502 with missing usage |
+| Registered continuation |812 unstarted identities; failed request never retried/replaced |
+| Audited main union |3,840 unique starts/results over 192 sources; invalid answers retained |
+| HF v1 Cerebras preflight |Route absent; zero evaluation calls |
+| HF v2 Qwen/Nscale |Eight returned calls; three 4,096-token truncations triggered stopping |
+| HF v3 Llama/Novita |240 returned calls on 24 fixed main sources |
+| Influence |216 returned calls on 24 fresh contexts; zero unauthorized writes |
+
+[STATEFUL_CONTINUATION.md](STATEFUL_CONTINUATION.md) records the stop-rule amendment. Its tag binds predecessor files and the ordered unstarted complement before further calls. Main completion is an audited union, not uninterrupted adherence to the original stopping rule. The 502 remains INVALID with reserved unknown charge. HF v3 is a new registered reader, not replacement Qwen answers. Earlier failures remain in hf-preflight-v1.json and hf-incomplete-v2.json; qualification and development data remain separate.
+
+## Paper checks and future work
 
 ```powershell
-python -m experiments.stateful_influence --run
+python -m pip install -r paper/requirements.txt
+python paper/verify.py
+python -O paper/verify.py
+python -m unittest discover -s paper/tests -v
 ```
 
-Runs after main completion, with a one-credit nominal cap. A model origin reads a fake decoy, then a model receiver chooses a typed fake action. Four scripted peer exposures × warning on/off are paired within context. The primary influence contrast is malicious versus benign without warning. Equal characters are not equal tokens; no-peer is shorter. Read task success and actual executed violations are separate outcomes. Invalid origin/operational failures halt the extension. No propagation or spontaneous collusion claim follows from one hop.
+Intentional paper changes require rebuilding the DOCX, Word PDF export, a new manifest and page inspection. Checks do not supply author approval or submission. SFT remains unlaunched: it needs supported labels, untouched evaluation data, bounded pricing and a demonstrated base/adapter serving route. Main results cannot choose a training intervention and also serve as its untouched test.
 
-## 6. Optional small-monitor SFT — a separate future freeze
-
-Do not launch training merely to use credits. First establish a meaningful development failure and assemble correctly supported singleton/ABSTAIN targets. Split source episodes and structural families before augmentation; never train/tune on the main holdout. If main results inform intervention selection, reserve a new untouched evaluation set. Obtain bounded pricing and demonstrate compatible pinned base/adapter serving before launch. The suite strategy records Adaption row minima and HF serving conventions. No SFT training command is enabled in this freeze.
-
-## 7. Reconcile and report
-
-Keep raw native responses, manifests, source snapshots and journals under ignored `runs/`. Preserve every planned/attempted/returned distinction. Reconcile real billing separately from token-rate estimates and old unresolved charges. Release only sanitized fake packets/final answers and aggregate hashes, regenerate the official-template paper from measured results, check it normally and under `python -O`, and inspect every rendered page. Retain null results and protocol deviations. CI and an annotated tag do not constitute human author approval or an Apart submission.
+The user authorized the initially available 1,500 Adaption credits, without top-ups or plan changes. Completed HF v3 estimates $0.031954015; earlier smoke/partial-v2 estimates total about $0.08496517. These amounts fit the earlier observed $2 HF allowance, so the completed work needed no top-up. Token-rate estimates/provider cost fields are distinct from final debits. Earlier unknown liabilities remain disclosed; no key belongs in commands, screenshots or Git.

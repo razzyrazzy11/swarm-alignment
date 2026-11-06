@@ -46,6 +46,7 @@ def assemble(content, template):
     require(bool(content.get('table1')), 'Missing source-driven table1')
     require(all(len(row)==3 for row in content['table1']), 'table1 must have three columns')
     require(bool(content.get('table2')) and all(len(row)==4 for row in content['table2']), 'table2 must have four columns')
+    if 'table3' in content:require(all(len(row)==3 for row in content['table3']), 'table3 must have three columns')
     with zipfile.ZipFile(template) as z:
         parts = {i.filename:z.read(i.filename) for i in z.infolist()}
     doc = E.fromstring(parts['word/document.xml'])
@@ -94,7 +95,7 @@ def assemble(content, template):
     def add(value, is_heading=False, page=False):
         p = deepcopy(heading if is_heading else normal)
         replace(p,value)
-        if value.startswith(('Table 1.','Table 2.')):
+        if value.startswith(('Table 1.','Table 2.','Table 3.')):
             pp=p.find(W+'pPr')
             if pp.find(W+'keepNext') is None:
                 pp.insert(sum(ch.tag==W+'pStyle' for ch in pp),E.Element(W+'keepNext'))
@@ -144,11 +145,14 @@ def assemble(content, template):
         add(name,True)
         for value in paragraphs:
             if value=='TABLE1':
-                add('Table 1. Existing results and the narrower proposed test. These are research-design comparisons, not measured performance.')
+                add(content.get('table1_caption','Table 1. Existing results and the narrower proposed test. These are research-design comparisons, not measured performance.'))
                 table(content['table1'],[2200,3400,3760])
             elif value=='TABLE2':
-                add('Table 2. Completed development batch: 20 source episodes, three dependent views per episode and 60 scorable calls per model. Grounded correctness includes justified abstention. Unsupported columns are worker / NONE / invalid counts.')
+                add(content.get('table2_caption','Table 2. Completed development batch: 20 source episodes, three dependent views per episode and 60 scorable calls per model. Grounded correctness includes justified abstention. Unsupported columns are worker / NONE / invalid counts.'))
                 table(content['table2'],[2200,2200,2400,2560])
+            elif value=='TABLE3':
+                add(content['table3_caption'])
+                table(content['table3'],[2400,3480,3480])
             elif value=='FIGURE1':
                 table([
                     ['Hidden history','Visible packet after erasure','Correct actor'],

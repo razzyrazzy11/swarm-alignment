@@ -22,3 +22,12 @@ jobs:
           if [ -f research/stateful-main-v2-freeze.json ]; then
             python -m experiments.stateful_study verify-freeze
           fi
+      - name: Verify HF and continuation registrations
+        run: |
+          python -m experiments.hf_stateful verify-freeze
+          python -m experiments.stateful_continue verify
+      - name: Replay published evidence and statistical results
+        run: |
+          python -m experiments.verify_release
+          python -m experiments.stateful_release verify
+          python -m experiments.verify_stateful_results

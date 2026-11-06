@@ -1,22 +1,22 @@
 {
   "pages": 12,
   "main_pages": 7,
-  "pdf_bytes": 113673,
-  "abstract_words": 211,
+  "pdf_bytes": 115718,
+  "abstract_words": 189,
   "render_engine": "Microsoft Word",
   "evidence_status": {
-    "status": "development pilot",
-    "confirmatory_episodes": 0,
-    "fixed_batch_source_episodes": 20,
-    "fixed_batch_reader_calls": 120,
-    "retained_adaption_request_records": 318,
-    "hf_smoke_calls": 4,
+    "status": "completed stateful study",
+    "main_source_episodes": 192,
+    "main_reader_calls": 3840,
+    "hf_source_episodes": 24,
+    "hf_reader_calls": 240,
+    "influence_calls": 216,
     "training_runs": 0,
-    "scope": "Original development corpus; stateful qualification reported separately"
+    "operational_amendment": "stateful-main-v2-continuation-v1"
   },
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "d954cb6058ddab74bd4ce6f738f8be597ad9fe14085a29cb5c88c2726b78615b",
-  "builder_sha256": "8a9f0a6ab03f7cf8b17c3be383359e2b275f84fc2892ab4307e375611bbb5f46",
-  "docx_sha256": "c576eb39266815dd4d72bfe51a2cc9a48e79c005b062d9c7daed88113433bd1c",
-  "pdf_sha256": "b84aea897614c78955bc62ee9425dcd9582e08c2e9e72d42e96e9bdcdd8c0667"
+  "content_sha256": "e905876e7f72d3b8f9d524d06d6813836b657eb448449b7e01456ed81b1fe83d",
+  "builder_sha256": "90f5c525d7c37da58b5a979efd96720e51cdefa863d041263c92009476ab4c0c",
+  "docx_sha256": "63e65bdaceb00dafcdbeb3978725fd48e712be8f692e63915b4f2e3d9f6afc10",
+  "pdf_sha256": "916d978cc97d38883933d429c8d4632911afdf4c4796031a6ecdede8ddffe377"
 }

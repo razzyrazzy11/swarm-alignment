@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "Please cite this bounded oracle and development pilot; confirmatory experiments remain prospective."
-title: "When Can a Swarm Be Audited? A Bounded Oracle and Development Pilot"
+message: "Please cite this bounded stateful evidence-audit study and its reproducible empirical artifacts."
+title: "When Can a Swarm Be Audited?"
 type: software
 license: Apache-2.0
 authors:
@@ -8,6 +8,6 @@ authors:
     given-names: Razvan
     orcid: https://orcid.org/0009-0004-3172-2476
 repository-code: "https://github.com/razzyrazzy11/swarm-alignment"
-version: 0.4.0
+version: "results-v1"
 date-released: 2026-11-06
-abstract: "Executable finite-world oracle, independent validation, measured development pilots and a prospectively frozen stateful audit study with passed operational qualification. Main study results remain uncollected; no deployment safety claim is made."
+abstract: "Finite-world evidence oracle and completed empirical study: 3,840 Adaption reader calls over 192 source draws, 240 matched Hugging Face reader calls on 24 shared sources, and a separate 216-call model-worker influence extension. The primary increase in unsupported executor accusations was not supported. Schema-informed authentic restoration helped the Adaption readers but showed limited cross-reader transfer. Public fake-data cases support offline score and aggregate replay. An explicitly registered operational continuation and earlier failed qualifications/providers remain disclosed; no deployment safety or spontaneous-collusion claim is made."

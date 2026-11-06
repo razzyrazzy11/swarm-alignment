@@ -30,9 +30,34 @@ def build_manifest(root,content):
                 changed_package_parts=['word/document.xml'],evidence_status=content['evidence_status'],results_sha256=source_hash(results))
     if 'stateful_plan' in content:
         manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-qualification.json')}
+    if content.get('table2_source')=='stateful':
+        manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-main-v2-continuation-v1-freeze.json','stateful-qualification.json','hf-stateful-config.json','stateful-hf-v3-freeze.json','stateful-results.json')}
     return manifest
 
 def validate_results(root,content):
+    if content.get('table2_source')=='stateful':
+        r=json.loads((root.parent/'research/stateful-results.json').read_text(encoding='utf-8'))
+        main,hf,inf=r['main'],r['hf'],r['influence']
+        require(all(arm['status']=='complete' for arm in (main,hf,inf)), 'Completed report requires complete core/HF/influence records')
+        expected=dict(status='completed stateful study',main_source_episodes=main['source_episodes'],main_reader_calls=main['returned_calls'],hf_source_episodes=hf['source_episodes'],hf_reader_calls=hf['returned_calls'],influence_calls=inf['returned_calls'],training_runs=0,operational_amendment='stateful-main-v2-continuation-v1')
+        require(content['evidence_status']==expected, 'Evidence counts differ from public study')
+        stats={**main['model_totals'],**hf['model_totals']}
+        ids=r['config']['models']+[hf['configuration']['model']]
+        require(content['table2_model_ids']==ids and len(content['table2'])==len(ids)+1, 'Reader table identity mismatch')
+        for row,model in zip(content['table2'][1:],ids):
+            s=stats[model]
+            denominator=re.search(r'\((\d+)\)$',row[0])
+            require(row[1:]==[str(s['grounded_correct']),str(s['supported_definite']),f"{s['unsupported_executor']} / {s['unsupported_none']} / {s['invalid']}"] and denominator is not None and int(denominator.group(1))==s['calls'], 'Reader table differs from public cases')
+        def fx(e):return f"{100*e['estimate']:+.2f} [{100*e['ci95'][0]:+.2f}, {100*e['ci95'][1]:+.2f}]"
+        require(len(content['table3'])==4, 'Paired effect table size')
+        for row,model in zip(content['table3'][1:],ids):
+            effects=main['analysis']['effects'][model] if model in r['config']['models'] else hf['paired_effects']
+            key='primary_unsupported_targeted_minus_random' if model in r['config']['models'] else 'unsupported_targeted_minus_random'
+            require(row[1:]==[fx(effects[key]),fx(effects['restoration_grounded_priority_minus_random'])], 'Effect table differs from frozen public analysis')
+            source_n=main['source_episodes'] if model in r['config']['models'] else hf['source_episodes']
+            denominator=re.search(r'\((\d+)\)$',row[0])
+            require(denominator is not None and int(denominator.group(1))==source_n, 'Effect source denominator differs from public study')
+        return
     report=json.loads((root.parent/'research/pilot-results.json').read_text(encoding='utf-8'))
     batch=report['batches']['pilot-development-v4']
     require(content['evidence_status']['fixed_batch_reader_calls']==batch['retained_responses'], 'Reported call count differs from aggregates')
@@ -61,6 +86,7 @@ def validate_source(content):
     prose=' '.join(p for _,ps in content['sections']+content['appendix'] for p in ps)
     prose+=' '.join(cell for row in content['table1'] for cell in row)
     prose+=' '.join(cell for row in content.get('table2',[]) for cell in row)
+    prose+=' '.join(cell for row in content.get('table3',[]) for cell in row)
     cited=set()
     for group in re.findall(r'\[([\d,–-]+)\]',prose):
         for item in group.split(','):
@@ -69,9 +95,13 @@ def validate_source(content):
     ids=[int(re.match(r'\[(\d+)\]',r).group(1)) for r in content['references']]
     require(ids==list(range(1,len(ids)+1)), 'References must have unique sequential IDs')
     require(cited==set(ids), 'Citation/reference mismatch: '+str(cited.symmetric_difference(ids)))
-    require(content['evidence_status']['confirmatory_episodes']==0, 'Confirmatory claim requires a separately reviewed report contract')
-    require(content['evidence_status']['status']=='development pilot', 'Report evidence status must stay explicit')
-    require('development' in content['abstract'].lower(), 'Development boundary missing from abstract')
+    if content.get('table2_source')=='stateful':
+        require(content['evidence_status']['status']=='completed stateful study', 'Stateful evidence status must be explicit')
+        require(all(s in content['abstract'] for s in ('Adaption','Hugging Face')), 'Service evidence missing from abstract')
+    else:
+        require(content['evidence_status']['confirmatory_episodes']==0, 'Confirmatory claim requires a separately reviewed report contract')
+        require(content['evidence_status']['status']=='development pilot', 'Report evidence status must stay explicit')
+        require('development' in content['abstract'].lower(), 'Development boundary missing from abstract')
 
 def check_docx(root,content):
     expected=assemble(content,root/'official-template.docx')

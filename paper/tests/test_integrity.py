@@ -11,7 +11,7 @@ import zipfile
 PAPER=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(PAPER))
 from build import assemble
-from verify import verify, validate_source, build_manifest
+from verify import verify, validate_source, validate_results, build_manifest
 
 
 class IntegrityTests(unittest.TestCase):
@@ -25,7 +25,7 @@ class IntegrityTests(unittest.TestCase):
         shutil.copytree(PAPER/'out',self.root/'out')
         (self.root.parent/'research').mkdir()
         shutil.copy2(PAPER.parent/'research/pilot-results.json',self.root.parent/'research/pilot-results.json')
-        for name in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-qualification.json'):
+        for name in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-main-v2-continuation-v1-freeze.json','stateful-qualification.json','hf-stateful-config.json','stateful-hf-v3-freeze.json','stateful-results.json'):
             if (PAPER.parent/'research'/name).exists():
                 shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
 
@@ -37,6 +37,18 @@ class IntegrityTests(unittest.TestCase):
 
     def test_current_package(self):
         verify(self.root,git_checks=False)
+
+    def test_reader_call_denominator_is_exact(self):
+        d=self.source()
+        d['table2'][1][0]=d['table2'][1][0].replace('(1920)','(19200)')
+        with self.assertRaisesRegex(ValueError,'Reader table differs'):
+            validate_results(self.root,d)
+
+    def test_hf_matched_source_denominator_is_exact(self):
+        d=self.source()
+        d['table3'][3][0]=d['table3'][3][0].replace('(24)','(240)')
+        with self.assertRaisesRegex(ValueError,'Effect source denominator'):
+            validate_results(self.root,d)
 
     def test_unrebuilt_prose_fails(self):
         d=self.source()
@@ -80,7 +92,9 @@ class IntegrityTests(unittest.TestCase):
 
     def test_removed_prose_left_in_pdf_cannot_be_attested(self):
         d=self.source()
-        del d['sections'][0][1][1]
+        # Remove citation-free prose so citation validation still passes and
+        # this test reaches the PDF's extra-text guard.
+        d['sections'][0][1][0]=d['sections'][0][1][0].partition('. ')[2]
         self.save(d)
         parts=assemble(d,self.root/'official-template.docx')
         with zipfile.ZipFile(self.root/'out/swarm_audit_scoping.docx','w') as z:
