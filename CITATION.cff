@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this research protocol; it does not yet report LLM experiments."
+title: "When Can a Swarm Be Audited? Evidence Limits and an Evaluation Protocol"
+type: software
+authors:
+  - family-names: Sacara
+    given-names: Razvan
+    orcid: https://orcid.org/0009-0004-3172-2476
+repository-code: "https://github.com/razzyrazzy11/swarm-alignment"
+version: 0.1.0
+date-released: 2026-11-06
+abstract: "Primary-source scoping study and prospective protocol for evaluating multi-agent oversight under identity churn and incomplete evidence. No model-performance results are claimed."
