@@ -1,6 +1,6 @@
 # Primary-source scope for a live handoff audit extension
 
-Reviewed 6 November 2026. This is a targeted methods/overlap review, not a systematic originality certificate. The completed scripted study and its null primary finding remain in RESULTS.md. LIVE_AUDIT_PROTOCOL.md specifies the new prospective study; its committed source hashes and live-audit-v1 tag, rather than this review, establish registration. No new model calls or account access were used in this source review.
+Reviewed 6 November 2026. This is a targeted methods/overlap review, not a systematic originality certificate. The completed scripted study and its null primary finding remain in RESULTS.md. LIVE_AUDIT_PROTOCOL.md specifies the new prospective study; its committed source hashes and live-audit-v2 tag, rather than this review, establish registration. No new model calls or account access were used in this source review.
 
 ## Closest methods and what remains to test
 

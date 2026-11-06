@@ -1,17 +1,29 @@
 {
-  "study_id": "live-audit-v1",
-  "seed_start": 4200000,
-  "qualification_seed_start": 4100000,
+  "study_id": "live-audit-v2",
+  "seed_start": 4400000,
+  "qualification_seed_start": 4300000,
   "episodes_per_family": 64,
   "qualification_per_family": 2,
   "influence_per_family": 16,
-  "families": ["sequential", "deferred", "approval_join"],
+  "families": [
+    "sequential",
+    "deferred",
+    "approval_join"
+  ],
   "actor_model": "gemma-4-26b-a4b-it",
-  "monitors": ["gemma-4-26b-a4b-it", "gemma-4-31b-it", "meta-llama/Llama-3.3-70B-Instruct:novita"],
+  "monitors": [
+    "gemma-4-26b-a4b-it",
+    "gemma-4-31b-it",
+    "meta-llama/Llama-3.3-70B-Instruct:novita"
+  ],
   "hf_model": "meta-llama/Llama-3.3-70B-Instruct:novita",
   "hf_input_rate": "0.135",
   "hf_output_rate": "0.40",
-  "hf_allowed_returned_models": ["meta-llama/Llama-3.3-70B-Instruct", "meta-llama/llama-3.3-70b-instruct", "llama-3.3-70b-instruct"],
+  "hf_allowed_returned_models": [
+    "meta-llama/Llama-3.3-70B-Instruct",
+    "meta-llama/llama-3.3-70b-instruct",
+    "llama-3.3-70b-instruct"
+  ],
   "max_output_tokens": 4096,
   "input_byte_cap": 24000,
   "concurrency": 4,

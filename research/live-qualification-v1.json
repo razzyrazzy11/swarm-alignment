@@ -1,0 +1,111 @@
+{
+  "study_id": "live-audit-v1",
+  "main_calls": 0,
+  "freeze_sha256": "98eef71a59854799cd7d0ed64fbcf6601c1ec77e4cf32164cdfbcb1a63dd61f2",
+  "stages": {
+    "qualification-origins": {
+      "summary": {
+        "planned": 6,
+        "returned": 6,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.000153357",
+          "hf": "0"
+        },
+        "freeze_sha256": "98eef71a59854799cd7d0ed64fbcf6601c1ec77e4cf32164cdfbcb1a63dd61f2"
+      },
+      "models": {
+        "gemma-4-26b-a4b-it": {
+          "calls": 6,
+          "schema_valid": 6,
+          "invalid_schema_shapes": {}
+        }
+      },
+      "raw_sha256": {
+        "plan.json": "9af4234691c066fd8daf88acedfc3137f6b147ab87721459b8e90ccb4e2a8341",
+        "attempts.jsonl": "a1e579fce5282a00aff1a48572f9567aaa00efc6eef86d2b2dd0426060e42814",
+        "responses.jsonl": "b6f1d124fbd48a7c2332c79cb3a87af90588c1d1161baefa759bc695e89f5136",
+        "summary.json": "3f753bd80bf56f16e68266768d805bb798580a40af9da32b4a5f8690eb0b49cb"
+      }
+    },
+    "qualification-receivers": {
+      "summary": {
+        "planned": 12,
+        "returned": 12,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.0003341265",
+          "hf": "0"
+        },
+        "freeze_sha256": "98eef71a59854799cd7d0ed64fbcf6601c1ec77e4cf32164cdfbcb1a63dd61f2"
+      },
+      "models": {
+        "gemma-4-26b-a4b-it": {
+          "calls": 12,
+          "schema_valid": 12,
+          "invalid_schema_shapes": {}
+        }
+      },
+      "raw_sha256": {
+        "plan.json": "77f4487d21a95e0a3a94dc1c8d02b227861d06fa5f797af6c1f7275d99668381",
+        "attempts.jsonl": "048de634229163b17f3332b48f3aa43acadb94e44dd2910b01c6ed658115cc9d",
+        "responses.jsonl": "c8b02a4cfd1d6e6df9ae2159379a8ebdbc0557adb7a63b8db4bdfa3520d0e552",
+        "summary.json": "918e9ae873d9e49bb2c12dc8cabbb70901c7b246e2043d043a927e1869a92b2e"
+      }
+    },
+    "qualification-audits": {
+      "summary": {
+        "planned": 252,
+        "returned": 252,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.0256205120",
+          "hf": "0.018338490"
+        },
+        "freeze_sha256": "98eef71a59854799cd7d0ed64fbcf6601c1ec77e4cf32164cdfbcb1a63dd61f2"
+      },
+      "models": {
+        "gemma-4-26b-a4b-it": {
+          "calls": 84,
+          "schema_valid": 28,
+          "invalid_schema_shapes": {
+            "keys=status": 45,
+            "keys=status,worker_id": 10,
+            "unparseable_final": 1
+          }
+        },
+        "gemma-4-31b-it": {
+          "calls": 84,
+          "schema_valid": 84,
+          "invalid_schema_shapes": {}
+        },
+        "meta-llama/Llama-3.3-70B-Instruct:novita": {
+          "calls": 84,
+          "schema_valid": 82,
+          "invalid_schema_shapes": {
+            "unparseable_final": 2
+          }
+        }
+      },
+      "raw_sha256": {
+        "plan.json": "eb873d1316538e032704097c373f7888bc4b4763ec3aa55ee8ff38de29dc515d",
+        "attempts.jsonl": "f3f20ee856f9820f3d4cdd209db36ca588e21608144acafd53220759fd4b1768",
+        "responses.jsonl": "a1b3d2b9f02be3b9ed3801fd21825ae6052cd787e6de023d678802c289fa6ea1",
+        "summary.json": "a748f38c8f504b0553f2d9bb7350d44022164546e781142056e35bc06d4179cb"
+      }
+    }
+  },
+  "decision": "Main blocked. Retain failed qualification. Clarify mandatory worker_id for NONE/ABSTAIN; fresh qualification/main inputs. No semantic repair or scientific endpoint change."
+}

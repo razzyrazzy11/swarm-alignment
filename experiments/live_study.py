@@ -11,10 +11,10 @@ from experiments.hf_stateful import normalize
 from experiments.live_audit import (canonical,digest,context,public,world,simulate,views,decode_origin,decode_worker,ORIGIN_PROMPT,WORKER_PROMPT,MONITOR_PROMPT)
 
 CONFIG=ROOT/'research/live-config.json'
-FREEZE=ROOT/'research/live-audit-v1-freeze.json'
+FREEZE=ROOT/'research/live-audit-v2-freeze.json'
 SOURCES=('experiments/live_audit.py','experiments/live_reference.py','experiments/live_study.py','experiments/live_analysis.py',
  'experiments/tests/test_live_audit.py','experiments/tests/test_live_runner.py','experiments/tests/test_live_analysis.py',
- 'research/live-config.json','research/live-catalog.json','research/live-design.json','research/LIVE_AUDIT_PROTOCOL.md','research/LIVE_AUDIT_SOURCES.md',
+ 'research/live-config.json','research/live-catalog.json','research/live-design.json','research/live-qualification-v1.json','research/LIVE_AUDIT_PROTOCOL.md','research/LIVE_AUDIT_SOURCES.md',
  'experiments/access.py','experiments/pilot.py','experiments/stateful_study.py','experiments/hf_stateful.py','experiments/stateful.py','experiments/oracle.py','experiments/reference.py')
 HF='https://router.huggingface.co/v1'
 def read(p):return json.loads(p.read_text(encoding='utf-8'))

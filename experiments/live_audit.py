@@ -47,7 +47,10 @@ Use every visible record, including same-instance constraints and other bindings
 If ALL compatible histories agree on one label, return that finding. If they
 disagree return ABSTAIN. Missing evidence does not prove innocence. Empty support
 is inconsistent, not an excuse to accuse. Return exactly bare JSON with status
-EXECUTOR/NONE/ABSTAIN and worker_id A/B/C for EXECUTOR, otherwise null.'''
+EXECUTOR/NONE/ABSTAIN and worker_id A/B/C for EXECUTOR, otherwise null. ALWAYS include BOTH keys, even for NONE or ABSTAIN.
+Valid complete examples: {"status":"NONE","worker_id":null};
+{"status":"ABSTAIN","worker_id":null}; {"status":"EXECUTOR","worker_id":"A"}.
+Omitting worker_id is invalid. No additional keys or Markdown.'''
 
 def canonical(x):return json.dumps(x,sort_keys=True,separators=(',',':'),ensure_ascii=False)
 def digest(x):return hashlib.sha256(canonical(x).encode()).hexdigest()
