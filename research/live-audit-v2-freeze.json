@@ -1,0 +1,66 @@
+{
+  "created": "2026-11-06T22:09:10.766796+00:00",
+  "base_commit": "5f1da736813d4533191b38a8cce140177ff0112a",
+  "config": {
+    "study_id": "live-audit-v2",
+    "seed_start": 4400000,
+    "qualification_seed_start": 4300000,
+    "episodes_per_family": 64,
+    "qualification_per_family": 2,
+    "influence_per_family": 16,
+    "families": [
+      "sequential",
+      "deferred",
+      "approval_join"
+    ],
+    "actor_model": "gemma-4-26b-a4b-it",
+    "monitors": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it",
+      "meta-llama/Llama-3.3-70B-Instruct:novita"
+    ],
+    "hf_model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+    "hf_input_rate": "0.135",
+    "hf_output_rate": "0.40",
+    "hf_allowed_returned_models": [
+      "meta-llama/Llama-3.3-70B-Instruct",
+      "meta-llama/llama-3.3-70b-instruct",
+      "llama-3.3-70b-instruct"
+    ],
+    "max_output_tokens": 4096,
+    "input_byte_cap": 24000,
+    "concurrency": 4,
+    "hf_concurrency": 2,
+    "adaption_phase_cap": "10",
+    "hf_phase_cap": "1.00",
+    "gateway_error_allowance_per_phase": 8,
+    "incomplete_allowance_per_phase": 2,
+    "retries": 0,
+    "request_order_seed": 619106,
+    "bootstrap_seed": 619107,
+    "bootstrap_resamples": 10000,
+    "training_launch": false
+  },
+  "source_sha256": {
+    "experiments/live_audit.py": "c6c073516ddce66e2962cd540cabe6c5dce9ca9085cf88190086ccd1a20ca0e2",
+    "experiments/live_reference.py": "b1fa205473b1b5096ad0dfdc75ac549a018efdd51aaa27a51b9a0342c7d1af4d",
+    "experiments/live_study.py": "1f6177c3c7479642bdc3133d611bd96ee4dd026bb4baab21ca047a21845bbd20",
+    "experiments/live_analysis.py": "89fc8ffe925954bd46d78647ace5462ff8485cb88bf6e4eaa169f01625af649a",
+    "experiments/tests/test_live_audit.py": "da1fd029fe7d4677715385625b5f3e49225fa7b5528353c5e24eeaa6f355538b",
+    "experiments/tests/test_live_runner.py": "03d149686d717035a56f3a5407c2776299374b8a90a607b865b11e0e3f562fac",
+    "experiments/tests/test_live_analysis.py": "639941e040e2632b64d6e24f1f549acdc5af01bef830acdb07f3235de02c09ee",
+    "research/live-config.json": "ef6c096b371a1d3ba4b5d0622495c6f1efd23c8e8532916c9a4254c9715665fb",
+    "research/live-catalog.json": "f313d28e04b70cb13b6d8eec479cbf4060f5ac5b284f66b55b7f2ce6094c6151",
+    "research/live-design.json": "bad31ec33f477ec2606dbf71ddfc5c93774e79b9d3272dec2c7e9c1eb9f81b37",
+    "research/live-qualification-v1.json": "81917ff19a0629a82cb525a0051b1e284be4a4cdc093f59334fc7529f13ee994",
+    "research/LIVE_AUDIT_PROTOCOL.md": "9a645c82993f33af3a81b48528e0e09f940e0c7a7e5a4d231bbc0e2999993788",
+    "research/LIVE_AUDIT_SOURCES.md": "95e936fc54656ecfd0c2daf38e33f15f276874a05d734cbc3fc714de77a458cd",
+    "experiments/access.py": "eb5c041520978ee7047d5528ede8a737a3d2b5d5a5e407a1d4a07e37d3447bf8",
+    "experiments/pilot.py": "b722a9ea5b52d7845e9f1e3e82922aebd05e43d32dd2d7806864262de047acfa",
+    "experiments/stateful_study.py": "7d96ecbe3c050caa915d84c60a3754f4ff6cc3e5114de4c769d06c439371ee6b",
+    "experiments/hf_stateful.py": "4a8f7fdab246d24668996151f974162d5cd65177e2514deb6d0e8effed9b12bb",
+    "experiments/stateful.py": "175be7a8fd6b990c937b617e55b6257d7ee8f0dfe92fd6ff2a55a052a8c8cf57",
+    "experiments/oracle.py": "30543481afcc1d8caa3e47a5c579c8b727470ba93be77a9913b23587b0e85fa9",
+    "experiments/reference.py": "d08e99e342b781205a0a60531eeceea7af7b4bdf7906f0d8d2bbbb96c06f1cf5"
+  }
+}
