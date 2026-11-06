@@ -39,6 +39,7 @@ def execute(jobs,out,resume=False):
     """Exact unstarted-complement resume only; unknown starts are never retried."""
     verify();c=config();keys=credentials()
     if out.exists() and not resume:raise ValueError('Output exists; explicit unstarted continuation required')
+    for j in jobs:body_for(j)  # Validate every body before any start is journaled.
     plan=dict(freeze_sha256=sha(FREEZE),jobs_sha256=digest(jobs),ids=[j['id'] for j in jobs],planned=len(jobs))
     if len(plan['ids'])!=len(set(plan['ids'])):raise ValueError('Duplicate jobs')
     if out.exists():
@@ -84,7 +85,11 @@ def execute(jobs,out,resume=False):
                 j,provider,reserve,_=futures.pop(future)
                 try:transport,native=future.result()
                 except Exception:transport,native={'http_status':None,'error':'unexpected_request_error'},None
-                n,known=response(native,j['model']);ri,ro=rates(j['model']);u=n['usage'];cost=(u['input_tokens']*ri+u['output_tokens']*ro)/1000000 if known else reserve
+                try:n,known=response(native,j['model'])
+                except (ValueError,TypeError,KeyError,OverflowError):
+                    n=dict(status='failed',output_text='',usage=None,returned_model=None);known=False
+                    transport=dict(transport,error='normalization_failure')
+                ri,ro=rates(j['model']);u=n['usage'];cost=(u['input_tokens']*ri+u['output_tokens']*ro)/1000000 if known else reserve
                 spent[provider]+=cost;is_gateway=transport.get('http_status') in (502,503,504);gateways+=int(is_gateway);incomplete+=int(n['status']=='incomplete')
                 row=scrub(dict(id=j['id'],model=j['model'],metadata=j['metadata'],provider=provider,transport=transport,response=n,known_usage=known,estimated_cost=str(cost),native_response=native),keys.values())
                 durable(output,row);results.append(row)

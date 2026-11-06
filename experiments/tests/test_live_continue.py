@@ -32,6 +32,17 @@ class LiveContinuationTests(unittest.TestCase):
         p=self.out/'responses.jsonl';lines=p.read_text().splitlines();p.write_text('\n'.join(lines[:-1])+'\n')
         with self.assertRaisesRegex(ValueError,'unreturned start'):self.run_mock(lambda *a,**k:self.answer(),resume=True)
 
+    def test_all_request_bodies_are_checked_before_any_dispatch(self):
+        self.jobs[-1]['payload']={'oversize':'x'*30000};called=[]
+        def send(*a,**kw):called.append(True);return self.answer()
+        with self.assertRaisesRegex(ValueError,'Input byte bound'):self.run_mock(send)
+        self.assertEqual(called,[])
+
+    def test_malformed_native_response_is_terminal_and_stops_not_lost(self):
+        def send(*a,**kw):return {'http_status':200},dict(status='completed',model=self.model,output=None,usage=dict(input_tokens=10,output_tokens=10))
+        result=self.run_mock(send);self.assertTrue(result['halted']);self.assertEqual(result['returned'],4)
+        self.assertTrue(all(r['transport']['error']=='normalization_failure' and not r['known_usage'] for r in c.rows(self.out/'responses.jsonl')))
+
     def test_slow_request_does_not_block_free_slots(self):
         released=threading.Event();lock=threading.Lock();calls=[];timed_out=[]
         def send(*args,**kw):
