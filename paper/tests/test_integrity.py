@@ -23,6 +23,8 @@ class IntegrityTests(unittest.TestCase):
         for name in ('content.json','official-template.docx','build.py','verify.py'):
             shutil.copy2(PAPER/name,self.root/name)
         shutil.copytree(PAPER/'out',self.root/'out')
+        (self.root.parent/'research').mkdir()
+        shutil.copy2(PAPER.parent/'research/pilot-results.json',self.root.parent/'research/pilot-results.json')
 
     def source(self):
         return json.loads((self.root/'content.json').read_text(encoding='utf-8'))

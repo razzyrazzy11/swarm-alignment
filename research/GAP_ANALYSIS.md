@@ -2,6 +2,8 @@
 
 Checked 6 November 2026 against the current build and the source ledger. Start with the question, then distinguish what is known, what this project could add, and the evidence needed. This applies the 20-rules-of-learning skill as an explanation method; it does not establish novelty or eligibility.
 
+Update after development: the small oracle and real model pilots now exist (PILOT_RESULTS.md). Their limited grammar, negative influence result and absent positive selective-loss effect leave the richer-mechanism/confirmatory gates open. The earlier statement below that there is no executable oracle is superseded; it remains history of the gap that motivated implementation.
+
 ## Objective and present result
 
 Keep Track4 oversight as the anchor, with Track3 identity infrastructure relevance. The intended working result is a reproducible evaluation of whether an investigator can support an executor accusation from incomplete multi-worker evidence. It is not a general collusion detector. The completed result is currently a scoping synthesis, a two-history ambiguity construction and reproducible report artifacts. There is no implemented history enumerator, agent experiment, measured protection or tested containment boundary yet. Document integrity tests do not close that execution gap.

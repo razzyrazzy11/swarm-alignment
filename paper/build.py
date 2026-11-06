@@ -45,6 +45,7 @@ def assemble(content, template):
     require(150 <= len(content['abstract'].split()) <= 250, 'Abstract must contain 150–250 words')
     require(bool(content.get('table1')), 'Missing source-driven table1')
     require(all(len(row)==3 for row in content['table1']), 'table1 must have three columns')
+    require(bool(content.get('table2')) and all(len(row)==4 for row in content['table2']), 'table2 must have four columns')
     with zipfile.ZipFile(template) as z:
         parts = {i.filename:z.read(i.filename) for i in z.infolist()}
     doc = E.fromstring(parts['word/document.xml'])
@@ -93,6 +94,10 @@ def assemble(content, template):
     def add(value, is_heading=False, page=False):
         p = deepcopy(heading if is_heading else normal)
         replace(p,value)
+        if value.startswith(('Table 1.','Table 2.')):
+            pp=p.find(W+'pPr')
+            if pp.find(W+'keepNext') is None:
+                pp.insert(sum(ch.tag==W+'pStyle' for ch in pp),E.Element(W+'keepNext'))
         if page:
             props = p.find(W+'pPr')
             # pageBreakBefore precedes spacing/indentation in CT_PPr.
@@ -120,6 +125,14 @@ def assemble(content, template):
                 cell=E.SubElement(tr,W+'tc');cp=E.SubElement(cell,W+'tcPr')
                 cw=E.SubElement(cp,W+'tcW');cw.set(W+'w',str(width));cw.set(W+'type','dxa')
                 p=deepcopy(normal);replace(p,val);cell.append(p)
+                # Keep each short comparison table together; repeated headers on
+                # a split table otherwise interrupt both reading and PDF order.
+                if i<len(rows)-1:
+                    pp=p.find(W+'pPr')
+                    if pp is None:pp=E.SubElement(p,W+'pPr')
+                    if pp.find(W+'keepNext') is None:
+                        pos=sum(ch.tag==W+'pStyle' for ch in pp)
+                        pp.insert(pos,E.Element(W+'keepNext'))
                 if i==0:
                     for rp in p.xpath('.//w:rPr',namespaces=NS):
                         # Bold precedes size/language, but follows rStyle/rFonts.
@@ -133,6 +146,9 @@ def assemble(content, template):
             if value=='TABLE1':
                 add('Table 1. Existing results and the narrower proposed test. These are research-design comparisons, not measured performance.')
                 table(content['table1'],[2200,3400,3760])
+            elif value=='TABLE2':
+                add('Table 2. Completed development batch: 20 source episodes, three dependent views per episode and 60 scorable calls per model. Grounded correctness includes justified abstention. Unsupported columns are worker / NONE / invalid counts.')
+                table(content['table2'],[2200,2200,2400,2560])
             elif value=='FIGURE1':
                 table([
                     ['Hidden history','Visible packet after erasure','Correct actor'],

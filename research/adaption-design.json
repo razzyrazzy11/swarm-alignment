@@ -1,5 +1,5 @@
 {
-  "status": "prospective costing only; no API calls or empirical results",
+  "status": "Historical v0.3 token-cost example; not execution-ready after observed output truncation. See SUITE_STRATEGY.md.",
   "accessed": "2026-11-06",
   "pricing_source": "https://docs.adaptionlabs.ai/inference-stacks/models/",
   "price_unit": "platform credits per million tokens; account conversion and eligibility unverified",
@@ -13,11 +13,27 @@
   "pilot_episodes": 20,
   "input_tokens_per_call_assumption": 6000,
   "output_tokens_per_call_assumption": 2048,
-  "research_spend_ceiling_credits": 375,
-  "reserved_credits": 125,
+  "research_spend_ceiling_credits": 1500,
+  "reserved_credits": 0,
   "models": [
-    {"id": "qwen3.5-397b", "role": "candidate primary", "input": "0.55", "output": "3.50"},
-    {"id": "glm-5.2", "role": "candidate replication", "input": "1.40", "output": "4.40"},
-    {"id": "deepseek-v4-flash", "role": "candidate cost/performance comparator", "input": "0.04444", "output": "0.13332"}
-  ]
+    {
+      "id": "qwen3.5-397b",
+      "role": "candidate primary",
+      "input": "0.55",
+      "output": "3.50"
+    },
+    {
+      "id": "glm-5.2",
+      "role": "candidate replication",
+      "input": "1.40",
+      "output": "4.40"
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "role": "candidate cost/performance comparator",
+      "input": "0.04444",
+      "output": "0.13332"
+    }
+  ],
+  "active": false
 }

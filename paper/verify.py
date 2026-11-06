@@ -23,10 +23,22 @@ def builder_hash(root):
     return hashlib.sha256((root/'build.py').read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 
 def build_manifest(root,content):
+    results=json.loads((root.parent/'research/pilot-results.json').read_text(encoding='utf-8'))
     return dict(abstract_words=len(content['abstract'].split()),template_sha256=SHA,
                 content_sha256=source_hash(content),builder_sha256=builder_hash(root),
                 docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),
-                changed_package_parts=['word/document.xml'],empirical_experiments=0)
+                changed_package_parts=['word/document.xml'],evidence_status=content['evidence_status'],results_sha256=source_hash(results))
+
+def validate_results(root,content):
+    report=json.loads((root.parent/'research/pilot-results.json').read_text(encoding='utf-8'))
+    batch=report['batches']['pilot-development-v4']
+    require(content['evidence_status']['fixed_batch_reader_calls']==batch['retained_responses'], 'Reported call count differs from aggregates')
+    require(content['evidence_status']['retained_adaption_request_records']==sum(v['retained_responses'] for v in report['batches'].values())+report['influence']['calls'], 'Total retained record count differs')
+    require(content['evidence_status']['hf_smoke_calls']==report['hugging_face_smoke']['calls'], 'HF count differs')
+    for row,model in zip(content['table2'][1:3],content['table2_model_ids']):
+        stats=batch['models'][model]
+        expected=[str(stats['grounded_correct']),str(stats['supported_definite']),f"{stats['unsupported_executor']} / {stats['unsupported_none']} / {stats['invalid']}"]
+        require(row[1:]==expected, 'Paper table differs from observed aggregates: '+model)
 
 def compact(value):
     value=unicodedata.normalize('NFKC',value).translate(str.maketrans({'\u00ad':'','−':'-','–':'-','—':'-','’':"'",'‘':"'",'“':'"','”':'"'}))
@@ -36,6 +48,7 @@ def validate_source(content):
     require(any('Limitations and Dual-Use / Ethical Considerations' in h for h,_ in content['appendix']), 'Required appendix missing')
     prose=' '.join(p for _,ps in content['sections']+content['appendix'] for p in ps)
     prose+=' '.join(cell for row in content['table1'] for cell in row)
+    prose+=' '.join(cell for row in content.get('table2',[]) for cell in row)
     cited=set()
     for group in re.findall(r'\[([\d,–-]+)\]',prose):
         for item in group.split(','):
@@ -44,7 +57,9 @@ def validate_source(content):
     ids=[int(re.match(r'\[(\d+)\]',r).group(1)) for r in content['references']]
     require(ids==list(range(1,len(ids)+1)), 'References must have unique sequential IDs')
     require(cited==set(ids), 'Citation/reference mismatch: '+str(cited.symmetric_difference(ids)))
-    require('No agent-performance experiments are reported.' in content['abstract'], 'Scoping claim boundary missing')
+    require(content['evidence_status']['confirmatory_episodes']==0, 'Confirmatory claim requires a separately reviewed report contract')
+    require(content['evidence_status']['status']=='development pilot', 'Report evidence status must stay explicit')
+    require('development' in content['abstract'].lower(), 'Development boundary missing from abstract')
 
 def check_docx(root,content):
     expected=assemble(content,root/'official-template.docx')
@@ -94,7 +109,7 @@ def pdf_manifest(root,content,paragraphs):
         require(abs(float(page.mediabox.width)-612)<1 and abs(float(page.mediabox.height)-792)<1, 'PDF page geometry differs from template')
     return dict(pages=len(pages),main_pages=main_pages,pdf_bytes=path.stat().st_size,
                 abstract_words=len(content['abstract'].split()),render_engine='Microsoft Word',
-                empirical_experiments=0,template_sha256=SHA,content_sha256=source_hash(content),
+                evidence_status=content['evidence_status'],template_sha256=SHA,content_sha256=source_hash(content),
                 builder_sha256=builder_hash(root),docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),pdf_sha256=sha(path))
 
 def check_ignores(root):
@@ -106,6 +121,7 @@ def check_ignores(root):
 def verify(root=ROOT,record_pdf=False,git_checks=True):
     content=json.loads((root/'content.json').read_text(encoding='utf-8'))
     validate_source(content)
+    validate_results(root,content)
     paragraphs=check_docx(root,content)
     manifest=pdf_manifest(root,content,paragraphs)
     target=root/'out/pdf-check.json'

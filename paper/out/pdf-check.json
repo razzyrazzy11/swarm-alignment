@@ -1,13 +1,21 @@
 {
-  "pages": 9,
-  "main_pages": 6,
-  "pdf_bytes": 100356,
-  "abstract_words": 193,
+  "pages": 12,
+  "main_pages": 7,
+  "pdf_bytes": 108242,
+  "abstract_words": 196,
   "render_engine": "Microsoft Word",
-  "empirical_experiments": 0,
+  "evidence_status": {
+    "status": "development pilot",
+    "confirmatory_episodes": 0,
+    "fixed_batch_source_episodes": 20,
+    "fixed_batch_reader_calls": 120,
+    "retained_adaption_request_records": 318,
+    "hf_smoke_calls": 4,
+    "training_runs": 0
+  },
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "126746377dad1b66d2204ac9b0da33034a126f7ddd2d84d3acb8118df315f07c",
-  "builder_sha256": "ac6840aac32ba009b8bec4a40af0d40bc805c4bc310feec3559535b79b032663",
-  "docx_sha256": "07a3d91350e6019ac625cdc0d80335b014568e3ed5ed7cde87c3ab85e53be212",
-  "pdf_sha256": "e000720d90a2e2bafec335d795798814ea4435b009a30d94f91f057d96e08de5"
+  "content_sha256": "814977242fb4e5394e3d45eec7f352fb9f91e89564ed181f66ecfcc75bc3cf9b",
+  "builder_sha256": "2d5ea473b960b5b5d9a7014b084e9023bcdd9dc6c9f80259c95c5fac2ade51ca",
+  "docx_sha256": "c1478bdb31612a2c3dd1936b3c67b411924391a656413834265401b09a308d29",
+  "pdf_sha256": "b413d3b676ec8560fe3f8146f8332c2f0aff258848bc04ac4648e1d7925aa3fc"
 }

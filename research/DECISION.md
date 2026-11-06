@@ -1,5 +1,7 @@
 # Research decision — checked 6 November 2026
 
+Current execution status: a bounded prototype and genuine development pilots now exist. See PILOT_RESULTS.md and SUITE_STRATEGY.md. The proposed grid/budget/schedule below records the earlier scoping decision and is not a frozen confirmatory design. Full authorized Adaption ceiling is now the initially observed 1,500-credit balance.
+
 ## Recommendation
 
 Choose **Track 4: Multi-Agent Oversight and Control**, with Track 3: Strengthening Agent Infrastructure as a secondary fit. Working experimental title: **When Can a Swarm Be Audited? Selective Export Loss and Identity Churn in Multi-Agent Oversight**.

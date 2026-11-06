@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "Please cite this research protocol; it does not yet report LLM experiments."
-title: "When Can a Swarm Be Audited? Evidence Limits and an Evaluation Protocol"
+message: "Please cite this bounded oracle and development pilot; confirmatory experiments remain prospective."
+title: "When Can a Swarm Be Audited? A Bounded Oracle and Development Pilot"
 type: software
 license: Apache-2.0
 authors:
@@ -8,6 +8,6 @@ authors:
     given-names: Razvan
     orcid: https://orcid.org/0009-0004-3172-2476
 repository-code: "https://github.com/razzyrazzy11/swarm-alignment"
-version: 0.2.0
+version: 0.3.0
 date-released: 2026-11-06
-abstract: "Primary-source scoping study and prospective protocol for evaluating multi-agent oversight under identity churn and incomplete evidence. No model-performance results are claimed."
+abstract: "Executable finite-world oracle, separately implemented validation and exploratory reader/peer-influence pilots for evidence-limited multi-agent oversight. No confirmatory or deployment safety claim is made."

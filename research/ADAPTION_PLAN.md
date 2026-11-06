@@ -1,5 +1,7 @@
 # Turning credits into an empirical oversight study
 
+Historical planning snapshot, prepared 6 November 2026 before credentials/pilots. CURRENT STATUS: access and development calls have since occurred; PILOT_RESULTS.md and SUITE_STRATEGY.md supersede the no-run statements, 500-credit envelope, output-cap feasibility assumptions and recommended grid below. Retained to document the decision history.
+
 Prepared 6 November 2026. This is a source-backed execution plan, not a completed experiment, a price guarantee or a prediction of winning. No research credits have been spent. The environment contains a placeholder `.env.example`, but no configured `ADAPTION_API_KEY` was found in this process or a local `.env` file. Actual balance and model access have not been inspected.
 
 ## Recommendation

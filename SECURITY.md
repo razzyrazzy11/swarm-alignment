@@ -6,6 +6,8 @@ Use a private channel to report vulnerabilities. GitHub private vulnerability re
 
 Experiments must use fake records, an isolated local tool interpreter, no shell execution of model output, and no network access from workers. The host owns execution records and identity mapping. A hash chain alone does not establish completeness or prevent a compromised host rewriting history.
 
+Only the orchestrator contacts approved inference/identity/catalog APIs. Simulated worker operations cannot select URLs or run commands. Read `.env` literally; never execute it as a script. Do not print secrets, request headers or raw authentication errors. Unknown usage/charges must halt dispatch and remain conservatively accounted; missing responses do not imply zero cost. Public aggregates must distinguish reported token cost from reconciled account debits.
+
 Release benign schemas, analysis, aggregate statistics and reproducible toy fixtures. Assess newly discovered operational attacks under Apart's responsible disclosure policy before releasing them: https://apartresearch.com/info/responsible-disclosure-policy .
 
 GitHub returned HTTP 422 when enabling secret scanning and push protection for this private repository on 2026-11-06. These protections are not enabled. Branch protection is enabled; privacy has not been changed.

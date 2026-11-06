@@ -1,11 +1,20 @@
 {
-  "abstract_words": 193,
+  "abstract_words": 196,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "126746377dad1b66d2204ac9b0da33034a126f7ddd2d84d3acb8118df315f07c",
-  "builder_sha256": "ac6840aac32ba009b8bec4a40af0d40bc805c4bc310feec3559535b79b032663",
-  "docx_sha256": "07a3d91350e6019ac625cdc0d80335b014568e3ed5ed7cde87c3ab85e53be212",
+  "content_sha256": "814977242fb4e5394e3d45eec7f352fb9f91e89564ed181f66ecfcc75bc3cf9b",
+  "builder_sha256": "2d5ea473b960b5b5d9a7014b084e9023bcdd9dc6c9f80259c95c5fac2ade51ca",
+  "docx_sha256": "c1478bdb31612a2c3dd1936b3c67b411924391a656413834265401b09a308d29",
   "changed_package_parts": [
     "word/document.xml"
   ],
-  "empirical_experiments": 0
+  "evidence_status": {
+    "status": "development pilot",
+    "confirmatory_episodes": 0,
+    "fixed_batch_source_episodes": 20,
+    "fixed_batch_reader_calls": 120,
+    "retained_adaption_request_records": 318,
+    "hf_smoke_calls": 4,
+    "training_runs": 0
+  },
+  "results_sha256": "76729de6bfc4b6bf76673801c7250ae7efeca19b5fa6650678c0c3ab356507e2"
 }
