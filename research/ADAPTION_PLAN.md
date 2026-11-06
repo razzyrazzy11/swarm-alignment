@@ -72,6 +72,25 @@ These are candidate choices for availability and complementary serving families,
 
 Reproduce the arithmetic with `python research/cost_plan.py`; rates and design live in `adaption-design.json`. The calculator performs no network calls and its output is not experimental evidence. Proposed spending control: retain the earlier 25 pilot /250 core /100 replication /125 reserve envelopes; do not exceed 375 spendable research credits overall without revising the plan. Track an estimated liability for every pending request; reconcile returned usage and account debits at batch boundaries. A local token estimate is not a guaranteed provider hard cap. Stop on missing usage, unrecognized models/prices, unreconciled charges or insufficient balance. At aggregate 60 requests/minute, 26,640 calls take at least 7.4 hours before latency/retries; at 120/minute, 3.7 hours. These are arithmetic scenarios, not verified account limits. Measure throughput before freezing.
 
+## Combining the user's Hugging Face Pro subscription
+
+The user confirmed a personal Hugging Face Pro subscription and that Adaption exposes key creation; they have not confirmed which services the award funds. A key-creation screen establishes a way to authenticate, not hosted-inference entitlement, remaining balance or successful billing.
+
+Use the two services for different, recorded purposes:
+
+| Resource | Proposed role | Access/budget boundary |
+|---|---|---|
+| Adaption award | Main paired reader evaluation after a small verified pilot | Key-specific model list and actual debit determine eligibility; keep the existing research ceiling/reserve |
+| HF Hub / Pro | Obtain model/tokenizer metadata and licensed datasets, pin revisions, and prepare a dataset card/reproduction package | Check licenses and gated access; no raw test labels enter training/retrieval |
+| HF Inference Providers | Optional small cross-provider replication on frozen packets | Check remaining included balance and explicit provider/model availability first; account-wide paid overage is not part of this plan |
+| HF Jobs / Endpoints / paid Spaces | Optional only if measured need remains after the core study | Subscription does not make dedicated compute unmetered; no infrastructure has been provisioned |
+
+The [current HF pricing documentation](https://huggingface.co/docs/inference-providers/en/pricing) lists $2 monthly general-purpose compute credits for personal Pro, shared across eligible HF compute services, followed by metered usage. That is the published allowance, not the user's remaining balance. HF-routed requests and custom provider keys have different billing paths; included HF credits do not apply to custom-key provider charges. The [Pro documentation](https://huggingface.co/docs/hub/en/pro) also describes higher storage/rate limits and ZeroGPU benefits. None is evidence that Adaption credits transfer to HF.
+
+For reproducibility, retain the HF repository commit/revision, license, preprocessing code and split manifest with every imported model/tokenizer/dataset. The [Hub download conventions](https://huggingface.co/docs/huggingface_hub/en/guides/download) support revision selection. Pinning a HF model repository does not prove an Adaption hosted alias serves identical weights, quantization or decoding. Treat a cross-provider comparison as a separate serving condition. It is a useful replication, not independent training-family evidence when both endpoints serve the same model.
+
+Next credential step: create an Adaption key and expose `ADAPTION_API_KEY` locally; use a separate least-privilege `HF_TOKEN` if HF access is needed. Follow [HF token guidance](https://huggingface.co/docs/hub/en/security-tokens), with only required read/inference permissions. Do not paste either secret into chat or commit it. First perform non-inference identity/model-list checks, inspect the account's credit/usage pages, then send one bounded benign request and reconcile its usage/debit. A successful model-list request alone does not verify that award credits cover inference. Do not launch the full grid until that pilot and the independent oracle check pass.
+
 ## Why training is an optional later experiment
 
 The [AutoScientist supported-model conventions](https://docs.adaptionlabs.ai/autoscientist/supported-models/) impose minimum effective row counts (at least 1,000 for SFT and 12,000 for DPO, with some models requiring more), and warn that overlong training rows may be truncated. Those are launch requirements, not sufficient scientific sample sizes. Multiple projected packets from one episode are not independent examples.
