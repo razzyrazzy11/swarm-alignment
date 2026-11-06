@@ -5,7 +5,7 @@ from pathlib import Path
 from experiments.access import ROOT
 from experiments.pilot import classify,digest
 from experiments.stateful import compatible_labels,simulate
-from experiments.stateful_study import verify_freeze,config,sha,FREEZE,prepare
+from experiments.stateful_study import verify_freeze,config,sha,FREEZE,prepare,score_stateful,run_folder
 
 def quantile(xs,p):
     ys=sorted(xs);position=(len(ys)-1)*p;lo=int(position);hi=min(lo+1,len(ys)-1)
@@ -38,7 +38,7 @@ def analyze(out):
         t=row['task'];ident=(t['task_id'],row['model'])
         if ident in seen or t['task_id'] not in planned or t!=planned[t['task_id']] or row['model'] not in c['models'] or ident not in started:raise ValueError('Duplicate/unplanned response')
         seen.add(ident);labels=compatible_labels(t['packet'])
-        if sorted(labels)!=t['compatible_labels'] or digest(t['packet'])!=t['packet_sha256'] or classify(row['response'],labels)!=row['scored']:raise ValueError('Rescoring mismatch')
+        if sorted(labels)!=t['compatible_labels'] or digest(t['packet'])!=t['packet_sha256'] or score_stateful(row['response'],labels)!=row['scored']:raise ValueError('Rescoring mismatch')
         source=sources[t['episode_id']]
         if simulate(source['public'],source['world'],t['churn'])['label'] not in labels:raise ValueError('Truth missing')
     if summary['complete'] and len(seen)!=len(packets)*len(c['models']):raise ValueError('Incomplete run labeled complete')
@@ -51,10 +51,11 @@ def analyze(out):
         groups={}
         for r in rs:
             t=r['task'];key=f"{t['family']}/{t['cohort']}/churn={t['churn']}/{t['mechanism']}/{t['restoration']}"
-            counts=groups.setdefault(key,dict(calls=0,grounded_correct=0,supported_definite=0,unsupported_executor=0,unsupported_none=0,invalid=0,singleton=0))
+            counts=groups.setdefault(key,dict(calls=0,grounded_correct=0,supported_definite=0,unsupported_executor=0,unsupported_none=0,invalid=0,strict_schema_invalid=0,singleton=0))
             counts['calls']+=1
             for k in ('grounded_correct','supported_definite','unsupported_executor','unsupported_none'):counts[k]+=r['scored'][k]
             counts['invalid']+=r['scored']['status']=='INVALID';counts['singleton']+=len(t['compatible_labels'])==1
+            counts['strict_schema_invalid']+=not r['scored']['strict_schema_valid']
         effects={};paired={}
         for r in rs:
             t=r['task'];paired[(t['episode_id'],t['churn'],t['mechanism'],t['restoration'])]=r
@@ -92,5 +93,5 @@ def analyze(out):
     return report
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--out',default='runs/stateful-main');a=p.parse_args()
-    r=analyze(ROOT/a.out);print(json.dumps({k:v for k,v in r.items() if k not in ('models','baselines')},indent=2))
+    p=argparse.ArgumentParser();p.add_argument('--out');a=p.parse_args()
+    r=analyze(ROOT/a.out if a.out else run_folder('main'));print(json.dumps({k:v for k,v in r.items() if k not in ('models','baselines')},indent=2))

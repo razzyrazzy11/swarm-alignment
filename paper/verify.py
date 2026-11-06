@@ -29,7 +29,7 @@ def build_manifest(root,content):
                 docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),
                 changed_package_parts=['word/document.xml'],evidence_status=content['evidence_status'],results_sha256=source_hash(results))
     if 'stateful_plan' in content:
-        manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-freeze.json','stateful-qualification.json')}
+        manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-qualification.json')}
     return manifest
 
 def validate_results(root,content):
@@ -45,7 +45,7 @@ def validate_results(root,content):
     if 'stateful_plan' in content:
         cfg=json.loads((root.parent/'research/stateful-config.json').read_text(encoding='utf-8'))
         q=json.loads((root.parent/'research/stateful-qualification.json').read_text(encoding='utf-8'))
-        f=json.loads((root.parent/'research/stateful-freeze.json').read_text(encoding='utf-8'))
+        f=json.loads((root.parent/'research/stateful-main-v2-freeze.json').read_text(encoding='utf-8'))
         n=len(cfg['stages']['main']['families'])*cfg['stages']['main']['episodes_per_family']
         require(content['stateful_plan']==dict(main_planned_episodes=n,main_planned_calls=n*10*len(cfg['models']),main_completed_calls=q['main_completed_calls'],qualification_calls=q['summary']['attempted_calls'],qualification_pass=q['summary']['qualification_pass'],freeze_tag=cfg['study_id']), 'Stateful plan/result mismatch')
         require(f['config']==cfg and q['main_completed_calls']==0, 'This report contract contains no main results')

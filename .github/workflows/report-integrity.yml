@@ -19,6 +19,6 @@ jobs:
       - run: python -m unittest discover -s experiments/tests -v
       - name: Verify prospective stateful freeze when present
         run: |
-          if [ -f research/stateful-freeze.json ]; then
+          if [ -f research/stateful-main-v2-freeze.json ]; then
             python -m experiments.stateful_study verify-freeze
           fi

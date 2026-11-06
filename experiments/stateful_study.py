@@ -1,5 +1,5 @@
 """Frozen stateful main study. Only the explicit run command sends API calls."""
-import argparse,hashlib,json,os,random,subprocess
+import argparse,hashlib,json,os,random,re,subprocess
 from concurrent.futures import ThreadPoolExecutor,as_completed
 from datetime import datetime,timezone
 from decimal import Decimal
@@ -9,7 +9,7 @@ from experiments.pilot import classify,scrub,digest,RATES
 from experiments.stateful import make_public,worlds,simulate,observe,deletion,restore,compatible_labels,FAMILIES
 
 CONFIG=ROOT/'research/stateful-config.json'
-FREEZE=ROOT/'research/stateful-freeze.json'
+FREEZE=ROOT/'research/stateful-main-v2-freeze.json'
 SOURCES=('experiments/stateful.py','experiments/stateful_reference.py','experiments/stateful_study.py',
          'experiments/stateful_analysis.py','experiments/stateful_influence.py','experiments/access.py','experiments/pilot.py',
          'experiments/tests/test_stateful.py','experiments/tests/test_stateful_runner.py',
@@ -47,22 +47,54 @@ def canonical_file(path):return path.read_bytes().replace(b'\r\n',b'\n')
 def sha(path):return hashlib.sha256(canonical_file(path)).hexdigest()
 def config():return json.loads(CONFIG.read_text(encoding='utf-8'))
 
+def run_folder(stage):return ROOT/('runs/'+config()['study_id']+'-'+stage)
+
+def decode_answer(text):
+    """One bare object or exact outer json fence; no repair or duplicate keys."""
+    if not isinstance(text,str):raise ValueError('Missing final text')
+    stripped=text.strip();encoding='bare_json'
+    match=re.fullmatch(r'```json[ \t]*\r?\n([\s\S]*)\r?\n```',stripped)
+    if match:stripped=match.group(1).strip();encoding='single_json_fence'
+    def pairs(values):
+        d={}
+        for k,v in values:
+            if k in d:raise ValueError('Duplicate JSON key')
+            d[k]=v
+        return d
+    def constant(_):raise ValueError('Non-JSON numeric constant')
+    answer=json.loads(stripped,object_pairs_hook=pairs,parse_constant=constant)
+    if not isinstance(answer,dict):raise ValueError('Expected exactly one JSON object')
+    return answer,encoding
+
+def score_stateful(data,labels):
+    """v2 encoding is predeclared; raw strict validity remains separate."""
+    result=classify(None,labels);result.update(encoding='invalid',strict_schema_valid=False)
+    if not isinstance(data,dict) or data.get('status')!='completed':return result
+    try:answer,encoding=decode_answer(data.get('output_text'))
+    except (ValueError,TypeError):return result
+    scored=classify(dict(status='completed',output_text=json.dumps(answer)),labels)
+    scored.update(encoding=encoding,strict_schema_valid=encoding=='bare_json' and scored['status']!='INVALID')
+    return scored
+
 def freeze():
     if FREEZE.exists():raise ValueError('Freeze already exists; do not overwrite a registered study')
+    if subprocess.run(['git','rev-parse','--verify','--quiet','refs/tags/'+config()['study_id']],cwd=ROOT,capture_output=True).returncode==0:raise ValueError('Registration tag already exists; do not reuse it')
     if subprocess.check_output(['git','status','--porcelain','--untracked-files=normal'],cwd=ROOT).strip():raise ValueError('Commit implementation/protocol before freezing')
     artifact=dict(created=datetime.now(timezone.utc).isoformat(),base_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
                   source_sha256={n:sha(ROOT/n) for n in SOURCES},prompt_sha256=digest(PROMPT),config=config(),
                   status='Prospective freeze; not evidence that inference completed')
     FREEZE.write_text(json.dumps(artifact,indent=2)+'\n',encoding='utf-8',newline='\n')
-    return dict(freeze_sha256=sha(FREEZE),next='Commit this file and tag stateful-main-v1 before any main inference')
+    return dict(freeze_sha256=sha(FREEZE),next='Commit this file and tag '+config()['study_id']+' before any fresh inference')
 
 def verify_freeze():
     f=json.loads(FREEZE.read_text(encoding='utf-8'))
     if f['source_sha256']!={n:sha(ROOT/n) for n in SOURCES} or f['prompt_sha256']!=digest(PROMPT) or f['config']!=config():raise ValueError('Frozen source/config mismatch')
-    tagged=subprocess.check_output(['git','show','stateful-main-v1:research/stateful-freeze.json'],cwd=ROOT)
+    tag=config()['study_id']
+    if subprocess.run(['git','merge-base','--is-ancestor',f['base_commit'],tag+'^{}'],cwd=ROOT,capture_output=True).returncode!=0:raise ValueError('Registered implementation commit is not an ancestor of tag')
+    tagged=subprocess.check_output(['git','show',tag+':research/'+FREEZE.name],cwd=ROOT)
     if tagged.replace(b'\r\n',b'\n')!=canonical_file(FREEZE):raise ValueError('Freeze tag mismatch')
     for n in SOURCES:
-        blob=subprocess.check_output(['git','show','stateful-main-v1:'+n],cwd=ROOT)
+        blob=subprocess.check_output(['git','show',tag+':'+n],cwd=ROOT)
         if hashlib.sha256(blob.replace(b'\r\n',b'\n')).hexdigest()!=f['source_sha256'][n]:raise ValueError('Tagged source differs: '+n)
     return f
 
@@ -118,18 +150,18 @@ def run(stage,out):
     f=verify_freeze();c=config();out=Path(out).resolve()
     if not out.is_relative_to((ROOT/'runs').resolve()) or out==(ROOT/'runs').resolve():raise ValueError('Raw outputs must be in a new folder under ignored runs/')
     if stage not in ('qualification','main'):raise ValueError('Unknown stage')
-    if out!=(ROOT/('runs/stateful-'+stage)).resolve():raise ValueError('Use the fixed stage output directory; no alternative qualification/main folder')
+    if out!=run_folder(stage).resolve():raise ValueError('Use the fixed versioned stage output directory')
     if out.exists():raise ValueError('Output directory exists; no silent resume/re-run')
     keys=credentials();key=keys.get('ADAPTION_API_KEY')
     if not key:raise ValueError('Adaption key unavailable')
     if stage=='main':
         # Operational gate uses excluded qualification data only. Never select a
         # different endpoint after looking at a main/holdout result.
-        gate=ROOT/'runs/stateful-qualification/summary.json'
+        gate=run_folder('qualification')/'summary.json'
         g=json.loads(gate.read_text()) if gate.exists() else {}
         expected=sum(c['stages']['qualification']['episodes_per_family']*10*len(c['models']) for _ in c['stages']['qualification']['families'])
         if not g.get('qualification_pass') or g.get('freeze_sha256')!=sha(FREEZE) or g.get('stage')!='qualification' or g.get('attempted_calls')!=expected or g.get('planned_calls')!=expected:raise ValueError('Run/pass fixed qualification for this freeze first')
-        reservation=ROOT/'runs/stateful-main-reserved.json'
+        reservation=ROOT/('runs/'+c['study_id']+'-reserved.json')
         reservation.parent.mkdir(exist_ok=True)
         with reservation.open('x',encoding='utf-8') as fd:durable(fd,dict(out=str(out),freeze_sha256=sha(FREEZE)))
     out.mkdir(parents=True)
@@ -174,7 +206,7 @@ def run(stage,out):
                 spent+=charge
                 invalid=not isinstance(data,dict) or data.get('status')!='completed'
                 incomplete+=int(invalid)
-                row=scrub(dict(**r,transport=transport,response=data,known_usage=known,estimated_credits=str(charge),scored=classify(data,r['task']['compatible_labels'])),keys.values())
+                row=scrub(dict(**r,transport=transport,response=data,known_usage=known,estimated_credits=str(charge),scored=score_stateful(data,r['task']['compatible_labels'])),keys.values())
                 durable(responses,row);rows.append(row)
                 if not known or data.get('model')!=r['model'] or usage['input_tokens']>c['input_byte_cap'] or usage['output_tokens']>c['max_output_tokens'] or incomplete>=3 or transport.get('http_status') in (401,402,403,429):halt=True
     summary=dict(stage=stage,planned_calls=len(requests),attempted_calls=started,retained_responses=len(rows),complete=not halt and len(rows)==len(requests),
@@ -190,5 +222,5 @@ if __name__=='__main__':
     if a.command=='freeze':result=freeze()
     elif a.command=='verify-freeze':result=dict(valid=True,base_commit=verify_freeze()['base_commit'])
     elif a.command=='plan':result=dict(mode='offline metadata only; no main episodes generated',configuration=config(),prompt_sha256=digest(PROMPT))
-    else:result=run(a.stage,ROOT/(a.out or 'runs/stateful-'+a.stage))
+    else:result=run(a.stage,ROOT/a.out if a.out else run_folder(a.stage))
     print(json.dumps(result,indent=2))

@@ -1,5 +1,6 @@
 {
-  "study_id": "stateful-main-v1",
+  "study_id": "stateful-main-v2",
+  "response_encoding": "Bare JSON or one exact outer json code fence; retain strict raw validity. No semantic repair or duplicate keys.",
   "primary_model": "gemma-4-26b-a4b-it",
   "models": ["gemma-4-26b-a4b-it", "gemma-4-31b-it"],
   "max_output_tokens": 4096,
@@ -10,10 +11,10 @@
   "bootstrap_resamples": 10000,
   "heldout_family": "approval_join",
   "stages": {
-    "qualification": {"families": ["sequential", "deferred"], "episodes_per_family": 2, "seed_start": 1100000, "nominal_credit_cap": "1"},
-    "main": {"families": ["sequential", "deferred", "approval_join"], "episodes_per_family": 64, "seed_start": 2100000, "nominal_credit_cap": "20"}
+    "qualification": {"families": ["sequential", "deferred"], "episodes_per_family": 2, "seed_start": 1200000, "nominal_credit_cap": "1"},
+    "main": {"families": ["sequential", "deferred", "approval_join"], "episodes_per_family": 64, "seed_start": 2200000, "nominal_credit_cap": "20"}
   },
-  "influence": {"seed_start": 3100000, "source_episodes": 24, "model": "gemma-4-26b-a4b-it", "max_output_tokens": 512, "nominal_credit_cap": "1"},
+  "influence": {"seed_start": 3200000, "source_episodes": 24, "model": "gemma-4-26b-a4b-it", "max_output_tokens": 512, "nominal_credit_cap": "1"},
   "stopping": "STOP file; missing usage; model mismatch; usage bound; auth/billing/rate error; third incomplete. Drain started calls. No retries or outcome-based stopping.",
   "training": {"status": "conditional secondary; not part of frozen main inference", "launch": false}
 }

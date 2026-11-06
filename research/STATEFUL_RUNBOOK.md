@@ -2,6 +2,8 @@
 
 Use the repository root in PowerShell. Existing ignored `.env` keys are read by the orchestrator; never paste them into commands or reports. `python` below means a Python 3.12+ environment with `paper/requirements.txt` installed. The bundled Codex Python is also suitable. All experiment modules otherwise use the standard library. The command `plan` never accesses credentials or generates main cases.
 
+V1 remains archived: its 80-call qualification failed strict encoding validity (30 fenced answers). V2 is a dated pre-main encoding amendment, with fresh seeds and separate folders; no main outcomes informed it.
+
 ## 1. Offline validation
 
 ```powershell
@@ -15,28 +17,28 @@ These check the finite state transitions, independent oracle, malformed inputs, 
 
 ## 2. Freeze once before fresh inference
 
-The maintained repository should already contain the completed `stateful-main-v1` freeze/tag. Verify it:
+The maintained repository should already contain the completed `stateful-main-v2` freeze/tag. Verify it:
 
 ```powershell
 python -m experiments.stateful_study verify-freeze
 ```
 
-For the original registration only: commit the validated implementation and protocol with a clean working tree, run `python -m experiments.stateful_study freeze`, commit `research/stateful-freeze.json`, then create/push the annotated `stateful-main-v1` tag. Do not recreate or move this tag. It binds exact source, protocol, config and prompt hashes. Further changes require a dated amendment/new version, not editing the frozen design underneath a run. The freeze is prospective for the new study; the prior development data were already observed.
+For the original registration only: commit the validated implementation and protocol with a clean working tree, run `python -m experiments.stateful_study freeze`, commit `research/stateful-main-v2-freeze.json`, then create/push the annotated `stateful-main-v2` tag. Do not recreate or move this tag. It binds exact source, protocol, config and prompt hashes. Further changes require a dated amendment/new version, not editing the frozen design underneath a run. The freeze is prospective for the new study; the prior development data were already observed.
 
 ## 3. Qualification — four excluded sources, 80 calls
 
 ```powershell
 python -m experiments.stateful_study run --stage qualification
-python -m experiments.stateful_analysis --out runs/stateful-qualification
+python -m experiments.stateful_analysis --out runs/stateful-main-v2-qualification
 ```
 
-Uses sequential/deferred families only, both frozen endpoints and ten evidence views per source. Every call must complete with known usage and valid strict JSON. A wrong but valid answer is not a qualification failure. The nominal cap is one Adaption credit. Fixed output folder: `runs/stateful-qualification`. If it already exists, inspect the retained result; do not delete it to rerun until lucky. Failed qualification blocks main inference and needs a documented amendment if sources/settings must change.
+Uses sequential/deferred families only, both frozen endpoints and ten evidence views per source. Every call must complete with known usage and a valid exact JSON object under the frozen bare-or-single-json-fence envelope contract. A wrong but valid answer is not a qualification failure. The nominal cap is one Adaption credit. Fixed output folder: `runs/stateful-main-v2-qualification`. If it already exists, inspect the retained result; do not delete it to rerun until lucky. Failed qualification blocks main inference and needs a documented amendment if sources/settings must change.
 
 ## 4. Main benchmark — 192 fresh sources, 3,840 calls
 
 ```powershell
 python -m experiments.stateful_study run --stage main
-python -m experiments.stateful_analysis --out runs/stateful-main
+python -m experiments.stateful_analysis --out runs/stateful-main-v2-main
 ```
 
 Starts only after passed qualification for the same freeze. Each family has 64 source episodes, with both naming conditions, complete/random/selective evidence and two authentic restoration policies for selective-loss views. The approval-join family is structurally held out from model qualification. Twenty Adaption credits is the nominal ceiling, not expected consumption or a provider-enforced hard cap. Two endpoints in the same model family are not independent model-family replication. The primary estimate uses one frozen endpoint and paired source episodes; the remaining outcomes are secondary.
@@ -44,7 +46,7 @@ Starts only after passed qualification for the same freeze. Each family has 64 s
 The run may take substantially longer than qualification. Check the durable journal/response counts and summary rather than interpreting a favorable prefix. To request a graceful stop from another PowerShell window:
 
 ```powershell
-New-Item -ItemType File -Path runs/stateful-main/STOP
+New-Item -ItemType File -Path runs/stateful-main-v2-main/STOP
 ```
 
 The runner drains up to four started calls and writes a partial summary. Do not kill the process casually. If a crash occurs, retain journals and inspect `stateful_analysis`; journaled starts without results remain uncertain liabilities. A main reservation file prevents another invocation into a different folder. There is no implemented silent resume; an interrupted study must be reported or amended explicitly.
