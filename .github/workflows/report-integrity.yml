@@ -31,3 +31,12 @@ jobs:
           python -m experiments.verify_release
           python -m experiments.stateful_release verify
           python -m experiments.verify_stateful_results
+      - name: Verify live and weight registrations and public releases
+        run: |
+          python -m experiments.live_study verify
+          python -m experiments.live_continue verify
+          python -m experiments.weight_study verify
+          python -m experiments.weight_study replay
+          if [ -f research/live-results.json ]; then
+            python -m experiments.live_analysis verify
+          fi
