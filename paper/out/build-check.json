@@ -1,0 +1,8 @@
+{
+  "abstract_words": 197,
+  "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "empirical_experiments": 0
+}
