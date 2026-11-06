@@ -1,0 +1,7 @@
+{
+  "created": "2026-11-06T21:46:52.051104+00:00",
+  "canonical_sha256": "9ca524dc8a55094189a67c8a47f9a949358cc13348f029a62616403c549c5347",
+  "qualification_contexts": 6,
+  "main_contexts": 192,
+  "scope": "Pre-inference private random routes, aliases, branches and independent record namespaces; disclosed after evaluation"
+}
