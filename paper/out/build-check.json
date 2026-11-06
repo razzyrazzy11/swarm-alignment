@@ -1,30 +1,34 @@
 {
-  "abstract_words": 189,
+  "abstract_words": 194,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "e905876e7f72d3b8f9d524d06d6813836b657eb448449b7e01456ed81b1fe83d",
+  "content_sha256": "be43d56e5bd29e66a3bb1e82d7ad340797d1e6683b8273ddfce22a0c218ee906",
   "builder_sha256": "90f5c525d7c37da58b5a979efd96720e51cdefa863d041263c92009476ab4c0c",
-  "docx_sha256": "63e65bdaceb00dafcdbeb3978725fd48e712be8f692e63915b4f2e3d9f6afc10",
+  "docx_sha256": "d440fe6189723cc3f5a4e009de3910bfc38111f00f45aa900d899c07e06c3448",
   "changed_package_parts": [
     "word/document.xml"
   ],
   "evidence_status": {
-    "status": "completed stateful study",
-    "main_source_episodes": 192,
-    "main_reader_calls": 3840,
-    "hf_source_episodes": 24,
-    "hf_reader_calls": 240,
-    "influence_calls": 216,
+    "status": "completed live and weight study",
+    "live_source_clusters": 192,
+    "live_actor_calls": 720,
+    "live_audit_calls": 9360,
+    "weight_writer_calls": 144,
+    "weight_variants": 24,
     "training_runs": 0,
-    "operational_amendment": "stateful-main-v2-continuation-v1"
+    "live_freeze": "live-audit-v2",
+    "weight_freeze": "weight-audit-v1",
+    "live_operational_amendment": "live-audit-v2-continuation-v1"
   },
   "results_sha256": "76729de6bfc4b6bf76673801c7250ae7efeca19b5fa6650678c0c3ab356507e2",
-  "stateful_sources": {
-    "stateful-config.json": "854158032f4ecbba389337c0b08e6aeee73c53c14ad46a9bc122f6b43d45f811",
-    "stateful-main-v2-freeze.json": "57f533f637d465fb333b427c911d54be5a67f3f0aab9c1c720369c58b62a7f1a",
-    "stateful-main-v2-continuation-v1-freeze.json": "763718d0d5e9606f698422cbb03a6d0a4ebcfc578f64ca96bcf8ac493b55529e",
-    "stateful-qualification.json": "c64652bac1192e26f821489bacfed2f7c0cde9add6dae973e6ac8733c55b0268",
-    "hf-stateful-config.json": "e925675f9b1396999b324bd988344b068aeba6b79d81c957fa4a52dae9c34c17",
-    "stateful-hf-v3-freeze.json": "243856a41776bc1219aac8bc88884883e90258c99be27fc0f8e1a0dbc0f3bb54",
+  "live_sources": {
+    "live-config.json": "0b4cc56d148da793f886fec09592ded1747e7213ea2677d900465122a9614682",
+    "live-audit-v2-freeze.json": "b5396a08906605b352452d6c32f066707e9c0067e56dc990cb4bcc4c40a6d688",
+    "live-audit-v2-continuation-v1-freeze.json": "8e942b19e08622ac14baaf9e2e2ac46227c9ff0ecb1d49ab36f6ed89afe6901e",
+    "live-qualification-v1.json": "5ff38679bf47bd7396620cc0853bcc023e8ffb3e81c783957eac80211819c9f1",
+    "live-results.json": "01f4dff0d3d87f826bd50aad3111d97059a2af9c5de008dd4128867d875bf299",
+    "weight-config.json": "0e44fd689291637119975d87a3f46c9bac4205fe7f66c4d507866d07148e43cf",
+    "weight-audit-v1-freeze.json": "ffe4a21648b07b5d43da5f6a2e8e77ae8c29248d4a2aa6e845eb42ee2cb25834",
+    "weight-results.json": "85e1519943edad879c813c33045cc16ef25cbdba7eabb579b91b394dba63609a",
     "stateful-results.json": "f234123f460ca018eb4eacb65414c23af0d06d55cd29c77679c715f23b1306e2"
   }
 }

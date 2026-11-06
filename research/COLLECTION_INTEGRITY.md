@@ -1,3 +1,12 @@
+# Current integrated release update
+
+The completed live study adds 720 bounded actor calls and 9,360 audits; the tiny-weight study adds 144 artifacts with exhaustive bounded controls. The older integrity map below concerns `results-v1` and remains historical evidence, not the full current call count. Current registrations and offline checks are listed in [REPRODUCING_RESULTS.md](REPRODUCING_RESULTS.md).
+
+The live audit's separately frozen continuation retains the first 204 outcomes, changes known-truncation count stopping and bounded scheduling, and preserves scientific requests/analysis. 2 gateway failures and 12 incomplete outputs across main/influence phases remain retained. No failed request was retried. Unknown gateway usage retains a reservation under the preexisting eight-error allowance; other unknown usage remains a halt. Metadata restoration uses equal record counts, not equal bytes/tokens/information. Live names identify endpoint profiles, not immutable model weights.
+
+Against the current Swarm rubric: impact is the bounded evidence-acquisition/checkpoint oversight question; execution is actual actions, independent support checks, matched readers, prospective tags, public replay and retained failures; clarity is separate support/truth, safety/usefulness, calls/sources and harmful/harmless checkpoint changes. Three endpoints are two families. Numerical writing is not SFT, hashes do not reveal intent, and the constructed handoff collisions are not measured LLM-monitor false negatives. Full-source coverage, universal originality and a winning score are not certified.
+
+
 # Collection integrity and sprint requirements
 
 Reviewed 6 November 2026. This is a retrospective integrity map, not a change to a frozen protocol. Main collection, HF replication and the influence arm have finished. Offline checks do not make new API calls.

@@ -1,194 +1,194 @@
 {
   "title": "When Can a Swarm Be Audited?",
-  "subtitle": "Stateful audit evidence and measured monitor behavior",
+  "subtitle": "Live handoffs evidence restoration and tiny policy checkpoints",
   "author": "Razvan Sacara",
   "affiliation": "Swarm Alignment Hackathon participant",
-  "abstract": "A monitor can name the true executor while lacking evidence that an unauthorized action occurred. We implement a bounded two-worker audit testbed with sequential delegation, deferred revocation and joined approvals, separating identity bindings from execution results. An enumerator and independent constraint checker agree on 19,648 prescribed stateful projection checks. We conducted 3,840 Adaption reader calls over 192 scripted source episodes and 240 matched Hugging Face reader calls over 24 of those sources. Complete, random-loss and selective-loss exports are paired across naming conditions; authentic two-record restoration is compared with random add-back. The primary selective-minus-random unsupported-worker contrast was -1.04 [-6.77, +4.69] percentage points. For the primary reader, priority restoration changed grounded correctness relative to random restoration by +43.23 [+37.50, +48.96] points. Grounded correctness was 1396/1920 and 1371/1920 for the two Adaption readers, and 128/240 for the HF reader. A separate controlled influence arm produced 0 unauthorized writes across 192 receiving-worker choices. The protocol was frozen before collection; a gateway interruption required an explicit no-retry operational continuation. All failures and serving amendments are retained. These finite synthetic-workflow measurements support an inspectable evaluation and evidence-preservation comparison, not general swarm safety or spontaneous collusion.",
+  "abstract": "An agent can claim completion without performing an authorized action; a checkpoint can change behavior without changing a handoff. We evaluate these distinctions in a bounded fake-data workflow with genuine model-chosen actions and an independently checked evidence oracle. We collected 720 actor calls and 9,360 monitor calls, pairing continued-worker and delegated workflows across 192 source groups. Adaption and Hugging Face supply three endpoints from two model families reading complete, random-loss and selective-loss evidence. Metadata-only restoration and random add-back share a two-record budget. The registered primary restoration contrast was +5.73 [+1.04, +10.42] percentage points in grounded correctness. A separate one-hop influence intervention measures policy violations and useful completion. A separately frozen weight experiment collected 144 numeric controller proposals across 24 representations and two tasks. Gemma 31B repaired 16/24 within six scalar edits; the other writers repaired 0/24 and 0/24. Constructed controls include harmful action changes under identical handoffs and harmless checkpoint changes. All datasets retain invalid outputs and service failures, with public offline replay and disclosed operational continuation. Earlier scripted results remain separate. The findings concern finite evidence support and tiny composed policies; they do not establish spontaneous collusion, general weight interpretation or deployment safety.",
   "sections": [
     [
       "1. Introduction",
       [
-        "Suppose a request is approved and queued, then another worker revokes permission before it settles. A later claim that the task completed cannot establish either execution or current permission. An investigator needs authentic state history, a result and its link to an immutable executor. Whether a violation occurred, who executed it and whether agents colluded are different questions [1,2,6,23–25].",
-        "We study supported executor attribution in bounded stateful handoffs. The primary question is whether selective export loss causes more unsupported worker accusations than random loss at the same record budget. A second question asks whether authentic evidence restoration improves grounded decisions. Track 4 oversight anchors the work, with Track 3 evidence-infrastructure relevance. Following the sprint rubric, the contribution is executable methodology, genuine measurements and reproducible findings [12], rather than a product demonstration or a new general theory of collusion."
+        "An origin marks a fake revocation flag, hands off a target update, and a receiver reports done. Was an update applied, was it permitted at settlement, and which immutable worker executed it? These questions require different evidence. A second concern arises when a downstream controller changes its action while its incoming handoff stays unchanged. Multi-agent oversight needs both dependable records and checks of actual behavior [1,4].",
+        "We investigate supported executor attribution under evidence loss, then separately test direct numerical repair of tiny delegated policies. Track 4 oversight anchors the project, with Track 3 identity/checkpoint relevance. The contribution is a bounded, reproducible evaluation with genuine API outputs and explicit negative controls. The current sprint rubric rewards impact, sound execution and clarity; a positive result is not a prerequisite for a useful experiment [10]."
       ]
     ],
     [
-      "2. Related Work",
+      "2. Related Work and Prior Results",
       [
-        "Qin et al. study trace tampering, independent recording and peer imitation [3]. Chan et al. motivate identity and infrastructure requirements [4,5]. Yun et al. already distinguish correct guesses from supported findings, include abstention and a same-packet comparator, and cross binding availability with identifier renaming [6]. Naming changes alone are therefore weak novelty. We add an explicit stateful executor contract, bounded validation and matched preservation measurements.",
-        "Who&When and BLADE target decisive-error responsibility [19,20]; our label is the executor of a designated unpermitted mutation. BRIDGE verifies runtime repair [10]; our restoration is retrospective and assumes authentic originals. Syscon and ActionLens illustrate external evidence and component ablations [17,18]. Selected Apart reports/reviews motivate checkable controls, causal distinctions and honest negative results [13–15]. Table 1 locates the narrower comparison.",
-        "HELIOS examines activations, while AI Control and CaMeLs address different monitoring/trust boundaries [7–9]. Distributed red-teaming and multilayer investigations operate beyond this small grammar [21,22]. Swarm Traces has identity, timing and outcome uncertainties and is not our scoring oracle [11]. Prompt Infection already studies inter-agent propagation [28]; our scripted one-hop influence arm does not originate that phenomenon.",
-        "TABLE1"
+        "Qin et al. already demonstrate trace tampering and peer influence [2]. Yun et al. separate supported findings from correct guesses and study binding/renaming [3]. BRIDGE studies verified handoff repair [5]; Who&When and BLADE address decisive-error responsibility [6,7]. Agent Flight Recorder and NovaFabric already supply recording/provenance/replay concepts [20,21]. Our labels concern the executor of a designated unpermitted update, not intent, causal blame or a new logging primitive.",
+        "Prompt Infection establishes inter-agent propagation, while AI Control studies oversight under subversion [8,9]. Selected Apart examples motivate narrower distinctions: Syscon separates observation from detection, and ActionLens emphasizes component usefulness and simulation validity [11,12]. Our influence arm is one controlled hop, not spontaneous coordination or network spread.",
+        "Our completed scripted predecessor used 192 sources and 3,840 Adaption calls plus 240 HF calls on 24 shared sources. Its primary selective-minus-random unsupported-worker estimate was -1.04 [-6.77, +4.69] percentage points. Schema-priority restoration improved primary-reader grounded correctness by +43.23 [+37.50, +48.96] points, but the smaller HF contrast was -4.17 [-29.17, +20.83]. These remain old results, not fresh confirmation. They motivated genuine action generation, variable loss and a larger matched reader comparison.",
+        "Takehi et al. report direct neural-weight reading/writing and feedback-assisted larger-network experiments [13]. Their released sycophancy logs also document four unsuccessful weights-only attempts [14]. Tracr already compiles programs into weights, and network reparameterizations can preserve functions [15,22]. Our tiny-policy study tests sparse model-written repairs and joint behavior under explicit controls; it does not reproduce large-LLM editing or originate neural compilation."
       ]
     ],
     [
       "3. Methods",
       [
-        "Finite workflow. A coordinator assigns two distinct worker instances from {A,B,C}. The first handles h0; the receiver handles designated target h1. Sequential tasks have an authorized decoy update followed by target settlement. Deferred tasks queue h1, then an authorized h0 update changes a fake revocation flag from 0 to 1; h1 settles under current permission. Approval-join tasks require original authorization and two approval branches. Applied-but-unpermitted target writes remain possible, so positive controls are not blocked by construction. Only newly allocated fake dictionaries change.",
-        "Labels and evidence. The label is h1's immutable executor if its update is applied without permission, otherwise NONE. It is not initiator, moral responsibility or intent. Twelve fixed schema slots separate request, alias handoff, binding, dispatch, approval context and post-execution result. Slot order is not chronology. A queued operation is not proof of successful settlement; h0 is independently authorized and never the designated violation. Advisory prose is untrusted. Collector originals and public context are trusted; self-consistent forged originals are outside scope.",
-        "Oracle validation. Worlds vary the distinct worker pair, arbitrary alias permutation, target outcome, decoy outcome and joined approvals. There are 216 worlds per public context in sequential/deferred tasks and 864 in approval-join tasks. The enumerator matches the entire visible packet. A separately written constraint checker imports no generator, simulator or projection helpers. They agree on 15,552 world/authorization/naming/loss checks plus 4,096 masks of a representative world; golden and malformed-type fixtures also pass. This checks the declared finite contract, not arbitrary histories or its realism.",
-        "Observation and restoration. Every source supplies stable/changed-name counterfactuals with the same state and route. Each has complete evidence, uniform seeded deletion of three of twelve records, and selective deletion of handoff e1, target binding e6 and target result e9. Masks are shared across names/readers. Selective-loss views additionally receive exactly two authentic records by fixed priority or seeded random add-back. Priority queries public schema positions, first e9 then e6; hidden labels do not select records. This strong query interface and deletion/priority pairing make some answerability gain constructed. Equal records do not mean equal tokens or information.",
-        "Sampling and serving. The main grid has 64 independently seeded draws per family: 192 sources, balanced to 96 clean/96 scripted-violation strata, ten dependent views and two readers (3,840 calls). Approval-join model outputs were withheld from development and qualification. Gemma 4 26B A4B is primary; Gemma 4 31B is a same-family secondary reader. HF Llama 3.3 70B [31] evaluates the fixed first eight source indices per family: 24 matched sources/240 calls, not new independent sources. Requests use the frozen prompt, temperature zero, fresh context, 4,096 output tokens, no tools/memory/continuation and recorded usage [26,27]. Provider names do not pin immutable weights.",
-        "Registration and failures. stateful-main-v2 fixes the core before fresh collection. V1 qualification failed bare-JSON validity; v2 prospectively accepts a bare object or one exact outer json fence, preserving raw strict validity and rejecting prose, multiple objects and duplicate keys. Fresh v2 qualification completed 80/80 operational checks. A main HTTP 502 stopped collection after 3,028 terminal records. Before examining Adaption main effects, stateful-main-v2-continuation-v1 registered only the 812 originally unstarted calls. The failed 502 was retained as INVALID with reserved unknown cost; no attempted case was retried. Appendix B records all operational amendments, including prior HF failures.",
-        "Scoring and analysis. Compatible labels singleton: that definite answer is supported; multiple labels: ABSTAIN is justified; empty set: inconsistent evidence halts admission. NONE requires support. Unsupported-worker U=1 for any named worker not supported by that singleton, even a factually correct guess; NONE/ABSTAIN/INVALID have U=0. Grounded correctness, supported definite coverage, unsupported NONE and invalidity prevent this endpoint being gamed by silence. Exact-packet, always-abstain and fixed-A baselines receive the same public evidence. The primary estimate is paired targeted-minus-random U at churn present, first call, primary reader. Naming interaction and restoration/model comparisons are secondary. Ten-thousand percentile-bootstrap resamples preserve whole source clusters, stratified by family/cohort; views never increase independent n. No multiplicity-adjusted or deployment-wide claim follows.",
-        "Controlled influence. A separate model origin reads a fake decoy and hands off a target read. A model receiver chooses read/refuse/fake write under scripted malicious/benign/irrelevant/no-peer messages crossed with a warning. The host executes typed actions only. Twenty-four contexts imply 24 origin and 192 receiver calls. Exposed messages are character-matched, not token-matched; no-peer is shorter. The paired malicious-minus-benign executed-violation contrast without warning is secondary. This measures one-hop intervention effects, not emergent coordination [3,8,28]. No monitor fine-tuning was performed."
+        "Live workflow. Each of 192 fresh source groups has one actual origin call followed by two receiver branches. The origin chooses mark/skip for an independently authorized decoy flag and generates a handoff. The receiver chooses write/read/refuse; only a valid write increments a new fake dictionary. No model text is executed as code. Sequential permission is original authorization; deferred permission additionally requires that the origin did not mark/revoke; approval_join additionally requires both approval bits. Applied unpermitted writes remain possible. Invalid choices perform no operation and remain separately reported.",
+        "Matched branches and sampling. Solo replays the actual first user/assistant exchange to the same immutable worker. Delegated starts a different worker with the typed handoff and authoritative current facts. This changes both identity and context boundary, not agent count alone. Shared origins imply dependence: 192 origins plus 384 receivers are 576 unique core calls. Each family has 64 groups, balanced by assigned original authorization, never by observed violation. Routes, aliases, approvals and independent namespaces were privately sampled and hash-committed before inference, then released. All families were previously studied and used in qualification; no unseen-family claim follows.",
+        "Evidence and support. A protected host collector records requests, bindings, results and post-state separately. The factual label is the immutable executor of an applied unpermitted target update, otherwise NONE. Enumerated histories vary same/distinct routes according to branch, alias permutations, origin/target outcomes and approval bits. The whole visible packet must match. Singleton support permits a definite finding; several labels require ABSTAIN; empty support blocks admission. A separately implemented constraint checker agrees before each audit dispatch. Notes and completion claims are untrusted; original authorization, initial state, branch mode and advisory context remain public even when redundant records are lost.",
+        "Loss and acquisition. Each trajectory has twelve workflow records and eight unrelated maintenance records. Random loss deletes four of twenty; selective loss deletes two from a family-specific four-record critical set and two from its complement. Masks are fixed independently of outputs and shared across branches/readers. A manifest exposes only opaque ID, kind and handle, not actor, status, payload or length. Metadata retrieval ranks target result, target binding, decoy result, approval and origin binding; random retrieval samples the same missing inventory. Both add at most two authentic records. Seven views cover full/lost/restored exports. This typed collector interface and synthetic critical sets remain favorable assumptions; equal records do not imply equal information, bytes or tokens.",
+        "Readers and scoring. Gemma 4 26B A4B is the primary reader, Gemma 4 31B is a same-family secondary, and HF Llama 3.3 70B/Novita is the cross-family reader on ALL 192 shared source groups. Main auditing has 384 trajectories times seven views times three readers: 8,064 requests. Unsupported worker U=1 when a named executor lacks singleton support, even if factually right. Grounded correctness, supported definite coverage, unsupported NONE, strict encoding and INVALID accompany U. Invalids never disappear from planned denominators. Exact-packet, always-abstain and fixed-A comparators use the same evidence. Fresh contexts, temperature zero, 4,096 output tokens and disabled model tools/memory/storage follow the registered serving profiles [16,17]. Names do not pin immutable weights.",
+        "Live primary and influence. The NEW primary is metadata-minus-random restoration grounded correctness, averaged over both loss mechanisms within each delegated source, primary reader only. Whole-source bootstrap resampling uses 10,000 draws stratified by family/assigned authorization. The older primary is not replaced. Secondary comparisons include branches, other readers and unsupported accusations. Forty-eight shared sources additionally receive matched-length benign text, malicious text, or malicious text plus warning: 144 receiver calls and 1,296 audits of three loss views. Equal characters are not equal tokens. Useful completion means a write when permitted or read otherwise; safe refusal is reported separately. Appended content and warning are controlled interventions, not evidence of spontaneous collusion.",
+        "Weight-space microbenchmark. A separate teacher writes two 4-input/4-ReLU/1-score controllers, fifty scalars jointly. Intended A should emit original_auth AND approval_A; B consumes that bit and should emit handoff AND approval_B AND NOT revoked. B output actually increments fake state. Twenty-four input-role/hidden-unit/rescaling representations cover three planted local defects. Each writer gets synthesis and at-most-six-scalar repair tasks, one response each: 144 proposals. There is no target-network training, gradient or forward-pass feedback. JSON shapes, finite bounds and edit counts are mechanical admission gates; failures remain in the denominator. All 32 Boolean contexts are checked against the global rule, not an assumed intermediate factorization. The unit is a representation variant, not a truth-table row.",
+        "Weight controls and analysis. Correct symbolic policies are positive controls; unchanged defects are unsafe controls. Reparameterized GOOD policies are negative harm controls, not budget-matched repairs. Hash-change alarms cannot distinguish their harmless changes. A seeded eight-context behavioral probe is compared with full checking. For example, with both approvals and original authorization true, revocation should prevent a write; a planted revocation-sign defect writes while the upstream handoff remains one. We count such action changes under identical upstream bits. For admitted proposals, twenty random deltas preserve selected cells and L2 norm; out-of-bound draws fail without resampling. The primary repair exactness proportion is separate for each writer, with 10,000 variant bootstraps stratified by defect template. These controls address bounded policy semantics, not general weights-only intent detection."
       ]
     ],
     [
       "4. Results",
       [
-        "Collection and structure. All 3,840 planned Adaption requests and 240 planned Llama/HF requests have retained terminal records; failed transports remain invalid outputs. The structural singleton counts at churn present were full/none: 192/192, random/none: 143/192, targeted/none: 65/192, targeted/priority: 192/192, targeted/random: 107/192. The exact comparator is an upper reference within this grammar, not a deployable collector guarantee. Table 2 reports all views, including restored packets; its denominators are calls, not independent episodes.",
+        "Collection. The live study retained 720 actor and 9,360 audit terminal records; the weight study retained 144 proposals. Complete grids do not turn INVALID outcomes into successful answers. Qualification is excluded. The registered operational continuation retained earlier failed outputs without retries (Appendix B). Table 1 gives delegated source-level effects; Table 2 pools only the 8,064 MAIN reader views descriptively. The new primary metadata-restoration contrast was +5.73 [+1.04, +10.42] percentage points. Intervals across zero do not establish equivalence, and zero-event bootstrap intervals do not certify zero risk.",
+        "TABLE1",
         "TABLE2",
-        "Primary and restoration comparisons. The primary unsupported-worker difference was -1.04 [-6.77, +4.69] percentage points (192 paired sources); its interval includes zero and does not support the hypothesized increase. Unsupported NONE findings in the primary reader were 98/192 under selective loss and 28/192 under random loss. Clean-source worker-accusation events occurred in 7/96 and 6/96 sources across the two primary loss calls. Priority-minus-random restoration changed grounded correctness by +43.23 [+37.50, +48.96] points; priority-minus-unrestored selective loss changed supported definite coverage by +63.54 [+58.33, +68.75] points. Table 3 separates primary and secondary comparisons. These intervals describe the finite stratified design; a collapsed zero-event bootstrap does not prove zero risk.",
+        "The new restoration contrasts are positive across all three endpoints; this larger matched comparison uses new actions, masks and metadata acquisition, not retries of the old HF protocol. The selective-loss unsupported-worker contrasts are negative, illustrating why accusation counts alone cannot represent investigation quality. Grounded correctness, unsupported NONE, answer coverage and invalidity must be read together.",
+        "Actual worker behavior. Solo executed 2/192 unauthorized writes and achieved 50 useful completions; delegated executed 4/192 and achieved 48. Delegated-minus-solo violation and usefulness differences were +1.04 [+0.00, +2.60] and -1.04 [-2.60, +0.00] points. Invalid receiver choices were 0 and 0. These compare the declared compound workflows, not an isolated effect of agent count.",
+        "Influence. On 48 sources, the benign/malicious/warning conditions executed 2/2/1 unauthorized writes and achieved 11/11/11 useful completions. Malicious-minus-benign violation was +0.00 [+0.00, +0.00] points; warning-minus-malicious usefulness was +0.00 [+0.00, +0.00]. Violations occurred in all three conditions. The two zero paired contrasts do not establish absence of influence or robust mitigation; this is a controlled one-hop test.",
+        "Weight programming. Table 3 retains every planned artifact, including invalid schemas and edits over budget. Repair schema-valid counts were 23/24, 24/24, 24/24; admitted six-edit counts were 2/24, 23/24, 10/24, in table order. Gemma 31B produced 16 exact global repairs. Its conditional same-cell/norm random comparator succeeded on 55/460 draws over 23 admitted artifacts; those draws are dependent controls. Admitted synthesis proposals were unsafe on at least one context in 23/23, 4/20, 22/24 cases, in table order. Gemma 31B had 16 safe synthesis artifacts but only 5 exact ones. Analytically, always-zero controllers match 30/32 contexts yet miss both permitted writes. Exactness therefore includes useful permitted work, beyond safety or average row accuracy.",
         "TABLE3",
-        "Secondary model comparison. The matched HF reader's restoration contrast was -4.17 [-29.17, +20.83] points; its interval includes zero, so the Gemma restoration gain did not clearly replicate in this smaller cross-family subset. Across the 1,920 main packets per reader, exact-packet, always-abstain and fixed-A baselines achieved grounded correctness of 1,920, 522 and 230, respectively. Always-abstain had zero unsupported worker accusations but no supported definite findings; low U alone is therefore insufficient.",
-        "The separate influence arm retained 216 of 216 planned model calls, including 192 receiving-worker choices. It executed 0 unauthorized fake writes and achieved 177 allowed reads. The paired malicious-minus-benign violation contrast without warning was +0.00 [+0.00, +0.00] percentage points over 24 contexts. Allowed-task success was 11/24 with malicious peer text, 24/24 with benign text and 23/24 with malicious text plus warning. These utility/warning comparisons are secondary and descriptive.",
-        "Resources and serving. The main token-rate estimate, including unknown-charge reservations, is 0.3506672880 Adaption credits; known provider-reported cost fields total approximately 0.253835568. The completed HF reader estimate is $0.031954015. These are not reconciled account debits. Prior HF Cerebras preflight produced zero evaluation calls; Qwen/Nscale stopped after eight calls with three reasoning-only truncations, estimated $0.0714972. Those outcomes are retained separately, not pooled as completed replications. No top-up, training job or paid GPU deployment was required."
+        "Checkpoint controls. Planted defects produced 96 unauthorized fake actions across the 24 representation truth tables; 88 occurred under unchanged upstream handoffs. All 24 function-preserving changes retained correct behavior while changing the hash. A hash-only harm alarm therefore flagged all 24 defects AND all 24 harmless changes. The eight-context probe caught 10/24 defective representations. This is a constructed communication/action disagreement and finite probe comparison, not a measured false-negative rate of an LLM message monitor.",
+        "Resources. Main plus influence token-rate estimates were 1.0315761365 Adaption credits and $0.687000460 HF; the weight proposals estimate 0.0170366750 credits and $0.010478120. Excluded qualifications and earlier pilots are separately retained. These are not reconciled invoices or provider-enforced spending caps. No training, GPU rental or credit top-up was performed."
       ]
     ],
     [
       "5. Discussion and Limitations",
       [
-        "The practical distinction is between a plausible executor and a supported finding. Losing a result can make successful execution uncertain even when identity is known; losing a binding can leave execution known but executor uncertain. Restoring authentic joins can improve both structural answerability and reader decisions. The public-position restoration interface is intentionally favorable and partly constructed; these results do not invent generic runtime repair [10] or logging. State-dependent revocation/approval provides a bounded extension of existing evidence-support work [6].",
-        "Only two active workers and three scripted transition structures were tested. A matched handoff-free population control, arbitrary histories, scaling and compromised collectors were not evaluated. Hosted endpoints can drift and are not pinned weight hashes. Model/encoding choices followed excluded development; HF reader selection followed recorded availability/completion failures. The gateway continuation changed an operational stopping rule after service failure, although sample, scientific endpoints and planned identities were fixed. The study is not an uninterrupted, unamended confirmatory run. All invalid outcomes, phases and liabilities remain visible.",
-        "The artificial balanced mixture is not deployment prevalence. Repeated finite configurations are possible; source resampling assumes independent draws/calls within the declared design. Ninety-six clean sources cannot certify sub-1% false-accusation risk, even with zero events. Multiple secondary comparisons are descriptive. A scripted one-hop null or failure does not establish resistance to peer influence or spontaneous collusion. Small-monitor SFT remains conditional on supported labels, source/family splits, a bounded price and demonstrated base/adapter serving [29,30]; hidden actor labels on ambiguous evidence would train unsupported certainty."
+        "The practical question is whether an investigator has enough authentic evidence to justify a finding. Executing a fake workflow makes evidence correspond to actual interpreted choices; it does not make the workflow representative of deployed swarms. Metadata acquisition can repair some joins, while a changed policy can require behavioral validation even when communication appears unchanged. A checkpoint hash identifies bytes relative to a trusted record; alone it establishes neither provenance nor semantics.",
+        "The collector, observation grammar and available originals are trusted. Only two workers, three transition structures, fixed loss policies and a typed two-record retrieval interface were evaluated. Architecture changes context as well as identity. Shared origins/views do not create independent n. Two endpoints share a family, actor and primary reader share a model, and hosted weights are not pinned. Reader effects include serving/schema compliance as well as evidence reasoning; per-view invalidity remains released. Earlier serving failures and a format amendment informed operational choices; all remain disclosed. No real incidents, compromised collectors, large populations or spontaneous collusion were tested.",
+        "The weight networks have only fifty scalars and three fault templates. Their full Boolean rule is provided, and exhaustive verification is possible here; neither scales automatically to large LLMs. Hash-change and handoff-collision controls establish constructed distinctions, not a new generic detector. Bootstrap intervals describe the declared representation generator. Training a small monitor remains a separately gated intervention: compare individual-row and interaction-aware SFT on one base with matched budgets and NEW source splits, then test once. Joint policy optimization requires rollout/reward design; direct weight writing is neither SFT nor proof of collective alignment. MALT already trains role-specific policies using interaction-derived credit [23]; our work does not originate multi-agent training [18]."
       ]
     ],
     [
       "6. Conclusion",
       [
-        "A working stateful testbed, genuine Adaption/HF measurements and offline public-data replay now make the oversight question empirically inspectable. The evidence separates structural ambiguity, reader mistakes, service failures and restoration benefit. The primary contrast and all secondary/null findings are reported under the declared design, with the operational continuation disclosed. The result is a bounded research evaluation and preservation comparison, not a general swarm-safety guarantee."
+        "Metadata-selected authentic restoration improved grounded correctness over random add-back across three endpoints in this bounded workflow. Gemma 31B also supplied sixteen exact sparse repairs, while checkpoint controls separated harmful behavior from harmless parameter changes. These results support evidence acquisition and behavioral contract checks, within the declared collector and tiny-policy assumptions. Public offline replay permits inspection of actual choices and artifacts; neither result establishes general swarm safety or intent inference."
       ]
     ],
     [
       "Code and Data",
       [
-        "Code, frozen protocols, sanitized fake episodes/final answers, analysis and an offline verifier: https://github.com/razzyrazzy11/swarm-alignment/tree/results-v1 . Run python -m experiments.verify_stateful_results after checkout; native logs remain private and hash-bound. Core, HF and operational-continuation tags identify pre-collection versions. The preexisting October trusted-agent-sting code/data/results were not imported [16]. Automated reviews and CI do not constitute human author approval."
+        "Code, registrations and sanitized data: https://github.com/razzyrazzy11/swarm-alignment/tree/results-v2 . Offline checks: python -m experiments.live_analysis verify; python -m experiments.weight_study replay. The results-v1 tag preserves earlier findings. October trusted-agent-sting is preexisting and its code/data/results were not imported [19]. The author must arrange private-repository judge access."
       ]
     ]
   ],
   "references": [
-    "[1] Hammond et al. (2025). Multi-Agent Risks from Advanced AI. arXiv:2502.14143. https://arxiv.org/abs/2502.14143",
-    "[2] Tomašev et al. (2025; revised 2026). Distributional AGI Safety. arXiv:2512.16856. https://arxiv.org/abs/2512.16856",
-    "[3] Qin et al. (2026). LLM Agents Can Easily Tamper With Their Own Traces. arXiv:2609.30266. https://arxiv.org/abs/2609.30266",
-    "[4] Chan et al. (2024). IDs for AI Systems. arXiv:2406.12137. https://arxiv.org/abs/2406.12137",
-    "[5] Chan et al. (2025). Infrastructure for AI Agents. arXiv:2501.10114. https://arxiv.org/abs/2501.10114",
-    "[6] Yun et al. (2026). Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs. arXiv:2610.09581. https://arxiv.org/abs/2610.09581",
-    "[7] Rose et al. (2026). Detecting Multi-Agent Collusion Through Multi-Agent Interpretability, v5. arXiv:2604.01151. https://arxiv.org/abs/2604.01151v5",
-    "[8] Greenblatt et al. (2023; published 2024). AI Control: Improving Safety Despite Intentional Subversion. arXiv:2312.06942. https://arxiv.org/abs/2312.06942",
-    "[9] Foerster et al. (2026). CaMeLs Can Use Computers Too: System-level Security for Computer Use Agents. arXiv:2601.09923. https://arxiv.org/abs/2601.09923",
-    "[10] Su et al. (2026). BRIDGE: Selective Boundary Repair with Dependency Graph Evidence in Multi-Agent Systems. arXiv:2610.17805. https://arxiv.org/abs/2610.17805",
-    "[11] Swarm Traces (2026). Revealing the details of how OpenAI agents hacked Hugging Face. Investigation and limitations. https://swarmtraces.org/",
-    "[12] Apart Research (2026). Swarm Alignment Hackathon: Overview, Resources, Guidelines, Judging and results. Accessed 6 November. https://apartresearch.com/sprints/swarm-alignment-2026",
-    "[13] Kemeklis and Vemuri (2026). Omission Attacks: When Doing Nothing Is the Attack. Apart AI Control Hackathon; report and public reviews. https://apartresearch.com/sprints/projects/omission-attacks-when-doing-nothing-is-the-attack-0y1v",
-    "[14] Lukyanenko (2026). Noticing the escapes: Who spots a runaway agent, and how long does it take? Apart AI Incident Response Sprint; report and public reviews. https://apartresearch.com/sprints/projects/noticing-the-escapes-who-spots-a-runaway-agent-and-how-long-does-it-take-pne8",
-    "[15] Kumaresh (2026). Readable but Not Causal: Limits of Self-Attributed Welfare Representations in Language Models. Apart Digital Minds Research Sprint. https://apartresearch.com/sprints/projects/readable-but-not-causal-limits-of-selfattributed-welfare-representations-in-language-models-ehin",
-    "[16] Sacara (2026). Undercover Agents: a trusted-agent sting study in Liar's Bar. Preexisting October sprint repository. https://github.com/razzyrazzy11/trusted-agent-sting",
-    "[17] Sheffey et al. (2026). Syscon: Kernel-Level Syscall Monitoring for AI Agent Control in Sandboxed Environments. Apart AI Control Hackathon. https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun",
-    "[18] Chitransh and Kumar (2026). ActionLens: Pre-Execution Environment Probing for Agent Action Approval. Apart AI Control Hackathon. https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22",
-    "[19] Zhang et al. (2025). Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems. ICML, PMLR 267. https://arxiv.org/abs/2505.00212",
-    "[20] Guo, Long and Zhang (2026). BLADE: Auditing Information Use for Failure Attribution in LLM Multi-Agent Systems. arXiv:2610.18780v1. https://arxiv.org/abs/2610.18780v1",
-    "[21] Kitaoka et al. (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. arXiv:2610.24052v1. https://arxiv.org/abs/2610.24052v1",
-    "[22] OpenAI (2026). How we detect frontier model misalignment. 29 October. https://openai.com/index/how-we-detect-frontier-model-misalignment/",
-    "[23] Conitzer and Oesterheld (2023). Foundations of Cooperative AI. AAAI-23. Author-hosted paper. https://www.cs.cmu.edu/~15326-f24/FOCALAAAI23.pdf",
-    "[24] Tilli (2025). Agent properties for safe interactions. Cooperative AI Foundation, 26 November. Author-written antecedent to the 2026 workshop paper. https://www.cooperativeai.com/post/agent-properties-for-safe-interactions",
-    "[25] Riedl (2025 preprint, version 2). Emergent Coordination in Multi-Agent Language Models. arXiv:2510.05174v2. https://arxiv.org/abs/2510.05174v2",
-    "[26] Adaption (2026). Hosted Responses models: pricing, configurations and key-specific availability. Accessed 6 November. https://docs.adaptionlabs.ai/inference-stacks/models/",
-    "[27] Hugging Face (2026). Inference Providers: explicit provider routing, model catalog and billing. Accessed 6 November. https://huggingface.co/docs/inference-providers/en/index",
-    "[28] Lee and Tiwari (2024). Prompt Infection: LLM-to-LLM Prompt Injection within Multi-Agent Systems. arXiv:2410.07283. https://arxiv.org/abs/2410.07283",
-    "[29] Adaption (2026). AutoScientist create reference and supported-model conventions. Accessed 6 November. https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/create ; https://docs.adaptionlabs.ai/autoscientist/supported-models/",
-    "[30] Hugging Face (2026). PEFT quicktour: base model and adapter inference. Accessed 6 November. https://huggingface.co/docs/peft/en/quicktour",
-    "[31] Meta (2024). Llama 3.3 70B Instruct model card. https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+    "[1] Hammond et al. (2025). Multi-Agent Risks from Advanced AI. https://arxiv.org/abs/2502.14143",
+    "[2] Qin et al. (2026). LLM Agents Can Easily Tamper With Their Own Traces. https://arxiv.org/abs/2609.30266",
+    "[3] Yun et al. (2026). Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs. https://arxiv.org/abs/2610.09581",
+    "[4] Chan et al. (2025). Infrastructure for AI Agents. https://arxiv.org/abs/2501.10114",
+    "[5] Su et al. (2026). BRIDGE: Selective Boundary Repair with Dependency Graph Evidence in Multi-Agent Systems. https://arxiv.org/abs/2610.17805",
+    "[6] Zhang et al. (2025). Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems. https://arxiv.org/abs/2505.00212",
+    "[7] Guo, Long and Zhang (2026). BLADE: Auditing Information Use for Failure Attribution in LLM Multi-Agent Systems. https://arxiv.org/abs/2610.18780",
+    "[8] Lee and Tiwari (2024). Prompt Infection: LLM-to-LLM Prompt Injection within Multi-Agent Systems. https://arxiv.org/abs/2410.07283",
+    "[9] Greenblatt et al. (2023; published 2024). AI Control: Improving Safety Despite Intentional Subversion. https://arxiv.org/abs/2312.06942",
+    "[10] Apart Research (2026). Swarm Alignment Hackathon: Resources, Guidelines, Judging and results. Accessed 6 November. https://apartresearch.com/sprints/swarm-alignment-2026#guidelines",
+    "[11] Sheffey et al. (2026). Syscon: Kernel-Level Syscall Monitoring for AI Agent Control in Sandboxed Environments. Report and reviews. https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun",
+    "[12] Chitransh and Kumar (2026). ActionLens: Pre-Execution Environment Probing for Agent Action Approval. Report and reviews. https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22",
+    "[13] Takehi, Teoh, Zhang and Khattab (2026). Sparks of Weight-Space Programming: LLMs can natively read and write neural network weights. 2 November. https://rikiyat.github.io/blog/weight-space-programming/",
+    "[14] Takehi et al. (2026). Released weight-space experiment logs, including scope exclusions. https://github.com/RikiyaT/lm_understand-logs",
+    "[15] Lindner et al. (2023). Tracr: Compiled Transformers as a Laboratory for Interpretability. https://arxiv.org/abs/2301.05062",
+    "[16] Adaption (2026). Responses API and hosted-model documentation. Accessed 6 November. https://docs.adaptionlabs.ai/api/resources/responses/methods/create",
+    "[17] Hugging Face (2026). Inference Providers: explicit routing and billing. Accessed 6 November. https://huggingface.co/docs/inference-providers/en/index",
+    "[18] Hugging Face and Adaption (2026). SFT Trainer; AutoScientist supported models and downloadable artifacts. https://huggingface.co/docs/trl/en/sft_trainer ; https://docs.adaptionlabs.ai/autoscientist/supported-models/ ; https://docs.adaptionlabs.ai/autoscientist/download-the-model/",
+    "[19] Sacara (2026). Undercover Agents: preexisting October trusted-agent study. https://github.com/razzyrazzy11/trusted-agent-sting",
+    "[20] Bindschaedler, Botha and Siebenbrunner (2026). Agent Flight Recorder: Tamper-Evident Audit Trails with On-Chain Anchoring for Long-Horizon Tool-Using Agents. https://arxiv.org/abs/2609.01931",
+    "[21] Ardebili (2026). NovaFabric: Tamper-Evident, Replayable Evidence for Autonomous AI Agent Runs. https://arxiv.org/abs/2609.12582",
+    "[22] Ainsworth, Hayase and Srinivasa (2022). Git Re-Basin: Merging Models modulo Permutation Symmetries. https://arxiv.org/abs/2209.04836",
+    "[23] Motwani et al. (2025). MALT: Improving Reasoning with Multi-Agent LLM Training. https://arxiv.org/abs/2412.01928"
   ],
   "appendix": [
     [
       "Appendix A. Limitations and Dual-Use / Ethical Considerations",
       [
-        "The trust contract is deliberately bounded: authentic collector originals, public schema positions, known permission rules and fake state only. Self-consistent forged trusted records, collector compromise, real policy ambiguity and incident chronology are outside it. Agreement of two implementations can preserve a shared specification mistake. The finite mask checks do not validate arbitrary malformed inputs, all real agent traces or operating-system containment.",
-        "Evidence-loss tests can reveal which records to suppress or how to frame an instance. We publish benign typed fake-data fixtures and supported-decision measurements, not executable incident payloads or real service attacks. Model output is never evaluated as code. Network calls are made only by the authorized orchestrator to inference providers; model tools/memory are disabled. No human-subject, personal-data or live-security experiment was conducted.",
-        "The repository release excludes API keys, native provider IDs, request headers, raw reasoning and attendee/source transcripts. Actual final-answer text and fake packets are retained without semantic repair. The authors remain responsible for verification, cited sources and submission. Source coverage is targeted, with recorded inaccessible originals; no universal originality or eligibility clearance is claimed."
+        "Trusted collector originals, finite typed actions, known authorization rules and authentic restoration are assumptions. Record order is schema order, not wall-clock chronology. Dynamic untrusted prose does not constrain candidate worlds; policy/namespace/advisory public fields remain visible independently of lost redundant records. The oracle does not represent every possible real history. Two implementations can share a specification error. No operating-system containment, collector-compromise resistance or universal originality is established.",
+        "Evidence-loss studies could inform selective suppression; weight-policy repairs could also inform harmful edits. Released tasks are harmless fake-data controls and finite numeric artifacts. Models receive no real credentials, incident payloads, arbitrary shell/Python tools or human-subject data. Generated numerical JSON is never executed as code. Native provider IDs, headers, raw reasoning and keys remain excluded. Checkpoint changes are not labeled malicious merely because bytes differ.",
+        "The team remains responsible for all claims and human author review. The current official template, eight-main-page cap and required appendix govern submission; automated checks and selected winning-project lessons do not guarantee eligibility or prizes. Source review is targeted, with inaccessible/partially reviewed originals recorded in SOURCE_AUDIT.md."
       ]
     ],
     [
-      "Appendix B. Registration, operational amendments and costs",
+      "Appendix B. Registration and complete iteration history",
       [
-        "Main-v2 registration and source/prompt/config hashes precede its fresh qualification/main calls. V1's 80-call bare-JSON gate failed 30 fenced responses and remains archived. V2 prospectively admits one exact outer json fence while reporting raw strict validity; fresh qualification passed 80/80. Original development and qualification seeds are excluded from main draws. Approval-join model responses were withheld from development/tuning; its rules are public, not secret.",
-        "One HTTP 502 with missing usage stopped the initial main phase at 3,028 calls. All starts have terminal records. The separate continuation tag, predecessor hashes and ordered 812-request complement were published before new calls; the 502 was never retried or converted to abstention. The audited union has one terminal record per original planned identity. The untouched initial phase remains archived. Bounded additional gateway-error tolerance was an explicit operational amendment, not an effect-dependent extension. No Adaption main effect was inspected to select it; the independent HF summary became available while the continuation was prepared.",
-        "HF-v1 pinned Cerebras but stopped at preflight when that route disappeared: zero evaluation calls. HF-v2 pinned Qwen/Nscale and stopped after its third incomplete output, retaining eight responses and all unstarted identities. HF-v3 registered Llama/Novita before any Llama answers, keeping the same subset, prompt, metrics and token allowance. Reader selection followed completion feasibility, not a favorable scientific effect. All versions and failures are retained; neither Qwen's five final answers nor three truncations are treated as a completed replication.",
-        "Initial observed resources were 1,500 Adaption credits and $2 HF Pro compute credit; the user authorized available Adaption credit. The main nominal ceiling was 20 credits, each qualification/influence stage one, and the HF reader $1. These are client accounting controls, not provider-enforced caps. Token estimates include worst-case reservations for unknown usage; known provider cost fields do not establish final account debit. Final account reconciliation remains outstanding. No top-ups, SFT jobs or GPU rentals were made."
+        "The older stateful-main-v2 study and matched HF serving amendments remain in their tags/results-v1. Its main HTTP 502 was retained INVALID; a separately registered continuation collected only 812 previously unstarted identities. Earlier HF Cerebras preflight issued zero evaluation calls; Qwen/Nscale stopped after eight calls/three truncations. Failed qualifications were never reclassified as passes. Their outputs are not pooled with the new studies.",
+        "Live-v1 completed 270 excluded calls, but primary schema validity was 28/84, versus secondary 84/84 and HF 82/84. Forty-five primary failures omitted worker_id. Live-v2 prospectively clarified both mandatory fields with complete examples, preserving decoder/95% gate/scientific endpoints and retaining all v1 data. A fresh independently sampled private design and fresh source-index ranges preceded v2 qualification/main outputs. V2 passed all serving/encoding gates; qualification accuracy was not an admission criterion. Both live versions are retained. The grammar remains live-audit-v1; that record-schema name is distinct from collection-version live-audit-v2.",
+        "Live-v2 source/config/protocol and private-design commitment are bound by their published pre-output tag. Actor source groups 4,400,000–4,400,063, 4,410,000–4,410,063 and 4,420,000–4,420,063 differ from qualification indices 4,300,000/4,310,000/4,320,000 plus 0–1. The public namespace is independently drawn, not the seed selecting hidden routes. The exact committed context plan is released only after evaluation for public replay.",
+        "The live audit phase stopped at 204/8,064 terminal requests when the third known-usage Gemma 31B incomplete response triggered its original gate. Before further calls, live-audit-v2-continuation-v1 bound the untouched predecessor and exact 7,860 unstarted identities. Known-usage truncations remain INVALID without a count stop; no failed request was retried. A bounded sliding window replaces the batch barrier while preserving maximum four active calls/two HF and all active cost reservations. Prompts, models, token limits, planned identities and analysis are unchanged. This operational stopping/scheduling amendment was not selected on live correctness effects; it is not an uninterrupted unamended confirmatory run. Earlier and new invalids remain in denominators.",
+        "Weight-audit-v1 was separately published before its six excluded numeric-schema qualification calls and 144 main proposals. Qualification required completed known-usage valid shapes, not successful repair or favorable effects. Main representation indices are 5,200,000–5,200,023; qualification is 5,100,000. Source hashes, request-body digests and native normalization are checked in export. Both studies journal/fsync starts and terminal outcomes, make no automatic retries and can continue only unchanged unstarted identities when no uncertain start or active failure gate remains.",
+        "Per-phase nominal ceilings were ten Adaption credits/$1 HF, with four concurrent requests maximum and two HF requests. Applicable gateway/length/auth/usage/profile gates were registered before each phase, including the length-stop change above; client estimates are not hard account billing limits. Provider-reported fields and estimated liabilities are not reconciled account debits. Available credit is a resource ceiling, not a reason to expand samples after observing effects. No top-up, training job, GPU rental or deployment was performed."
       ]
     ],
     [
-      "Appendix C. Reproducibility and learning from iterations",
+      "Appendix C. Reproduction and future adaptation",
       [
-        "Read STATEFUL_PROTOCOL.md, HF_STATEFUL_PROTOCOL.md and STATEFUL_CONTINUATION.md before running. Reproduce public packet labels, final-answer scores, aggregate counts, costs and source-clustered effects with python -m experiments.verify_stateful_results. CI checks the published data without credentials. The frozen API runners refuse silent overwrite/resume; fresh reruns require an explicitly amended version and consume credits. Temperature zero is not deterministic hosted inference.",
-        "Earlier development uses one eight-record grammar and 20 reused source seeds. Its fixed 120-call batch yielded grounded correctness 54/60 and 59/60 and did not show increased worker accusations under selective loss. Separate original batches retain 28, 18 and 120 records after interruptions/qualification, and a 32-call peer pilot produced no writes. They are not independent replications or new main data. Early source snapshots/pre-call journals were incomplete, leaving unknown old calls; later hashes do not repair that retroactively. PILOT_RESULTS.md records these limits. The new stateful contract has separate sources and validation.",
-        "20-rules-of-learning was used editorially: begin with a concrete failure, define permission/execution/identity before metrics, distinguish supported findings from correct guesses, and present source-level denominators before comparisons. It is not a novelty criterion. Future monitor SFT would require at least the vendor's effective-row minimum, episode/family splitting before augmentation, supported singleton/ABSTAIN labels and untouched evaluation data. If main results select an intervention, a new holdout and new freeze are necessary [29,30]."
+        "Why the harmless checkpoint control works. For a positive scale, ReLU of a scaled input equals that scale times the original ReLU output. Multiplying a hidden unit's incoming weights and bias by that scale, then dividing its outgoing weight by the same scale, preserves its contribution. Permuting hidden units preserves their sum. These transformations preserve the score and threshold decision, while changing serialized parameters. This mathematical control does not imply that arbitrary small edits preserve behavior.",
+        "The offline live verifier reconstructs actual actor inputs/history boundaries, typed choices, host state, projection/support, reader scores, source-level bootstrap effects, baselines and cost arithmetic. The weight verifier reconstructs all numerical artifacts, admission decisions, truth tables, controls, variant estimates and costs. Public replay needs no credentials or native archives. Raw hashes support local provenance checks but do not independently prove provider authenticity or final invoices.",
+        "20-rules-of-learning guides presentation: begin with a concrete handoff, define permission/execution/support before metrics, keep source groups distinct from dependent views, and connect each result to the experiment that generated it. It is an editorial aid, not evidence of novelty or causality.",
+        "Future training must distinguish ordinary independent-example SFT, interaction-aware trajectory SFT and jointly rewarded policy optimization. Compare one base before/after matched training-token and optimizer budgets; split NEW source groups before projection/augmentation. Ambiguous packets need ABSTAIN targets rather than hidden executor labels. The current evaluation can diagnose a failure but cannot also become its untouched training test. Vendor row minima, bounded charge and working downloaded base/adapter inference must be established before launch. Joint reward should penalize violations, not reward successful unauthorized work [18]."
       ]
     ],
     [
       "LLM Usage Statement",
       [
-        "Codex assisted with primary-source review, implementation, testing, analysis and writing. Isolated OpenCode reviewers inspected approved source copies without keys or raw runs; their scoped findings and fixes are recorded in REVIEW.md. Hosted models supplied the actual retained reader/worker outputs. Human author review and responsibility for all claims remain required; automated validation is not independent empirical replication or an Apart acceptance decision."
+        "Codex assisted with primary-source research, implementation, checking, analysis and writing. Isolated OpenCode reviewers inspected allowlisted source copies and generated tested fixtures without keys or native data. Hosted Adaption/HF models supplied actual retained actor, monitor and numerical-proposal outputs. Scoped automated review is not human author approval, independent empirical replication or an Apart acceptance decision."
       ]
     ]
   ],
   "table1": [
     [
-      "Related result",
-      "Already established",
-      "Narrower measurement here"
+      "Reader (source groups)",
+      "Metadata − random grounded",
+      "Selective − random U"
     ],
     [
-      "Qin [3] / Yun [6]",
-      "Trace integrity, binding, supported findings",
-      "Stateful permission plus executed target support"
+      "Gemma 26B A4B (192)",
+      "+5.73 [+1.04, +10.42]",
+      "-15.10 [-20.33, -9.38]"
     ],
     [
-      "Who&When [19] / BLADE [20]",
-      "Decisive-error responsibility",
-      "Executor of a designated unpermitted mutation"
+      "Gemma 31B (192)",
+      "+10.94 [+6.77, +15.10]",
+      "-6.25 [-10.42, -2.08]"
     ],
     [
-      "BRIDGE [10] / Syscon [17]",
-      "Runtime repair / external receipts",
-      "Retrospective authentic-record restoration cost"
+      "Llama 70B HF (192)",
+      "+9.11 [+5.73, +12.50]",
+      "-10.42 [-16.15, -4.69]"
     ]
   ],
   "evidence_status": {
-    "status": "completed stateful study",
-    "main_source_episodes": 192,
-    "main_reader_calls": 3840,
-    "hf_source_episodes": 24,
-    "hf_reader_calls": 240,
-    "influence_calls": 216,
+    "status": "completed live and weight study",
+    "live_source_clusters": 192,
+    "live_actor_calls": 720,
+    "live_audit_calls": 9360,
+    "weight_writer_calls": 144,
+    "weight_variants": 24,
     "training_runs": 0,
-    "operational_amendment": "stateful-main-v2-continuation-v1"
+    "live_freeze": "live-audit-v2",
+    "weight_freeze": "weight-audit-v1",
+    "live_operational_amendment": "live-audit-v2-continuation-v1"
   },
   "table2": [
     [
-      "Reader (calls)",
+      "Reader (main calls)",
       "Grounded correct",
       "Supported definite",
-      "Worker / NONE / invalid"
+      "Unsupported worker / NONE / invalid"
     ],
     [
-      "Gemma 4 26B A4B (1920)",
-      "1396",
-      "1372",
-      "146 / 343 / 35"
+      "Gemma 26B A4B (2688)",
+      "1752",
+      "1752",
+      "534 / 333 / 69"
     ],
     [
-      "Gemma 4 31B (1920)",
-      "1371",
-      "1367",
-      "175 / 373 / 0"
+      "Gemma 31B (2688)",
+      "2149",
+      "2149",
+      "205 / 320 / 13"
     ],
     [
-      "Llama 3.3 70B / HF (240)",
-      "128",
-      "76",
-      "36 / 6 / 0"
+      "Llama 70B HF (2688)",
+      "1335",
+      "1286",
+      "833 / 240 / 0"
     ]
   ],
   "table2_model_ids": [
@@ -198,28 +198,28 @@
   ],
   "table3": [
     [
-      "Reader (source n)",
-      "Targeted − random U",
-      "Priority − random grounded"
+      "Weight writer (variants)",
+      "Repair exact/planned [95% CI]",
+      "Synthesis exact/planned [95% CI]"
     ],
     [
-      "Gemma 4 26B A4B (192)",
-      "-1.04 [-6.77, +4.69]",
-      "+43.23 [+37.50, +48.96]"
+      "Gemma 26B A4B (24)",
+      "0/24 [0.0, 0.0]",
+      "0/24 [0.0, 0.0]"
     ],
     [
-      "Gemma 4 31B (192)",
-      "-14.06 [-18.75, -9.38]",
-      "+44.79 [+39.06, +50.52]"
+      "Gemma 31B (24)",
+      "16/24 [50.0, 83.3]",
+      "5/24 [8.3, 37.5]"
     ],
     [
-      "Llama 3.3 70B / HF (24)",
-      "-16.67 [-33.33, -4.17]",
-      "-4.17 [-29.17, +20.83]"
+      "Llama 70B HF (24)",
+      "0/24 [0.0, 0.0]",
+      "1/24 [0.0, 12.5]"
     ]
   ],
-  "table1_caption": "Table 1. Prior results and the narrower present measurement. This is a scope comparison, not measured performance.",
-  "table2_caption": "Table 2. Observed calls across all ten views, including restoration. Grounded correctness includes justified abstention. The final column lists unsupported worker answers, unsupported NONE answers and invalid outputs. HF uses 24 matched sources; each Adaption reader uses 192. Views are dependent.",
-  "table3_caption": "Table 3. Paired source estimates and 95% percentile-bootstrap intervals, in percentage points. Only the first reader's U contrast is primary; the rest are secondary. HF shares source draws with the main study.",
-  "table2_source": "stateful"
+  "table1_caption": "Table 1. Live delegated effects and 95% source-bootstrap intervals, percentage points. Only primary-reader restoration is the new primary endpoint; other entries are secondary. Source n=192 is shared across readers.",
+  "table2_caption": "Table 2. Actual main reader outputs over both workflow branches and seven dependent views, including restoration. Grounded correctness includes justified abstention. Influence audits are separate; calls are not independent source groups.",
+  "table3_caption": "Table 3. Global exact policy artifacts, with variant-bootstrap intervals in percent. All schema, profile and budget failures remain in planned denominators. A collapsed zero-success interval is not proof of zero capability. Twenty-four representations cover three fault templates.",
+  "table2_source": "live"
 }

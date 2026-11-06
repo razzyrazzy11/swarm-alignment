@@ -8,6 +8,6 @@ authors:
     given-names: Razvan
     orcid: https://orcid.org/0009-0004-3172-2476
 repository-code: "https://github.com/razzyrazzy11/swarm-alignment"
-version: "results-v1"
+version: "results-v2"
 date-released: 2026-11-06
-abstract: "Finite-world evidence oracle and completed empirical study: 3,840 Adaption reader calls over 192 source draws, 240 matched Hugging Face reader calls on 24 shared sources, and a separate 216-call model-worker influence extension. The primary increase in unsupported executor accusations was not supported. Schema-informed authentic restoration helped the Adaption readers but showed limited cross-reader transfer. Public fake-data cases support offline score and aggregate replay. An explicitly registered operational continuation and earlier failed qualifications/providers remain disclosed; no deployment safety or spontaneous-collusion claim is made."
+abstract: "Completed live fake-data swarm audit: 720 actor and 9360 monitor calls across 192 new source groups, paired workflows, evidence loss and authentic restoration. A separate 144-proposal tiny-policy checkpoint experiment tests numerical repair and behavioral controls. Earlier scripted results, operational amendments, invalid outputs and finite-domain limits remain disclosed. No hosted base weights were edited and no fine-tuning or deployment-safety claim is made."

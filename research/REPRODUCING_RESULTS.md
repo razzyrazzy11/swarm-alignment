@@ -16,7 +16,7 @@ python -m experiments.weight_study verify
 python -m experiments.weight_study replay
 ```
 
-Once `research/live-results.json` and its four public artifacts are present, also run:
+For `research/live-results.json` and its four public artifacts, also run:
 
 ```console
 python -m experiments.live_analysis verify

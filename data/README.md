@@ -1,4 +1,17 @@
-# Public fake-data release
+# Current live and weight release
+
+| File | Records | Meaning |
+|---|---:|---|
+| `live_actors.jsonl` |720|Actual origin/receiver final outputs and exact public task/history inputs |
+| `live_trajectories.json` |528|Replayed main and influence fake states, worlds and decisions |
+| `live_cases.jsonl` |9,360|Actual reader outputs with evidence views, support and scores |
+| `live_contexts.json` |192 main + 6 qualification contexts|Previously committed random context design, released after collection |
+| `weight_cases.jsonl` |144|Actual numeric artifacts, admission, finite behaviors and conditional controls |
+
+`research/live-results.json` and `research/weight-results.json` bind hashes and recomputed aggregates. Run `python -m experiments.live_analysis verify` and `python -m experiments.weight_study replay` offline. The live continuation is explicitly declared in the report. Known-usage truncations and transport failures remain invalid outcomes; request count does not imply successful inference. Qualification outputs remain excluded. Source contexts, not dependent branches/views, are the live unit; representation variants, not truth-table rows/random draws, are the weight unit. No hosted base weights or trained adapters were modified. The earlier release below remains separate.
+
+
+## Earlier scripted release (results-v1)
 
 These files publish mechanically executed fake workflows and actual final model answers. They are not incident data or generated numbers presented as model observations. Native provider request/response IDs, headers, keys and reasoning traces remain in ignored local storage and are not needed for public replay.
 

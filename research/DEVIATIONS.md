@@ -1,3 +1,10 @@
+# Integrated release history update
+
+Completed live-v2 plus its prospective operational continuation and the separately frozen weight-audit-v1 are now reported alongside the older scripted study. Live has 720 actor and 9,360 audit calls; weights have 144 proposals. The v1 live qualification failed encoding, fresh v2 passed after a field-example clarification. The main audit stopped at 204 requests/three known truncations before the exact unstarted continuation was registered. All 2 main/influence gateway failures and 12 incomplete outputs remain retained, without retries. No scientific effect was inspected to select the continuation; the operational amendment remains explicit. No training was conducted. Frozen protocols/memos are not rewritten to hide their prospective or superseded status.
+
+The original October project remains preexisting and unimported. Earlier development, provider failures, scripted nulls and small HF comparison remain separate in the historical entries below and `results-v1`.
+
+
 # Deviations
 
 6 November 2026, completed-study reconciliation: the final aggregate retains 3,840 main calls from 192 sources, all 216 influence-extension calls and 240 HF Llama calls from the prospectively fixed 24-source subset. Each arm has zero unattempted calls and zero journaled starts without a terminal record. Completed collection does not turn development pilots, secondary endpoints or matched HF views into additional independent source episodes. Main primary inference remains separate from secondary model/restoration/HF analyses; the primary interval includes zero. No training was launched, and rate-based estimates are not reconciled account debits. Final report test/page totals remain pending the final root verification.

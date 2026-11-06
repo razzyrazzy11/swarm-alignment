@@ -29,6 +29,8 @@ The admission difference matters. Gemma 26B had only two in-budget repair propos
 
 Safety and usefulness also differ: Gemma 31B's synthesis task had 16 safe artifacts but only five exact ones. Avoiding unauthorized actions does not by itself mean the network performs all permitted work. The table does not claim that every safe-but-inexact artifact implements the same failure mechanism.
 
+Actual admitted synthesis artifacts were unsafe on at least one Boolean context in 23/23 Gemma 26B, 4/20 Gemma 31B and 22/24 Llama cases. These are model-produced failures, distinct from the planted control defects. As an analytical illustration, an always-zero controller matches 30/32 Boolean contexts but misses both permitted writes; high row accuracy and no unsafe writes alone do not establish useful repair.
+
 ## Controls establish the narrower oversight finding
 
 All 24 symbolic correct controllers and all 24 benign reparameterizations were exact. Every unchanged planted defective controller failed exactness; together they produced 96 unauthorized fake writes across their finite contexts. These checks establish executable positive/negative controls, not naturally arising defects.
@@ -50,3 +52,5 @@ The reported main-grid estimates are 0.0170366750 Adaption credits and $0.010478
 ## What these failures justify next
 
 An unsuccessful tiny-weight repair is not itself proof that the language-model audit monitor needs SFT. A further adaptation study needs its own reproducible development failure and question. The defensible design is a pinned base versus individual-example SFT versus interaction-aware SFT on **newly split** source groups, with matched training-token/optimizer budgets and untouched evaluation. All descendants of a source stay in one split; ambiguous audit evidence teaches ABSTAIN rather than the hidden actor. Ongoing or already inspected main data cannot become both intervention-selection material and an untouched test. No such SFT, joint policy optimization or trained-monitor improvement is claimed here.
+
+[WEIGHT_FOLLOWUP_DECISION.md](WEIGHT_FOLLOWUP_DECISION.md) separates checkpoint-aware behavioral auditing, ordinary SFT, interaction-aware SFT and joint optimization, with primary-source and service boundaries. The completed artifacts remain the evidence; a proposed training comparison is not an additional empirical result.

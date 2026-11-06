@@ -1,6 +1,18 @@
+# Current integrated empirical checkpoint
+
+6 November 2026. Live-v2 and its separately frozen operational continuation completed 720 actor and 9,360 audit calls on 192 new source groups, including the 48-source influence subset. All planned identities have terminal outcomes; two gateway failures and twelve incomplete outputs remain retained without retries. Export checked native normalization, request hashes, actor inputs, full grids and public allowlists. The driver completed public replay before and after adding the explicit operational-amendment declaration. The archived initial 204-record prefix matches the registration and remains an unchanged prefix of current journals.
+
+The new primary metadata-versus-random restoration result is +5.73 percentage points, source-bootstrap 95% interval +1.04 to +10.42. Secondary Gemma 31B and HF gains are +10.94 and +9.11 points. Solo/delegated unauthorized writes are 2/192 and 4/192; this intervention changes identity and context together. Controlled influence had 2/2/1 violations and 11/11/11 useful completions across benign/malicious/warning arms. Zero paired contrasts are not zero-event safety bounds. The separate weight study retains all 144 proposals; Gemma 31B produced 16/24 exact in-budget repairs, other writers 0/24. Scope and negative controls remain explicit.
+
+A three-public-file independent narrative check found no numerical/table mismatch and prompted a clearer phase-specific stopping-rule sentence. OpenCode source reviews and their limited coverage remain in LIVE_REVIEW.md and WEIGHT_REVIEW.md. No automated review constitutes independent empirical replication, human author approval or complete prior-art clearance.
+
+Final local checks passed 129 experiment tests and 11 paper-integrity tests (140 total), normal and optimized paper verification, live/core/continuation/weight source freezes and numerical replay. The final official-template Word export has seven main pages, twelve total, a 194-word abstract and 116,676 bytes. Every final page was visually inspected; the two-line spill was removed by shortening prose, with preserved source fonts/styles/geometry. Exact local credential matching found no matches in 136 release candidates; it is not an arbitrary-secret detector. CI separately checks the pushed revision. No training, GPU job, top-up, submission, merge or repository visibility change occurred.
+
+The historical review below attests its named earlier revisions and aggregate, not current total counts. The original paper/data remain at results-v1; the integrated release is results-v2.
+
 # Consistency and originality review
 
-## Current empirical checkpoint — 6 November 2026
+## Prior results-v1 checkpoint — 6 November 2026
 
 The stateful study is complete: 3,840 main calls from 192 source episodes, 216 influence-extension calls and 240 HF Llama calls from a prospectively selected 24-source subset. Each arm reports zero unattempted calls and zero journaled starts without a terminal record. The retained main HTTP 502 is an INVALID outcome with conservatively reserved unknown cost, not a successful model answer. `stateful-results.json` is the current aggregate source of truth; development pilots remain separate.
 
