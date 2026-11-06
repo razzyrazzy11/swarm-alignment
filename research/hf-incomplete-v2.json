@@ -1,0 +1,75 @@
+{
+  "summary": {
+    "stage": "hf_replication",
+    "complete": false,
+    "source_episodes": 24,
+    "planned_calls": 240,
+    "attempted_calls": 8,
+    "retained_responses": 8,
+    "estimated_usd": "0.0714972",
+    "freeze_sha256": "c32fa84b05c37f849a4b746dc3514a206e77f15198acdfbc13682b18b8e6e68a",
+    "invalid": 3,
+    "incomplete": 3,
+    "billing": "Token-price estimate, not reconciled HF debit",
+    "scope": "Matched secondary model-family/serving check on fixed main-source subset; not independent source replication or identical-checkpoint claim",
+    "counts": {
+      "grounded_correct": 5,
+      "supported_definite": 5,
+      "unsupported_executor": 0,
+      "unsupported_none": 0,
+      "strict_schema_valid": 5
+    }
+  },
+  "model": "Qwen/Qwen3.8-27B:nscale",
+  "native_responses_sha256": "52cffe40bd81e0bef96063bef7f1dd181af0f04f6949d8dbfeb5b0084111531d",
+  "operational": [
+    {
+      "status": "completed",
+      "finish_reason": "stop",
+      "prompt_tokens": 958,
+      "completion_tokens": 2512
+    },
+    {
+      "status": "completed",
+      "finish_reason": "stop",
+      "prompt_tokens": 1045,
+      "completion_tokens": 3014
+    },
+    {
+      "status": "completed",
+      "finish_reason": "stop",
+      "prompt_tokens": 1066,
+      "completion_tokens": 3476
+    },
+    {
+      "status": "failed",
+      "finish_reason": "length",
+      "prompt_tokens": 1047,
+      "completion_tokens": 4096
+    },
+    {
+      "status": "completed",
+      "finish_reason": "stop",
+      "prompt_tokens": 988,
+      "completion_tokens": 3227
+    },
+    {
+      "status": "failed",
+      "finish_reason": "length",
+      "prompt_tokens": 997,
+      "completion_tokens": 4096
+    },
+    {
+      "status": "completed",
+      "finish_reason": "stop",
+      "prompt_tokens": 1020,
+      "completion_tokens": 3429
+    },
+    {
+      "status": "failed",
+      "finish_reason": "length",
+      "prompt_tokens": 1040,
+      "completion_tokens": 4096
+    }
+  ]
+}

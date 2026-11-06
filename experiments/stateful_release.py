@@ -437,7 +437,7 @@ def export(root=ROOT, main=None, influence=None, hf=None):
     c = frozen['config']
     main = Path(main) if main else root/'runs'/f"{c['study_id']}-main"
     influence = Path(influence) if influence else root/'runs'/f"{c['study_id']}-influence"
-    hf = Path(hf) if hf else root/'runs/stateful-hf-v2'
+    hf = Path(hf) if hf else root/'runs/stateful-hf-v3'
     report = dict(schema='stateful-public-release-v1', freeze_sha256=file_hash(FREEZE),
                   frozen_source_sha256=frozen['source_sha256'], config=c, arms={}, artifacts={},
                   privacy='Allowlisted final text and fake data only; no native IDs, reasoning or headers',
@@ -557,7 +557,7 @@ def verify_public(root=ROOT, raw=False):
     if raw:
         folders = dict(main=root/'runs'/f"{report['config']['study_id']}-main",
                        influence=root/'runs'/f"{report['config']['study_id']}-influence",
-                       hugging_face=root/'runs/stateful-hf-v2')
+                       hugging_face=root/'runs/stateful-hf-v3')
         for arm, folder in folders.items():
             expected = report['arms'][arm].get('raw_file_sha256')
             if expected is not None and (not folder.exists() or native_hashes(folder) != expected):

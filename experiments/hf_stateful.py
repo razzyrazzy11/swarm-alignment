@@ -15,7 +15,7 @@ from experiments.stateful_study import (config as core_config,verify_freeze as v
     canonical_file,sha,durable,score_stateful)
 
 CONFIG=ROOT/'research/hf-stateful-config.json'
-FREEZE=ROOT/'research/stateful-hf-v2-freeze.json'
+FREEZE=ROOT/'research/stateful-hf-v3-freeze.json'
 SOURCES=('experiments/hf_stateful.py','research/hf-stateful-config.json','research/hf-stateful-catalog.json','research/HF_STATEFUL_PROTOCOL.md',
          'experiments/stateful_release.py','experiments/tests/test_stateful_release.py','experiments/tests/test_hf_stateful.py',
          'research/stateful-main-v2-freeze.json')+CORE_SOURCES

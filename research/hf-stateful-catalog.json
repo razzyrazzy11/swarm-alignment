@@ -1,19 +1,19 @@
 {
-  "checked": "2026-11-06T20:20:09.038911+00:00",
-  "model": "Qwen/Qwen3.8-27B",
+  "checked": "2026-11-06T20:28:06.706693+00:00",
+  "model": "meta-llama/Llama-3.3-70B-Instruct",
   "provider": {
-    "provider": "nscale",
+    "provider": "novita",
     "status": "live",
-    "context_length": 1048576,
+    "context_length": 12288,
     "pricing": {
-      "input": 0.2,
-      "output": 2.5
+      "input": 0.135,
+      "output": 0.4
     },
     "is_free": false,
     "supports_tools": true,
-    "supports_structured_output": true,
-    "first_token_latency_ms": 551.8,
-    "throughput": 126.19614258471893,
+    "supports_structured_output": false,
+    "first_token_latency_ms": 446.8,
+    "throughput": 50.87683900170021,
     "is_model_author": false
   }
 }
