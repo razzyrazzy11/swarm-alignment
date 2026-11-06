@@ -28,6 +28,8 @@ class IntegrityTests(unittest.TestCase):
         for name in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-main-v2-continuation-v1-freeze.json','stateful-qualification.json','hf-stateful-config.json','stateful-hf-v3-freeze.json','stateful-results.json'):
             if (PAPER.parent/'research'/name).exists():
                 shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
+        for name in ('live-config.json','live-audit-v2-freeze.json','live-audit-v2-continuation-v1-freeze.json','live-qualification-v1.json','live-results.json','weight-config.json','weight-audit-v1-freeze.json','weight-results.json'):
+            if (PAPER.parent/'research'/name).exists():shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
 
     def source(self):
         return json.loads((self.root/'content.json').read_text(encoding='utf-8'))
@@ -40,14 +42,15 @@ class IntegrityTests(unittest.TestCase):
 
     def test_reader_call_denominator_is_exact(self):
         d=self.source()
-        d['table2'][1][0]=d['table2'][1][0].replace('(1920)','(19200)')
+        import re
+        d['table2'][1][0]=re.sub(r'\((\d+)\)$',lambda m:'('+m[1]+'0)',d['table2'][1][0])
         with self.assertRaisesRegex(ValueError,'Reader table differs'):
             validate_results(self.root,d)
 
     def test_hf_matched_source_denominator_is_exact(self):
         d=self.source()
         d['table3'][3][0]=d['table3'][3][0].replace('(24)','(240)')
-        with self.assertRaisesRegex(ValueError,'Effect source denominator'):
+        with self.assertRaisesRegex(ValueError,'Weight variant denominator' if d.get('table2_source')=='live' else 'Effect source denominator'):
             validate_results(self.root,d)
 
     def test_unrebuilt_prose_fails(self):

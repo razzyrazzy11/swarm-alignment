@@ -32,9 +32,32 @@ def build_manifest(root,content):
         manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-qualification.json')}
     if content.get('table2_source')=='stateful':
         manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-main-v2-continuation-v1-freeze.json','stateful-qualification.json','hf-stateful-config.json','stateful-hf-v3-freeze.json','stateful-results.json')}
+    if content.get('table2_source')=='live':
+        manifest['live_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('live-config.json','live-audit-v2-freeze.json','live-audit-v2-continuation-v1-freeze.json','live-qualification-v1.json','live-results.json','weight-config.json','weight-audit-v1-freeze.json','weight-results.json','stateful-results.json')}
     return manifest
 
 def validate_results(root,content):
+    if content.get('table2_source')=='live':
+        r=json.loads((root.parent/'research/live-results.json').read_text(encoding='utf-8'))
+        w=json.loads((root.parent/'research/weight-results.json').read_text(encoding='utf-8'))
+        a=r['analysis'];b=w['analysis'];ids=r['config']['monitors']
+        require(r['status']==w['status']=='complete','Live/weight report requires complete records')
+        amendment='live-audit-v2-continuation-v1'
+        amendment_sha=hashlib.sha256((root.parent/'research'/str(amendment+'-freeze.json')).read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        require(r.get('operational_amendment')==dict(tag=amendment,freeze_sha256=amendment_sha),'Live continuation declaration missing or stale')
+        expected=dict(status='completed live and weight study',live_source_clusters=a['main_source_clusters'],live_actor_calls=a['actor_calls'],live_audit_calls=a['main_audit_calls']+a['influence_audit_calls'],weight_writer_calls=b['planned_calls'],weight_variants=b['variants'],training_runs=0,live_freeze='live-audit-v2',weight_freeze='weight-audit-v1',live_operational_amendment=amendment)
+        require(content['evidence_status']==expected,'Live/weight evidence counts differ')
+        require(content['table2_model_ids']==ids and len(content['table2'])==4 and len(content['table1'])==4 and len(content['table3'])==4,'Live/weight table identity/size')
+        def fx(e):return f"{100*e['estimate']:+.2f} [{100*e['ci95'][0]:+.2f}, {100*e['ci95'][1]:+.2f}]"
+        def wf(e):return f"{e['successes']}/{e['n']} [{100*e['ci95'][0]:.1f}, {100*e['ci95'][1]:.1f}]"
+        for i,model in enumerate(ids,1):
+            s=a['model_totals'][model];row=content['table2'][i];n=re.search(r'\((\d+)\)$',row[0])
+            require(row[1:]==[str(s['grounded_correct']),str(s['supported_definite']),f"{s['unsupported_executor']} / {s['unsupported_none']} / {s['invalid']}"] and n is not None and int(n.group(1))==s['calls'],'Reader table differs from public cases')
+            e=a['effects'][model]['delegated'];row=content['table1'][i];n=re.search(r'\((\d+)\)$',row[0])
+            require(row[1:]==[fx(e['restoration_grounded_metadata_minus_random']),fx(e['unsupported_selective_minus_random'])] and n is not None and int(n.group(1))==a['main_source_clusters'],'Effect source denominator/table differs from public study')
+            row=content['table3'][i];n=re.search(r'\((\d+)\)$',row[0]);wr=b['model_results'][model]
+            require(row[1:]==[wf(wr['repair']['exact']),wf(wr['synthesize']['exact'])] and n is not None and int(n.group(1))==b['variants'],'Weight variant denominator/table differs from public study')
+        return
     if content.get('table2_source')=='stateful':
         r=json.loads((root.parent/'research/stateful-results.json').read_text(encoding='utf-8'))
         main,hf,inf=r['main'],r['hf'],r['influence']
@@ -95,8 +118,9 @@ def validate_source(content):
     ids=[int(re.match(r'\[(\d+)\]',r).group(1)) for r in content['references']]
     require(ids==list(range(1,len(ids)+1)), 'References must have unique sequential IDs')
     require(cited==set(ids), 'Citation/reference mismatch: '+str(cited.symmetric_difference(ids)))
-    if content.get('table2_source')=='stateful':
-        require(content['evidence_status']['status']=='completed stateful study', 'Stateful evidence status must be explicit')
+    if content.get('table2_source') in ('stateful','live'):
+        expected_status='completed live and weight study' if content['table2_source']=='live' else 'completed stateful study'
+        require(content['evidence_status']['status']==expected_status, 'Study evidence status must be explicit')
         require(all(s in content['abstract'] for s in ('Adaption','Hugging Face')), 'Service evidence missing from abstract')
     else:
         require(content['evidence_status']['confirmatory_episodes']==0, 'Confirmatory claim requires a separately reviewed report contract')
