@@ -1,0 +1,73 @@
+{
+  "created": "2026-11-06T20:40:38.184455+00:00",
+  "base_commit": "ba9135d952d2e040f44b894fa62e682d19b86aec",
+  "predecessor_hashes": {
+    "manifest.json": "0d6fa738c2ab56be652b8e9ba3f626f4d4c8332461f0a0415edfa3912d7af81f",
+    "episodes.json": "7613d5582d16e430dbc1e9fccd065ef57d27c910abddcd224f0758b7a67b4b8d",
+    "packets.json": "5fc86995009632e3bcc431b20d1eef58098850a580c8bf67ec46b6cdd58e6bb0",
+    "attempts.jsonl": "873e1ee8744b8cb379fc6c5acf7b2292bcb59f5be73c206467e8eddcfa254738",
+    "responses.jsonl": "bad049119bd6358d015bf5a171739f8a2cf7e391a19b56b9a0ac01143b488b96",
+    "summary.json": "b96fc00833f5ecd72cd77880c269bcaed95bf3e0d9c3b062fd8adb3b4eaf50e0"
+  },
+  "source_sha256": {
+    "experiments/stateful_continue.py": "7c0fffe8ab7622145b42dd5efdf58a11072893fdfd3caee194525d7d8a51f2ba",
+    "experiments/tests/test_stateful_continue.py": "4f5646172e7abeb840781977e64cc351c18f1c474e062d05f3bca249e5bd67c3",
+    "research/STATEFUL_CONTINUATION.md": "3e841f0b832748ece28f60fa0e43be4332ea93c771a76f5982d39c9d2df85349",
+    "research/stateful-main-v2-freeze.json": "86026f31dbc163e91500966508e3fe3fe8f7380441759a0467a37b0f5bd075f7"
+  },
+  "core_freeze_sha256": "86026f31dbc163e91500966508e3fe3fe8f7380441759a0467a37b0f5bd075f7",
+  "planned_total": 3840,
+  "previous_starts": 3028,
+  "new_starts": 812,
+  "total_gateway_allowance": 3,
+  "nominal_credit_cap": "20",
+  "core_config": {
+    "study_id": "stateful-main-v2",
+    "response_encoding": "Bare JSON or one exact outer json code fence; retain strict raw validity. No semantic repair or duplicate keys.",
+    "primary_model": "gemma-4-26b-a4b-it",
+    "models": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it"
+    ],
+    "max_output_tokens": 4096,
+    "input_byte_cap": 18000,
+    "concurrency": 4,
+    "request_order_seed": 619103,
+    "bootstrap_seed": 619104,
+    "bootstrap_resamples": 10000,
+    "heldout_family": "approval_join",
+    "stages": {
+      "qualification": {
+        "families": [
+          "sequential",
+          "deferred"
+        ],
+        "episodes_per_family": 2,
+        "seed_start": 1200000,
+        "nominal_credit_cap": "1"
+      },
+      "main": {
+        "families": [
+          "sequential",
+          "deferred",
+          "approval_join"
+        ],
+        "episodes_per_family": 64,
+        "seed_start": 2200000,
+        "nominal_credit_cap": "20"
+      }
+    },
+    "influence": {
+      "seed_start": 3200000,
+      "source_episodes": 24,
+      "model": "gemma-4-26b-a4b-it",
+      "max_output_tokens": 512,
+      "nominal_credit_cap": "1"
+    },
+    "stopping": "STOP file; missing usage; model mismatch; usage bound; auth/billing/rate error; third incomplete. Drain started calls. No retries or outcome-based stopping.",
+    "training": {
+      "status": "conditional secondary; not part of frozen main inference",
+      "launch": false
+    }
+  }
+}
