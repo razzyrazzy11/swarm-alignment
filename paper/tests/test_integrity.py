@@ -25,6 +25,9 @@ class IntegrityTests(unittest.TestCase):
         shutil.copytree(PAPER/'out',self.root/'out')
         (self.root.parent/'research').mkdir()
         shutil.copy2(PAPER.parent/'research/pilot-results.json',self.root.parent/'research/pilot-results.json')
+        for name in ('stateful-config.json','stateful-freeze.json','stateful-qualification.json'):
+            if (PAPER.parent/'research'/name).exists():
+                shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
 
     def source(self):
         return json.loads((self.root/'content.json').read_text(encoding='utf-8'))

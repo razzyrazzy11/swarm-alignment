@@ -1,5 +1,7 @@
 # Prospective protocol, version 0.4
 
+Current main-study implementation: see STATEFUL_PROTOCOL.md and stateful-config.json. Once created, stateful-freeze.json and the stateful-main-v1 Git tag bind that exact executable study. The broader historical factorial below is not the launch grid; the stateful study narrows it explicitly and retains the primary contrast. Completed original pilot counts stay in PILOT_RESULTS.md.
+
 Status: prospective, unfrozen design, updated 6 November 2026 after development inference. Real development calls and automated oracle validation exist; no confirmatory experiment, training, independent human label review or power analysis has been completed. PILOT_RESULTS.md and pilot-results.json record observed results; SUITE_STRATEGY.md governs the proposed next-stage allocation. The sampling, model and budget examples from v0.3 are historical, not launch authorization. Resolve the richer grammar, untouched split, exact models/prompts and reconciled billing before tagging a preregistration. Exclude all observed development cases from future confirmation.
 
 ## Development evidence and exclusions

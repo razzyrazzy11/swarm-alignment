@@ -4,6 +4,8 @@ Bounded evidence oracle, genuine development pilots and prospective experiment p
 
 Recommended focus: Track 4 (Multi-Agent Oversight and Control), with Track 3 relevance. Test scripted selective loss from exported evidence and changing display names, using evidence-matched readers and an explicit insufficient-evidence answer. Protected collector originals remain intact. The target is the executor of one unauthorized fake-data mutation, not causal blame or collusive intent. The completed fixed development batch has 120 reader calls over 20 scripted source episodes; additional qualification, one-hop influence and HF access tests are reported separately. **No confirmatory study, training result, spontaneous collusion or deployment safety guarantee is claimed.**
 
+The new main implementation is `experiments/stateful.py`: sequential delegation, deferred settlement and an approval-join holdout, with independent compatible-history checking, matched evidence loss and authentic-record restoration. Its precise prospective contract is `research/STATEFUL_PROTOCOL.md`, configuration is `research/stateful-config.json`, and operational sequence is `research/STATEFUL_RUNBOOK.md`. The earlier pilot remains a separate dataset. A committed freeze/tag must pass verification before any fresh qualification/main inference; an implemented study is not a completed result.
+
 - `research/PILOT_RESULTS.md`: measured development results, iteration history and unresolved billing/source limitations.
 - `research/pilot-results.json`: redacted recomputed counts and raw-file hashes.
 - `research/SUITE_STRATEGY.md`: current suite positioning, optional training/influence gates and full authorized budget allocation.

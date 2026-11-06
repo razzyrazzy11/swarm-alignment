@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -15,3 +17,8 @@ jobs:
       - run: python -O paper/verify.py
       - run: python -m unittest discover -s paper/tests -v
       - run: python -m unittest discover -s experiments/tests -v
+      - name: Verify prospective stateful freeze when present
+        run: |
+          if [ -f research/stateful-freeze.json ]; then
+            python -m experiments.stateful_study verify-freeze
+          fi

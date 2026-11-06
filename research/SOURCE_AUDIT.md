@@ -1,5 +1,7 @@
 # Source coverage and uncertainty
 
+6 November stateful-study update: live Apart guidelines/judging, Adaption Responses and HF PEFT were rechecked; targeted primary-method reading of Yun Study II, Qin §3.4, BRIDGE §3.3–3.5, BLADE §3, Prompt Infection §4 and AI Control §3.2.2 informed STATEFUL_PROTOCOL.md. The source boundaries are explicit: supported executor attribution is not causal responsibility; retrospective authentic-record restoration is not runtime repair; scripted peer exposure is not spontaneous propagation. New stateful implementation does not remove the historical access/reading-depth gaps below or certify universal originality.
+
 Updated 6 November 2026 after the supplied transcript/chat review and actual development inference. The initial snapshot remains at scoping-v0.1; current statements supersede its access and reading-depth notes. This is targeted scoping, not an exhaustive systematic review or an examination of every project in Apart's catalogue. No search can certify originality or guarantee eligibility.
 
 ## Governing sources and template
