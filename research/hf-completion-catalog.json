@@ -1,0 +1,15 @@
+{
+  "checked": "2026-11-07T13:12:01.580985+00:00",
+  "inference_calls": 0,
+  "route": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+    "provider": "novita",
+    "status": "live",
+    "pricing": {
+      "input": 0.135,
+      "output": 0.4
+    },
+    "context_length": 12288,
+    "supports_structured_output": false
+  }
+}

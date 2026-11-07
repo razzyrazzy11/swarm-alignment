@@ -1,0 +1,17 @@
+{
+  "study_id": "hf-completion-v1",
+  "min_start_interval_seconds": 30,
+  "transient_backoff_seconds": 60,
+  "circuit_consecutive_transients": 8,
+  "circuit_pause_seconds": 600,
+  "new_transient_allowance": 256,
+  "new_estimated_cost_cap": "2.50",
+  "max_active": 1,
+  "timeout_seconds": 120,
+  "retries": 0,
+  "metadata_recheck_calls": 100,
+  "historical_audit_terminals": 9742,
+  "historical_hf_terminals": 1982,
+  "original_unstarted": 1898,
+  "historical_429_count": 5
+}
