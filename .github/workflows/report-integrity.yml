@@ -42,3 +42,9 @@ jobs:
           fi
       - name: Reproduce separately labeled exploratory diagnostic
         run: python analysis/exploratory_restoration.py --check research/restoration-diagnostic-posthoc.json
+      - name: Verify factorial registration and replay released evidence
+        run: |
+          if [ -f research/factorial-results.json ]; then
+            python -m experiments.factorial_study verify
+            python -m experiments.factorial_analysis verify
+          fi

@@ -34,9 +34,38 @@ def build_manifest(root,content):
         manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-main-v2-continuation-v1-freeze.json','stateful-qualification.json','hf-stateful-config.json','stateful-hf-v3-freeze.json','stateful-results.json')}
     if content.get('table2_source')=='live':
         manifest['live_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('live-config.json','live-audit-v2-freeze.json','live-audit-v2-continuation-v1-freeze.json','live-qualification-v1.json','live-results.json','weight-config.json','weight-audit-v1-freeze.json','weight-results.json','stateful-results.json')}
+    if content.get('table2_source')=='factorial':
+        manifest['factorial_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('factorial-config.json','factorial-audit-v1-freeze.json','factorial-results.json','live-results.json','weight-results.json','stateful-results.json')}
     return manifest
 
 def validate_results(root,content):
+    if content.get('table2_source')=='factorial':
+        r=json.loads((root.parent/'research/factorial-results.json').read_text(encoding='utf-8'))
+        a=r['analysis'];cfg=r['config'];ids=cfg['monitors'];sources=a['sources']
+        require(r['status']=='complete' and cfg['study_id']=='factorial-audit-v1','Factorial report requires complete frozen records')
+        expected=dict(status='completed factorial study',source_groups=sources,actor_calls=a['actor_calls'],main_audit_calls=a['main_audit_calls'],calibration_calls=a['calibration_calls'],training_runs=0,freeze='factorial-audit-v1')
+        require(content['evidence_status']==expected,'Factorial evidence counts differ')
+        require(sources==cfg['sources']==192 and a['actor_calls']==3*sources and a['main_audit_calls']==20*sources*len(ids),'Factorial source/call grid differs')
+        require(content['table2_model_ids']==ids and len(ids)==3 and all(len(content[t])==4 for t in ('table1','table2','table3')),'Factorial table identity/size')
+        require(all(len(row)==columns for t,columns in (('table1',3),('table2',4),('table3',3)) for row in content[t]),'Factorial table column count')
+        def fx(e):return f"{100*e['estimate']:+.2f} [{100*e['ci95'][0]:+.2f}, {100*e['ci95'][1]:+.2f}]"
+        expected_views={'sufficient','identity_loss'}|{loss+'_'+policy for loss in ('random','selective') for policy in ('none','random','metadata','contract')}
+        names=dict(zip(ids,('Gemma 26B A4B','Gemma 31B','Llama 70B HF')))
+        for i,model in enumerate(ids,1):
+            s=a['models'][model];views=s['by_view'];suff=views['sufficient'];primary=s['primary_same_packet_procedure_minus_direct']
+            require(set(views)==expected_views,'Factorial main views differ')
+            require(primary['n']==sources,'Effect source denominator differs from public study')
+            row=content['table1'][i]
+            require(row==[f'{names[model]} ({sources})',f"{suff['direct']['raw']['supported_definite']}/{sources} / {suff['procedure']['raw']['supported_definite']}/{sources}",fx(primary)],'Primary same-packet table differs from public study')
+            totals={proc:{k:sum(views[v][proc]['raw'][k] for v in expected_views) for k in ('calls','grounded_correct','unsupported_executor','unsupported_none','invalid')} for proc in ('direct','procedure')}
+            direct,procedure=totals['direct'],totals['procedure'];calls=s['totals']['calls']
+            require(calls==20*sources and direct['calls']==procedure['calls']==10*sources and all(views[v][proc]['raw']['calls']==sources for v in expected_views for proc in ('direct','procedure')),'Reader table differs from public call grid')
+            row=content['table2'][i]
+            require(row==[f'{names[model]} ({calls})',f"{direct['grounded_correct']} / {procedure['grounded_correct']}",f"D:{direct['unsupported_executor']}/{direct['unsupported_none']}; P:{procedure['unsupported_executor']}/{procedure['unsupported_none']}",f"{direct['invalid']} / {procedure['invalid']}"],'Reader table differs from public cases')
+            effects=s['secondary_acquisition_grounded'];left=effects['metadata_minus_random'];right=effects['contract_minus_metadata']
+            row=content['table3'][i]
+            require(left['n']==right['n']==sources and row==[f'{names[model]} ({sources})',fx(left),fx(right)],'Effect source denominator/table differs from public study')
+        return
     if content.get('table2_source')=='live':
         r=json.loads((root.parent/'research/live-results.json').read_text(encoding='utf-8'))
         w=json.loads((root.parent/'research/weight-results.json').read_text(encoding='utf-8'))
@@ -118,8 +147,8 @@ def validate_source(content):
     ids=[int(re.match(r'\[(\d+)\]',r).group(1)) for r in content['references']]
     require(ids==list(range(1,len(ids)+1)), 'References must have unique sequential IDs')
     require(cited==set(ids), 'Citation/reference mismatch: '+str(cited.symmetric_difference(ids)))
-    if content.get('table2_source') in ('stateful','live'):
-        expected_status='completed live and weight study' if content['table2_source']=='live' else 'completed stateful study'
+    if content.get('table2_source') in ('stateful','live','factorial'):
+        expected_status={'live':'completed live and weight study','stateful':'completed stateful study','factorial':'completed factorial study'}[content['table2_source']]
         require(content['evidence_status']['status']==expected_status, 'Study evidence status must be explicit')
         require(all(s in content['abstract'] for s in ('Adaption','Hugging Face')), 'Service evidence missing from abstract')
     else:

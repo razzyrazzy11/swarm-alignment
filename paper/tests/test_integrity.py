@@ -30,6 +30,8 @@ class IntegrityTests(unittest.TestCase):
                 shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
         for name in ('live-config.json','live-audit-v2-freeze.json','live-audit-v2-continuation-v1-freeze.json','live-qualification-v1.json','live-results.json','weight-config.json','weight-audit-v1-freeze.json','weight-results.json'):
             if (PAPER.parent/'research'/name).exists():shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
+        for name in ('factorial-config.json','factorial-audit-v1-freeze.json','factorial-results.json'):
+            if (PAPER.parent/'research'/name).exists():shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
 
     def source(self):
         return json.loads((self.root/'content.json').read_text(encoding='utf-8'))
@@ -49,7 +51,8 @@ class IntegrityTests(unittest.TestCase):
 
     def test_hf_matched_source_denominator_is_exact(self):
         d=self.source()
-        d['table3'][3][0]=d['table3'][3][0].replace('(24)','(240)')
+        import re
+        d['table3'][3][0]=re.sub(r'\((\d+)\)$',lambda m:'('+m[1]+'0)',d['table3'][3][0])
         with self.assertRaisesRegex(ValueError,'Weight variant denominator' if d.get('table2_source')=='live' else 'Effect source denominator'):
             validate_results(self.root,d)
 

@@ -6,6 +6,8 @@ Start with the [official-template PDF](paper/out/swarm_audit_scoping.pdf), [meas
 
 The subsequent [direction and rubric assessment](research/NEXT_STUDY_DECISION.md) ranks new structural transfer and evidence-use controls above more model endpoints or training. Its [post-release diagnostic](research/restoration-diagnostic-posthoc.json) decomposes the existing restoration gain descriptively; it is not a new confirmatory endpoint and does not change the `results-v2` paper or frozen experiments.
 
+The new [factorial Track 4 protocol](research/FACTORIAL_PROTOCOL.md) is prospectively frozen as `factorial-audit-v1` and is collecting fresh data. It separates acquisition policies, identical-packet reader procedures and an offline rule gate in a three-worker lease workflow. The PDF continues to report completed prior studies until the new collection and public replay finish; registered code is not a new empirical result. [Pre-output review](research/FACTORIAL_REVIEW.md) and [primary sources](research/FACTORIAL_SOURCES.md) record validation and scope.
+
 ## What actually ran
 
 | Study | Completed calls | Independent unit and scope |
