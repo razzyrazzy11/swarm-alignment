@@ -1,6 +1,6 @@
 # When Can a Swarm Be Audited?
 
-An empirical, bounded swarm-audit testbed for the Apart Swarm Alignment Hackathon, November 6–8, 2026. **Track 4: Multi-Agent Oversight and Control** anchors the work; Track 3 concerns identity, evidence and checkpoint provenance. The project asks what an investigator can establish from authentic but incomplete evidence, and whether changed policy artifacts require behavioral checks beyond messages and hashes.
+An empirical, bounded swarm-audit testbed for the Apart Swarm Alignment Hackathon, November 6–8, 2026. **Track 4: Multi-Agent Oversight and Control** anchors the work. The main new question is: **Does a swarm auditor lack necessary evidence, or fail to use evidence that is already sufficient?** Track 3 identity and provenance support that question. The checkpoint below identifies completed earlier results and the pending matched comparison.
 
 Start with the [official-template PDF](paper/out/swarm_audit_scoping.pdf), [measured results](research/RESULTS.md) and [offline reproduction](research/REPRODUCING_RESULTS.md). This is a research report and executed experiments, with nulls, failures and scope limits retained.
 
