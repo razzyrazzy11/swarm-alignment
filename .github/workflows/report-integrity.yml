@@ -17,6 +17,8 @@ jobs:
       - run: python -O paper/verify.py
       - run: python -m unittest discover -s paper/tests -v
       - run: python -m unittest discover -s experiments/tests -v
+      - name: Test independent evidence-domain sensitivity
+        run: python -m unittest analysis.test_ledger_generator_sensitivity -v
       - name: Verify prospective stateful freeze when present
         run: |
           if [ -f research/stateful-main-v2-freeze.json ]; then

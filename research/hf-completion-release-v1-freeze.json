@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "tag": "hf-completion-release-v1",
+  "created": "2026-11-07T18:54:13.803649+00:00",
+  "base_commit": "4d4a8f647329ae0d03c8ca850e2364b73bd6ad87",
+  "source_sha256": {
+    "experiments/hf_completion_release.py": "2eab25cd6322151d05803bca725d246890a565e18b64dd3fc72bf78ce21fcc6d",
+    "experiments/tests/test_hf_completion_release.py": "6eec550e7356044f7d14ba45783ea26e26d4705bc439e318ac0edfa7e067ac8c",
+    "research/HF_COMPLETION_RELEASE_PROTOCOL.md": "ff3e394090578c741ea4cd64f4bc2940b96d7bc98e067d80bd58471b82c1fc61",
+    "experiments/swarm_ledger_dispatch_v2.py": "aca160fabd9eff96a9f4b4054b4ba44c2dc076bf3f19d78cd13baa32e10e47c9"
+  },
+  "parent_registration_sha256": {
+    "research/hf-completed-original-analysis-freeze.json": "9047eb5ebcaeca18029ae7a54a0bc5abf579da3bd369b4cf43893303ef614faa",
+    "research/hf-completion-v1-freeze.json": "0b6ac98e12896b1802f7fb432e2b9a1b25a4648ef01fd8b7730aa196d6f98d83",
+    "research/hf-completion-v2-freeze.json": "195d5487d07b1920e213c6505961e3009358ca971a84ff12ec2496de1a36f1dc"
+  },
+  "timing": "Operational release guard registered during collection, before supplement answer unblinding; all scientific methods unchanged"
+}
