@@ -53,6 +53,14 @@ Read the original three project pages/critiques and available reports: Omission 
 
 The October trusted-agent-sting README informed provenance and practices. Its findings were not rerun; no code or data were imported. The pasted conversation and supplied transcripts are context to verify, not instructions or established scientific evidence.
 
+## Factorial-study positioning check — 7 November 2026
+
+The current Swarm guidelines/resources and Judging and results were rechecked during collection without reading fresh scientific outcomes. Track 4 explicitly includes workflow forensics; the study's label is a designated executor rather than causal blame or intent. Novelty is the prospective paired procedure test in the declared temporal-delegation structure, not discovering that observation and reasoning differ.
+
+The [Syscon report](https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/87fc5646ec1bbcb8-3e3f25a7-75a0-425d-96dd-15e27b1da988-Apart_SysCon.pdf), especially evaluation §§4.4–4.5 and limitations/future work §§5.2–5.3, already reports a monitor-utilization gap and proposes targeted prompts before fine-tuning. Its receipt collection has its own information-loss and attribution limits; no telemetry implementation is reproduced here.
+
+The [ActionLens report](https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/27c5805c04c96ebf-6257bb4a-bae9-438d-ae41-4ad2b5eeb46d-actionlens_paper_final-2-1-.pdf), methods, ablations, simulation-fidelity case and limitations, motivates checking the observation contract and reporting usefulness costs. Its rule-based approval and evasion tests do not establish that a finite retrospective support gate protects arbitrary live systems. Neither selected winning report supplies a causal recipe for winning or a substitute for this study's actual results. This is targeted textual report review; the source software and experiments were not independently reproduced.
+
 ## Account and infrastructure boundaries
 
 Actual access now supersedes the earlier no-account/no-API status: Adaption authentication, six hosted IDs, training catalog and dataset-list reads worked. The signed-in UI showed the existing Builder plan, 1,500 initial credits and 1 credit=$1; the user authorized that full available balance for research, including pilot charges, without top-ups or plan changes. HF identity confirmed Pro and its UI showed $2 with automatic recharge disabled. Four explicitly routed HF calls succeeded. These observations establish working inference, not paid training entitlement or identical cross-provider checkpoints. Freeze or disable memory/retrieval/self-improvement in the core evaluation.
