@@ -1,5 +1,19 @@
 # Measured results and study boundaries
 
+<!-- factorial-results-v3:start -->
+## Amended factorial reporting
+
+The original primary is complete on 192 source groups; the original reader plan is NOT complete: 9,742/11,640 terminal records and 1,898 UNSTARTED. The actors have 576 terminals. Registered Ollama collection has 4,728/4,728 terminal readings, extension_plan_complete=True. No extension substitutes for a missing Novita call.
+
+The unchanged primary is the original Gemma 26B procedure-minus-direct operational raw correct-definite difference on the predeclared sufficient packet: +17.19 pp (95% source-bootstrap +10.94 to +23.44; n=192). Known INVALID terminals score zero under that frozen endpoint; UNSTARTED cells are unknown, never fabricated INVALID responses. Confidence intervals describe source sampling; incomplete-reader logical bounds describe identification uncertainty and are NOT 95% CIs.
+
+All worker roles use Gemma 26B A4B. The original readers cover two families; the separately registered extension adds Deepseek (off/low on the same model) and a Gemma implementation bundle. Conditions, views, descendants and readers reuse the SAME 192 sources, not extra independent n. Twenty valid scripted calibration worlds remain separate from natural actions and from offline malformed/contradictory-packet rejection tests.
+
+See [FACTORIAL_RESULTS.md](FACTORIAL_RESULTS.md) and the sibling public report for actual rows, planned-state manifest, condition denominators, logical bounds and extension comparisons. Earlier exact histories below remain separate.
+
+Earlier release narrative below is preserved historical context. Its collection-time wording and counts describe those earlier studies; the current factorial status is the explicit actual/planned status described above.
+<!-- factorial-results-v3:end -->
+
 The current report integrates three separately identifiable studies. No output from one becomes a fresh independent observation in another.
 
 | Study | Actual completed evidence | Main interpretation |

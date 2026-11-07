@@ -1,6 +1,16 @@
 # Reproduce the released experiments
 
-At the 7 November 04:18 UTC checkpoint, the new factorial study is waiting for HF funding; [the recorded status](factorial-collection-status.json) describes a drained operator STOP, not completed scientific results. Public factorial contexts/cases and the completed aggregate have not been released at this checkpoint. The commands below reproduce the completed prior studies. Do not mistake passing implementation tests for a completed factorial dataset or launch paid collection to reproduce existing results.
+<!-- factorial-results-v3:start -->
+## Amended offline replay
+
+Run python -m experiments.factorial_reporting verify, python -m unittest discover -s experiments/tests -v and python paper/verify.py. Use original, reporting and Ollama registration tags. The sibling reconstructs actual outputs and missing states, complete primary bootstrap, incomplete Novita logical bounds and extension contrasts. It never fills unknown responses or launches inference. The original primary is complete on 192 source groups; the original reader plan is NOT complete: 9,742/11,640 terminal records and 1,898 UNSTARTED. The actors have 576 terminals. Registered Ollama collection has 4,728/4,728 terminal readings, extension_plan_complete=True. No extension substitutes for a missing Novita call.
+
+Earlier release narrative below is preserved historical context. Its collection-time wording and counts describe those earlier studies; the current factorial status is the explicit actual/planned status described above.
+<!-- factorial-results-v3:end -->
+
+## Historical funding checkpoint: 7 November, 04:18 UTC
+
+At that checkpoint, the factorial study was waiting for HF funding; [the recorded status](factorial-collection-status.json) described a drained operator STOP, not completed scientific results. Factorial contexts/cases and an aggregate had not been released then. The amended sanitized package is now included in the repository; use the sibling-report command above for current results. The commands below reproduce the separately completed prior studies. Do not launch paid collection to reproduce existing results.
 
 For any new collection, check actual remaining account funds after earlier runs and other compute. A client phase ceiling does not reserve account credits. [HF's official pricing](https://huggingface.co/docs/inference-providers/en/pricing) lists $2 in monthly PRO compute credits and purchased credits for extra routed usage. No automatic purchase or plan change is authorized by the collection code. An operator continuation requires sufficient funds, drained journals and the exact unstarted identities; it must never retry a started call to conceal a billing failure.
 

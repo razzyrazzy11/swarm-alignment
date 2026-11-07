@@ -42,6 +42,11 @@ jobs:
           fi
       - name: Reproduce separately labeled exploratory diagnostic
         run: python analysis/exploratory_restoration.py --check research/restoration-diagnostic-posthoc.json
+      - name: Reproduce descriptive posthoc calibration breakdown
+        run: |
+          if [ -f analysis/calibration-breakdown-posthoc.json ]; then
+            python analysis/calibration_breakdown.py --check analysis/calibration-breakdown-posthoc.json
+          fi
       - name: Verify factorial registration and replay released evidence
         run: |
           if [ -f research/factorial-results.json ]; then

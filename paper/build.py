@@ -44,7 +44,10 @@ def assemble(content, template):
     require(hashlib.sha256(template.read_bytes()).hexdigest() == SHA, 'Template changed')
     require(150 <= len(content['abstract'].split()) <= 250, 'Abstract must contain 150–250 words')
     require(bool(content.get('table1')), 'Missing source-driven table1')
-    require(all(len(row)==3 for row in content['table1']), 'table1 must have three columns')
+    factorial_reporting = content.get('table2_source') == 'factorial_reporting'
+    table1_widths = [2200,1700,1700,3760] if factorial_reporting else [2200,3400,3760]
+    require(all(len(row)==len(table1_widths) for row in content['table1']),
+            'table1 must have four columns' if factorial_reporting else 'table1 must have three columns')
     require(bool(content.get('table2')) and all(len(row)==4 for row in content['table2']), 'table2 must have four columns')
     if 'table3' in content:require(all(len(row)==3 for row in content['table3']), 'table3 must have three columns')
     with zipfile.ZipFile(template) as z:
@@ -146,7 +149,7 @@ def assemble(content, template):
         for value in paragraphs:
             if value=='TABLE1':
                 add(content.get('table1_caption','Table 1. Existing results and the narrower proposed test. These are research-design comparisons, not measured performance.'))
-                table(content['table1'],[2200,3400,3760])
+                table(content['table1'],table1_widths)
             elif value=='TABLE2':
                 add(content.get('table2_caption','Table 2. Completed development batch: 20 source episodes, three dependent views per episode and 60 scorable calls per model. Grounded correctness includes justified abstention. Unsupported columns are worker / NONE / invalid counts.'))
                 table(content['table2'],[2200,2200,2400,2560])

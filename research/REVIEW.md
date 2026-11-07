@@ -1,6 +1,10 @@
-# Track clarification and post-release direction review
+# Current release and historical review record
 
-The current paper explicitly names Track 4 Multi-Agent Oversight and Control in its subtitle, abstract and introduction. The revised official-template PDF remains 7 main pages and 12 total pages, with a 203-word abstract and 116,818 bytes. Every final page was inspected. Normal/optimized artifact verification and all eleven paper tests passed. The earlier 194-word abstract and 116,676-byte PDF below describe the immutable results-v2 snapshot, not this presentation revision. Scientific results, registrations and datasets are unchanged.
+Current validation is recorded in `FACTORIAL_REVIEW.md` and the final section below: seven main pages, 13 total pages, 190 abstract words and 120,809 PDF bytes. The original primary and registered Ollama extension are complete; original HF secondary missingness remains explicit. The sections below preserve earlier revisions and do not attest the current artifact unless explicitly labeled current.
+
+## Historical track clarification and post-release direction review
+
+At that historical presentation revision, the paper explicitly named Track 4 Multi-Agent Oversight and Control in its subtitle, abstract and introduction. Its revised official-template PDF had 7 main pages and 12 total pages, a 203-word abstract and 116,818 bytes. Every page was inspected then. Normal/optimized verification and all eleven paper tests passed at that revision. The earlier 194-word abstract and 116,676-byte PDF below describe the immutable results-v2 snapshot. Scientific results, registrations and datasets were unchanged by that presentation revision.
 
 Three parallel reviews, including a bounded source-only OpenCode scout and primary-source reviews, inform NEXT_STUDY_DECISION.md. The added post-release diagnostic verifies public-data hashes, decomposes 384 dependent restoration comparisons per reader and reproduces all registered gains. It is descriptive and not a new confirmatory endpoint. No new inference, training or GPU job was launched. Additional primary-source overlap and review-depth limits are recorded in SOURCE_AUDIT.md and the decision memo. CI separately verifies the pushed revision and diagnostic.
 
@@ -138,3 +142,7 @@ At the development-report revision, 19 experiment tests and nine paper integrity
 2. Reconcile provider balances and unknown-charge liabilities separately from token-rate estimates. Training and custom-checkpoint serving remain unlaunched; no inference result establishes those capabilities.
 3. Obtain human author review of scientific claims, affiliations and submission details. Automated review cannot supply author approval or guarantee acceptance or originality.
 4. Recheck live submission rules, required appendix, final PDF links and page/size/abstract limits. No project has been submitted by this task.
+
+## Current factorial release validation, 7 November 2026
+
+The historical artifact counts and pending implementation checks above are superseded for the current report by `FACTORIAL_REVIEW.md`. The completed original primary and separately registered Ollama extension use the same 192 sources; original Novita missingness remains explicit. The 297 experiment tests, 23 paper tests, offline replay, descriptive posthoc calibration replay and normal/optimized artifact checks pass. The final PDF has a 190-word abstract, seven main pages, 13 total pages and 120,809 bytes; all final pages were visually inspected by the assistant. Human author approval, judge repository access and official submission remain author tasks. Provider costs remain estimates rather than reconciled invoices, and no acceptance or originality guarantee is asserted.

@@ -1,4 +1,16 @@
-# Pre-output implementation review
+# Implementation and release review
+
+## Current release review, 7 November 2026
+
+The original Gemma 26B primary and both original Adaption grids are complete. Novita has 1,982/3,880 terminal calls and 1,898 unstarted calls. The separately registered Ollama extension completed 4,728/4,728, plus six excluded pilot calls, with no HTTP, incomplete-output, profile or usage failures. Neither extension model fills a Novita cell. The reporting amendment preceded outcome inspection; its implementation is tagged `factorial-reporting-v1`, while fresh Ollama inference followed `ollama-reader-v1`.
+
+All 297 experiment tests and 23 paper tests pass. Public replay validates 192 trajectories, actual-only cases, the planned missing-state manifest, original bootstrap and finite logical bounds. The separate calibration type breakdown is explicitly descriptive posthoc; its deterministic source/input-bound replay matches the frozen aggregate counts. The final official-template PDF has seven main pages, 13 total pages, 190 abstract words and 120,809 bytes. Normal and optimized verification pass; the assistant visually inspected all 13 final pages. The preserved font/package/section contract remains unchanged.
+
+The scope review corrected potential overclaims: all natural labels are NONE and always-NONE is perfect on sufficient packets; main gains concern fewer false accusations. The Gemma 31B implementations' DIRECT expired-write control failures and G26's worse aggregate procedure calibration remain visible. Parsed ungated scores are distinguished from strict bare-JSON compliance. HF operational INVALID outcomes do not establish latent reasoning inability. Logical bounds are not confidence intervals, and acquisition coverage is not subtracted from reader accuracy as causal apportionment.
+
+An actual OpenCode mathematical proof review completed for the binary bounds, followed by independent local mathematical and synthetic audits. Some later Go implementation and collector/report critique attempts stalled and were cancelled without substantive verdicts; they are not credited as completed vendor code reviews. Automatic approval rejected a proposed Anthropic code transfer before transmission. No Anthropic request was sent. The authorized Go alternative and local fallback are disclosed rather than described as external approval.
+
+## Historical pre-output implementation review
 
 Before fresh inference, 7 November 2026. New files only; earlier frozen engines, protocols and scientific outputs remain untouched.
 

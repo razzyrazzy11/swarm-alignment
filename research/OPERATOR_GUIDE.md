@@ -1,5 +1,7 @@
 # What should an investigator request next?
 
+Current empirical findings and missingness are in [FACTORIAL_RESULTS.md](FACTORIAL_RESULTS.md). This guide's examples remain illustrative, not additional observations. The main sample has only NONE labels; separate scripted positive controls and parsed-versus-strict encoding limits must accompany any interpretation of reader improvement.
+
 Track 4 asks how to oversee agents whose useful work crosses several boundaries. This study separates two practical problems: an essential authentic witness is missing, or the reader has sufficient witnesses but reaches an unsupported conclusion. Its finite authorization contract is a test instrument, not a deployment standard.
 
 ## One example before the metrics

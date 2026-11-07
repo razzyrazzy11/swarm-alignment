@@ -1,34 +1,36 @@
 {
-  "abstract_words": 203,
+  "abstract_words": 190,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "9cb6bad7898e71e89b64e0e0af12b7cbd63c87a1772e778a76392e8c916da9c0",
-  "builder_sha256": "90f5c525d7c37da58b5a979efd96720e51cdefa863d041263c92009476ab4c0c",
-  "docx_sha256": "d411193521e333f75b6d795dbb6df025f4bb9abb0b23d32e8681781c343c7868",
+  "content_sha256": "5eb956892b2560f780cc274e0c8bda800d73d1ed955768657db7b4030083b2c1",
+  "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
+  "docx_sha256": "7554cd2f9a9baa9bfacbe3a6693e303a997678e663d14a72c10c1db096c1b810",
   "changed_package_parts": [
     "word/document.xml"
   ],
   "evidence_status": {
-    "status": "completed live and weight study",
-    "live_source_clusters": 192,
-    "live_actor_calls": 720,
-    "live_audit_calls": 9360,
-    "weight_writer_calls": 144,
-    "weight_variants": 24,
+    "status": "primary complete; original secondary incomplete",
+    "primary_complete": true,
+    "source_groups": 192,
+    "actor_calls": 576,
+    "original_audit_calls": 9742,
+    "extension_audit_calls": 4728,
+    "main_audit_calls": 14252,
+    "calibration_calls": 218,
+    "original_plan_complete": false,
+    "extension_plan_complete": true,
     "training_runs": 0,
-    "live_freeze": "live-audit-v2",
-    "weight_freeze": "weight-audit-v1",
-    "live_operational_amendment": "live-audit-v2-continuation-v1"
+    "freeze": "factorial-audit-v1"
   },
   "results_sha256": "76729de6bfc4b6bf76673801c7250ae7efeca19b5fa6650678c0c3ab356507e2",
-  "live_sources": {
-    "live-config.json": "0b4cc56d148da793f886fec09592ded1747e7213ea2677d900465122a9614682",
-    "live-audit-v2-freeze.json": "b5396a08906605b352452d6c32f066707e9c0067e56dc990cb4bcc4c40a6d688",
-    "live-audit-v2-continuation-v1-freeze.json": "8e942b19e08622ac14baaf9e2e2ac46227c9ff0ecb1d49ab36f6ed89afe6901e",
-    "live-qualification-v1.json": "5ff38679bf47bd7396620cc0853bcc023e8ffb3e81c783957eac80211819c9f1",
+  "factorial_reporting_sources": {
+    "factorial-config.json": "0b516c576ef1381675588950dd9d92db3dd57bd0fc2e455acf1a3aa7a24e3f27",
+    "factorial-audit-v1-freeze.json": "41216a87860884bb503837d9b5f8d89259588c14ad20af976d71444d0b6bd57e",
+    "factorial-reporting-freeze.json": "fc655afb73bb73c410e6634ad862f1ab31afc4e1552f6dffb33d695abcbdde2f",
+    "factorial-report.json": "af7314a8d83c0c5273800a93e75c76f34320811f00d338ab02d2aa7b8a72b89f",
+    "ollama-reader-v1-freeze.json": "56c5592106f40160c0b0478d4d80fb1684c037a80e1fb7119ef292f9ed1ff87d",
     "live-results.json": "01f4dff0d3d87f826bd50aad3111d97059a2af9c5de008dd4128867d875bf299",
-    "weight-config.json": "0e44fd689291637119975d87a3f46c9bac4205fe7f66c4d507866d07148e43cf",
-    "weight-audit-v1-freeze.json": "ffe4a21648b07b5d43da5f6a2e8e77ae8c29248d4a2aa6e845eb42ee2cb25834",
     "weight-results.json": "85e1519943edad879c813c33045cc16ef25cbdba7eabb579b91b394dba63609a",
     "stateful-results.json": "f234123f460ca018eb4eacb65414c23af0d06d55cd29c77679c715f23b1306e2"
-  }
+  },
+  "factorial_reporting_contract_sha256": "8b2a5f18ab48b18240e434d174190f11f56b4991b65a515e15a23e14f689dc35"
 }

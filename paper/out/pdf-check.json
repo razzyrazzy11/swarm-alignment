@@ -1,24 +1,26 @@
 {
-  "pages": 12,
+  "pages": 13,
   "main_pages": 7,
-  "pdf_bytes": 116818,
-  "abstract_words": 203,
+  "pdf_bytes": 120809,
+  "abstract_words": 190,
   "render_engine": "Microsoft Word",
   "evidence_status": {
-    "status": "completed live and weight study",
-    "live_source_clusters": 192,
-    "live_actor_calls": 720,
-    "live_audit_calls": 9360,
-    "weight_writer_calls": 144,
-    "weight_variants": 24,
+    "status": "primary complete; original secondary incomplete",
+    "primary_complete": true,
+    "source_groups": 192,
+    "actor_calls": 576,
+    "original_audit_calls": 9742,
+    "extension_audit_calls": 4728,
+    "main_audit_calls": 14252,
+    "calibration_calls": 218,
+    "original_plan_complete": false,
+    "extension_plan_complete": true,
     "training_runs": 0,
-    "live_freeze": "live-audit-v2",
-    "weight_freeze": "weight-audit-v1",
-    "live_operational_amendment": "live-audit-v2-continuation-v1"
+    "freeze": "factorial-audit-v1"
   },
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "9cb6bad7898e71e89b64e0e0af12b7cbd63c87a1772e778a76392e8c916da9c0",
-  "builder_sha256": "90f5c525d7c37da58b5a979efd96720e51cdefa863d041263c92009476ab4c0c",
-  "docx_sha256": "d411193521e333f75b6d795dbb6df025f4bb9abb0b23d32e8681781c343c7868",
-  "pdf_sha256": "dfb2e276ad377a47f325c142cb83922eaad89e497271b0d1684007ca623d378b"
+  "content_sha256": "5eb956892b2560f780cc274e0c8bda800d73d1ed955768657db7b4030083b2c1",
+  "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
+  "docx_sha256": "7554cd2f9a9baa9bfacbe3a6693e303a997678e663d14a72c10c1db096c1b810",
+  "pdf_sha256": "80792e05f0c6b52efd41abfb8efa5ee45ac16be60342170f2be5eac5841f40b8"
 }

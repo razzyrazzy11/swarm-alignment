@@ -1,4 +1,26 @@
-# Current live and weight release
+# Released actual evidence and planned states
+
+<!-- factorial-results-v3:start -->
+## Amended actual-only release
+
+The original primary is complete on 192 source groups; the original reader plan is NOT complete: 9,742/11,640 terminal records and 1,898 UNSTARTED. The actors have 576 terminals. Registered Ollama collection has 4,728/4,728 terminal readings, extension_plan_complete=True. No extension substitutes for a missing Novita call.
+
+Sanitized artifacts are bound by research/factorial-report.json. Actual cases reference shared packet hashes; the separate planned manifest records TERMINAL or UNSTARTED and condition IDs. Unknown cells are null, not manufactured INVALID responses. Previously withheld source contexts are now included in the sanitized repository package after all registered extension collection ended. They were private during collection and were not supplied as hidden truth to readers or selectors. All worker roles use Gemma 26B A4B. The original readers cover two families; the separately registered extension adds Deepseek (off/low on the same model) and a Gemma implementation bundle. Conditions, views, descendants and readers reuse the SAME 192 sources, not extra independent n. Twenty valid scripted calibration worlds remain separate from natural actions and from offline malformed/contradictory-packet rejection tests.
+
+Run python -m experiments.factorial_reporting verify. No keys, headers, native IDs or thinking text are required.
+
+| Current factorial artifact | Actual or planned units | Meaning |
+|---|---:|---|
+| `factorial_contexts.json` | 192 sources | Previously committed source contexts, released after collection |
+| `factorial_report_actors.jsonl` | 576 actual actor requests | Retained issue/delegate/settle decisions |
+| `factorial_report_trajectories.json` | 192 trajectories | Replayed worlds and fake states |
+| `factorial_report_cases.jsonl` | 14,470 actual reader requests | 14,252 main readings plus 218 observed calibration readings |
+| `factorial_report_manifest.json` | 16,368 planned reader jobs | Original plus extension identities; TERMINAL and UNSTARTED remain distinct |
+
+The original plan has 9,742 terminal records across all original readers, including 1,982 HF Novita records. Its 1,898 unstarted HF Novita calls are unknown and are not response rows. All 4,728 registered Ollama requests are terminal; they do not fill missing Novita cells. The five artifact hashes are bound by `research/factorial-report.json`.
+
+Earlier release narrative below is preserved historical context. Its collection-time wording and counts describe those earlier studies; the current factorial status is the explicit actual/planned status described above.
+<!-- factorial-results-v3:end -->
 
 | File | Records | Meaning |
 |---|---:|---|

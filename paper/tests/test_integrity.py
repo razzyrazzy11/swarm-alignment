@@ -32,6 +32,14 @@ class IntegrityTests(unittest.TestCase):
             if (PAPER.parent/'research'/name).exists():shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
         for name in ('factorial-config.json','factorial-audit-v1-freeze.json','factorial-results.json'):
             if (PAPER.parent/'research'/name).exists():shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
+        if self.source().get('table2_source') == 'factorial_reporting':
+            # The amended branch validates its exact public-report contract and
+            # hashes these sources into the build manifest. Require every
+            # fixture dependency rather than hiding missing files in tests.
+            shutil.copy2(PAPER/'factorial_report_contract.py',self.root/'factorial_report_contract.py')
+            for name in ('factorial-reporting-freeze.json','factorial-report.json',
+                         'ollama-reader-v1-freeze.json'):
+                shutil.copy2(PAPER.parent/'research'/name,self.root.parent/'research'/name)
 
     def source(self):
         return json.loads((self.root/'content.json').read_text(encoding='utf-8'))
@@ -45,6 +53,12 @@ class IntegrityTests(unittest.TestCase):
     def test_reader_call_denominator_is_exact(self):
         d=self.source()
         import re
+        if d.get('table2_source') == 'factorial_reporting':
+            observed, planned = d['table2'][1][1].split('/')
+            d['table2'][1][1] = observed+'/'+str(int(planned)+1)
+            with self.assertRaisesRegex(ValueError,'Amended paper field differs from public report: table2'):
+                validate_results(self.root,d)
+            return
         d['table2'][1][0]=re.sub(r'\((\d+)\)$',lambda m:'('+m[1]+'0)',d['table2'][1][0])
         with self.assertRaisesRegex(ValueError,'Reader table differs'):
             validate_results(self.root,d)
@@ -52,6 +66,15 @@ class IntegrityTests(unittest.TestCase):
     def test_hf_matched_source_denominator_is_exact(self):
         d=self.source()
         import re
+        if d.get('table2_source') == 'factorial_reporting':
+            # The original HF reader is partial: its 192 planned source units
+            # remain explicit in table1; table3 now contains extension contrasts.
+            before = d['table1'][3][0]
+            d['table1'][3][0]=re.sub(r'\((\d+)\)$',lambda m:'('+str(int(m[1])+1)+')',before)
+            self.assertNotEqual(before,d['table1'][3][0])
+            with self.assertRaisesRegex(ValueError,'Amended paper field differs from public report: table1'):
+                validate_results(self.root,d)
+            return
         d['table3'][3][0]=re.sub(r'\((\d+)\)$',lambda m:'('+m[1]+'0)',d['table3'][3][0])
         with self.assertRaisesRegex(ValueError,'Weight variant denominator' if d.get('table2_source')=='live' else 'Effect source denominator'):
             validate_results(self.root,d)
