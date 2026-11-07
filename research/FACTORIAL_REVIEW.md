@@ -88,3 +88,26 @@ The final pre-diagnostic full experiment suite passed all 195 tests. The fourtee
 paper-contract tests had passed against the unchanged completed-study artifacts;
 no new factorial PDF is attested. The reported nonzero account credit balance
 does not establish a specific serving quota or explain the retained errors.
+
+## Pre-data workload-capacity review
+
+The separately tagged tiny diagnostic returned the expected model with known
+usage, estimated at USD 0.00000593. It did not establish large-request throughput.
+Only audit input-token metadata was examined to size the canary; no scientific
+answer text or effect was reviewed.
+
+The new 24-request synthetic capacity canary received an actual isolated Deepseek
+review with seven reads and zero mutations after an implementation dispatch
+stalled and was completed locally. Review fixes added optional private replay
+before paid main dispatch, exact plan/summary bindings and STOP checks at the
+actual opener boundary. Eighteen synthetic tests passed, including real helper
+plumbing with request-construction jitter, unknown-start reservations, cost and
+field tampering, failed capacity receipts and credential-free public replay.
+Later defensive changes have local regressions, not a claimed second independent
+review. Public metadata and private hashes do not independently authenticate a
+provider's receipts.
+
+The conditional final main runner is preparation only until its separate review,
+capacity pass and prospective registration. No main request is authorized by a
+successful tiny diagnostic alone. Both earlier stopped runs, their failures and
+the original scientific sources remain preserved.

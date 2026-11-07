@@ -1,2 +1,3 @@
 /data/* text eol=lf
 /research/*freeze.json text eol=lf
+/research/hf-capacity-results.json text eol=lf

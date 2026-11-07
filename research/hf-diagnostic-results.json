@@ -1,0 +1,21 @@
+{
+  "status": "complete_excluded_serving_diagnostic",
+  "tag": "hf-serving-diagnostic-v1",
+  "scientific_calls": 0,
+  "catalog_http_status": 200,
+  "inference_http_status": 200,
+  "profile_ok": true,
+  "known_usage": true,
+  "input_tokens": 38,
+  "output_tokens": 2,
+  "estimated_cost": "0.00000593",
+  "reserved_unknown_cost": "0",
+  "cap_usd": "0.001",
+  "started": "2026-11-07T09:26:51.235030+00:00",
+  "private_file_sha256": {
+    "events.jsonl": "7636f67856a319c7760e3a801181ffcbe2b69763bb2f6b65906df32ad3174470",
+    "catalog-private.json": "245126104ad3cba48e59834c3a68ad83db00d50911dde52f3c8d163d98090147",
+    "inference-private.json": "30529c0505247f81a7120bbd5dd14450251bb5da4d1de3cc5f4065c6325067e5"
+  },
+  "interpretation": "One tiny request succeeded; no main verdict replaced and no sustained-throughput or historical-failure-cause conclusion follows"
+}

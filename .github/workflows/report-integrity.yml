@@ -58,3 +58,16 @@ jobs:
           if [ -f research/hf-diagnostic-freeze.json ]; then
             python -m experiments.hf_diagnostic verify
           fi
+      - name: Verify workload capacity registration and public receipts
+        run: |
+          if [ -f research/hf-capacity-freeze.json ]; then
+            python -m experiments.hf_capacity verify
+          fi
+          if [ -f research/hf-capacity-results.json ]; then
+            python -m experiments.hf_capacity verify-results
+          fi
+      - name: Verify conditional final pacing registration
+        run: |
+          if [ -f research/factorial-paced-continuation.json ]; then
+            python -m experiments.factorial_paced verify --registration research/factorial-paced-continuation.json
+          fi
