@@ -77,3 +77,8 @@ jobs:
           if [ -f research/factorial-paced-continuation.json ]; then
             python -m experiments.factorial_paced verify --registration research/factorial-paced-continuation.json
           fi
+      - name: Verify separately registered Ollama readers
+        run: |
+          if [ -f research/ollama-reader-v1-freeze.json ]; then
+            python -m experiments.ollama_study verify
+          fi
