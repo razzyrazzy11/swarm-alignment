@@ -8,7 +8,18 @@ The subsequent [direction and rubric assessment](research/NEXT_STUDY_DECISION.md
 
 The new [factorial Track 4 protocol](research/FACTORIAL_PROTOCOL.md) is prospectively frozen as `factorial-audit-v1`. The earlier account-cushion checkpoint paused collection after 576 worker requests and 9,706 of 11,640 reader requests, including the separately scripted calibration bank. At that checkpoint all started reader identities had terminal records and 1,934 HF requests were unstarted. An operator credit cushion stopped and drained the queue without changing endpoints, prompts or the sample. One earlier delegate-stage gateway response remains retained without retry and could not execute an action. The [metadata checkpoint](research/factorial-collection-status.json) preserves counts and journal-prefix hashes; no interim scientific effects have been reviewed. The PDF continues to report completed prior studies until full collection and public replay finish. [Implementation review](research/FACTORIAL_REVIEW.md) and [primary sources](research/FACTORIAL_SOURCES.md) record validation and scope.
 
-The operator confirmed funding, and the tagged [exact-unstarted continuation](research/factorial-account-resume.json) completed four more requests before one HTTP 429 stopped collection safely. There are now 9,711 reader terminal records and 1,929 unstarted requests; the failed request remains INVALID and will never be retried. A prospective [rate-controlled operational continuation](research/FACTORIAL_RATE_CONTINUATION.md) changes scheduling only and must be tagged before further requests. Original endpoints, request bodies, sample, analysis and phase ceilings remain unchanged. These checkpoints are operational history, not completed factorial findings.
+The operator confirmed funding, and the tagged [exact-unstarted continuation](research/factorial-account-resume.json) completed four more requests before one HTTP 429 stopped collection safely. At that point there were 9,711 reader terminal records and 1,929 unstarted requests; the failed request remains INVALID and will never be retried. A prospective [rate-controlled operational continuation](research/FACTORIAL_RATE_CONTINUATION.md) changed scheduling only and was tagged before further requests. Original endpoints, request bodies, sample, analysis and phase ceilings remain unchanged. These checkpoints are operational history, not completed factorial findings.
+
+The subsequently tagged rate-controlled continuation added 31 terminal records
+(27 HTTP 200 and four HTTP 429), then reached its registered five-429 stopping
+limit. The [drained checkpoint](research/factorial-rate-stop.json) preserves
+**9,742 unique starts and matching terminal records, with 1,898 requests unstarted**.
+No failed identity was retried. The finalizer stopped before authoring, so the
+PDF still reports the completed earlier studies. Funding and serving limits are
+separate; the status codes alone do not identify the limiting service or quota.
+The [separate serving diagnostic](research/HF_DIAGNOSTIC_PROTOCOL.md) is operational
+and cannot replace any study verdict. [Follow-up gates](research/FOLLOWUP_GATES.md)
+keep future training or layout tests conditional on the failure that remains.
 
 ## What actually ran
 

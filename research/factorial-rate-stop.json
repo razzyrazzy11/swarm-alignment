@@ -1,0 +1,112 @@
+{
+  "created": "2026-11-07T09:19:23.712298+00:00",
+  "status": "registered_rate_stop_drained",
+  "scientific_freeze_tag": "factorial-audit-v1",
+  "scientific_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "operational_tag": "factorial-audit-v1-rate-continuation",
+  "audits_planned": 11640,
+  "audit_starts": 9742,
+  "audit_terminals": 9742,
+  "unstarted": 1898,
+  "http_status_counts": {
+    "200": 9737,
+    "429": 5
+  },
+  "provider_counts": {
+    "adaption": 7760,
+    "hf": 1982
+  },
+  "incomplete": 0,
+  "audit_gateway_errors": 0,
+  "audit_cost_estimates": {
+    "adaption": "1.1187768720",
+    "hf": "0.880229785"
+  },
+  "earlier_delegate_gateway_retained": true,
+  "all_started_ids_reconciled": true,
+  "interim_scientific_results_reviewed": false,
+  "paper_authoring_started": false,
+  "raw_prefixes": {
+    "smoke/plan.json": {
+      "bytes": 459,
+      "sha256": "898ae9ea727f0e6bc38338d7dcd7f9ce7535c90003548eed58b75dafdf1cf09e"
+    },
+    "smoke/attempts.jsonl": {
+      "bytes": 1324,
+      "sha256": "491440b7f5d13725a55f1a856ae44b3f42dd674569ac186e841d4eab62ec894f"
+    },
+    "smoke/responses.jsonl": {
+      "bytes": 11582,
+      "sha256": "6783ac9b3cb478c28d732563e232e28437c6ab672d89675c8e0b0e1e5de7d4ee"
+    },
+    "smoke/summary.json": {
+      "bytes": 309,
+      "sha256": "4aba25115542e3ef9acf55a067b266c246c8d77bbeea158c36b179de9ad1b1a9"
+    },
+    "issue/plan.json": {
+      "bytes": 4439,
+      "sha256": "bde23e4201531a26564ab3fba64c8a310ff30b30f91c549a9ac015e75b36434e"
+    },
+    "issue/attempts.jsonl": {
+      "bytes": 39168,
+      "sha256": "d57dad336d0cc1c39d6bc7e4cc45c8a5193091abb80276c11e1a2e4b61e23e56"
+    },
+    "issue/responses.jsonl": {
+      "bytes": 681603,
+      "sha256": "467081c7e8484f399736d43d0286f574f0ef3a6581727b4057fd4b99e4952525"
+    },
+    "issue/summary.json": {
+      "bytes": 304,
+      "sha256": "90f2033e4dd3800064e59eb2f6d13a3f15752bd944f0809a230886bfa030fa3d"
+    },
+    "delegate/plan.json": {
+      "bytes": 5015,
+      "sha256": "a106a24c9537497a88be7bb65b84d4ff9cc92b9c5a3354e77bbee0682d1bed8e"
+    },
+    "delegate/attempts.jsonl": {
+      "bytes": 39744,
+      "sha256": "0c212ee2c229c5d683035fc2e223f2fefaa95ec8d6ab968a50c87a2430ee2ee3"
+    },
+    "delegate/responses.jsonl": {
+      "bytes": 677933,
+      "sha256": "f137d4dc488d32eac45d5e800d72b38578cf2f4cae1cd3964c4c51a46a72532a"
+    },
+    "delegate/summary.json": {
+      "bytes": 304,
+      "sha256": "758a7f8ad19efb045a3cbc15992cdbb508eb3c9cbcbb95e2eb96517ec2f63fa9"
+    },
+    "settle/plan.json": {
+      "bytes": 4631,
+      "sha256": "9e3386c4a3a560458a8c84d5f76117660d28f648c069872c52c59f546dfbacdb"
+    },
+    "settle/attempts.jsonl": {
+      "bytes": 39360,
+      "sha256": "422125168cdf70e42a9372b9af18d4b6f67c7f9ddad57e72958cee19aaeca3f1"
+    },
+    "settle/responses.jsonl": {
+      "bytes": 661660,
+      "sha256": "afc7ec610ad02280a0cc045271a2ffedc72c648146ae1651da0c39f5e6152f54"
+    },
+    "settle/summary.json": {
+      "bytes": 304,
+      "sha256": "45a1569155843fbe0165e59881b7b68e7f7db59d8fea23effcab353b430ca065"
+    },
+    "audits/plan.json": {
+      "bytes": 825733,
+      "sha256": "3827464811aa4db473a30b08e9ec775b13a3a4ed0214f99815053863e49ac531"
+    },
+    "audits/attempts.jsonl": {
+      "bytes": 2419468,
+      "sha256": "eeabb3e3fd94c1d274b139f62619b6e61987ee0389d048dc5be7e8dc2b8c493c"
+    },
+    "audits/responses.jsonl": {
+      "bytes": 52746289,
+      "sha256": "e4201e45eedcf256ee1e7c609789024596fe4a8520024145eb6d672712bf30e9"
+    },
+    "audits/summary.json": {
+      "bytes": 320,
+      "sha256": "046ace158d287466fd03231134cf68e4a4baacfbb7ce9473cfc4f109002c8b6f"
+    }
+  },
+  "note": "No retry or provider substitution; full factorial report remains incomplete; diagnostic receipts and costs stay separate"
+}

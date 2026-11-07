@@ -57,3 +57,34 @@ fourteen paper-contract tests. Exact private checkpoint verification matched
 9,711 terminal identities and 1,929 never-started requests; it issued no requests.
 The release-candidate credential scan found no matches in 164 candidate files.
 These checks validate the continuation machinery, not unfinished study outcomes.
+
+## Isolated serving-diagnostic review after the rate stop
+
+At the registered fifth HTTP 429 the collector drained to 9,742 unique terminal
+identities and left 1,898 requests unstarted. The finalizer stopped before
+authoring. A separate diagnostic was prepared to inspect serving errors without
+retrying a study identity or changing a scientific denominator.
+
+The isolated OpenCode implementer stalled; implementation was completed locally.
+An actual Deepseek security review read eleven allowlisted files with zero
+mutations. Its redirect finding was fixed with a diagnostic-only handler refusing
+every redirect, preserving the one-GET/one-POST bound. Further fixes validate
+credentials before creating the exclusive output folder, reject malformed
+catalog prices, require a literal halted state and bound successful receipts.
+Native HF token-field handling and recursive original-helper source binding were
+checked; the corresponding review allegations were unsupported. Later changes
+have local regression coverage rather than a claimed second remote review.
+
+Fifteen diagnostic tests and the existing seventeen continuation/ten frozen-runner
+tests passed together. Tests cover STOP before and after the catalog request,
+no redirects/retries, redaction, strict stop-state guards, bounded error data,
+documented structured error codes, wrong returned models and retention of actual
+known over-limit cost. Bare 429 or message-only errors remain not determinable.
+The registered input/output settings bound the client reservation; they cannot
+guarantee a provider's final bill. No diagnostic outcome authorizes another main
+continuation, a provider change, financial changes or training.
+
+The final pre-diagnostic full experiment suite passed all 195 tests. The fourteen
+paper-contract tests had passed against the unchanged completed-study artifacts;
+no new factorial PDF is attested. The reported nonzero account credit balance
+does not establish a specific serving quota or explain the retained errors.

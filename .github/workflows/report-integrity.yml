@@ -53,3 +53,8 @@ jobs:
           if [ -f research/factorial-rate-continuation.json ]; then
             python -m experiments.factorial_continue verify --registration research/factorial-rate-continuation.json
           fi
+      - name: Verify isolated serving diagnostic registration
+        run: |
+          if [ -f research/hf-diagnostic-freeze.json ]; then
+            python -m experiments.hf_diagnostic verify
+          fi
