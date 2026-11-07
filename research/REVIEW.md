@@ -1,3 +1,9 @@
+# Track clarification and post-release direction review
+
+The current paper explicitly names Track 4 Multi-Agent Oversight and Control in its subtitle, abstract and introduction. The revised official-template PDF remains 7 main pages and 12 total pages, with a 203-word abstract and 116,818 bytes. Every final page was inspected. Normal/optimized artifact verification and all eleven paper tests passed. The earlier 194-word abstract and 116,676-byte PDF below describe the immutable results-v2 snapshot, not this presentation revision. Scientific results, registrations and datasets are unchanged.
+
+Three parallel reviews, including a bounded source-only OpenCode scout and primary-source reviews, inform NEXT_STUDY_DECISION.md. The added post-release diagnostic verifies public-data hashes, decomposes 384 dependent restoration comparisons per reader and reproduces all registered gains. It is descriptive and not a new confirmatory endpoint. No new inference, training or GPU job was launched. Additional primary-source overlap and review-depth limits are recorded in SOURCE_AUDIT.md and the decision memo. CI separately verifies the pushed revision and diagnostic.
+
 # Current integrated empirical checkpoint
 
 6 November 2026. Live-v2 and its separately frozen operational continuation completed 720 actor and 9,360 audit calls on 192 new source groups, including the 48-source influence subset. All planned identities have terminal outcomes; two gateway failures and twelve incomplete outputs remain retained without retries. Export checked native normalization, request hashes, actor inputs, full grids and public allowlists. The driver completed public replay before and after adding the explicit operational-amendment declaration. The archived initial 204-record prefix matches the registration and remains an unchanged prefix of current journals.

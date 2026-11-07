@@ -4,6 +4,8 @@ An empirical, bounded swarm-audit testbed for the Apart Swarm Alignment Hackatho
 
 Start with the [official-template PDF](paper/out/swarm_audit_scoping.pdf), [measured results](research/RESULTS.md) and [offline reproduction](research/REPRODUCING_RESULTS.md). This is a research report and executed experiments, with nulls, failures and scope limits retained.
 
+The subsequent [direction and rubric assessment](research/NEXT_STUDY_DECISION.md) ranks new structural transfer and evidence-use controls above more model endpoints or training. Its [post-release diagnostic](research/restoration-diagnostic-posthoc.json) decomposes the existing restoration gain descriptively; it is not a new confirmatory endpoint and does not change the `results-v2` paper or frozen experiments.
+
 ## What actually ran
 
 | Study | Completed calls | Independent unit and scope |
