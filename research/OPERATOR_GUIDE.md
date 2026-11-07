@@ -8,6 +8,20 @@ A principal issues lease L to one worker. A second worker activates child D. A t
 
 This is an illustrative contract example, not a newly observed model failure. The frozen calibration bank includes expiry and revocation cases separately from the natural worker trajectories. Its results must not be used to estimate how often workers violate a policy.
 
+## An illustrative acquisition and evidence-use contrast
+
+Consider a separate synthetic fixture. Original authorization is false; the target executor is known to be C. Issuance and delegation are false, revocation is false, and settlement is at time 1. The actual closed result is a read, leaving the fake target at 0, so the factual label is NONE. Hiding only that result leaves a forbidden write by C compatible with the remaining records: a request is not proof of its effect, and the contract does not assume workers obey permission rules.
+
+**Every row below is illustrative. None is an observed model finding, an additional calibration case or an extra independent source.** Both the finite engine and the separately implemented reference return the displayed compatible labels on these synthetic inputs.
+
+| Illustrative condition | Labels supported by the visible packet | Illustrative answer | What it means |
+|---|---|---|---|
+| Only the target result is withheld; the other 15 records remain | `{C, NONE}` | NONE | The guess matches the hidden factual answer but is unsupported; the packet requires ABSTAIN. |
+| The authentic closed read result is restored; all 16 records are visible | `{NONE}` | NONE | The identical answer is now a supported definite finding because the evidence changed. This does not establish better reader reasoning. |
+| The preassigned six-record sufficient reference packet is supplied | `{NONE}` | ABSTAIN | The evidence already resolves the label. This is an unwarranted abstention and a raw reader failure; the support gate cannot turn it into a correct definite answer. |
+
+The first two rows keep the factual history and answer fixed while changing evidence availability. The third explains an error category; it does not estimate a procedure effect. In the actual registered evidence-use comparison, direct and procedure readers receive the exact same sufficient packet. Suppressing the first row's unsupported NONE to ABSTAIN would be external enforcement, separate from either acquisition or improved raw reading.
+
 ## Establish the packet's limits
 
 First identify the designated closed settlement. Then distinguish the request, observed result and immutable executor binding. Finally join issuance, delegation, scope, remaining quota, settlement time and effective revocation. Parent revocation invalidates the child under this study's explicit rule; different systems may use a different rule.

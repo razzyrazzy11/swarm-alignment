@@ -48,3 +48,8 @@ jobs:
             python -m experiments.factorial_study verify
             python -m experiments.factorial_analysis verify
           fi
+      - name: Verify separately registered rate continuation
+        run: |
+          if [ -f research/factorial-rate-continuation.json ]; then
+            python -m experiments.factorial_continue verify --registration research/factorial-rate-continuation.json
+          fi

@@ -1,5 +1,12 @@
 # Decision after the completed live and checkpoint studies
 
+Historical decision memo: its proposed follow-ups were superseded by the
+prospectively tagged [factorial protocol](FACTORIAL_PROTOCOL.md). The current
+primary question compares direct and procedural readers on identical sufficient
+packets; acquisition comparisons remain separate secondary endpoints. This memo
+retains the reasoning from earlier completed results and does not redefine the
+new study after collection.
+
 Post-results-v2 assessment. This document reviews the completed results and scopes possible follow-ups. It does not amend a frozen protocol, authorize additional collection, or change the paper's registered endpoints. Three parallel reviews covered empirical/code gaps, sprint/prior-art fit, and checkpoint/training directions. The code review used an isolated OpenCode scout; speculative findings were checked and rejected where unsupported. No new inference or training was conducted for this assessment.
 
 ## The finding to lead with

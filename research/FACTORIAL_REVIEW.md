@@ -25,3 +25,35 @@ Actual OpenCode implementer task `02700dbb-867e-4cc1-ad6e-c763255dac21` used the
 The operator STOP drained 9,706 reader starts into exactly 9,706 unique terminal records, with 1,934 planned HF requests unstarted. All reader responses were HTTP 200 with known usage and no incompletes. Actor stages contain 576 terminal requests, including one earlier delegate gateway failure; its unknown usage reserve and no-operation admission are preserved. It was not retried or replaced. Source groups are not filtered on that failure.
 
 The account cushion is an operational funding condition, not a scientific outcome stop. Endpoints, prompts, sample, request bodies and original phase ceilings remain frozen. The metadata-only checkpoint records exact journal-prefix byte lengths and hashes for the registered unstarted-complement continuation. The local finalizer stopped before authoring; the existing PDF remains the completed prior-study report. No new effect estimates, training or public factorial data release are claimed. All 177 current tests passed locally across the unchanged 163-test experiment suite and fourteen paper tests; CI passed commit `788703e2290e3c3553ec3e71e6bf973681347204`. These checks do not attest an unfinished factorial PDF.
+
+## Prospective rate-controlled continuation review
+
+The tagged account resumption added four successful responses and one retained
+HTTP 429 before stopping at 9,711 reader terminal records, with 1,929 unstarted.
+No scientific effects were inspected. The separately registered operational
+continuation preserves the original scientific sources and request grid.
+
+An isolated OpenCode implementer stalled without producing files; the new
+sequential runner and tests were completed locally. An actual different-model
+GLM security reviewer read five allowlisted source files with zero mutations.
+Its findings prompted explicit preservation of the starting summary in the
+outside driver, recalculation of historical known costs and unknown-usage
+reservations, and public tag verification. The reviewed snapshot preceded later
+CI separation, exclusive-lock and cost-hardening changes; those changes are
+covered by local regressions, not credited as independently reviewed code.
+
+Seventeen new synthetic tests cover unchanged request bodies, pre-journal
+pacing and STOP, exact prefix/plan/ID validation, unresolved starts, exclusive
+execution, cost reservations, non-rate fatal stops, the cumulative five-429
+ceiling, longer Retry-After handling, numeric-only sidecars and public verification
+without private contexts or journals. They passed together with ten frozen runner
+tests. The operational code does not retry failed identities, rotate endpoints
+or keys, change scoring, or launch training. No live calls were used to choose
+these scheduling changes. This scoped review is not independent empirical
+replication or a guarantee of provider availability.
+
+Final pre-continuation local verification passed all 180 experiment tests and
+fourteen paper-contract tests. Exact private checkpoint verification matched
+9,711 terminal identities and 1,929 never-started requests; it issued no requests.
+The release-candidate credential scan found no matches in 164 candidate files.
+These checks validate the continuation machinery, not unfinished study outcomes.
