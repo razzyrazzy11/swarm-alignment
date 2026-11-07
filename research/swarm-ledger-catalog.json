@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "VERIFIED",
+  "checked": "2026-11-07T13:44:19.613660+00:00",
+  "adaption_models": [
+    "deepseek-v4-flash",
+    "gemma-4-26b-a4b-it",
+    "gemma-4-31b-it",
+    "glm-5.2",
+    "glm-53-flash",
+    "qwen3.5-397b",
+    "qwen3.8-27b"
+  ],
+  "hf_route": {
+    "provider": "deepinfra",
+    "status": "live",
+    "pricing": {
+      "input": 0.1,
+      "output": 0.3
+    },
+    "context_length": 327680,
+    "supports_structured_output": true,
+    "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct:deepinfra"
+  },
+  "ollama_models": {
+    "deepseek-v4.1-flash:1017": {
+      "digest": "7f8e880bc207",
+      "thinking": {
+        "values": [
+          false,
+          "low",
+          "high",
+          "max"
+        ],
+        "default": "high"
+      },
+      "context_length": 1048576
+    }
+  },
+  "rate_sources": [
+    "https://docs.adaptionlabs.ai/inference-stacks/models/",
+    "https://router.huggingface.co/v1/models",
+    "https://docs.ollama.com/cloud#pricing"
+  ],
+  "note": "Read-only availability and route metadata; documented prices are estimates, not entitlement or invoice guarantees."
+}

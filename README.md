@@ -2,7 +2,9 @@
 
 **Track 4: Multi-Agent Oversight and Control — is evidence missing, or does the reader fail to use sufficient evidence?**
 
-The original primary is complete on 192 source groups; the original reader plan is NOT complete: 9,742/11,640 terminal records and 1,898 UNSTARTED. The actors have 576 terminals. Registered Ollama collection completed all 4,728 planned readings. No extension substitutes for a missing Novita call.
+The published `results-v3` snapshot has a complete original primary on 192 source groups, but an incomplete original reader plan: 9,742/11,640 terminal records and 1,898 UNSTARTED. The actors have 576 terminals. Registered Ollama collection completed all 4,728 planned readings. No extension substitutes for a missing Novita call.
+
+Current work is a separately registered completion of those original HF requests and a new [five-agent shared-budget study](research/SWARM_LEDGER_PROTOCOL.md). The new study is prospective: its planned counts are not empirical results. It adds actual bounded worker actions, controlled positive incidents, eight reader profiles, matched HF text/schema modes, authentic-record restoration and controlled peer influence. The existing PDF and findings below remain the historical `results-v3` release until complete new data have been validated and integrated. Original failures are retained; missing conditions will not be replaced by another model or described as complete.
 
 The unchanged primary is the original Gemma 26B procedure-minus-direct operational raw correct-definite difference on the predeclared sufficient packet: +17.19 pp (95% source-bootstrap +10.94 to +23.44; n=192). Known INVALID terminals score zero under that frozen endpoint; UNSTARTED cells are unknown, never fabricated INVALID responses. Confidence intervals describe source sampling; incomplete-reader logical bounds describe identification uncertainty and are NOT 95% CIs.
 

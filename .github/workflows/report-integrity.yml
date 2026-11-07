@@ -95,3 +95,24 @@ jobs:
           if [ -f research/factorial-report.json ]; then
             python -m experiments.factorial_reporting verify
           fi
+      - name: Verify original HF completion registrations
+        run: |
+          if [ -f research/hf-completion-v1-freeze.json ]; then
+            python -m experiments.hf_completion verify
+          fi
+          if [ -f research/hf-completed-original-analysis-freeze.json ]; then
+            python -m experiments.hf_completion_analysis verify-registration
+          fi
+          if [ -f research/hf-completion-v2-freeze.json ]; then
+            python -m experiments.hf_completion_v2 verify
+          fi
+          if [ -f research/hf-completed-original-results.json ]; then
+            python -m experiments.hf_completion_analysis verify
+          fi
+      - name: Verify separately registered five-agent study
+        run: |
+          for split in technical development main; do
+            if [ -f "research/swarm-ledger-v1-$split-freeze.json" ]; then
+              python -m experiments.swarm_ledger_study verify --split "$split"
+            fi
+          done
