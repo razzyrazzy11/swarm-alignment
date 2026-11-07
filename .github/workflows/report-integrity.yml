@@ -136,5 +136,13 @@ jobs:
       - name: Replay completed Swarm Ledger public release when present
         run: |
           if [ -f data/swarm-ledger-v1-public/manifest.json ]; then
-            python -m experiments.swarm_ledger_analysis verify-public --output data/swarm-ledger-v1-public
+            python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public
+          fi
+      - name: Verify complete-cohort MAIN registrations when present
+        run: |
+          if [ -f research/swarm-ledger-complete-v1-main-freeze.json ]; then
+            python -m experiments.swarm_ledger_complete verify
+          fi
+          if [ -f research/swarm-ledger-complete-dispatch-v1-main-freeze.json ]; then
+            python -m experiments.swarm_ledger_complete_dispatch verify --split main
           fi

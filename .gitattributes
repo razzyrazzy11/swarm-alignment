@@ -14,3 +14,7 @@
 /analysis/ledger_figures.py text eol=lf
 /analysis/ledger_release.py text eol=lf
 /analysis/test_ledger_release.py text eol=lf
+/research/swarm-ledger-complete*.json text eol=lf
+/research/SWARM_LEDGER_COMPLETE*.md text eol=lf
+/research/swarm-ledger-dispatch-v*-stop.json text eol=lf
+/analysis/ledger_complete_figures.py text eol=lf
