@@ -39,6 +39,13 @@ def build_manifest(root,content):
     if content.get('table2_source')=='factorial_reporting':
         manifest['factorial_reporting_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('factorial-config.json','factorial-audit-v1-freeze.json','factorial-reporting-freeze.json','factorial-report.json','ollama-reader-v1-freeze.json','live-results.json','weight-results.json','stateful-results.json')}
         manifest['factorial_reporting_contract_sha256']=hashlib.sha256((root/'factorial_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+    if content.get('figures'):
+        from figure_build import assemble as figure_assemble, figure_manifest, package_delta
+        parts=figure_assemble(content,root/'official-template.docx')
+        manifest.update(package_delta(parts,root/'official-template.docx'))
+        manifest['figures']=figure_manifest(content,root)
+        manifest['figure_builder_sha256']=hashlib.sha256((root/'figure_build.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        manifest['figure_verifier_sha256']=hashlib.sha256((root/'verify.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     return manifest
 
 def validate_results(root,content):
@@ -149,6 +156,9 @@ def validate_source(content):
     prose+=' '.join(cell for row in content['table1'] for cell in row)
     prose+=' '.join(cell for row in content.get('table2',[]) for cell in row)
     prose+=' '.join(cell for row in content.get('table3',[]) for cell in row)
+    if content.get('figures'):
+        require(type(content['figures']) is list and all(type(v) is dict and type(v.get('caption')) is str for v in content['figures']),'Figure caption registry invalid')
+        prose+=' '.join(v['caption'] for v in content['figures'])
     cited=set()
     for group in re.findall(r'\[([\d,–-]+)\]',prose):
         for item in group.split(','):
@@ -169,7 +179,10 @@ def validate_source(content):
         require('development' in content['abstract'].lower(), 'Development boundary missing from abstract')
 
 def check_docx(root,content):
-    expected=assemble(content,root/'official-template.docx')
+    if content.get('figures'):
+        from figure_build import assemble as figure_assemble
+        expected=figure_assemble(content,root/'official-template.docx')
+    else:expected=assemble(content,root/'official-template.docx')
     with zipfile.ZipFile(root/'out/swarm_audit_scoping.docx') as z:
         require(len(z.namelist())==len(set(z.namelist())), 'Duplicate DOCX package parts')
         require(set(z.namelist())==set(expected), 'DOCX package part set changed')
@@ -184,6 +197,52 @@ def check_docx(root,content):
     actual=json.loads((root/'out/build-check.json').read_text(encoding='utf-8'))
     require(actual==build_manifest(root,content), 'Stale build manifest')
     return paragraphs
+
+def painted_image_count(reader):
+    """Count painted image XObjects, including images inside painted Form objects.
+
+    Unused resources and empty image streams do not establish figure presence.
+    Counts do not verify semantic identity; the hash-bound page review does that.
+    """
+    from pypdf.generic import ContentStream
+    def obj(value):return value.get_object() if hasattr(value,'get_object') else value
+    def count(stream,resources,ancestry=()):
+        if stream is None:return 0
+        stream=obj(stream);resources=obj(resources or {});total=0
+        require(len(ancestry)<20,'Recursive PDF Form resources')
+        for operands,operator in ContentStream(stream,reader).operations:
+            if operator!=b'Do':continue
+            require(len(operands)==1,'Invalid PDF image operation')
+            xobjects=obj(resources.get('/XObject',{}));name=operands[0]
+            require(name in xobjects,'Missing painted PDF XObject')
+            x=obj(xobjects[name]);subtype=x.get('/Subtype')
+            if subtype=='/Image':
+                require(int(x.get('/Width',0))>0 and int(x.get('/Height',0))>0 and len(x.get_data())>0,'Empty PDF image')
+                total+=1
+            elif subtype=='/Form':
+                identity=id(x);require(identity not in ancestry,'Cyclic PDF Form resources')
+                total+=count(x,x.get('/Resources',resources),ancestry+(identity,))
+        return total
+    return [count(page.get_contents(),page.get('/Resources',{})) for page in reader.pages]
+
+
+def figure_pdf_evidence(root,content,reader,path):
+    from figure_build import figure_manifest
+    figures=figure_manifest(content,root)
+    counts=painted_image_count(reader)
+    require(sum(counts)>=len(figures),'PDF missing painted scientific figure images')
+    review_path=root/'out/figure-review.json'
+    require(review_path.is_file(),'All-page scientific figure inspection record required')
+    review=json.loads(review_path.read_text(encoding='utf-8'))
+    require(set(review)=={'schema_version','pdf_sha256','figure_sha256','rendered_pages','inspected_all_pages','reviewer','reviewed_at'},'Figure inspection record schema')
+    require(type(review['schema_version']) is int and review['schema_version']==1 and review['pdf_sha256']==sha(path)
+            and review['figure_sha256']=={f['id']:f['sha256'] for f in figures},'Figure inspection record stale')
+    require(review['inspected_all_pages'] is True and review['rendered_pages']==list(range(1,len(reader.pages)+1))
+            and all(type(v) is int for v in review['rendered_pages']),'Every rendered page must be inspected')
+    require(type(review['reviewer']) is str and review['reviewer'].strip() and type(review['reviewed_at']) is str and review['reviewed_at'].strip(),'Figure inspection attribution required')
+    return dict(painted_images_by_page=counts,figure_review_sha256=sha(review_path),
+                figure_identity_limit='Image objects establish presence; Word recompression prevents a general pixel-identity guarantee. All pages require visual inspection.')
+
 
 def pdf_manifest(root,content,paragraphs):
     path=root/'out/swarm_audit_scoping.pdf'
@@ -214,10 +273,15 @@ def pdf_manifest(root,content,paragraphs):
     require(1<=main_pages<=8, 'Main paper must be at most 8 pages')
     for page in reader.pages:
         require(abs(float(page.mediabox.width)-612)<1 and abs(float(page.mediabox.height)-792)<1, 'PDF page geometry differs from template')
-    return dict(pages=len(pages),main_pages=main_pages,pdf_bytes=path.stat().st_size,
+    manifest=dict(pages=len(pages),main_pages=main_pages,pdf_bytes=path.stat().st_size,
                 abstract_words=len(content['abstract'].split()),render_engine='Microsoft Word',
                 evidence_status=content['evidence_status'],template_sha256=SHA,content_sha256=source_hash(content),
                 builder_sha256=builder_hash(root),docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),pdf_sha256=sha(path))
+    if content.get('figures'):
+        manifest.update(figure_pdf_evidence(root,content,reader,path))
+        manifest['figure_builder_sha256']=hashlib.sha256((root/'figure_build.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        manifest['figures']={v['id']:v['sha256'] for v in content['figures']}
+    return manifest
 
 def check_ignores(root):
     protected=['.env','.env.production','private.pem','private.key','id_rsa','id_ed25519','.modal.toml','runs/raw.json','nested/runs-test/raw.json','.swarm/state.json','.playwright-mcp/download.tmp']
