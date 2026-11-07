@@ -23,11 +23,18 @@ def builder_hash(root):
     return hashlib.sha256((root/'build.py').read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 
 def build_manifest(root,content):
-    results=json.loads((root.parent/'research/pilot-results.json').read_text(encoding='utf-8'))
+    results={} if content.get('ledger_registration') else json.loads((root.parent/'research/pilot-results.json').read_text(encoding='utf-8'))
     manifest=dict(abstract_words=len(content['abstract'].split()),template_sha256=SHA,
                 content_sha256=source_hash(content),builder_sha256=builder_hash(root),
                 docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),
                 changed_package_parts=['word/document.xml'],evidence_status=content['evidence_status'],results_sha256=source_hash(results))
+    if content.get('ledger_registration'):
+        from complete_report_contract import REGISTRATION, load_completed
+        require(content['ledger_registration']==REGISTRATION,'Unknown completed ledger manuscript registration')
+        _,bindings=load_completed(root,replay=False)
+        manifest.pop('results_sha256')
+        manifest['ledger_sources']=bindings
+        manifest['complete_report_contract_sha256']=hashlib.sha256((root/'complete_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     if 'stateful_plan' in content:
         manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-qualification.json')}
     if content.get('table2_source')=='stateful':
@@ -49,6 +56,11 @@ def build_manifest(root,content):
     return manifest
 
 def validate_results(root,content):
+    if content.get('ledger_registration'):
+        from complete_report_contract import load_completed, validate_manuscript
+        report,_=load_completed(root,replay=True)
+        validate_manuscript(content,report)
+        return
     if content.get('table2_source')=='factorial_reporting':
         from factorial_report_contract import expected_fields
         report=json.loads((root.parent/'research/factorial-report.json').read_text(encoding='utf-8'))
@@ -167,6 +179,13 @@ def validate_source(content):
     ids=[int(re.match(r'\[(\d+)\]',r).group(1)) for r in content['references']]
     require(ids==list(range(1,len(ids)+1)), 'References must have unique sequential IDs')
     require(cited==set(ids), 'Citation/reference mismatch: '+str(cited.symmetric_difference(ids)))
+    if content.get('ledger_registration'):
+        from complete_report_contract import REGISTRATION
+        require(content['ledger_registration']==REGISTRATION,'Unknown completed ledger manuscript registration')
+        require(content.get('table2_source')=='swarm_ledger_complete','Completed ledger flag/table branch differs')
+        require(content['evidence_status']['status']=='completed prospectively registered six-reader MAIN','Completed ledger evidence status differs')
+        require(all(name in content['abstract'] for name in ('Adaption','Hugging Face','Ollama')),'Completed study service evidence missing')
+        return
     if content.get('table2_source') in ('stateful','live','factorial','factorial_reporting'):
         expected_status={'live':'completed live and weight study','stateful':'completed stateful study','factorial':'completed factorial study','factorial_reporting':'primary complete; original secondary incomplete'}[content['table2_source']]
         require(content['evidence_status']['status']==expected_status, 'Study evidence status must be explicit')
@@ -277,6 +296,11 @@ def pdf_manifest(root,content,paragraphs):
                 abstract_words=len(content['abstract'].split()),render_engine='Microsoft Word',
                 evidence_status=content['evidence_status'],template_sha256=SHA,content_sha256=source_hash(content),
                 builder_sha256=builder_hash(root),docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),pdf_sha256=sha(path))
+    if content.get('ledger_registration'):
+        from complete_report_contract import load_completed
+        _,bindings=load_completed(root,replay=False)
+        manifest['ledger_sources']=bindings
+        manifest['complete_report_contract_sha256']=hashlib.sha256((root/'complete_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     if content.get('figures'):
         manifest.update(figure_pdf_evidence(root,content,reader,path))
         manifest['figure_builder_sha256']=hashlib.sha256((root/'figure_build.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()

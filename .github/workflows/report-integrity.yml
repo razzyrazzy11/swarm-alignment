@@ -17,11 +17,6 @@ jobs:
       - run: python -O paper/verify.py
       - run: python -m unittest discover -s paper/tests -v
       - run: python -m unittest discover -s experiments/tests -v
-      - name: Test PID-safe release orchestration when present
-        run: |
-          if [ -f analysis/test_ledger_release.py ]; then
-            python -m unittest analysis.test_ledger_release -v
-          fi
       - name: Verify prospective stateful freeze when present
         run: |
           if [ -f research/stateful-main-v2-freeze.json ]; then
@@ -111,6 +106,9 @@ jobs:
           if [ -f research/hf-completion-v2-freeze.json ]; then
             python -m experiments.hf_completion_v2 verify
           fi
+          if [ -f research/hf-completion-release-v1-freeze.json ]; then
+            python -m experiments.hf_completion_release verify
+          fi
           if [ -f research/hf-completed-original-results.json ]; then
             python -m experiments.hf_completion_analysis verify
           fi
@@ -146,3 +144,17 @@ jobs:
           if [ -f research/swarm-ledger-complete-dispatch-v1-main-freeze.json ]; then
             python -m experiments.swarm_ledger_complete_dispatch verify --split main
           fi
+          if [ -f research/generator-sensitivity-v1-freeze.json ]; then
+            python -m analysis.ledger_generator_sensitivity verify
+          fi
+  windows-release-guards:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test frozen Windows process-creation fixtures on Windows
+        run: python -m unittest analysis.test_ledger_release -v
