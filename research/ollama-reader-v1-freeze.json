@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "config": {
+    "study_id": "ollama-reader-v1",
+    "conditions": [
+      {
+        "id": "ds_off",
+        "model": "deepseek-v4.1-flash:1017",
+        "think": false,
+        "views": "all",
+        "input_rate": "0.30",
+        "output_rate": "1.20"
+      },
+      {
+        "id": "ds_low",
+        "model": "deepseek-v4.1-flash:1017",
+        "think": "low",
+        "views": "sufficient_calibration",
+        "input_rate": "0.30",
+        "output_rate": "1.20"
+      },
+      {
+        "id": "gemma_bridge",
+        "model": "gemma4:31b",
+        "think": false,
+        "views": "sufficient_calibration",
+        "input_rate": "0.14",
+        "output_rate": "0.40"
+      }
+    ],
+    "order_seed": 710033,
+    "input_byte_cap": 24000,
+    "max_output_tokens": 4096,
+    "max_active": 2,
+    "pilot_stage_cap": "0.10",
+    "readers_stage_cap": "9.90",
+    "combined_cap": "10.00",
+    "remaining_credit_floor": "5.00",
+    "balance_poll_seconds": 60,
+    "metadata_recheck_calls": 100,
+    "gateway_allowance": 8,
+    "gateway_backoff_seconds": 60,
+    "request_timeout_seconds": 180,
+    "retries": 0,
+    "cost_basis": "published_peak_uncached_estimate_not_invoice"
+  },
+  "source_sha256": {
+    "experiments/ollama_study.py": "96411b24e57aa8b5b7d8f9a3b5047b812abba19ab58b2802486e4d4f1dce5cc0",
+    "experiments/tests/test_ollama_study.py": "38c51ec873f20c139a9d59ed34a4bfa4fe0320b2aac92940d415cca5b40e520c",
+    "research/ollama-config.json": "93100bf0593158f2565de438d65f5e860f6ccdb9f8cf93690637173bf5f087a9",
+    "research/ollama-catalog.json": "ad63f21343dec90d18b030323404cde0c9e189851253c35f14c5c59d99e6d11b",
+    "research/OLLAMA_PROTOCOL.md": "76f37ca11233a705dee234d90d4f374ceba7f6dd45825556fc4dd0560a781ace",
+    "research/FACTORIAL_REPORTING_AMENDMENT.md": "31e4f784f96e01a0cd8360bff2f0773cc229613e4885a86dcee43ab25278daa8",
+    "experiments/factorial_continue.py": "8c9162b1ea641d8e04c3c80dabfadacfde9b85157c444f2bf86846423ea79a29"
+  },
+  "original_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "base_commit": "e3c770ab1231f36b12e9da870dd3aa27d5e95e89"
+}
