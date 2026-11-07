@@ -1,5 +1,9 @@
 # Reproduce the released experiments
 
+At the 7 November 04:18 UTC checkpoint, the new factorial study is waiting for HF funding; [the recorded status](factorial-collection-status.json) describes a drained operator STOP, not completed scientific results. Public factorial contexts/cases and the completed aggregate have not been released at this checkpoint. The commands below reproduce the completed prior studies. Do not mistake passing implementation tests for a completed factorial dataset or launch paid collection to reproduce existing results.
+
+For any new collection, check actual remaining account funds after earlier runs and other compute. A client phase ceiling does not reserve account credits. [HF's official pricing](https://huggingface.co/docs/inference-providers/en/pricing) lists $2 in monthly PRO compute credits and purchased credits for extra routed usage. No automatic purchase or plan change is authorized by the collection code. An operator continuation requires sufficient funds, drained journals and the exact unstarted identities; it must never retry a started call to conceal a billing failure.
+
 Use Python 3.12+ from the repository root and a checkout containing all registration tags (`git fetch --tags` when needed). These commands are offline checks: they do not load credentials, submit inference requests or launch training. Published JSON/JSONL contains final answers and bounded fake-data artifacts, not native reasoning or account identifiers.
 
 ```console

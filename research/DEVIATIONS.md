@@ -1,3 +1,9 @@
+# 7 November 2026 factorial funding checkpoint
+
+At 04:18 UTC the operator account-credit cushion used the registered STOP/drain mechanism. All 9,706 started reader identities have unique terminal records, with 1,934 HF identities unstarted. Reader responses were HTTP 200 with known usage and no incomplete outputs. All 576 actor requests are terminal; one earlier delegate gateway response remains retained, reserved and unretried, with no operation admitted. See [the metadata checkpoint](factorial-collection-status.json) for phase counts and journal-prefix hashes.
+
+This is a funding condition, not an outcome-selected stopping rule or a change to the scientific protocol. No new effect estimates have been reviewed. Endpoints, prompts, request identities, source groups and phase ceilings remain unchanged. Continuation must preserve these prefixes and use only the registered exact-unstarted complement after funding is verified. The finalizer stopped before authoring, so the current PDF reports completed prior studies. A complete factorial release and report remain pending.
+
 # Integrated release history update
 
 Completed live-v2 plus its prospective operational continuation and the separately frozen weight-audit-v1 are now reported alongside the older scripted study. Live has 720 actor and 9,360 audit calls; weights have 144 proposals. The v1 live qualification failed encoding, fresh v2 passed after a field-example clarification. The main audit stopped at 204 requests/three known truncations before the exact unstarted continuation was registered. All 2 main/influence gateway failures and 12 incomplete outputs remain retained, without retries. No scientific effect was inspected to select the continuation; the operational amendment remains explicit. No training was conducted. Frozen protocols/memos are not rewritten to hide their prospective or superseded status.
