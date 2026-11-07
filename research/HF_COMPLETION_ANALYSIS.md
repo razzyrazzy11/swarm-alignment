@@ -17,13 +17,17 @@ completion operational amendment separately fixes which requests may be started.
 The immutable `results-v3` report, context plan, 576 actor records, trajectories,
 manifest and public cases are source anchors. Keep their bytes unchanged. Select
 the 9,742 terminal `original_*` cases and exclude every later extension condition.
-The only added public artifact is a sanitized supplement of the 1,898 originally
-unstarted HF identities. Its request-body hash must equal the reconstructed
+The only added public data artifact is a sanitized supplement of the 1,898 originally
+unstarted HF identities, assembled from the immutable first-nine journal and
+the separately registered recovery journal of 1,889 unstarted identities. Both
+journals retain every terminal and their own raw-file commitments. The first
+journal's conservative overload classification is not rewritten. Its request-body hash must equal the reconstructed
 original request. No request is repeated, substituted, imputed or dropped because
 it failed. All 11,640 original identities must occur exactly once.
 
 Private export first requires stopped original/completion drivers and children,
-absence of collector locks, the original raw-prefix hash checks, and an exclusive
+absence of collector locks, both completion drivers and their child processes,
+the original raw-prefix hash checks, and an exclusive
 collection lock. Replay completion starts/terminals, native normalization,
 returned-model aliases, body hashes and exact known-token costs or unknown-usage
 reservations. Public fields exclude native IDs, headers, error bodies, private
@@ -48,7 +52,9 @@ Multiple readers and packet views do not increase the 192-source denominator.
 ## Release and verification
 
 The root session commits these wrapper sources, invokes `freeze`, commits the new
-registration, and creates `hf-completed-original-analysis-v1` before unblinding.
+registration, and creates `hf-completed-original-analysis-v2` before unblinding.
+The published v1 tag is an incomplete registration and is not usable; see
+`HF_COMPLETION_ANALYSIS_REGISTRATION_CORRECTION.md` for its preserved audit trail.
 Only then may it explicitly invoke `export --publish-after-collection`. Export
 refuses an incomplete source grid, unresolved starts, active drivers, changed
 prefixes or mutable source anchors. It writes new

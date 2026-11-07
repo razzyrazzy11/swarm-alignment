@@ -65,7 +65,7 @@ class CompletedAnalysisTests(unittest.TestCase):
             raw.assert_not_called()
 
     def test_stale_source_prefix_stops_before_supplement_reads(self):
-        with patch.object(a,'verify_registration',return_value={}),patch.object(a.h,'verify',return_value={}),patch.object(a,'driver_stopped'),patch.object(a.h,'original_prefix',side_effect=ValueError('stale prefix')),patch.object(a.h,'supplement_ledger') as supplement:
+        with patch.object(a,'verify_registration',return_value={}),patch.object(a.h,'verify',return_value={}),patch.object(a,'driver_stopped'),patch.object(a,'recovery_stopped',side_effect=ValueError('active recovery')),patch.object(a.h,'original_prefix') as supplement:
             with self.assertRaises(ValueError):a.export(True)
             supplement.assert_not_called()
 
@@ -74,6 +74,24 @@ class CompletedAnalysisTests(unittest.TestCase):
         with patch.object(a,'verify_registration') as registration:
             with self.assertRaises(ValueError):a.export(False)
             registration.assert_not_called()
+
+    def test_driver_and_child_both_require_verified_termination(self):
+        with patch.object(a,'read',return_value=dict(status='stopped',pid=101,child_pid=102)),patch.object(a,'_process_absent') as absent:
+            a.driver_stopped()
+            self.assertEqual(absent.call_args_list[0].args,(101,))
+            self.assertEqual(absent.call_args_list[1].args,(102,))
+        with self.assertRaises(ValueError):a._process_absent(None)
+
+    def test_operational_summary_reconciles_cost_and_counts(self):
+        summary=dict(planned=1898,returned=1898,unstarted=0,complete=True,halted=False,stop_reason='',
+            new_transient_errors=0,historical_429_preserved=5,new_estimated_cost='0.12',
+            historical_hf_cost='0.88',freeze_sha256='frozen',cost_basis='estimate',
+            original_audit_returned=11640,original_hf_returned=3880)
+        fresh=[dict(estimated_cost='0.1'),dict(estimated_cost='0.02')]
+        with patch.object(a.s,'sha',return_value='frozen'):
+            a._summary_check(summary,fresh)
+            with self.assertRaises(ValueError):a._summary_check(dict(summary,new_estimated_cost='0'),fresh)
+            with self.assertRaises(ValueError):a._summary_check(dict(summary,new_transient_errors=True),fresh)
 
 
 if __name__=='__main__':unittest.main()

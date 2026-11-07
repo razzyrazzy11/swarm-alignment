@@ -2,6 +2,7 @@
 import argparse
 from collections import Counter
 from datetime import datetime, timezone
+from decimal import Decimal
 import hashlib
 import json
 import os
@@ -14,12 +15,16 @@ from experiments import factorial_study as s
 from experiments import hf_completion as h
 
 ROOT=s.ROOT
-TAG='hf-completed-original-analysis-v1'
+TAG='hf-completed-original-analysis-v2'
 FREEZE=ROOT/'research/hf-completed-original-analysis-freeze.json'
 REPORT=ROOT/'research/hf-completed-original-results.json'
 SUPPLEMENT='data/hf_completed_original_supplement.jsonl'
 SOURCES=('experiments/hf_completion_analysis.py','experiments/tests/test_hf_completion_analysis.py',
-         'research/HF_COMPLETION_ANALYSIS.md')
+         'research/HF_COMPLETION_ANALYSIS.md',
+         'research/HF_COMPLETION_ANALYSIS_REGISTRATION_CORRECTION.md',
+         'research/hf-completed-original-analysis-v1-incomplete-freeze.json',
+         'experiments/hf_completion_v2.py','experiments/tests/test_hf_completion_v2.py',
+         'research/HF_COMPLETION_V2_PROTOCOL.md')
 ANCHORS=('research/factorial-report.json',)+r.FILES
 DRIVER='runs/hf-completion-driver-v1/state.json'
 SUMMARY_KEYS={'planned','returned','unstarted','complete','halted','stop_reason',
@@ -134,9 +139,17 @@ def driver_stopped():
     state=read(ROOT/DRIVER)
     expect(state.get('status') in ('stopped','complete'),'Completion driver still active')
     _process_absent(state.get('pid'))
-    for key in ('child_pid','collector_pid'):
-        if state.get(key) is not None: _process_absent(state[key])
+    _process_absent(state.get('child_pid'))
+    if state.get('collector_pid') is not None: _process_absent(state['collector_pid'])
     expect(not (h.folder()/'collector.lock').exists(),'Completion lock active/stale; do not remove it')
+
+
+def recovery_stopped():
+    from experiments import hf_completion_v2 as recovery
+    state=read(ROOT/'runs/hf-completion-v2-driver/state.json')
+    expect(state.get('status') in ('stopped','complete'),'Recovery driver still active')
+    _process_absent(state.get('pid'));_process_absent(state.get('child_pid'))
+    expect(not (recovery.folder()/'collector.lock').exists(),'Recovery collector lock active/stale')
 
 
 def _old_inputs():
@@ -166,33 +179,38 @@ def _check_completion_counts(fresh,registration):
         expect(all(row[k]==d[k] for k in ('model','provider','metadata','request_sha256')),'Registered supplement descriptor differs')
 
 
+def _summary_check(summary,fresh):
+    expect(set(summary)==SUMMARY_KEYS,'Supplement summary public allowlist')
+    expect(summary['complete'] is True and summary['planned']==1898 and summary['returned']==1898 and summary['unstarted']==0,'Operational terminal accounting differs')
+    expect(summary['freeze_sha256']==s.sha(h.FREEZE) and summary['historical_429_preserved']==5 and summary['original_audit_returned']==11640 and summary['original_hf_returned']==3880,'Operational plan accounting differs')
+    expect(type(summary['new_transient_errors']) is int and 0<=summary['new_transient_errors']<=h.FIXED['new_transient_allowance'],'Operational transient count invalid')
+    expect(Decimal(summary['new_estimated_cost'])==sum((Decimal(x['estimated_cost']) for x in fresh),Decimal(0)),'Supplement summary cost differs from terminal costs')
+
+
 def export(publish_after_collection=False):
     expect(publish_after_collection,'Explicit publication flag required')
-    registration=verify_registration();completion=h.verify();driver_stopped()
-    jobs,historical=h.original_prefix()
-    plan=dict(freeze_sha256=s.sha(h.FREEZE),ids=[j['id'] for j in jobs],planned=len(jobs),pending_sha256=s.digest(completion['pending']))
-    with h.exclusive(h.folder()):
-        h.original_prefix(owned_lock=True)
-        starts,private,started=h.supplement_ledger(h.folder(),jobs,plan)
-        summary=read(h.folder()/'summary.json')
-        expect(set(summary)==SUMMARY_KEYS,'Supplement summary public allowlist')
-        expect(len(starts)==len(private)==len(jobs)==1898 and summary.get('complete') is True and summary.get('returned')==1898 and summary.get('unstarted')==0,'Incomplete supplement cannot be published COMPLETE')
-        start_by={x['id']:x for x in starts}
-        fresh=[{k:x[k] for k in f.ALLOWED}|dict(request_sha256=start_by[x['id']]['request_sha256']) for x in private]
+    registration=verify_registration();completion=h.verify();driver_stopped();recovery_stopped()
+    from experiments import hf_completion_v2 as recovery
+    recovery.verify()
+    with h.exclusive(recovery.folder()):
+        private,body_by,summary,raw=recovery.private_completed(owned_lock=True)
+        expect(len(private)==1898,'Incomplete supplement cannot be published COMPLETE')
+        fresh=[{k:x[k] for k in f.ALLOWED}|dict(request_sha256=body_by[x['id']]) for x in private]
         _check_completion_counts(fresh,completion)
+        _summary_check(summary,fresh)
         actors,old,design=_old_inputs();result=build_completed(actors,old,fresh,design)
         expect(len(result['cases'])==11640,'Original terminal grid size')
         original_primary=read(ROOT/'research/factorial-report.json')['analysis']['primary']['result']
         expect(result['analysis']['primary']['result']==original_primary,'Original primary estimate/interval changed')
-        raw={name:sha(h.folder()/name) for name in ('plan.json','attempts.jsonl','responses.jsonl','summary.json')}
         text=''.join(s.canonical(x)+'\n' for x in sorted(fresh,key=lambda x:x['id']))
         expect(not REPORT.exists() and not (ROOT/SUPPLEMENT).exists(),'New release exists; do not overwrite')
         (ROOT/SUPPLEMENT).write_text(text,encoding='utf-8',newline='\n')
         report=dict(schema_version=1,status='complete',study_id=s.config()['study_id'],analysis_tag=TAG,
             analysis_freeze_sha256=s.sha(FREEZE),completion_freeze_sha256=s.sha(h.FREEZE),
+            recovery_freeze_sha256=s.sha(recovery.FREEZE),
             source_artifacts=registration['anchors'],supplement_artifacts={SUPPLEMENT:sha(ROOT/SUPPLEMENT)},
             raw_supplement_sha256=raw,analysis=result['analysis'],availability=_availability(result['cases']),
-            historical_hf_429_preserved=len(historical),supplement_terminals=len(fresh),
+            historical_hf_429_preserved=len(completion['historical_429_ids']),supplement_terminals=len(fresh),
             operational_summary=summary,training_runs=0,
             billing='Original token-rate estimates or unknown reservations, not reconciled invoices',
             provenance_limit='Public reconstruction checks sanitized records and commitments; native normalization requires private journals')
@@ -202,12 +220,15 @@ def export(publish_after_collection=False):
 
 def verify_public():
     registration=verify_registration();completion=h.verify();report=read(REPORT)
+    from experiments import hf_completion_v2 as recovery
+    recovery.verify()
     expect(set(report)=={'schema_version','status','study_id','analysis_tag','analysis_freeze_sha256',
-        'completion_freeze_sha256','source_artifacts','supplement_artifacts','raw_supplement_sha256',
+        'completion_freeze_sha256','recovery_freeze_sha256','source_artifacts','supplement_artifacts','raw_supplement_sha256',
         'analysis','availability','historical_hf_429_preserved','supplement_terminals','operational_summary',
         'training_runs','billing','provenance_limit'},'Completed report public allowlist')
     expect(report['schema_version']==1 and report['status']=='complete' and report['study_id']==s.config()['study_id'] and report['analysis_tag']==TAG,'Completed report identity')
     expect(report['analysis_freeze_sha256']==s.sha(FREEZE) and report['completion_freeze_sha256']==s.sha(h.FREEZE),'Report registration changed')
+    expect(report['recovery_freeze_sha256']==s.sha(recovery.FREEZE),'Recovery registration changed')
     expect(report['source_artifacts']==registration['anchors'] and report['supplement_artifacts']=={SUPPLEMENT:sha(ROOT/SUPPLEMENT)},'Public input commitments changed')
     fresh=rows(ROOT/SUPPLEMENT);_check_completion_counts(fresh,completion)
     actors,old,design=_old_inputs();result=build_completed(actors,old,fresh,design)
@@ -215,9 +236,12 @@ def verify_public():
     expect(report['analysis']['primary']['result']==read(ROOT/'research/factorial-report.json')['analysis']['primary']['result'],'Original primary changed')
     expect(report['historical_hf_429_preserved']==5 and report['supplement_terminals']==1898 and report['training_runs']==0,'Completion denominators changed')
     summary=report['operational_summary']
-    expect(set(summary)==SUMMARY_KEYS and summary['complete'] is True and summary['returned']==1898 and summary['unstarted']==0,'Operational terminal accounting differs')
-    expect(summary['planned']==1898 and summary['freeze_sha256']==s.sha(h.FREEZE) and summary['historical_429_preserved']==5 and summary['original_audit_returned']==11640 and summary['original_hf_returned']==3880,'Operational plan accounting differs')
-    expect(set(report['raw_supplement_sha256'])=={'plan.json','attempts.jsonl','responses.jsonl','summary.json'} and all(type(v) is str and len(v)==64 and all(c in '0123456789abcdef' for c in v) for v in report['raw_supplement_sha256'].values()),'Private provenance commitment schema')
+    _summary_check(summary,fresh)
+    commitments=report['raw_supplement_sha256']
+    expect(set(commitments)=={'hf-completion-v1','hf-completion-v2'},'Two-journal provenance required')
+    for hashes in commitments.values():
+        expect(set(hashes)=={'plan.json','attempts.jsonl','responses.jsonl','summary.json'} and all(type(v) is str and len(v)==64 and all(c in '0123456789abcdef' for c in v) for v in hashes.values()),'Private provenance commitment schema')
+    expect(commitments['hf-completion-v1']==read(recovery.FREEZE)['prior_raw_sha256'],'Immutable first nine provenance changed')
     return dict(valid=True,original_terminals=len(result['cases']),supplement_terminals=len(fresh),sources=len(design),private_runs_required=False,inference_calls=0)
 
 

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "tag": "hf-completed-original-analysis-v1",
+  "created": "2026-11-07T13:38:15.189520+00:00",
+  "base_commit": "bd7af08dd1ca987d97391849214c553a3554fd80",
+  "source_sha256": {
+    "experiments/hf_completion_analysis.py": "b2a4bfe041c8676319993e8312b8471b091da008d8dae1ed15a108748dd21fe5",
+    "experiments/tests/test_hf_completion_analysis.py": "bdbc129f4046f5f239cf4a60e045ab54bf953d5e8e95fdbf1b9d35115df59482",
+    "research/HF_COMPLETION_ANALYSIS.md": "b7b47a043d9a4914a5643c605da5da5d5eb6b08a211b81b9ddb00f0eda762f38"
+  },
+  "snapshot_tag": "results-v3",
+  "anchors": {
+    "research/factorial-report.json": "ae633f065f6831fbe04358983a40106a3c10cfc927e738b871fe150b59bbf923",
+    "data/factorial_contexts.json": "5e386a7f4dccf3737e2a8f740b4f69d5bf841e2dc871257d85f43861044380b3",
+    "data/factorial_report_actors.jsonl": "8fb47ddd64fea332936ff78ae8fa1e4df6661935d27dd4b141f322e7c84298f2",
+    "data/factorial_report_trajectories.json": "bf9be467c9e19d2faaa9bb37eb23edb2be5d5f6cac5839242b2c61f6ea032bce",
+    "data/factorial_report_cases.jsonl": "4d8869b19a79be61944e9e6b61eeab2b634fb4257babb7e5872677071efa0d46",
+    "data/factorial_report_manifest.json": "153613f36d6f17370ba6c1cb8d141dab9737789e09b41c484a75bed2c3329152"
+  },
+  "completion_freeze_sha256": "0b6ac98e12896b1802f7fb432e2b9a1b25a4648ef01fd8b7730aa196d6f98d83",
+  "analysis_sha256": "463a9d4b8a3ccf39c237f05c43b05267740ff4b7871477350fd1070dd5bdc13f",
+  "timing": "Original outcomes known; completion collection already ongoing; wrapper frozen before supplement unblinding"
+}
