@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "tag": "hf-completed-original-analysis-v2",
+  "created": "2026-11-07T13:51:08.403909+00:00",
+  "base_commit": "9ee53eb4afd0d91fb3cfe114b49247fe6763060a",
+  "source_sha256": {
+    "experiments/hf_completion_analysis.py": "4001940351aa520bfcaf21d5138a2413776ab00fa1df4db2f665eac1bbf7173b",
+    "experiments/tests/test_hf_completion_analysis.py": "801ba0ac4b5055786d1c8cf640e4f28af1b6d003a573d07abf6f4f6129cee344",
+    "research/HF_COMPLETION_ANALYSIS.md": "3e3e73c9e2b688949be66ae8af9e388df149ad7e906f0819b14527585c629158",
+    "research/HF_COMPLETION_ANALYSIS_REGISTRATION_CORRECTION.md": "a147924a84e65490eeca00a28d738c93914646577cb8d7c823257acc7e50c839",
+    "research/hf-completed-original-analysis-v1-incomplete-freeze.json": "96f74dbc1e29af9c9a9ef80848e871fd8790d5bfe2ff05a8de9aacc4187849ec",
+    "experiments/hf_completion_v2.py": "c05bcf099585ce0e5cc0bbdc0bd9619768f9661451ba5e575e032191c03ba153",
+    "experiments/tests/test_hf_completion_v2.py": "5874f371d65f24b622c886244e13c112062d34c17bba56a28fa0771c283bf398",
+    "research/HF_COMPLETION_V2_PROTOCOL.md": "91b65330f268700a26934da60f518c47f5a2ea4f3a109c958397f03fb1d05c08"
+  },
+  "snapshot_tag": "results-v3",
+  "anchors": {
+    "research/factorial-report.json": "ae633f065f6831fbe04358983a40106a3c10cfc927e738b871fe150b59bbf923",
+    "data/factorial_contexts.json": "5e386a7f4dccf3737e2a8f740b4f69d5bf841e2dc871257d85f43861044380b3",
+    "data/factorial_report_actors.jsonl": "8fb47ddd64fea332936ff78ae8fa1e4df6661935d27dd4b141f322e7c84298f2",
+    "data/factorial_report_trajectories.json": "bf9be467c9e19d2faaa9bb37eb23edb2be5d5f6cac5839242b2c61f6ea032bce",
+    "data/factorial_report_cases.jsonl": "4d8869b19a79be61944e9e6b61eeab2b634fb4257babb7e5872677071efa0d46",
+    "data/factorial_report_manifest.json": "153613f36d6f17370ba6c1cb8d141dab9737789e09b41c484a75bed2c3329152"
+  },
+  "completion_freeze_sha256": "0b6ac98e12896b1802f7fb432e2b9a1b25a4648ef01fd8b7730aa196d6f98d83",
+  "analysis_sha256": "463a9d4b8a3ccf39c237f05c43b05267740ff4b7871477350fd1070dd5bdc13f",
+  "timing": "Original outcomes known; completion collection already ongoing; wrapper frozen before supplement unblinding"
+}
