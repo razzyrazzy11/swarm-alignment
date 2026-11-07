@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "kind": "excluded_capacity_pilot_stop",
+  "created": "2026-11-07T16:53:41.847004+00:00",
+  "study_id": "swarm-ledger-dispatch-v1",
+  "registration_tag": "swarm-ledger-dispatch-v1-pilot",
+  "registration_sha256": "ed5a0eacfaaf5f5e3fbdfabeae32c1221d20c83869728a97c8d80232ecef4415",
+  "source_sha256": {
+    "experiments/swarm_ledger_dispatch.py": "df23772a0980cbab8e680bd0b9923394d937f96ed3aed0c467bcf336769c288b",
+    "experiments/tests/test_swarm_ledger_dispatch.py": "32ac534ceecf2ffe2cfc0abff882b64f6419a6f326ec28072400fb3b8fd3683e",
+    "experiments/swarm_ledger_forecast.py": "aad2a494cf59a0d99914ce9a1164e768bc65b7e4fc8db449f631bda607126af0",
+    "experiments/tests/test_swarm_ledger_forecast.py": "20e9fd0443df2718c8a0e8c47ee38fb21f31ef502457aca65dab5b12ef8ae3e1",
+    "research/SWARM_LEDGER_DISPATCH_PROTOCOL.md": "b161d72865a927552e17c2034c7833d235009a5dff84f29b0b12aaaaf6cd1e47",
+    "research/swarm-ledger-dispatch-config.json": "f9d9917ed1baeb21bf8876fb7be29c7bd5f7098133a23f39682267fd8c19f564",
+    "research/SWARM_LEDGER_THROUGHPUT_REVIEW.md": "496b52a1ef083c4eca8b0d9971da5fccbb1ebb8d915ce0c12e1ef7cb60c4ac1c"
+  },
+  "phase": "native4",
+  "planned_phase": 64,
+  "planned_total": 198,
+  "started": 17,
+  "terminal": 17,
+  "unstarted_phase": 47,
+  "unstarted_total": 181,
+  "records": [
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:00",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1712,
+        "output_tokens": 439
+      },
+      "estimated_cost": "0.0043284",
+      "native_receipt_sha256": "c0e746cb2c5e41c0851d0355e57494c1ccbf1fde8649409bb08ceba3fce65e9f"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:01",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1736,
+        "output_tokens": 337
+      },
+      "estimated_cost": "0.0039132",
+      "native_receipt_sha256": "340d474c23d0d74b5ab545496960fac9a01cc703d2003c269d0a4d6942cac0b9"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:03",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1752,
+        "output_tokens": 822
+      },
+      "estimated_cost": "0.0060696",
+      "native_receipt_sha256": "d7f998ee779a1c8cb837c1022f25e10f11b52f368cfc61a58c028e6abc7e392c"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:05",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1749,
+        "output_tokens": 937
+      },
+      "estimated_cost": "0.0065714",
+      "native_receipt_sha256": "ece41175fbe6af101bf91597dc1482d40a75c24253b77781988681ef08925122"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:04",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1691,
+        "output_tokens": 1243
+      },
+      "estimated_cost": "0.0078366",
+      "native_receipt_sha256": "4def4745806e857c78d45f4fc994f0aa418c14e42cb6feabdb01268ba1d9c9fa"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:01",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1905,
+        "output_tokens": 1930
+      },
+      "estimated_cost": "0.00780275",
+      "native_receipt_sha256": "3446b84e182fed3f90777b8526ec2c883e9263f95711481fea73dd1b7891e970"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:02",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1852,
+        "output_tokens": 2375
+      },
+      "estimated_cost": "0.0093311",
+      "native_receipt_sha256": "3d2a51d9c65af46ef5220ba4c955e9c6495d25fe1f869fc40252982b1d7f0b05"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:08",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1705,
+        "output_tokens": 1654
+      },
+      "estimated_cost": "0.0096646",
+      "native_receipt_sha256": "eb297c8d613408205d4336a59d33406270f1b4f2960e50cdd147c02a70179c52"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:03",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1900,
+        "output_tokens": 2625
+      },
+      "estimated_cost": "0.0102325",
+      "native_receipt_sha256": "5e71b1074dffb1b6f8300656f44334c2f9701a48f8ee704209d50158058cc23a"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:02",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1691,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.0203898",
+      "native_receipt_sha256": "b2c8e4e92c09e12cdb463dec7f1b2e89c7efd36170eee08972e6c8d0bccad6ba"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:00",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1863,
+        "output_tokens": 3388
+      },
+      "estimated_cost": "0.01288265",
+      "native_receipt_sha256": "2f8cb44bd79a4136c3e8846c76ed0a6078061e38f07e396954c8eb1fa56c0c52"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:06",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1695,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.0203954",
+      "native_receipt_sha256": "c46c9706abdd4275558d08a4254c023ecbf7e89ecf6ed68a40fc2f606bf5068d"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:07",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1770,
+        "output_tokens": 3986
+      },
+      "estimated_cost": "0.0200164",
+      "native_receipt_sha256": "91026684c14eebe516c28e0c82b61d5c94d3d98b4d20544cdf685a085e14a459"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:04",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1874,
+        "output_tokens": 3697
+      },
+      "estimated_cost": "0.0139702",
+      "native_receipt_sha256": "0e38ebbf29127fcba914b84d3fda3ae492a214da339d8f34de3dc59f49b32e72"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:05",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1917,
+        "output_tokens": 1994
+      },
+      "estimated_cost": "0.00803335",
+      "native_receipt_sha256": "0c8706b181c73f4e2b1395511daa898d8d17edea5416cd90de10ef82e4cd14a6"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:glm52:09",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1770,
+        "output_tokens": 848
+      },
+      "estimated_cost": "0.0062092",
+      "native_receipt_sha256": "6d81ee677d370e28b4bb240a16f95e5259c5f2a048c315337d2242c912fab9cb"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v1:native4:q397:06",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1864,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.0153612",
+      "native_receipt_sha256": "68c52bb3a6e401edeb1a6d0bdbc9c377daeb31df6ef50942fac7de5e1e7302f7"
+    }
+  ],
+  "estimated_cost_by_provider": {
+    "adaption": "0.18300835",
+    "hf": "0",
+    "ollama": "0"
+  },
+  "combined_pilot_caps": {
+    "adaption": "10.00",
+    "hf": "0.00",
+    "ollama": "0.10"
+  },
+  "private_file_raw_sha256": {
+    "plan": "ad7a914e41f28c0f1c5cad8875e892bff81d761d96754f4a99cf813d4cb578bf",
+    "attempts": "0891810b3d688f206d1be068ee5244777b88e093328d691a5fa2aeccb54b45f1",
+    "responses": "f60086ac7bb7f422315d5650d260e63b771e29a6cbba8b953bb8c91b7ade62dc",
+    "stop": "e6458ac90a552fb7ef4c857ae00c188bd2cd77b45512f9708504f8693907edcc",
+    "dispatch_events": "04261c5f5cc51766b12f3140421021ff3f845ff5382a4abbef9691c09ed6392e",
+    "driver_state": "e8eaa88563de92f7733538eafe3fe536c9f3966e46d76fa3b8509f0d0c037037"
+  },
+  "stop_reason": "provider_or_capture_integrity",
+  "interpretation": "Failed and excluded capacity pilot: three HTTP-200 known-usage bounded incomplete responses triggered the registered completed-only gate. No unresolved sends, retries, verdict accuracy analysis or successful-capacity claim. Preserve all records and charge their known costs to the shared prospective pilot ceiling."
+}

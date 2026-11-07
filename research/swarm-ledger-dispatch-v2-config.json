@@ -1,0 +1,48 @@
+{
+  "study_id": "swarm-ledger-dispatch-v2",
+  "status": "READY_FOR_REGISTRATION",
+  "native_candidates": [
+    4,
+    8,
+    16
+  ],
+  "native_pilot_profiles": [
+    "q397",
+    "glm52"
+  ],
+  "native_pilot_cases_per_level": 32,
+  "minimum_native_serving_healthy_per_profile": 31,
+  "native_known_error_allowance_per_group": 2,
+  "main_known_gateway_allowance": 1024,
+  "native_provider_max_active": 16,
+  "native_dispatch_spacing_seconds": 1.0,
+  "total_max_active": 21,
+  "hf_max_active": 2,
+  "ollama_max_active": 3,
+  "ollama_pilot_cases": 6,
+  "pilot_phase_order": [
+    "native4",
+    "native8",
+    "native16",
+    "ollama3"
+  ],
+  "pilot_seed": 731177,
+  "pilot_caps": {
+    "adaption": "10.00",
+    "hf": "0.00",
+    "ollama": "0.10"
+  },
+  "selection_rule": "lowest_forecast_native_critical_seconds_healthy_complete",
+  "max_ollama_combined_peak_equivalent_cap": "100.00",
+  "off_peak_only": true,
+  "collection_deadline_utc": "2026-11-09T05:59:00+00:00",
+  "retry_after_limit_seconds": 900,
+  "retries": 0,
+  "rate_limit_source": "https://ollama.com/pricing",
+  "development_driver_state": "runs/swarm-ledger-v1-development-driver/state.json",
+  "prior_pilot_baseline": "research/swarm-ledger-dispatch-v1-stop.json",
+  "prior_registration_tag": "swarm-ledger-dispatch-v1-pilot",
+  "native_gateway_backoff_seconds": 15,
+  "default_gateway_backoff_seconds": 60,
+  "gateway_backoff_source": "https://docs.adaptionlabs.ai/api/python/"
+}

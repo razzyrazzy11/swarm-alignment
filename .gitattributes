@@ -12,3 +12,5 @@
 /research/swarm-ledger-config.json text eol=lf
 /research/swarm-ledger-catalog.json text eol=lf
 /analysis/ledger_figures.py text eol=lf
+/analysis/ledger_release.py text eol=lf
+/analysis/test_ledger_release.py text eol=lf

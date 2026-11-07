@@ -17,6 +17,11 @@ jobs:
       - run: python -O paper/verify.py
       - run: python -m unittest discover -s paper/tests -v
       - run: python -m unittest discover -s experiments/tests -v
+      - name: Test PID-safe release orchestration when present
+        run: |
+          if [ -f analysis/test_ledger_release.py ]; then
+            python -m unittest analysis.test_ledger_release -v
+          fi
       - name: Verify prospective stateful freeze when present
         run: |
           if [ -f research/stateful-main-v2-freeze.json ]; then
@@ -123,3 +128,13 @@ jobs:
               python -m experiments.swarm_ledger_dispatch verify --split "$split"
             fi
           done
+          for split in pilot main; do
+            if [ -f "research/swarm-ledger-dispatch-v2-$split-freeze.json" ]; then
+              python -m experiments.swarm_ledger_dispatch_v2 verify --split "$split"
+            fi
+          done
+      - name: Replay completed Swarm Ledger public release when present
+        run: |
+          if [ -f data/swarm-ledger-v1-public/manifest.json ]; then
+            python -m experiments.swarm_ledger_analysis verify-public --output data/swarm-ledger-v1-public
+          fi
