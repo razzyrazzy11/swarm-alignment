@@ -116,3 +116,10 @@ jobs:
               python -m experiments.swarm_ledger_study verify --split "$split"
             fi
           done
+      - name: Verify prospective scheduling registrations
+        run: |
+          for split in pilot main; do
+            if [ -f "research/swarm-ledger-dispatch-v1-$split-freeze.json" ]; then
+              python -m experiments.swarm_ledger_dispatch verify --split "$split"
+            fi
+          done

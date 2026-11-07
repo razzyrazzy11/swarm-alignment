@@ -5,3 +5,10 @@
 /research/factorial-report.json text eol=lf
 /analysis/calibration_breakdown.py text eol=lf
 /analysis/calibration-breakdown-posthoc.json text eol=lf
+/data/swarm-ledger-v1-public/** text eol=lf
+/experiments/swarm_ledger*.py text eol=lf
+/experiments/tests/test_swarm_ledger*.py text eol=lf
+/research/SWARM_LEDGER_PROTOCOL.md text eol=lf
+/research/swarm-ledger-config.json text eol=lf
+/research/swarm-ledger-catalog.json text eol=lf
+/analysis/ledger_figures.py text eol=lf

@@ -2,6 +2,13 @@
 
 Checked 7 November 2026 against the primary sources linked below. This memo proposes a separate follow-up; it changes neither the frozen swarm-ledger protocol nor its primary endpoint. No new-study outcomes were inspected for this memo. No dataset upload, estimate POST, training, inference, permission change or account change was performed. Account balances and credentials are deliberately omitted.
 
+**Read-only access update, 7 November 15:50 UTC:** the documented AutoScientist
+model-catalog GET returned HTTP 200 with 16 entries. The smallest declared size
+returned was `Qwen/Qwen3.5-2B`; `Qwen/Qwen3.5-0.8B` was not returned. Catalog
+read access is verified; job-creation entitlement, award coverage and a training
+price quote are not. See [SWARM_TRAINING_ACCESS.md](SWARM_TRAINING_ACCESS.md) for
+the exact method, capability summary and private metadata provenance.
+
 The research question remains **whether an auditor lacks evidence or fails to use sufficient evidence**. Training would address the second case only after the simpler prompt/procedure intervention leaves a reproducible failure. More spending or a trained artifact, by itself, supplies no additional scientific result.
 
 ## 1. What the available services actually establish
@@ -9,7 +16,7 @@ The research question remains **whether an auditor lacks evidence or fails to us
 | Route | Documented capability | Important unresolved condition |
 |---|---|---|
 | Existing Adaption hosted inference | Bounded workers and fixed monitoring profiles in the registered study | Hosted inference access does not establish AutoScientist entitlement, price or deployment of an uploaded adapter. |
-| Adaption AutoScientist | Managed SFT/LoRA, downloadable best checkpoint, explicit base-model selection | No estimate mode or currency spending-limit parameter was found for training creation. An applicable account quote and credit eligibility remain unverified. |
+| Adaption AutoScientist | Documented managed SFT/LoRA and downloadable checkpoint; authenticated training-catalog GET returned 16 models, with 2B the smallest declared size observed | Read access does not establish launch entitlement. No estimate mode or currency spending-limit parameter was found for training creation; applicable quote and credit eligibility remain unverified. |
 | Adaptive Data | Dataset adaptation with an estimate option | This is a data-transformation service, not a training quote. Estimate requests also save some dataset settings. |
 | HF Jobs | GPU training and batch evaluation with explicit runtime limits | The inference token may lack Jobs permissions; hardware availability, remaining shared credits and compatible training kernels require verification. |
 
@@ -19,11 +26,11 @@ The official [Adaption MCP documentation](https://docs.adaptionlabs.ai/tools/mcp
 
 ## 2. Small checkpoint and serving compatibility
 
-The [AutoScientist supported-model planning list](https://docs.adaptionlabs.ai/autoscientist/supported-models/) includes `Qwen/Qwen3.5-0.8B` with LoRA and SFT and a 1,000-row minimum; the runtime training-model catalogue is authoritative. The same page lists small Gemma/Llama alternatives, but their availability does not justify choosing whichever later scores best. The [runtime catalogue schema](https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/list_models) supplies model capabilities rather than a training price.
+The [AutoScientist supported-model planning list](https://docs.adaptionlabs.ai/autoscientist/supported-models/) includes `Qwen/Qwen3.5-0.8B` and a 1,000-row minimum, but explicitly defers to the runtime catalog. The actual authenticated GET returned no 0.8B entry. It returned `Qwen/Qwen3.5-2B` with declared size 2B, SFT/DPO, LoRA/full and reasoning-training support. Thus **2B is the currently observed Adaption small-model candidate; 0.8B is only a static planning entry for that service**. Do not transfer the static 0.8B row minimum or other limits to the 2B model: the runtime response did not establish its minimum training size. Other returned models do not justify choosing whichever later scores best. The [runtime catalog schema](https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/list_models) supplies capabilities rather than a training price.
 
-The [official Qwen 0.8B model card](https://huggingface.co/Qwen/Qwen3.5-0.8B) identifies open weights under Apache 2.0 and describes text-serving paths. Its current architecture/software requirements make an actual compatibility smoke check necessary. Pin a model revision, tokenizer/chat template, dependency versions, container digest and dtype; do not depend on an unversioned latest environment. GPU memory fit and training duration have not been measured here.
+The [official Qwen 0.8B model card](https://huggingface.co/Qwen/Qwen3.5-0.8B) identifies open weights under Apache 2.0 and describes text-serving paths. This remains a possible **separate HF/open-weights route**, not verified Adaption training availability. Its current architecture/software requirements make an actual compatibility smoke check necessary. An Adaption 2B route requires its own exact base revision, license/software and serving checks. Pin a model revision, tokenizer/chat template, dependency versions, container digest and dtype; do not depend on an unversioned latest environment. GPU memory fit and training duration have not been measured here.
 
-For an interpretable intervention, compare **the same tiny checkpoint before and after one fixed adapter** on identical fresh packets, using the same local batch-inference implementation and decoding settings. Comparison against a larger hosted monitor is descriptive, because model, backend and size also differ. This tests a behavioral effect of changing a checkpoint; it does not show that weight inspection reveals swarm intent.
+For an interpretable intervention, compare **the same tiny checkpoint before and after one fixed adapter** on identical fresh packets, using the same local batch-inference implementation and decoding settings. An Adaption-trained 2B adapter cannot be treated as a matched intervention on a 0.8B base. Comparison against a larger hosted monitor is descriptive, because model, backend and size also differ. This tests a behavioral effect of changing a checkpoint; it does not show that weight inspection reveals swarm intent.
 
 **Monitor SFT changes the auditor's policy, not the actors' checkpoints or the swarm's behavior.** It cannot establish that actor or joint-swarm fine-tuning changes coordination. That separate question changes the trajectory distribution and useful task completion; it needs a new actor/monitor factorial protocol, fresh source blocks and its own freeze. Neither intervention may be folded into the current main experiment retrospectively.
 
