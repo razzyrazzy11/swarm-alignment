@@ -22,8 +22,8 @@ SOURCES = ('experiments/factorial_paced.py',
 LIMITS = dict(initial_start_interval_seconds=30, max_start_interval_seconds=60,
               initial_cooldown_seconds=600, rate_cooldown_seconds=600,
               max_total_429=8, hf_phase_cap='2')
-CAPACITY_TAG = 'hf-capacity-v1'
-CAPACITY_REPORT = 'research/hf-capacity-results.json'
+CAPACITY_TAG = 'hf-capacity-v2'
+CAPACITY_REPORT = 'research/hf-capacity-v2-results.json'
 
 
 def verify_capacity(registration,private=False):
@@ -34,7 +34,7 @@ def verify_capacity(registration,private=False):
     if not path.is_file():raise ValueError('Capacity report unavailable')
     if c.raw_sha(path) != registration['capacity_results_sha256']:
         raise ValueError('Capacity report changed')
-    cap = importlib.import_module('experiments.hf_capacity')
+    cap = importlib.import_module('experiments.hf_capacity_v2')
     report = cap.verify_results(private=True) if private else cap.verify_results()
     if (report.get('complete') is not True or report.get('passed') is not True
             or type(report.get('planned')) is not int or report['planned'] != 24
@@ -141,16 +141,22 @@ class CapturingOpener:
 
 @contextmanager
 def exclusive_run(out):
-    if (out/'continuation.lock').exists():
-        raise ValueError('Earlier continuation lock active or stale')
-    lock=out/'continuation-pacing.lock'
-    try:handle=lock.open('x',encoding='ascii')
-    except FileExistsError:raise ValueError('Paced continuation active or stale lock') from None
+    # Acquire the original runner's lock atomically first. Checking its existence
+    # then creating a different lock would leave a race with that runner.
+    handles=[];owned=[]
     try:
-        with handle:
+        for name in ('continuation.lock','continuation-pacing.lock'):
+            lock=out/name
+            try:handle=lock.open('x',encoding='ascii')
+            except FileExistsError:
+                label='Earlier continuation' if name=='continuation.lock' else 'Paced continuation'
+                raise ValueError(label+' lock active or stale') from None
+            handles.append(handle);owned.append(lock)
             handle.write('1\n');handle.flush()
-            yield
-    finally:lock.unlink()
+        yield
+    finally:
+        for handle in reversed(handles):handle.close()
+        for lock in reversed(owned):lock.unlink()
 
 
 def execute(registration,transport=None,clock=None,sleep=None):
@@ -193,6 +199,9 @@ def _execute_locked(registration,transport=None,clock=None,sleep=None):
                 if transport is None:
                     opener=CapturingOpener(out/'paced-private-errors',keys.values(),clock=clock)
                     transport=c.Transport(out/'paced-rate.jsonl',opener=opener)
+            # Credential I/O and transport construction can be slow; recheck
+            # immediately before the durable start rather than queue a new ID.
+            if stop.exists():halted=True;break
             s.durable(attempts,dict(id=job['id'],request_sha256=s.digest(payload),provider=provider,
                                     reserved_cost=str(reserve),started=datetime.now(timezone.utc).isoformat()))
             try:public,native=transport(s.HF+'/chat/completions',keys['HF_TOKEN'],payload,timeout=120)

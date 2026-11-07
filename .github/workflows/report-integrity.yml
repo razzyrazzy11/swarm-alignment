@@ -66,6 +66,12 @@ jobs:
           if [ -f research/hf-capacity-results.json ]; then
             python -m experiments.hf_capacity verify-results
           fi
+          if [ -f research/hf-capacity-v2-freeze.json ]; then
+            python -m experiments.hf_capacity_v2 verify
+          fi
+          if [ -f research/hf-capacity-v2-results.json ]; then
+            python -m experiments.hf_capacity_v2 verify-results
+          fi
       - name: Verify conditional final pacing registration
         run: |
           if [ -f research/factorial-paced-continuation.json ]; then

@@ -28,12 +28,20 @@ attribution, instruction effect or acquisition effect was inspected.
 
 ## Capacity condition before any main request
 
-The separately tagged `hf-capacity-v1` check uses 24 fresh unrelated synthetic
+The first separately tagged `hf-capacity-v1` check stopped after one completed
+HTTP 200 receipt because its response was not exactly OK. Its known input/output
+counts were 2,134 and 32, estimated at USD 0.00030089. This was a mismatch with an
+unnecessarily strict wording criterion, not evidence of failed transport capacity.
+That check, its 23 unstarted probes and its failed result remain preserved.
+
+The replacement `hf-capacity-v2` check uses 24 fresh unrelated synthetic
 prompts. Each begins with its distinct local identifier, then repeats neutral
 text and requests OK. It uses the original HF route, temperature and 4,096-token
 output allowance. Success requires at least 1,579 reported input tokens per
-request, the expected returned model, completed valid receipts and the exact
-requested short response. This checks serving, not temporal audit competence.
+request, the expected returned model, completed valid chat receipts and the
+registered token limits. Response wording is recorded but is not a pass criterion.
+This checks serving, not temporal audit competence. Its new identifiers change
+the prompts; no failed probe identity or scientific request is retried.
 
 Starts are at least 30 seconds apart. The maximum conservative reservation is
 USD 0.1170816, below its USD 0.12 cap. Any failure stops the check, without retry.
@@ -69,7 +77,9 @@ alone cannot authenticate a private receipt.
   automatic reset, further continuation, provider substitution or new canary.
 - Preserve every other original fatal gate, gateway allowance, incomplete-output
   policy and input/output/model check. Honor operator STOP during waits and before
-  dispatch. Reject old or new active continuation locks and unresolved starts.
+  dispatch. Atomically acquire the shared earlier continuation lock before the
+  new pacing marker, holding both throughout; reject existing locks and
+  unresolved starts.
   For an allowed gateway failure, honor a valid longer Retry-After before the
   next never-started identity as well; this does not retry the failed request or
   change the original gateway allowance.

@@ -116,6 +116,12 @@ class PacedTests(unittest.TestCase):
         self.assertEqual(sum(row['transport']['http_status']==429 for row in rows),8)
         self.assertEqual(summary['unstarted'],2)
 
+    def test_last_fatal_terminal_is_complete_but_still_halted(self):
+        summary,calls,_=self.run_fake([200,200,429,429,429])
+        self.assertTrue(summary['complete']);self.assertTrue(summary['halted'])
+        self.assertEqual((summary['planned'],summary['returned'],summary['unstarted']),(10,10,0))
+        self.assertEqual(len(calls),5)
+
     def test_after_rate_error_start_interval_remains_60(self):
         _,calls,_=self.run_fake([429,200,200])
         self.assertEqual([t for t,_ in calls],[600,1200,1260,1320,1380])
@@ -177,6 +183,15 @@ class PacedTests(unittest.TestCase):
         self.assertTrue(summary['halted']);self.assertEqual(calls,[])
         self.assertEqual(len(p.s.rows(self.out/'attempts.jsonl')),5)
 
+    def test_stop_created_during_credential_io_is_checked_before_start(self):
+        def credentials():
+            (self.out/'STOP').write_text('operator during credential read')
+            return {'HF_TOKEN':'fake-secret'}
+        with patch.object(p.s,'credentials',side_effect=credentials):
+            summary,calls,_=self.run_fake()
+        self.assertTrue(summary['halted']);self.assertEqual(calls,[])
+        self.assertEqual(len(p.s.rows(self.out/'attempts.jsonl')),5)
+
     def test_auth_and_other_unknown_stop_without_retry(self):
         for code in (401,402,403,400):
             with self.subTest(code=code):
@@ -218,6 +233,12 @@ class PacedTests(unittest.TestCase):
         (self.root/p.CAPACITY_REPORT).write_text('{}')
         with self.public():
             with self.assertRaisesRegex(ValueError,'Capacity report changed'):p.verify_sources(self.regpath)
+
+    def test_capacity_v2_dependency_identity(self):
+        self.assertEqual(p.CAPACITY_TAG,'hf-capacity-v2')
+        self.assertEqual(p.CAPACITY_REPORT,'research/hf-capacity-v2-results.json')
+        with self.public() as imported:p.verify_capacity(self.record)
+        imported.assert_called_once_with('experiments.hf_capacity_v2')
 
     def test_public_verify_uses_no_private_main_contexts_or_ledgers(self):
         with (self.public(),patch.object(p.s,'verify',side_effect=AssertionError('private contexts')),
@@ -275,11 +296,22 @@ class PacedTests(unittest.TestCase):
 
     def test_exclusive_locks_refuse_second_operator(self):
         with p.exclusive_run(self.out):
+            self.assertTrue((self.out/'continuation.lock').exists())
+            self.assertTrue((self.out/'continuation-pacing.lock').exists())
             with self.assertRaisesRegex(ValueError,'active or stale'): 
                 with p.exclusive_run(self.out):pass
+            with self.assertRaisesRegex(ValueError,'active or stale'):
+                with p.c.exclusive_run(self.out):pass
         (self.out/'continuation.lock').write_text('older')
         with self.assertRaisesRegex(ValueError,'Earlier'): 
             with p.exclusive_run(self.out):pass
+
+    def test_stale_pacing_marker_preserved_and_owned_shared_lock_released(self):
+        marker=self.out/'continuation-pacing.lock';marker.write_text('stale')
+        with self.assertRaisesRegex(ValueError,'Paced'):
+            with p.exclusive_run(self.out):pass
+        self.assertEqual(marker.read_text(),'stale')
+        self.assertFalse((self.out/'continuation.lock').exists())
 
 
 class ErrorCaptureTests(unittest.TestCase):

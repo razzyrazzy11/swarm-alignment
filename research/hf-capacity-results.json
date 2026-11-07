@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "capacity_id": "hf-capacity-v1",
+  "freeze_sha256": "fc286a3f95a7d89b1faf95c5ed2d894672f1f32d1760219479ec3443adef4e5e",
+  "raw_sha256": {
+    "attempts": "db2c9f4d5bdf8ae2b494dcd3450ab641bc5205344be3bbac78e33cac0b135b91",
+    "responses": "b8164c5523d2e1b85a424281407fbabf536400b6e033295f0c081aaf5dacd74b"
+  },
+  "halted": true,
+  "stop_reason": "bad_receipt",
+  "jobs": [
+    {
+      "http_status": 200,
+      "category": "notdeterminable",
+      "known_usage": true,
+      "input_tokens": 2134,
+      "output_tokens": 32,
+      "returned_model": "meta-llama/llama-3.3-70b-instruct",
+      "finish_stop": true,
+      "content_ok": false,
+      "estimated_cost": "0.00030089",
+      "profile_ok": false,
+      "localid": "capacity-00",
+      "started_at": "2026-11-07T09:57:54.022618+00:00",
+      "finished_at": "2026-11-07T09:57:55.576392+00:00",
+      "start_offset_seconds": 60.39100000006147,
+      "terminal": true
+    }
+  ],
+  "planned": 24,
+  "started": 1,
+  "returned": 1,
+  "unresolved": 0,
+  "unstarted": 23,
+  "complete": false,
+  "passed": false,
+  "known_cost": "0.00030089",
+  "reserved_unknown_cost": "0",
+  "total_cost": "0.00030089",
+  "input_min": 2134,
+  "input_max": 2134,
+  "min_start_interval_seconds": null,
+  "started_at": "2026-11-07T09:57:54.022618+00:00",
+  "ended_at": "2026-11-07T09:57:55.576392+00:00"
+}

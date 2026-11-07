@@ -111,3 +111,45 @@ The conditional final main runner is preparation only until its separate review,
 capacity pass and prospective registration. No main request is authorized by a
 successful tiny diagnostic alone. Both earlier stopped runs, their failures and
 the original scientific sources remain preserved.
+
+## Capacity criterion correction before replacement data
+
+The tagged v1 capacity check stopped on its first receipt: HTTP 200, known usage,
+an allowed model alias and normal completion, but wording other than exact OK.
+Its 2,134 input and 32 output tokens cost an estimated USD 0.00030089. That failed
+the registered criterion; it did not demonstrate a serving-capacity failure.
+The result and 23 unstarted v1 probes remain preserved. Requiring exact wording
+was unnecessary for the stated transport objective.
+
+The separate v2 source and protocol correct that criterion before fresh requests.
+New capacity2 identifiers produce different bodies; response wording is reported
+but never used for admission. HTTP status, model identity, receipt shape,
+completion, token limits, costs, timing and STOP still control admission. No
+scientific packet, prompt, model endpoint, score or denominator changes.
+
+Twenty-two new v2 tests and eighteen immutable v1 tests passed together. An actual
+Deepseek security review read the two new source/test files with zero mutations
+and returned no substantiated finding within its scope. The local tests exercise
+inherited helper behavior, including all non-OK responses passing when transport
+receipts are valid, private replay and retention of known provider-overrun costs.
+This is an operational correction, not scientific endpoint selection or proof of
+sustained service availability. The original study's outcomes remain unreviewed.
+
+## Conditional final runner review
+
+An actual cross-model review read the two paced-runner source/test files and
+returned two medium findings. The shared-lock race was fixed by atomically
+acquiring the original continuation lock before the new pacing marker, holding
+both throughout. A final fatal response can leave all planned identities terminal
+while `halted` remains true; that is the original summary contract, retained and
+tested. Drivers must honor both fields and do so here. STOP is rechecked after
+credential/transport setup before writing a start; a durably started request still
+drains normally.
+
+Twenty-two paced-runner tests passed together and the additional STOP regression
+passed separately. Tests cover capacity v2 identity and private receipt replay,
+the exact 9,742-record prefix, unchanged bodies/order, adaptive waits, cost
+reservations, model/token/fatal gates, private error-capture failures and actual
+opener timing. Later hardening and v2 dependency changes have local regression
+coverage beyond the review snapshot. No main request has run under this new code;
+capacity success and a separate prospective registration are still required.
