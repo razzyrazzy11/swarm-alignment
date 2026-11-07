@@ -8,6 +8,8 @@ The subsequent [direction and rubric assessment](research/NEXT_STUDY_DECISION.md
 
 The new [factorial Track 4 protocol](research/FACTORIAL_PROTOCOL.md) is prospectively frozen as `factorial-audit-v1`. Collection is waiting for HF funding after 576 worker requests and 9,706 of 11,640 reader requests, including the separately scripted calibration bank. All started reader identities have terminal records; 1,934 HF requests remain unstarted. An operator credit cushion stopped and drained the queue without changing endpoints, prompts or the sample. One earlier delegate-stage gateway response remains retained without retry and could not execute an action. The [metadata checkpoint](research/factorial-collection-status.json) preserves counts and journal-prefix hashes; no interim scientific effects have been reviewed. The PDF continues to report completed prior studies until full collection and public replay finish. [Implementation review](research/FACTORIAL_REVIEW.md) and [primary sources](research/FACTORIAL_SOURCES.md) record validation and scope.
 
+Funding has now been confirmed by the operator. The [exact-unstarted continuation](research/factorial-account-resume.json) is registered before resumed inference, with all saved journal prefixes verified. It covers only the remaining 1,934 HF requests; the original endpoints, request bodies, sample, analysis and phase ceilings remain unchanged. The funding-stop paragraph above records the earlier checkpoint, not completed factorial findings.
+
 ## What actually ran
 
 | Study | Completed calls | Independent unit and scope |
