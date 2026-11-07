@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "stage": "main",
+  "created": "2026-11-07T18:32:21.891470+00:00",
+  "config": {
+    "study_id": "swarm-ledger-complete-dispatch-v1",
+    "status": "READY_FOR_REGISTRATION",
+    "native_per_model": 2,
+    "native_provider_max_active": 8,
+    "total_max_active": 8,
+    "hf_max_active": 2,
+    "ollama_max_active": 2,
+    "native_dispatch_spacing_seconds": 1.0,
+    "native_gateway_backoff_seconds": 15,
+    "default_gateway_backoff_seconds": 60,
+    "main_known_gateway_allowance": 1024,
+    "max_ollama_combined_peak_equivalent_cap": "100.00",
+    "off_peak_only": true,
+    "collection_deadline_utc": "2026-11-09T05:59:00+00:00",
+    "retry_after_limit_seconds": 900,
+    "retries": 0,
+    "pilot_caps": {
+      "adaption": "10.00",
+      "hf": "0.00",
+      "ollama": "0.10"
+    },
+    "prior_baselines": [
+      "research/swarm-ledger-dispatch-v1-stop.json",
+      "research/swarm-ledger-dispatch-v2-stop.json"
+    ]
+  },
+  "source_sha256": {
+    "experiments/swarm_ledger_complete_dispatch.py": "a607df53e3b7465047daac14d0f037d13891c7b94cccafa9f00e965c86ba5216",
+    "experiments/tests/test_swarm_ledger_complete_dispatch.py": "47ab41939d70989fc2cef42cdfe9fd6a172ad8e9ee030f1472577ae8c4983799",
+    "research/SWARM_LEDGER_COMPLETE_DISPATCH_PROTOCOL.md": "d74ac24ef8503682abdaece19b385b87bd7b0eac811ffd264fe7d87401e673ac",
+    "research/swarm-ledger-complete-dispatch-config.json": "71c9ccc40e2896b26e13922f79870234d85c6361e66d75712e9001d0dfd62b5d",
+    "experiments/swarm_ledger_complete_forecast.py": "6b15b911b2351d345b668ce6309048a05247a8eda521a3a343f445d8008be2a5",
+    "experiments/tests/test_swarm_ledger_complete_forecast.py": "9133940b509f1b53d4d8c7b3731a7c968ff8b13737cf668ac2f0ea92235a592e",
+    "research/swarm-ledger-dispatch-v1-stop.json": "70d30e56d0949f91dead03b4b007c270e71674d30aa2e5a79d8487647392dd73",
+    "research/swarm-ledger-dispatch-v2-stop.json": "92b6f4764cb884e3fb9e9cdeec0c3b4ffe76d11b8b15404e919a30ee3c53a827"
+  },
+  "scientific_main_freeze_sha256": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+  "forecast_sha256": "6dfc10d16feec48688d65e27fd0c8b8567258af7c4b1535210f52180aa77007d",
+  "pilot_cost_lineage": {
+    "estimated_cost_by_provider": {
+      "adaption": "0.81430880",
+      "hf": "0",
+      "ollama": "0"
+    },
+    "baselines": [
+      {
+        "path": "research/swarm-ledger-dispatch-v1-stop.json",
+        "sha256": "70d30e56d0949f91dead03b4b007c270e71674d30aa2e5a79d8487647392dd73",
+        "registration_tag": "swarm-ledger-dispatch-v1-pilot",
+        "registration_sha256": "ed5a0eacfaaf5f5e3fbdfabeae32c1221d20c83869728a97c8d80232ecef4415"
+      },
+      {
+        "path": "research/swarm-ledger-dispatch-v2-stop.json",
+        "sha256": "92b6f4764cb884e3fb9e9cdeec0c3b4ffe76d11b8b15404e919a30ee3c53a827",
+        "registration_tag": "swarm-ledger-dispatch-v2-pilot",
+        "registration_sha256": "b42d299787eae7137bbeaac69f535cf73e870543e9615796036f1c941561b965"
+      }
+    ]
+  },
+  "base_commit": "f769e94d901f2f1d292df3fefb751cf0c7990a5f",
+  "tag": "swarm-ledger-complete-dispatch-v1-main",
+  "anchor_hash_semantics": "sha256_bytes_with_crlf_normalized_to_lf"
+}
