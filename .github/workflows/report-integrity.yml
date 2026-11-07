@@ -82,3 +82,11 @@ jobs:
           if [ -f research/ollama-reader-v1-freeze.json ]; then
             python -m experiments.ollama_study verify
           fi
+      - name: Verify amended reporting and replay its public release
+        run: |
+          if [ -f research/factorial-reporting-freeze.json ]; then
+            python -m experiments.factorial_reporting verify-registration
+          fi
+          if [ -f research/factorial-report.json ]; then
+            python -m experiments.factorial_reporting verify
+          fi

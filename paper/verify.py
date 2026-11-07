@@ -36,9 +36,19 @@ def build_manifest(root,content):
         manifest['live_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('live-config.json','live-audit-v2-freeze.json','live-audit-v2-continuation-v1-freeze.json','live-qualification-v1.json','live-results.json','weight-config.json','weight-audit-v1-freeze.json','weight-results.json','stateful-results.json')}
     if content.get('table2_source')=='factorial':
         manifest['factorial_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('factorial-config.json','factorial-audit-v1-freeze.json','factorial-results.json','live-results.json','weight-results.json','stateful-results.json')}
+    if content.get('table2_source')=='factorial_reporting':
+        manifest['factorial_reporting_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('factorial-config.json','factorial-audit-v1-freeze.json','factorial-reporting-freeze.json','factorial-report.json','ollama-reader-v1-freeze.json','live-results.json','weight-results.json','stateful-results.json')}
+        manifest['factorial_reporting_contract_sha256']=hashlib.sha256((root/'factorial_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     return manifest
 
 def validate_results(root,content):
+    if content.get('table2_source')=='factorial_reporting':
+        from factorial_report_contract import expected_fields
+        report=json.loads((root.parent/'research/factorial-report.json').read_text(encoding='utf-8'))
+        require(report['status'] in ('primary_complete_secondary_incomplete','primary_complete_with_registered_extensions'), 'Amended report status missing')
+        for key,value in expected_fields(report).items():
+            require(content.get(key)==value,'Amended paper field differs from public report: '+key)
+        return
     if content.get('table2_source')=='factorial':
         r=json.loads((root.parent/'research/factorial-results.json').read_text(encoding='utf-8'))
         a=r['analysis'];cfg=r['config'];ids=cfg['monitors'];sources=a['sources']
@@ -147,10 +157,12 @@ def validate_source(content):
     ids=[int(re.match(r'\[(\d+)\]',r).group(1)) for r in content['references']]
     require(ids==list(range(1,len(ids)+1)), 'References must have unique sequential IDs')
     require(cited==set(ids), 'Citation/reference mismatch: '+str(cited.symmetric_difference(ids)))
-    if content.get('table2_source') in ('stateful','live','factorial'):
-        expected_status={'live':'completed live and weight study','stateful':'completed stateful study','factorial':'completed factorial study'}[content['table2_source']]
+    if content.get('table2_source') in ('stateful','live','factorial','factorial_reporting'):
+        expected_status={'live':'completed live and weight study','stateful':'completed stateful study','factorial':'completed factorial study','factorial_reporting':'primary complete; original secondary incomplete'}[content['table2_source']]
         require(content['evidence_status']['status']==expected_status, 'Study evidence status must be explicit')
         require(all(s in content['abstract'] for s in ('Adaption','Hugging Face')), 'Service evidence missing from abstract')
+        if content.get('table2_source')=='factorial_reporting':
+            require('Ollama' in content['abstract'], 'Registered extension service missing from abstract')
     else:
         require(content['evidence_status']['confirmatory_episodes']==0, 'Confirmatory claim requires a separately reviewed report contract')
         require(content['evidence_status']['status']=='development pilot', 'Report evidence status must stay explicit')
