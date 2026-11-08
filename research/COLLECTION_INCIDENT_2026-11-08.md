@@ -5,6 +5,14 @@ started. The complete MAIN and original HF recovery remain incomplete. The
 historical paper is unchanged. No empirical reader outcomes were inspected to
 choose this recovery, and no inference request was made during investigation.
 
+Subsequent update: the user confirmed that the router resets at this time. New
+router-aware continuations were subsequently registered and launched under
+`swarm-ledger-resume-v1`, `hf-completion-v3` and `router-resume-analysis-v1`.
+The investigation and proposed steps below are the preserved incident checkpoint;
+the continuation protocols and README describe current status. The router reset
+explains the shared interruption; this does not recover the seven lost/ambiguous
+responses or justify retrying their identities.
+
 ## What happened
 
 At 05:00:34.222 UTC Windows WLAN AutoConfig recorded event 8003, explicitly
