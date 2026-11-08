@@ -153,6 +153,30 @@ After current validation and paper integration, in the user's requested order:
    result to its scope and limitations. This is the deferred final review,
    separate from preparing the current integration machinery.
 
+## 8 November efficient dispatch continuation
+
+Measured synthetic dispatch scans exposed avoidable client bookkeeping: a
+20,000-job saturated queue took about 1.5 seconds to establish that no job was
+eligible. The prospectively registered efficient continuation caches immutable
+eligibility descriptors and skips this scan only when every pending key is
+capped. Fixed completion-stream equivalence tests preserve eligibility and
+first-eligible ordering; live completion batching and timing may differ.
+No scientific body, endpoint, condition, cap, scoring rule or cutoff changes.
+
+After controlled v3 drain, the exact remaining cohort was 25,284 readers plus
+240 calibration and 240 influence calls. Source and both registrations were
+pushed at commit `3f41547`, tagged `swarm-ledger-efficient-v1` and
+`efficient-resume-analysis-v1`, before the one-shot launch at 17:44 UTC.
+The new collector and waiter are `runs/swarm-ledger-efficient-v1-driver` and
+`runs/efficient-resume-postprocess-driver`. Preserve all predecessor failures
+and reservations; admit only the exact unstarted complement.
+
+The pre-launch forecast takes no assumed optimization speedup credit. Startup
+and handoff consume headroom, so completion remains uncertain. Assess fresh
+metadata windows, all six profile counts, and the unchanged 05:59 UTC cutoff.
+Keep strict replay, verified-data authoring, every-page QA and then all four
+queued reviews outstanding until actually completed.
+
 ## Primary references
 
 - [Sprint guidelines and judging](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):

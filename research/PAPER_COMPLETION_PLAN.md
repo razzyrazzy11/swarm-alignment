@@ -182,6 +182,23 @@ Final authoring remains gated on complete strict replay, then actual PDF
 page-count verification and visual inspection of every page. The existing
 monitoring and four deferred reviews keep their current order.
 
+## Current final-data lineage
+
+The efficient operational continuation uses the exact five-batch union:
+original, router-v1, server-v2, provider-v3 and efficient-v1. The previous v3
+collector was intentionally drained without replacing failed identities.
+Current readiness requires the actually complete and terminated efficient
+collector and the seven-stage efficient waiter, its registered analysis,
+release proof and verified figure receipt. A stopped older waiter cannot
+satisfy readiness. `python -m paper.completion_handoff diagnose --output ...`
+creates a private result-blind authoring runbook; it is not an empirical report.
+
+The historical report remains unchanged until complete strict replay permits
+verified-data authoring. Retain the acquisition/delivery/use-of-evidence framing,
+all six conditions, adverse/null findings, eight-main-page limit and official
+template. Actual manuscript integration and every-page visual inspection precede
+the four queued reviews. No preparation receipt substitutes for those actions.
+
 ## Primary conventions and unchanged protocol
 
 - [Apart sprint guidelines and judging](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):
