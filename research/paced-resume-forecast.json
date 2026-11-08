@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-08T20:32:48.173934+00:00",
+  "collection_cutoff_utc": "2026-11-09T07:56:00+00:00",
+  "pacing_minima_seconds": {
+    "native_global": "1.6",
+    "native_model": "3.2"
+  },
+  "reader_pacing_resource_seconds": {
+    "native_global_pacing": "16374.4",
+    "native_model_pacing:gemma-4-31b-it": "16451.2",
+    "native_model_pacing:gemma-4-26b-a4b-it": "16297.6"
+  },
+  "reader_resource_max_before_pacing_seconds": "19179.78596808816",
+  "reader_resource_max_after_pacing_seconds": "19179.78596808816",
+  "original_auxiliary_allowance_seconds": {
+    "calibration": "80",
+    "influence": "1286.812875"
+  },
+  "paced_auxiliary_allowance_seconds": {
+    "calibration": "128.0",
+    "influence": "1286.812875"
+  },
+  "pacing_increment_with_headroom_seconds": "60.0000000000000",
+  "original_collection_cutoff_utc": "2026-11-09T05:59:00+00:00",
+  "target_drained_utc": "2026-11-09T08:00:00+00:00",
+  "submission_deadline_utc": "2026-11-09T11:59:00+00:00",
+  "latest_dispatch_to_target_drain_seconds": 240,
+  "validation_paper_reserve_seconds": 14340,
+  "remaining_calls_by_profile_and_phase": {
+    "calibration:ds_low": 40,
+    "calibration:ds_off": 40,
+    "calibration:g26": 40,
+    "calibration:g31": 40,
+    "calibration:hf_schema": 40,
+    "calibration:hf_text": 40,
+    "influence:g26": 60,
+    "influence:glm53": 60,
+    "influence:q27": 60,
+    "influence:q397": 60,
+    "readers:ds_low": 7812,
+    "readers:ds_off": 3169,
+    "readers:g26": 5093,
+    "readers:g31": 5141
+  },
+  "remaining_calls": {
+    "readers": 21215,
+    "calibration": 240,
+    "influence": 240
+  },
+  "projected_remaining_peak_equivalent_cost": {
+    "adaption": "3.65267124187500",
+    "hf": "0.017610000",
+    "ollama": "46.171246425"
+  },
+  "spent_or_reserved_all_prior_science_and_pilots": {
+    "adaption": "42.0552083950",
+    "hf": "1.7929902",
+    "ollama": "9.6171381"
+  },
+  "projected_combined_peak_equivalent_cost": {
+    "adaption": "45.70787963687500",
+    "hf": "1.810600200",
+    "ollama": "55.788384525"
+  },
+  "budget_feasible": true,
+  "off_peak_wallet_gate_passed": true,
+  "forecast_seconds": "39346.4014801102000",
+  "conditional_finish_utc": "2026-11-09T07:28:34.575414+00:00",
+  "deadline_feasible": true,
+  "method": "Original cost model and exact unstarted counts; same shared-capacity/recent-service/p95-barrier stress. Add only positive resource-max increments for1.6s global/3.2s per-native-model pacing and positive per-auxiliary-phase pacing increments, with25%headroom. Preserve original auxiliary allowances,3300s overhead,32default60s500pauses,900sHF and900sAdaption episodes.07:56admission/08:00targetdrain/11:59submission unchanged. No benefit from future rate-limit avoidance or provider-scoped cooldown is assumed.",
+  "uncertainty": "Conditional on a newly admitted active collector; not a guarantee, bound or probability. No speedup from the eligibility optimization is assumed in this forecast. No successful-answer selection or outcome accuracy inspected. Unknown terminal usage keeps full reservation; live caps and wallet floor remain binding.",
+  "billing": "Adaption credits; HF/Ollama USD peak equivalents. Off-peak wallet conversion only, private balance never serialized.",
+  "unstarted_descriptor_sha256": {
+    "readers": "4c33452b3368e39d88ade1bda701c9edf41fdfa6b4f4e2619801045a2491c803",
+    "calibration": "23b0272b8aac4bde7961cfba87aba0bb86632409a5223a2f18abe6a41ae84fbb",
+    "influence": "3eac4ab9462e25561fdd4a25885c6d722d50c6cf90ecc34919a58c0e3e64ce3b"
+  },
+  "source_metadata_sha256": {
+    "runs/swarm-ledger-resume-v1-main/readers/attempts.jsonl": "3527e1791ab3c08ce178687917831ce1f5954c4a1546b239611817f12f0a1665",
+    "runs/swarm-ledger-resume-v1-main/readers/responses.jsonl": "b632571b390d9c82245058615def224dc7fad36d48b616c5aee0395570f33a2b",
+    "runs/swarm-ledger-resume-v2-main/readers/attempts.jsonl": "b49d4e717a95aba13a34be95765e12e5313e037a63c73930013fd71e2e12e603",
+    "runs/swarm-ledger-resume-v2-main/readers/responses.jsonl": "4f97f518a3aff0b46589c51996e92ecabb9bf3dec422e7b377617fec2cb286e1",
+    "runs/swarm-ledger-resume-v3-main/readers/attempts.jsonl": "551bd6c4236f347e2192b1c6ebffbfb3c9b4991c8e095169388127095a38d578",
+    "runs/swarm-ledger-resume-v3-main/readers/responses.jsonl": "17ceba992daec1fa61f4e5761c085cdf567c14af51e5b853c9f865c54bb7edfa",
+    "runs/swarm-ledger-efficient-v1-main/readers/attempts.jsonl": "c9c594a88f09ae62949168adb279fbafe633c6837f8a7e3acf273aacc57c717f",
+    "runs/swarm-ledger-efficient-v1-main/readers/responses.jsonl": "d7e6206c6f387ae721362a83c8c2ac3b982341fdeaed851590c36d7aed2bbaf2",
+    "runs/swarm-ledger-rate-v1-main/readers/attempts.jsonl": "378de9ad8e4b4ab45d749e54c81437130c64805972e633159ac54796fc2a7c4c",
+    "runs/swarm-ledger-rate-v1-main/readers/responses.jsonl": "8ca87a8f62c154927955f2016739bb3237df0050a84c82011d4c5a404da77c9a",
+    "research/swarm-ledger-complete-forecast.json": "6dfc10d16feec48688d65e27fd0c8b8567258af7c4b1535210f52180aa77007d"
+  }
+}
