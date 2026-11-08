@@ -62,6 +62,30 @@ class CompletePreparationTests(unittest.TestCase):
         import verify
         verify.validate_source(value)
 
+    def test_v2_registration_requires_new_actual_waiter(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)/'paper';paper.mkdir()
+            research=paper.parent/'research';research.mkdir()
+            (research/'swarm-ledger-resume-v2-freeze.json').write_text('{}')
+            old=paper.parent/'runs/router-resume-postprocess-driver/state.json'
+            old.parent.mkdir(parents=True)
+            old.write_text(json.dumps(dict(status='complete',completed_stages=list(prep.STAGES),child_pid=None)))
+            with patch.object(prep.contract,'load_completed') as load:
+                with self.assertRaisesRegex(ValueError,'Actual complete postprocessor'):
+                    prep.ready(paper)
+                load.assert_not_called()
+
+    def test_v2_waiting_state_blocks_even_if_old_waiter_complete(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)/'paper';paper.mkdir()
+            research=paper.parent/'research';research.mkdir()
+            (research/'swarm-ledger-resume-v2-freeze.json').write_text('{}')
+            new=paper.parent/'runs/server-resume-postprocess-driver/state.json'
+            new.parent.mkdir(parents=True);new.write_text('{"status":"waiting_collection"}')
+            with patch.object(prep.contract,'load_completed') as load:
+                with self.assertRaisesRegex(ValueError,'must finish'):prep.ready(paper)
+                load.assert_not_called()
+
     def test_writing_never_replaces_existing_file(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / 'draft.json'

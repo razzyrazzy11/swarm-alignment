@@ -103,21 +103,26 @@ def draft(paper=PAPER):
 def ready(paper=PAPER):
     """Gate before reading any complete empirical aggregate."""
     paper = Path(paper)
-    state_path = paper.parent / 'runs/router-resume-postprocess-driver/state.json'
+    v2=(paper.parent/'research/swarm-ledger-resume-v2-freeze.json').is_file()
+    waiter='server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
+    state_path = paper.parent / ('runs/'+waiter+'/state.json')
     if not state_path.is_file():
         raise ValueError('Actual complete postprocessor state required')
     state = json.loads(state_path.read_text(encoding='utf-8'))
     if state.get('status') != 'complete' or state.get('completed_stages') != list(STAGES) or state.get('child_pid') is not None:
         raise ValueError('All actual offline postprocessing stages must finish first')
-    from experiments import router_resume_analysis as continuation
-    continuation.terminated('runs/router-resume-postprocess-driver/state.json', complete=True)
+    if v2:
+        from experiments import server_resume_analysis as continuation
+    else:
+        from experiments import router_resume_analysis as continuation
+    continuation.terminated('runs/'+waiter+'/state.json', complete=True)
     continuation.drivers('main')
     continuation.drivers('hf')
     report, bindings = contract.load_completed(paper, replay=True)
     continuation.verify_hf()
     from analysis import ledger_complete_figures as figures
     figures.verify_only(paper.parent / 'data/swarm-ledger-v1-public',
-                        paper.parent / 'runs/router-resume-postprocess-driver/verified-public-input.json',
+                        paper.parent / ('runs/'+waiter+'/verified-public-input.json'),
                         paper / 'figures/swarm-ledger-complete-v1')
     bindings['generator_sensitivity_report_sha256'] = verify_sensitivity(paper)
     return report, bindings
