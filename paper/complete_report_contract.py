@@ -143,7 +143,8 @@ def load_completed(root,replay=True):
                     operational_registration_sha256=manifest['operational_registration_sha256'])
     for name in ('router-resume-analysis-v1-freeze.json','swarm-ledger-resume-v1-freeze.json',
                  'swarm-ledger-resume-release-proof.json','hf-completion-v3-freeze.json',
-                 'hf-completed-original-results-v3.json'):
+                 'hf-completed-original-results-v3.json','adaption-serving-pilot-v1-freeze.json',
+                 'adaption-serving-pilot-results.json'):
         path=Path(root).parent/'research'/name
         if path.exists():bindings[name]=hashlib.sha256(path.read_bytes()).hexdigest()
     return report,bindings
