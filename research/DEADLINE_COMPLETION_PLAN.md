@@ -177,6 +177,32 @@ metadata windows, all six profile counts, and the unchanged 05:59 UTC cutoff.
 Keep strict replay, verified-data authoring, every-page QA and then all four
 queued reviews outstanding until actually completed.
 
+## Subsequent rate-limit stop
+
+At18:07UTC the efficient continuation stopped with1,497starts all terminal,
+including two G31 Adaption rate-limit failures. They retain their original
+fatal flags and unknown-cost reservations. The observed initial ten-minute
+throughput rose from53.4 to117.2 completions/minute, and the later rolling
+ten-minute window reached106.8/minute, with all six rates higher than before.
+These unmatched windows have different service latencies and task mix; they
+do not identify a causal CPU speedup or establish deadline completion.
+
+While collection is stopped, an active-collector forecast is not a finish ETA.
+The rate-aware continuation is a separately named prospective operational
+amendment, with its own review, tests, exact unstarted complement and fresh
+gates. It preserves every scientific condition, body, cap and the05:59cutoff.
+Preparation is not launch clearance. Keep the actual stopped status visible
+until the new registration and actual collection prove otherwise.
+
+At18:24UTC the prospective combined gate failed and wrote no registration or
+forecast artifact. A separate metadata-only diagnosis at18:25 found a
+conditional stress finish of05:09 plus the preserved declared waiting
+sensitivities, giving06:12 against05:59. The median scenario was04:23; it
+cannot override the failed admission rule. The prepared rate code is unlaunched.
+Provider-confirmed rate scope/limits are still unknown. Keep the original
+cutoff and failed identities intact; do not reduce declared contingencies or
+select a favorable window merely to manufacture a passing gate.
+
 ## Primary references
 
 - [Sprint guidelines and judging](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):
