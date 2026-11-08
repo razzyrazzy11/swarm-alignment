@@ -37,7 +37,8 @@ def decide(driver, availability, now, owned_process_alive):
 
 def main():
     root=Path(__file__).resolve().parents[1]
-    state=root/'runs/swarm-ledger-resume-v3-driver/state.json'
+    efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').exists()
+    state=root/('runs/swarm-ledger-efficient-v1-driver/state.json' if efficient else 'runs/swarm-ledger-resume-v3-driver/state.json')
     require(state.is_file(),'Actual registered v3 driver required')
     driver=json.loads(state.read_text(encoding='utf-8'))
     from experiments.server_resume_preflight import process_snapshot
@@ -46,7 +47,7 @@ def main():
     if driver.get('child_pid') is not None:
         child=process_snapshot(driver['child_pid'])
         alive=alive and bool(child and stamp(child['created_utc'])<=stamp(driver['updated']))
-    path=root/'runs/swarm-ledger-resume-v3-main/availability-state.json'
+    path=root/('runs/swarm-ledger-efficient-v1-main/availability-state.json' if efficient else 'runs/swarm-ledger-resume-v3-main/availability-state.json')
     available=json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
     result=decide(driver,available,datetime.now(timezone.utc),alive)
     print(json.dumps(result,allow_nan=False));raise SystemExit(bool(result['attention']))

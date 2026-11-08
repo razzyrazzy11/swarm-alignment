@@ -60,6 +60,7 @@ def journal_metadata(root=ROOT):
     """Read operational fields only; do not inspect response text or native files."""
     root=Path(root);all_starts=set();all_terminal=set();plans={};counts={};partials=0
     batches=BATCHES+('swarm-ledger-resume-v3-main',) if (root/'research/swarm-ledger-resume-v3-freeze.json').exists() else BATCHES
+    if (root/'research/swarm-ledger-efficient-v1-freeze.json').exists():batches+=('swarm-ledger-efficient-v1-main',)
     for phase in PHASES:
         for batch in batches:
             folder=root/'runs'/batch/phase
@@ -110,9 +111,10 @@ def process_snapshot(pid):
 def driver_metadata(root=ROOT):
     root=Path(root);result={}
     v3=(root/'research/swarm-ledger-resume-v3-freeze.json').exists()
-    for name,expected in ((('swarm-ledger-resume-v3-driver' if v3 else 'swarm-ledger-resume-v2-driver'),('running','complete')),
+    efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').exists()
+    for name,expected in ((('swarm-ledger-efficient-v1-driver' if efficient else 'swarm-ledger-resume-v3-driver' if v3 else 'swarm-ledger-resume-v2-driver'),('running','complete')),
                           ('hf-completion-v3-driver',('complete',)),
-                          (('provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver'),('waiting_collection','processing','complete'))):
+                          (('efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver'),('waiting_collection','processing','complete'))):
         path=root/'runs'/name/'state.json'
         if not path.exists():
             result[name]=dict(status='not_started',scientific_readiness=False);continue
@@ -145,7 +147,10 @@ def environment(root=ROOT,plot=PLOT):
     result=subprocess.run([str(plot),'-c','import json,matplotlib,PIL;print(json.dumps({"matplotlib":matplotlib.__version__,"PIL":PIL.__version__}))'],capture_output=True,text=True,timeout=30,check=True)
     versions=json.loads(result.stdout)
     for module in DEPENDENCIES:importlib.import_module(module)
-    if (root/'research/swarm-ledger-resume-v3-freeze.json').exists():
+    if (root/'research/swarm-ledger-efficient-v1-freeze.json').exists():
+        from experiments import efficient_resume_analysis as release
+        from experiments import efficient_resume_supervisor as supervisor
+    elif (root/'research/swarm-ledger-resume-v3-freeze.json').exists():
         from experiments import provider_resume_analysis as release
         from experiments import provider_resume_supervisor as supervisor
     else:
@@ -155,7 +160,8 @@ def environment(root=ROOT,plot=PLOT):
     for name in ('export_main','verify_main','export_hf','verify_hf','drivers','terminated'):
         require(callable(getattr(release,name,None)),'Offline function missing: '+name)
     require('replay' in inspect.signature(release.verify_main).parameters,'Scientific replay argument missing')
-    targets={name:(root/name).exists() for name in (tuple(n.replace('swarm-ledger-server-resume-release-proof','swarm-ledger-provider-resume-release-proof') for n in TARGETS) if (root/'research/swarm-ledger-resume-v3-freeze.json').exists() else TARGETS)}
+    selected_targets=tuple(n.replace('swarm-ledger-server-resume-release-proof','swarm-ledger-efficient-resume-release-proof') for n in TARGETS) if (root/'research/swarm-ledger-efficient-v1-freeze.json').exists() else None
+    targets={name:(root/name).exists() for name in selected_targets} if selected_targets else {name:(root/name).exists() for name in (tuple(n.replace('swarm-ledger-server-resume-release-proof','swarm-ledger-provider-resume-release-proof') for n in TARGETS) if (root/'research/swarm-ledger-resume-v3-freeze.json').exists() else TARGETS)}
     require(not any(targets.values()),'Offline target already exists; never overwrite blindly')
     return dict(template_sha256=TEMPLATE_SHA,embedded_font_sha256=fonts,
                 plot_dependencies=versions,imports_checked=len(DEPENDENCIES),new_output_targets=True,
@@ -164,7 +170,10 @@ def environment(root=ROOT,plot=PLOT):
 
 def check(root=ROOT):
     root=Path(root);issues=[];checks={}
-    if (root/'research/swarm-ledger-resume-v3-freeze.json').exists():
+    if (root/'research/swarm-ledger-efficient-v1-freeze.json').exists():
+        from experiments import swarm_ledger_efficient as resume
+        from experiments import efficient_resume_analysis as analysis
+    elif (root/'research/swarm-ledger-resume-v3-freeze.json').exists():
         from experiments import swarm_ledger_resume_v3 as resume
         from experiments import provider_resume_analysis as analysis
     else:
