@@ -2,6 +2,7 @@
 from pathlib import Path
 import json,tempfile,unittest,zipfile
 from unittest.mock import patch
+from types import SimpleNamespace
 from paper import completion_handoff as h
 
 class CompletionHandoffTests(unittest.TestCase):
@@ -53,6 +54,29 @@ class CompletionHandoffTests(unittest.TestCase):
                 with self.assertRaises(ValueError):h.create_candidate(path,root)
                 gate.assert_called_once_with(Path(root)/'paper')
             self.assertFalse(path.exists());self.assertEqual(current.read_text(),'historical')
+    def test_rate_marker_has_priority_over_stale_complete_efficient_pipeline(self):
+        from paper import prepare_complete as prepare
+        with tempfile.TemporaryDirectory() as root:
+            research=Path(root)/'research';research.mkdir()
+            for name in ('swarm-ledger-resume-v3-freeze.json','swarm-ledger-efficient-v1-freeze.json','swarm-ledger-rate-v1-freeze.json'):
+                (research/name).write_text('{}')
+            old=Path(root)/'runs/efficient-resume-postprocess-driver/state.json'
+            old.parent.mkdir(parents=True);old.write_text('{"status":"complete"}')
+            jobs=[(stage,['python','-m','synthetic']) for stage in h.STAGES]
+            jobs[0]=('hf_export',['python','-m','experiments.rate_resume_analysis','export-hf'])
+            jobs[1]=('main_export',['python','-m','experiments.rate_resume_analysis','export-main'])
+            jobs[3]=('figure_input',['python','runs/rate-resume-postprocess-driver/verified-public-input.json'])
+            modules={'experiments.rate_resume_analysis':SimpleNamespace(verify=lambda:None,verify_main=lambda output,replay=True:None),
+                     'experiments.rate_resume_supervisor':SimpleNamespace(STAGES=h.STAGES,processing_jobs=lambda:jobs),
+                     'paper.prepare_complete':prepare}
+            with patch.object(h.importlib,'import_module',side_effect=lambda name:modules[name]):
+                value=h.pipeline(root)
+            self.assertEqual(value['analysis_module'],'experiments.rate_resume_analysis')
+            self.assertEqual(value['collector_state'],'runs/swarm-ledger-rate-v1-driver/state.json')
+            self.assertEqual(value['postprocessor_state'],'runs/rate-resume-postprocess-driver/state.json')
+            self.assertEqual(value['figure_receipt'],'runs/rate-resume-postprocess-driver/verified-public-input.json')
+            self.assertEqual(value['main_proof'],'research/swarm-ledger-rate-resume-release-proof.json')
+            self.assertEqual(value['observed_postprocessor_status'],'not_started')
     def test_existing_candidate_refused_before_any_readiness_call(self):
         from paper import prepare_complete as prepare
         with tempfile.TemporaryDirectory() as root:

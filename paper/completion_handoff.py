@@ -82,11 +82,12 @@ def pipeline(root):
     root=Path(root)
     require((root/'research/swarm-ledger-resume-v3-freeze.json').is_file(),'Provider-v3 registration required')
     efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').is_file()
-    analysis_name='experiments.efficient_resume_analysis' if efficient else 'experiments.provider_resume_analysis'
-    supervisor_name='experiments.efficient_resume_supervisor' if efficient else 'experiments.provider_resume_supervisor'
-    waiter='runs/efficient-resume-postprocess-driver' if efficient else 'runs/provider-resume-postprocess-driver'
-    collector='runs/swarm-ledger-efficient-v1-driver' if efficient else 'runs/swarm-ledger-resume-v3-driver'
-    proof='research/swarm-ledger-efficient-resume-release-proof.json' if efficient else 'research/swarm-ledger-provider-resume-release-proof.json'
+    rate=(root/'research/swarm-ledger-rate-v1-freeze.json').is_file()
+    analysis_name='experiments.rate_resume_analysis' if rate else 'experiments.efficient_resume_analysis' if efficient else 'experiments.provider_resume_analysis'
+    supervisor_name='experiments.rate_resume_supervisor' if rate else 'experiments.efficient_resume_supervisor' if efficient else 'experiments.provider_resume_supervisor'
+    waiter='runs/rate-resume-postprocess-driver' if rate else 'runs/efficient-resume-postprocess-driver' if efficient else 'runs/provider-resume-postprocess-driver'
+    collector='runs/swarm-ledger-rate-v1-driver' if rate else 'runs/swarm-ledger-efficient-v1-driver' if efficient else 'runs/swarm-ledger-resume-v3-driver'
+    proof='research/swarm-ledger-rate-resume-release-proof.json' if rate else 'research/swarm-ledger-efficient-resume-release-proof.json' if efficient else 'research/swarm-ledger-provider-resume-release-proof.json'
     analysis=importlib.import_module(analysis_name)
     supervisor=importlib.import_module(supervisor_name)
     prepare=importlib.import_module('paper.prepare_complete')

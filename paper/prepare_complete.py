@@ -106,14 +106,17 @@ def ready(paper=PAPER):
     v2=(paper.parent/'research/swarm-ledger-resume-v2-freeze.json').is_file()
     v3=(paper.parent/'research/swarm-ledger-resume-v3-freeze.json').is_file()
     efficient=(paper.parent/'research/swarm-ledger-efficient-v1-freeze.json').is_file()
-    waiter='efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
+    rate=(paper.parent/'research/swarm-ledger-rate-v1-freeze.json').is_file()
+    waiter='rate-resume-postprocess-driver' if rate else 'efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
     state_path = paper.parent / ('runs/'+waiter+'/state.json')
     if not state_path.is_file():
         raise ValueError('Actual complete postprocessor state required')
     state = json.loads(state_path.read_text(encoding='utf-8'))
     if state.get('status') != 'complete' or state.get('completed_stages') != list(STAGES) or state.get('child_pid') is not None:
         raise ValueError('All actual offline postprocessing stages must finish first')
-    if efficient:
+    if rate:
+        from experiments import rate_resume_analysis as continuation
+    elif efficient:
         from experiments import efficient_resume_analysis as continuation
     elif v3:
         from experiments import provider_resume_analysis as continuation

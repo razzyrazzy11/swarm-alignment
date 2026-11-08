@@ -131,8 +131,10 @@ def load_completed(root,replay=True):
     from experiments import swarm_ledger_complete_analysis as analysis
     directory=Path(root).parent/'data/swarm-ledger-v1-public'
     require(directory.is_dir(),'Completed public release required; planned/toy report is insufficient')
-    if replay:analysis.verify_public(directory)
-    if (Path(root).parent/'research/swarm-ledger-efficient-v1-freeze.json').exists():
+    if (Path(root).parent/'research/swarm-ledger-rate-v1-freeze.json').exists():
+        from experiments import rate_resume_analysis as continuation
+        continuation.verify_main(directory,replay=False)
+    elif (Path(root).parent/'research/swarm-ledger-efficient-v1-freeze.json').exists():
         from experiments import efficient_resume_analysis as continuation
         continuation.verify_main(directory,replay=False)
     elif (Path(root).parent/'research/swarm-ledger-resume-v3-freeze.json').exists():
@@ -144,13 +146,16 @@ def load_completed(root,replay=True):
     elif (Path(root).parent/'research/swarm-ledger-resume-v1-freeze.json').exists():
         from experiments import router_resume_analysis as continuation
         continuation.verify_main(directory,replay=False)
+    if replay:analysis.verify_public(directory)
     _,report,manifest=analysis.load_public_artifacts(directory)
     validate_report(report)
     bindings={name:hashlib.sha256((directory/name).read_bytes()).hexdigest()
               for name in ('manifest.json','report.json','registration.json','operational-registration.json')}
     bindings.update(scientific_registration_sha256=manifest['registration_sha256'],
                     operational_registration_sha256=manifest['operational_registration_sha256'])
-    for name in ('efficient-resume-analysis-v1-freeze.json','swarm-ledger-efficient-v1-freeze.json',
+    for name in ('rate-resume-analysis-v1-freeze.json','swarm-ledger-rate-v1-freeze.json',
+                 'swarm-ledger-rate-resume-release-proof.json',
+                 'efficient-resume-analysis-v1-freeze.json','swarm-ledger-efficient-v1-freeze.json',
                  'swarm-ledger-efficient-resume-release-proof.json',
                  'provider-resume-analysis-v1-freeze.json','swarm-ledger-resume-v3-freeze.json',
                  'swarm-ledger-provider-resume-release-proof.json',
