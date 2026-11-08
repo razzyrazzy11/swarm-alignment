@@ -6,6 +6,11 @@ from types import SimpleNamespace
 from paper import completion_handoff as h
 
 class CompletionHandoffTests(unittest.TestCase):
+    def test_actual_draft_label_uses_canonical_unicode_not_console_rendering(self):
+        draft=json.loads((h.ROOT/'paper/complete-draft.json').read_text(encoding='utf-8'))
+        self.assertEqual(draft['preparation_status'],'RESULT-BLIND DRAFT \u2014 NOT FOR SUBMISSION')
+        self.assertEqual(draft['abstract'],draft['pending_results'])
+        self.assertIn('PENDING VERIFIED COMPLETE PUBLIC RELEASE',draft['abstract'])
     def output(self,root,name='packet.json'):
         return Path(root)/'runs/paper-completion-handoff'/name
     def test_private_exclusive_write_never_overwrites(self):
@@ -114,7 +119,7 @@ class CompletionHandoffTests(unittest.TestCase):
             paper=Path(root)/'paper';paper.mkdir();template=paper/'official-template.docx'
             with zipfile.ZipFile(template,'w') as archive:
                 for name in ('word/document.xml','word/styles.xml','word/fontTable.xml'):archive.writestr(name,'placeholder')
-            (paper/'complete-draft.json').write_text(json.dumps(dict(preparation_status='RESULT-BLIND DRAFT â€” NOT FOR SUBMISSION',pending_results='pending',abstract='PENDING')))
+            (paper/'complete-draft.json').write_text(json.dumps(dict(preparation_status='RESULT-BLIND DRAFT \u2014 NOT FOR SUBMISSION',pending_results='pending',abstract='PENDING')))
             with patch.object(h,'TEMPLATE_SHA',h.sha(template)),patch.object(h,'committed_sources',return_value={}),patch.object(h,'pipeline',return_value={'stages':list(h.STAGES)}),patch.object(prepare,'ready') as ready,patch.object(prepare,'candidate') as candidate:
                 value=h.diagnose(root)
                 ready.assert_not_called();candidate.assert_not_called()
@@ -123,5 +128,12 @@ class CompletionHandoffTests(unittest.TestCase):
             self.assertEqual([step['step'] for step in value['authoring_steps']],list(range(1,8)))
             self.assertEqual(len(value['author_slots']),14)
             self.assertTrue(all(slot['status'].startswith('UNRESOLVED') for slot in value['author_slots']))
+            # Exact status validation must reject actual corrupted code points;
+            # accepting both encodings would hide future source corruption.
+            bad='RESULT-BLIND DRAFT '+chr(0xe2)+chr(0x20ac)+chr(0x201d)+' NOT FOR SUBMISSION'
+            (paper/'complete-draft.json').write_text(json.dumps(dict(preparation_status=bad,pending_results='pending',abstract='PENDING')))
+            with patch.object(h,'TEMPLATE_SHA',h.sha(template)),patch.object(h,'committed_sources',return_value={}),patch.object(h,'pipeline') as pipeline:
+                with self.assertRaisesRegex(ValueError,'Committed result-blind draft required'):h.diagnose(root)
+                pipeline.assert_not_called()
 
 if __name__=='__main__':unittest.main()

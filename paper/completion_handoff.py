@@ -124,15 +124,15 @@ def diagnose(root=ROOT):
     with zipfile.ZipFile(template) as archive:
         require(all(name in archive.namelist() for name in ('word/document.xml','word/styles.xml','word/fontTable.xml')),'Template layout/font parts missing')
     draft=json.loads((paper/'complete-draft.json').read_text(encoding='utf-8'))
-    require(draft.get('preparation_status')=='RESULT-BLIND DRAFT â€” NOT FOR SUBMISSION','Committed result-blind draft required')
+    require(draft.get('preparation_status')=='RESULT-BLIND DRAFT \u2014 NOT FOR SUBMISSION','Committed result-blind draft required')
     require(draft.get('pending_results') and 'PENDING' in draft['abstract'],'Draft must not masquerade as completed findings')
     context=pipeline(root)
     for module in ('lxml.etree','pypdf','PIL.Image','pypdfium2','paper.complete_report_contract','paper.ledger_layout'):
         importlib.import_module(module)
     return dict(schema_version=1,created_at=datetime.now(timezone.utc).isoformat(),
-        status='RESULT-BLIND HANDOFF â€” NOT A REPORT OR READINESS ATTESTATION',
+        status='RESULT-BLIND HANDOFF \u2014 NOT A REPORT OR READINESS ATTESTATION',
         source_raw_sha256=sources,template_sha256=TEMPLATE_SHA,pipeline=context,
-        author_slots=[dict(id=name,status='UNRESOLVED â€” fill only after complete strict replay',instruction=instruction) for name,instruction in SLOTS],
+        author_slots=[dict(id=name,status='UNRESOLVED \u2014 fill only after complete strict replay',instruction=instruction) for name,instruction in SLOTS],
         authoring_steps=[
           dict(step=1,action='Wait for actual full collection and all seven offline stages, actual process termination and strict replay. Do not rerun stopped requests or stage commands blindly.'),
           dict(step=2,action='Create a new private verified-data candidate through the existing strict candidate gate.',command='python -m paper.completion_handoff candidate --output runs/paper-completion-handoff/<new-dated-candidate>.json'),
