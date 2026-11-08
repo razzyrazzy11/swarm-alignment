@@ -16,6 +16,19 @@ the current report. The current PDF remains historical until actual integration.
 
 ### Current operational lineage after the HTTP500 stop
 
+**Latest addition: HF availability amendment.** The v2 batch subsequently stopped
+with4,901 terminal readings, including two504s and twoHF429 `engine_overloaded`
+responses. The v3 registration preserves every failure and collects only33,834
+remaining MAIN readings plus480 auxiliary calls. Final readiness now requires
+the actually complete and terminated `runs/provider-resume-postprocess-driver`
+and the provider-resume four-batch analysis/proof/figure receipt. The candidate
+contract binds `swarm-ledger-resume-v3-freeze.json`,
+`provider-resume-analysis-v1-freeze.json` and
+`swarm-ledger-provider-resume-release-proof.json`. Earlier lineage below remains
+historical; neither stopped waiter can satisfy the latest gates. See
+[provider recovery operations](PROVIDER_RESUME_OPERATIONS.md). The four queued
+reviews retain their order after actual validation and paper integration.
+
 The v1 router continuation stopped after15,025 reader terminals, including one
 unknown-usage HTTP500. The prospectively registered
 `swarm-ledger-resume-v2` collects only the38,735 unstarted MAIN readings and480

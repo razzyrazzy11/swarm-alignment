@@ -61,6 +61,17 @@ scientific reader condition.
 
 ## Current safest completion path (8 November, after v2 launch)
 
+Latest operational amendment: v3 replaces the stopped v2 collector, preserving
+all archived requests. See [HF recovery operations](PROVIDER_RESUME_OPERATIONS.md).
+It automatically waits/rechecks narrowly recognized serving availability within
+finite gates before new unstarted dispatch. The nonfrozen
+`python -m analysis.collection_recovery` supervises that state: expected bounded
+pause means wait for the registered live collector; expired budget, dead process
+or hard error means preserve and investigate. It never retries a POST or blindly
+restarts a stopped process. Current actual paths are
+`runs/swarm-ledger-resume-v3-driver` and `runs/provider-resume-postprocess-driver`.
+The optional pilot stays blocked; the four scientific reviews stay queued.
+
 The new v2 collector and actual server-resume waiter are running. Preserve their
 frozen implementation: the shared Ollama two-slot resource is the current
 bottleneck, and the scheduler already fills eligible capacity. There is no
