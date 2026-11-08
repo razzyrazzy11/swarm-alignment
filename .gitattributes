@@ -31,3 +31,7 @@
 /research/ROUTER_RESUME_ANALYSIS_PROTOCOL.md text eol=lf
 /research/SWARM_LEDGER_RESUME_PROTOCOL.md text eol=lf
 /research/router-resume-forecast.json text eol=lf
+/experiments/adaption_serving*.py text eol=lf
+/experiments/tests/test_adaption_serving*.py text eol=lf
+/research/ADAPTION_SERVING_PILOT_PROTOCOL.md text eol=lf
+/research/adaption-serving-pilot-catalog.json text eol=lf

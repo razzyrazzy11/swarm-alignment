@@ -21,6 +21,9 @@ jobs:
         run: python -m unittest analysis.test_ledger_generator_sensitivity -v
       - name: Verify router-reset continuation registrations when present
         run: |
+          if [ -f research/adaption-serving-pilot-v1-freeze.json ]; then
+            python -m experiments.adaption_serving_pilot verify
+          fi
           if [ -f research/hf-completion-v3-freeze.json ]; then
             python -m experiments.hf_completion_v3 verify
           fi

@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-11-08T07:52:18.923765+00:00",
+  "endpoint": "https://api.prod.adaptionlabs.ai/api/v1/models?type=hosted",
+  "http_status": 200,
+  "models": [
+    "qwen3.8-27b",
+    "qwen3.5-397b"
+  ]
+}
