@@ -35,6 +35,7 @@ def build_manifest(root,content):
         manifest.pop('results_sha256')
         manifest['ledger_sources']=bindings
         manifest['complete_report_contract_sha256']=hashlib.sha256((root/'complete_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        manifest['ledger_layout_sha256']=hashlib.sha256((root/'ledger_layout.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     if 'stateful_plan' in content:
         manifest['stateful_sources']={n:source_hash(json.loads((root.parent/'research'/n).read_text(encoding='utf-8'))) for n in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-qualification.json')}
     if content.get('table2_source')=='stateful':
@@ -201,6 +202,9 @@ def check_docx(root,content):
     if content.get('figures'):
         from figure_build import assemble as figure_assemble
         expected=figure_assemble(content,root/'official-template.docx')
+    elif content.get('ledger_registration'):
+        from ledger_layout import assemble as ledger_assemble
+        expected=ledger_assemble(content,root/'official-template.docx')
     else:expected=assemble(content,root/'official-template.docx')
     with zipfile.ZipFile(root/'out/swarm_audit_scoping.docx') as z:
         require(len(z.namelist())==len(set(z.namelist())), 'Duplicate DOCX package parts')
@@ -301,6 +305,7 @@ def pdf_manifest(root,content,paragraphs):
         _,bindings=load_completed(root,replay=False)
         manifest['ledger_sources']=bindings
         manifest['complete_report_contract_sha256']=hashlib.sha256((root/'complete_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        manifest['ledger_layout_sha256']=hashlib.sha256((root/'ledger_layout.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     if content.get('figures'):
         manifest.update(figure_pdf_evidence(root,content,reader,path))
         manifest['figure_builder_sha256']=hashlib.sha256((root/'figure_build.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()

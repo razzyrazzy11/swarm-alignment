@@ -137,7 +137,11 @@ def assemble(content,template):
     identities={item['id'] for item in items}
     sentinels={name:'__SWARM_PNG_SLOT_'+name+'__' for name in identities}
     edited['sections']=[[name,[sentinels.get(v,v) for v in ps]] for name,ps in edited['sections']]
-    parts=legacy.assemble(edited,template)
+    if content.get('ledger_registration'):
+        from ledger_layout import assemble as ledger_assemble
+        parts=ledger_assemble(edited,template)
+    else:
+        parts=legacy.assemble(edited,template)
     doc=E.fromstring(parts['word/document.xml']);section=E.tostring(doc.find(W+'body').find(W+'sectPr'))
     relname='word/_rels/document.xml.rels';rels=E.fromstring(parts[relname]);old_rels=[E.tostring(v) for v in rels]
     used={v.get('Id') for v in rels};numbers=[int(v) for v in doc.xpath('//*[local-name()="docPr"]/@id')]

@@ -43,6 +43,24 @@ def toy_pdf(path,paint=True,pages=1):
 
 
 class FigureTests(unittest.TestCase):
+    def test_complete_ledger_tables_and_png_use_opt_in_adapter(self):
+        from test_ledger_layout import LedgerLayoutTests
+        content=LedgerLayoutTests().content()
+        content['ledger_registration']='swarm-ledger-complete-v1-main'
+        content['figures']=deepcopy(self.content['figures'])
+        content['sections'][0][1].append('FIGURE2')
+        parts=f.assemble(content,self.root/'official-template.docx')
+        doc=E.fromstring(parts['word/document.xml'])
+        self.assertIn('TWO-LAST',build.text(doc))
+        self.assertIn('THREE-LAST',build.text(doc))
+        self.assertNotIn('unused',build.text(doc))
+        self.assertEqual(len(doc.xpath('//*[local-name()="drawing"]')),1)
+        self.assertEqual(len([n for n in parts if n.startswith('word/media/swarm-ledger-')]),1)
+        with zipfile.ZipFile(self.root/'official-template.docx') as original:
+            for name in original.namelist():
+                if name not in ('word/document.xml','word/_rels/document.xml.rels','[Content_Types].xml'):
+                    self.assertEqual(parts[name],original.read(name),name)
+
     def setUp(self):
         fixture=fixtures.IntegrityTests(methodName='test_current_package');fixture.setUp()
         self.addCleanup(fixture.doCleanups);self.root=fixture.root

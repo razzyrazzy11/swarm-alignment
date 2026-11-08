@@ -88,3 +88,16 @@ and Markdown; hash the actual file bytes. PNGs must be noninterlaced 8-bit
 grayscale, grayscale-alpha, RGB or RGBA; palette images are not supported by this
 deliberately small validator. Output image parts use their full SHA in the name.
 The registry is absent from the unchanged historical manuscript.
+
+## Complete-study table compatibility preparation
+
+The completed-study contract uses three columns in Table 2 and four in Table 3.
+The historical builder requires four and three respectively. The optional
+`ledger_layout.py` adapter, selected only for the completed ledger manuscript,
+keeps the original builder bytes intact and inserts the correct tables using
+the source-generated Table 1 styles. Every source cell is checked after assembly;
+there is no zip-based truncation. Column widths sum to the original 9,360-twip
+text width. Only document.xml changes for tables; the existing narrow PNG package
+allowance still applies when figures are present. Build and PDF manifests bind
+the adapter source hash. Synthetic combined table/PNG tests establish package
+and cell preservation, not final page layout or visual QA.
