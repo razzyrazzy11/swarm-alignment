@@ -94,7 +94,63 @@ claim final visual QA.
    their preserved order. Do not equate a generated candidate or green metadata
    check with those completed reviews. Submission remains a separate user action.
 
-## Primary conventions
+## Eight-page narrative allocation (editorial addition, 8 November)
+
+The main text has a **maximum of eight pages, excluding references and
+appendices**. Eight pages are a ceiling, not a target to fill. Preserve the
+official template rather than shrinking fonts or margins. The seven-page
+synthetic context probe is only a feasibility check; final pagination depends
+on actual findings, captions and figures.
+
+Use one question throughout: **which part of oversight needs repair—evidence
+acquisition, verdict delivery, or use of sufficient evidence?** This is an
+editorial diagnostic frame, not a new estimand or an outcome selected after
+inspection. These layers can fail together and must not be presented as an
+exhaustive causal partition. In particular, receiving sufficient evidence does
+not establish that a model used it, and an instruction effect does not identify
+an internal reasoning mechanism.
+
+| Approximate main-text budget | Reader's question and essential evidence |
+| --- | --- |
+| 1 page | Title, abstract, concrete handoff example, Track 4 problem and contribution. Introduce the three repair choices before technical terms. |
+| 0.75 page | Prior work and the precise gap: matched stateful diagnosis, with explicit credit to the talk/source overlap. |
+| 1.75 pages | Workflow diagram; trusted records versus peer claims; fixed-evidence instruction and matched-trajectory restoration contrasts; independent blocks, primary estimand and denominators. |
+| 2.5 pages | Complete six-reader results, primary estimate and uncertainty, acquisition/answerability contrast, delivery accounting, actual actor label mix and baseline comparison. Main plots must identify denominators and uncertainty. |
+| 1 page | Interpretation by repair layer, null/adverse effects, practical implications, core trust/domain/generalization limits and conclusion. |
+| Up to 1 page reserve | Expand only where verified results require explanation; retain the main findings and decisive limitations in the main text. |
+
+The 7-page working allocation plus up to 1 page reserve is not a pagination
+guarantee. Results should follow the causal contrasts in the design, not rank
+readers by whichever score looks most favorable. Keep the prospectively
+registered primary prominent regardless of its sign or significance.
+
+Use a compact worked example to connect the layers: a hidden authentic grant
+may require acquisition; a request that returns no usable verdict requires
+delivery accounting; a wrong parsed verdict on a sufficient packet raises the
+evidence-use question. This is an illustrative explanation, never an empirical
+case unless bound to an actual reviewed record. Preserve supported abstention
+as distinct from both a correct unsupported guess and a wrong definite verdict.
+State where output admission changes the analyzed subset; report all-request
+delivery outcomes so conditional accuracy cannot hide failures.
+
+Place full per-policy/per-arm tables, detailed calibration and controlled
+influence results, generator-domain sensitivity, prior-iteration comparisons,
+serving diagnostics and reproducibility details in appendices, with specific
+main-text pointers. Still summarize any sensitivity or counterexample that
+materially changes the conclusion in the main text. Retain the required
+Limitations and Dual-Use / Ethical Considerations appendix. Keep earlier
+all-NONE results, scripted cases and MAIN separate rather than pooling them.
+
+Apply 20-rules-of-learning as an editorial method: concrete example before
+definitions; one claim per paragraph; stable terminology across methods,
+tables and discussion; visual comparison of confusable layers; and explicit
+links from each finding to its matched contrast and limitation. This skill
+does not supply scientific evidence or authorize adding confirmatory tests.
+Final authoring remains gated on complete strict replay, then actual PDF
+page-count verification and visual inspection of every page. The existing
+monitoring and four deferred reviews keep their current order.
+
+## Primary conventions and unchanged protocol
 
 - [Apart sprint guidelines and judging](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):
   report findings clearly, preserve limitations/ethics, distinguish preexisting
