@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "tag": "provider-resume-analysis-v1",
+  "created": "2026-11-08T15:24:57.508991+00:00",
+  "base_commit": "c1846daa0c5ec190a1d51ca425981d5286df32a8",
+  "source_sha256": {
+    "experiments/provider_resume_analysis.py": "0db7b146c186f2d30c8467731bd773e1c262e0435df19d1f447d69b11040a5d4",
+    "experiments/tests/test_provider_resume_analysis.py": "e850ca3b4a575866a8abd01fe66c287dd974807c5ebae1734d1020f378ce27d1",
+    "research/PROVIDER_RESUME_ANALYSIS_PROTOCOL.md": "a8cdab8873d5c8c9b7f84108a3320e0b210b4d2bda76dfa0fefe6a32512be6c7",
+    "experiments/provider_resume_supervisor.py": "4a9d96a0ddf69acb70ccc362daf76982202f4eb3da9211bb29a5b7cd8712d09a",
+    "experiments/tests/test_provider_resume_supervisor.py": "1e125884c9ebf6cea0136e074e75fe3e59c22983857a5290de5b8bd8709e7b42",
+    "research/PROVIDER_RESUME_OPERATIONS.md": "845b47b07794e94469b0ca7202c6093d9e594a8930db072d807ead3d3bcc9cf9"
+  },
+  "parent_registration_sha256": {
+    "research/swarm-ledger-resume-v3-freeze.json": "45d023485fd1b49eebe5317f49ee97001f9e77ffd2ee6223bda3945f69cb1f41",
+    "research/server-resume-analysis-v1-freeze.json": "f7d5918f7579112e0d26f32c239cc70c008bf73b0280e940a9f553229830c9e0",
+    "research/swarm-ledger-resume-v2-freeze.json": "f36a0cb4857ef92ecb5ad7e6123470b0fa8ccb0e82a85de911a9b11f7b0f344e",
+    "research/swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
+    "research/router-resume-analysis-v1-freeze.json": "b8a2ee6878adc9e282d3dde6639d801394e030c3237a2580a15a1c4537bddf8c",
+    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf"
+  },
+  "method": "Same frozen scientific functions; original/router-v1/server-v2/provider-v3 disjoint union; all provider failures retained; no inference retry"
+}
