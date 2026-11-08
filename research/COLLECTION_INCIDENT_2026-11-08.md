@@ -11,6 +11,9 @@ At 05:00:34.222 UTC Windows WLAN AutoConfig recorded event 8003, explicitly
 reporting disconnection from a wireless network. NetworkProfile recorded
 `Network Disconnected` at 05:00:34.277. Successful WLAN reconnection was recorded
 at 05:02:07.223, followed by `Network Connected` at 05:02:07.351.
+The WLAN event's reason line says the network was disconnected by the driver.
+That is Windows' attribution, not proof of a particular driver defect, power
+setting, roaming event or router fault. No network configuration was changed.
 
 Six Adaption reporter requests ended with `transport_or_json_error` at approximately
 05:00:34; their recorded latencies range from 15.765 to 69.078 seconds. The HF
