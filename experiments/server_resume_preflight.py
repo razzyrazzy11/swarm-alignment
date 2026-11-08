@@ -59,8 +59,9 @@ def complete_lines(path):
 def journal_metadata(root=ROOT):
     """Read operational fields only; do not inspect response text or native files."""
     root=Path(root);all_starts=set();all_terminal=set();plans={};counts={};partials=0
+    batches=BATCHES+('swarm-ledger-resume-v3-main',) if (root/'research/swarm-ledger-resume-v3-freeze.json').exists() else BATCHES
     for phase in PHASES:
-        for batch in BATCHES:
+        for batch in batches:
             folder=root/'runs'/batch/phase
             # Responses first: a later start snapshot includes any concurrently
             # appended terminal's durable start, avoiding false subset alarms.
@@ -91,7 +92,7 @@ def journal_metadata(root=ROOT):
                 if row.get('known_usage') is False:
                     require(amount==Decimal(by_start[identity]['reserved_cost']),'Unknown usage lost full reservation')
                 by_terminal[identity]=row;all_terminal.add(identity)
-            if batch!=BATCHES[-1]:require(set(by_start)==set(by_terminal),'Stopped prefix has unresolved start')
+            if batch!=batches[-1]:require(set(by_start)==set(by_terminal),'Stopped prefix has unresolved start')
             counts[batch+'/'+phase]=dict(started=len(starts),terminal=len(terminals),in_flight=len(starts)-len(terminals))
     return dict(journals=counts,total_started=len(all_starts),total_terminal=len(all_terminal),
                 partial_final_lines=partials,request_digest_scope='Digest syntax and unchanged full-plan commitment; exact-body/native replay remains final validation')
@@ -108,9 +109,10 @@ def process_snapshot(pid):
 
 def driver_metadata(root=ROOT):
     root=Path(root);result={}
-    for name,expected in (('swarm-ledger-resume-v2-driver',('running','complete')),
+    v3=(root/'research/swarm-ledger-resume-v3-freeze.json').exists()
+    for name,expected in ((('swarm-ledger-resume-v3-driver' if v3 else 'swarm-ledger-resume-v2-driver'),('running','complete')),
                           ('hf-completion-v3-driver',('complete',)),
-                          ('server-resume-postprocess-driver',('waiting_collection','processing','complete'))):
+                          (('provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver'),('waiting_collection','processing','complete'))):
         path=root/'runs'/name/'state.json'
         if not path.exists():
             result[name]=dict(status='not_started',scientific_readiness=False);continue
@@ -143,13 +145,17 @@ def environment(root=ROOT,plot=PLOT):
     result=subprocess.run([str(plot),'-c','import json,matplotlib,PIL;print(json.dumps({"matplotlib":matplotlib.__version__,"PIL":PIL.__version__}))'],capture_output=True,text=True,timeout=30,check=True)
     versions=json.loads(result.stdout)
     for module in DEPENDENCIES:importlib.import_module(module)
-    from experiments import server_resume_analysis as release
-    from experiments import server_resume_supervisor as supervisor
+    if (root/'research/swarm-ledger-resume-v3-freeze.json').exists():
+        from experiments import provider_resume_analysis as release
+        from experiments import provider_resume_supervisor as supervisor
+    else:
+        from experiments import server_resume_analysis as release
+        from experiments import server_resume_supervisor as supervisor
     require(tuple(supervisor.STAGES)==('hf_export','main_export','continuation_provenance','figure_input','figures','figure_provenance','generator_sensitivity'),'Offline stage contract differs')
     for name in ('export_main','verify_main','export_hf','verify_hf','drivers','terminated'):
         require(callable(getattr(release,name,None)),'Offline function missing: '+name)
     require('replay' in inspect.signature(release.verify_main).parameters,'Scientific replay argument missing')
-    targets={name:(root/name).exists() for name in TARGETS}
+    targets={name:(root/name).exists() for name in (tuple(n.replace('swarm-ledger-server-resume-release-proof','swarm-ledger-provider-resume-release-proof') for n in TARGETS) if (root/'research/swarm-ledger-resume-v3-freeze.json').exists() else TARGETS)}
     require(not any(targets.values()),'Offline target already exists; never overwrite blindly')
     return dict(template_sha256=TEMPLATE_SHA,embedded_font_sha256=fonts,
                 plot_dependencies=versions,imports_checked=len(DEPENDENCIES),new_output_targets=True,
@@ -158,8 +164,12 @@ def environment(root=ROOT,plot=PLOT):
 
 def check(root=ROOT):
     root=Path(root);issues=[];checks={}
-    from experiments import swarm_ledger_resume_v2 as resume
-    from experiments import server_resume_analysis as analysis
+    if (root/'research/swarm-ledger-resume-v3-freeze.json').exists():
+        from experiments import swarm_ledger_resume_v3 as resume
+        from experiments import provider_resume_analysis as analysis
+    else:
+        from experiments import swarm_ledger_resume_v2 as resume
+        from experiments import server_resume_analysis as analysis
     for name,function in (
         ('collector_registration',lambda:dict(valid=bool(resume.verify()))),
         ('analysis_registration',lambda:dict(valid=bool(analysis.verify()))),

@@ -68,7 +68,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',type=Path,default=root/'runs/experiment-sanity-check')
     args=parser.parse_args()
-    directories=[root/'runs'/batch/'readers' for batch in ('swarm-ledger-resume-v1-main','swarm-ledger-resume-v2-main')]
+    directories=[root/'runs'/batch/'readers' for batch in ('swarm-ledger-resume-v1-main','swarm-ledger-resume-v2-main','swarm-ledger-resume-v3-main')]
     terminal=[r for directory in directories for r in timing.rows(directory/'responses.jsonl',True)]
     attempts=[r for directory in directories for r in timing.rows(directory/'attempts.jsonl')]
     value=diagnose(attempts,terminal,datetime.now(timezone.utc))

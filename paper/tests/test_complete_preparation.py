@@ -86,6 +86,17 @@ class CompletePreparationTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'must finish'):prep.ready(paper)
                 load.assert_not_called()
 
+    def test_v3_registration_rejects_earlier_complete_waiter(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)/'paper';paper.mkdir()
+            research=paper.parent/'research';research.mkdir()
+            for version in ('v2','v3'):(research/('swarm-ledger-resume-'+version+'-freeze.json')).write_text('{}')
+            old=paper.parent/'runs/server-resume-postprocess-driver/state.json'
+            old.parent.mkdir(parents=True);old.write_text(json.dumps(dict(status='complete',completed_stages=list(prep.STAGES),child_pid=None)))
+            with patch.object(prep.contract,'load_completed') as load:
+                with self.assertRaisesRegex(ValueError,'Actual complete postprocessor'):prep.ready(paper)
+                load.assert_not_called()
+
     def test_writing_never_replaces_existing_file(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / 'draft.json'

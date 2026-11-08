@@ -42,6 +42,16 @@ class ServerPreflightTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             failure['estimated_cost']='0';self.make(root,terminals=[failure])
             with self.assertRaises(ValueError):p.journal_metadata(root)
+
+    def test_v3_registration_checks_stopped_v2_and_live_v3(self):
+        with tempfile.TemporaryDirectory() as root:
+            research=Path(root)/'research';research.mkdir()
+            (research/'swarm-ledger-resume-v3-freeze.json').write_text('{}')
+            old=dict(id='a',profile_id='g26',known_usage=False,estimated_cost='1')
+            self.make(root,batch='swarm-ledger-resume-v2-main',ids=('a','b'),terminals=[old])
+            self.make(root,batch='swarm-ledger-resume-v3-main',ids=('a','b'),starts=[dict(id='b',profile_id='g26',request_sha256='c'*64,reserved_cost='1')])
+            value=p.journal_metadata(root)
+            self.assertEqual(value['total_started'],2);self.assertEqual(value['total_terminal'],1)
     def test_body_commitment_drift_rejected(self):
         with tempfile.TemporaryDirectory() as root:
             self.make(root,batch='swarm-ledger-resume-v1-main',starts=[],terminals=[])

@@ -132,7 +132,10 @@ def load_completed(root,replay=True):
     directory=Path(root).parent/'data/swarm-ledger-v1-public'
     require(directory.is_dir(),'Completed public release required; planned/toy report is insufficient')
     if replay:analysis.verify_public(directory)
-    if (Path(root).parent/'research/swarm-ledger-resume-v2-freeze.json').exists():
+    if (Path(root).parent/'research/swarm-ledger-resume-v3-freeze.json').exists():
+        from experiments import provider_resume_analysis as continuation
+        continuation.verify_main(directory,replay=False)
+    elif (Path(root).parent/'research/swarm-ledger-resume-v2-freeze.json').exists():
         from experiments import server_resume_analysis as continuation
         continuation.verify_main(directory,replay=False)
     elif (Path(root).parent/'research/swarm-ledger-resume-v1-freeze.json').exists():
@@ -144,7 +147,9 @@ def load_completed(root,replay=True):
               for name in ('manifest.json','report.json','registration.json','operational-registration.json')}
     bindings.update(scientific_registration_sha256=manifest['registration_sha256'],
                     operational_registration_sha256=manifest['operational_registration_sha256'])
-    for name in ('server-resume-analysis-v1-freeze.json','swarm-ledger-resume-v2-freeze.json',
+    for name in ('provider-resume-analysis-v1-freeze.json','swarm-ledger-resume-v3-freeze.json',
+                 'swarm-ledger-provider-resume-release-proof.json',
+                 'server-resume-analysis-v1-freeze.json','swarm-ledger-resume-v2-freeze.json',
                  'swarm-ledger-server-resume-release-proof.json',
                  'router-resume-analysis-v1-freeze.json','swarm-ledger-resume-v1-freeze.json',
                  'swarm-ledger-resume-release-proof.json','hf-completion-v3-freeze.json',
