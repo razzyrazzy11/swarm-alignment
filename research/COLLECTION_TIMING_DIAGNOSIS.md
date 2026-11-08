@@ -95,10 +95,27 @@ Run with the bundled primary Python from the repository root:
 python runs/experiment-sanity-check/check_metadata.py
 python -m analysis.collection_progress
 python -m analysis.collection_timing
+python -m analysis.collection_headroom
 ```
 
-The first command owns frozen-prefix/source/cost integrity. The latter two add
+The first command owns frozen-prefix/source/cost integrity. The other commands add
 dated operational histories and never change dispatch or score model answers.
+
+For v2, append `--additional-directory runs/swarm-ledger-resume-v2-main/readers`
+to the progress and timing commands. The headroom helper automatically reads
+both disjoint v1/v2 reader batches and retains the original scenarios alongside
+15/30/60-minute sensitivities. It reports all in-flight ages, including calls
+begun before a window, and refuses sparse-window projections. Its remaining500
+stress is explicitly each unused allowance at the default60-second cooldown,
+not a bound on longer Retry-After, health waits or future outages. These new
+metadata sensitivities do not amend any frozen source or scientific estimand.
+
+At14:22, the earlier narrowing principally reflected volatile DS-low last100
+latency rather than longer measured recurring barriers. Ollama's shared two
+slots remained the capacity constraint. Already elapsed recovery downtime must
+not be added again to future barrier overhead; its impact on the wall clock is
+already present. Preserve the dated original warnings and compare trends rather
+than treating an improved scenario as clearance to weaken a gate.
 
 The [official sprint guidelines](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines)
 require a research report on the official template and close at 23:59 Anywhere

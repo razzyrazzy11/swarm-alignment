@@ -53,11 +53,57 @@ analysis or current artifact.
 5. Run the four queued investigations/reviews below, resolve material findings,
    and repeat affected validation. Do not claim these are already complete.
 
-The excluded serving pilot waits for both collectors and offline processing.
-Its separately registered watchdog, cutoff, cap and no-retry rules remain in
-force. It is secondary feasibility evidence and does not gate primary manuscript
-preparation. Its independent process can run while the completed primary study
-is interpreted; any pilot result used in the paper needs its own verification.
+The excluded serving pilot is now blocked and unrun after the genuine v1 stop.
+Its frozen dependencies cannot be silently remapped to v2. Defer this optional
+feasibility branch to protect the full scientific comparison and manuscript;
+requeue would require separate prospective admission. It is not a missing
+scientific reader condition.
+
+## Current safest completion path (8 November, after v2 launch)
+
+The new v2 collector and actual server-resume waiter are running. Preserve their
+frozen implementation: the shared Ollama two-slot resource is the current
+bottleneck, and the scheduler already fills eligible capacity. There is no
+protocol-preserving concurrency increase or endpoint change to apply. Retain
+the original500 as a failed delivery; collect only unstarted identities.
+
+The apparent two-hour deterioration at14:14 was predominantly last100-call
+volatility. By14:22 the median shared-capacity/barrier finish moved only43seconds
+(02:33:46 to02:34:29), while DS-low's last100 mean fell5.605 to4.428seconds and
+the stress finish moved05:16 to03:11. The measured median barrier stayed around
+18.4seconds. This does not eliminate risk: all projections remain conditional,
+and roughly10,000 remaining DS-low calls amplify a small latency change.
+
+Implement and use these nonfrozen preparations without changing inference:
+
+1. Run `python -m analysis.collection_headroom` alongside the original timing
+   helper. Keep the original cumulative and last100 scenarios; compare declared
+   15/30/60-minute windows, their sample counts, and all in-flight counts/oldest
+   ages. Insufficient windows stay unavailable. Do not select a favorable
+   window, discard the slowest in-flight call, or interpret a scenario as a
+   confidence interval or completion probability. Preserve every dated snapshot.
+2. Show the remaining500 allowance at the default60-second cooldown separately.
+   It is not all permitted waiting: longer Retry-After values, additional
+   read-only health waits and future outages may add more time. The existing
+   registered outage/blackout overhead remains, without double-counting elapsed
+   recovery downtime as future recurring barrier time.
+3. Run the result-blind `experiments.server_resume_preflight` with authoritative
+   process visibility. Check frozen lineage, metadata identities/reservations,
+   actual process readiness, environment/imports, the official template and
+   embedded fonts, plotting runtime and unused output targets now. This is
+   preventive engineering, not strict scientific replay or final visual QA.
+4. Keep all heavy empirical replay and export behind the actual complete/dead
+   collector gates. The prepared candidate and seven-page synthetic layout
+   probe save authoring time, but the real findings must still be read and every
+   actual PDF page inspected. Protect the six-hour interval between05:59 cutoff
+   and11:59 submission deadline; earlier completion provides additional room.
+   No deadline guarantee follows, and the four reviews below remain queued.
+
+Escalate a real collector/allowance/source failure immediately. For timing,
+report a material cutoff risk or sustained worsening across measured service
+and multiple window scenarios, distinguishing it from one short-window swing.
+Do not weaken the stop conditions, drop a reader, retry an identity or extend
+the cutoff in response to a forecast.
 
 ## Forecast and escalation
 
