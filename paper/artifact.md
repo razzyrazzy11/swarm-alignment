@@ -80,7 +80,7 @@ placeholders, not evidence):
 }
 ```
 
-Put the exact `FIGURE2` marker once in a `sections` paragraph list. The builder
+Put the exact `FIGURE2` marker once in a `sections` or `appendix` paragraph list. The builder
 inserts the inline image followed by its real-text caption. PNG paths resolve
 under `paper/figures`; source paths resolve under project `research` or `data`.
 Paths cannot escape those roots. Supported sources are JSON, JSONL, CSV, TSV
@@ -101,3 +101,8 @@ text width. Only document.xml changes for tables; the existing narrow PNG packag
 allowance still applies when figures are present. Build and PDF manifests bind
 the adapter source hash. Synthetic combined table/PNG tests establish package
 and cell preservation, not final page layout or visual QA.
+
+Appendix figure slots use the same registry, hash and package checks as main-text
+slots. Duplicate slots across the two locations are rejected. This permits
+full-size supporting plots outside the eight-page main-text cap without shrinking
+the official template fonts. Every final page still requires actual visual review.

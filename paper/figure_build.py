@@ -81,7 +81,7 @@ def png_size(data):
 def registry(content,root):
     values=content.get('figures')
     require(type(values) is list and values,'PNG registry must be a nonempty list')
-    seen=set();out=[];markers=[v for _,ps in content['sections'] for v in ps]
+    seen=set();out=[];markers=[v for _,ps in content['sections']+content.get('appendix',[]) for v in ps]
     for value in values:
         require(type(value) is dict and set(value)==KEYS,'Figure registry field allowlist')
         ident=value['id'];require(type(ident) is str and re.fullmatch(r'FIGURE[1-9]\d*',ident) is not None and ident not in seen,'Invalid/duplicate figure ID')
@@ -137,6 +137,7 @@ def assemble(content,template):
     identities={item['id'] for item in items}
     sentinels={name:'__SWARM_PNG_SLOT_'+name+'__' for name in identities}
     edited['sections']=[[name,[sentinels.get(v,v) for v in ps]] for name,ps in edited['sections']]
+    edited['appendix']=[[name,[sentinels.get(v,v) for v in ps]] for name,ps in edited.get('appendix',[])]
     if content.get('ledger_registration'):
         from ledger_layout import assemble as ledger_assemble
         parts=ledger_assemble(edited,template)

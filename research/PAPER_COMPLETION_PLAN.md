@@ -67,8 +67,11 @@ claim final visual QA.
 2. Register actual PNG hashes, public source hashes, captions and alternative
    text in the candidate. Put the clearest workflow and matched-effect plots in
    the main paper; balance remaining plots/tables against the eight-page cap.
-   `paper/figure_build.py` must use a layout compatible with the completed-study
-   contract (legacy table widths alone do not fit its table2/table3 schemas).
+   `paper/figure_build.py` now selects the opt-in completed-study table adapter;
+   the legacy builder remains unchanged. Registered supporting figures can use
+   appendix slots, with the same source/hash checks and unique-marker rule.
+   A synthetic Word preflight with two main figures and two appendix figures
+   fit six main pages; actual findings and every final page still need review.
 3. Review the candidate, archive the historical content/artifacts, and explicitly
    promote the reviewed candidate to `paper/content.json`. Build using
    `python paper/figure_build.py`, preserving the retained official template.

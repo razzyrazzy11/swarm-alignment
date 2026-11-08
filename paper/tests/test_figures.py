@@ -43,6 +43,18 @@ def toy_pdf(path,paint=True,pages=1):
 
 
 class FigureTests(unittest.TestCase):
+    def test_registered_appendix_figure_preserves_template_and_marker_uniqueness(self):
+        self.content['sections'][0][1].remove('FIGURE2')
+        self.content['appendix'].append(['Appendix figure',['FIGURE2']])
+        parts=f.assemble(self.content,self.root/'official-template.docx')
+        doc=E.fromstring(parts['word/document.xml'])
+        self.assertNotIn('__SWARM_PNG_SLOT_',build.text(doc))
+        self.assertEqual(len(doc.xpath('//*[local-name()="drawing"]')),1)
+        self.assertLess(build.text(doc).index('Appendix figure'),build.text(doc).index('Figure 2. Synthetic'))
+        self.content['sections'][0][1].append('FIGURE2')
+        with self.assertRaisesRegex(ValueError,'slot|marker'):
+            f.assemble(self.content,self.root/'official-template.docx')
+
     def test_complete_ledger_tables_and_png_use_opt_in_adapter(self):
         from test_ledger_layout import LedgerLayoutTests
         content=LedgerLayoutTests().content()
