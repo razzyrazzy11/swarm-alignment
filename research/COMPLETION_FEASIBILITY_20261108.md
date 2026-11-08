@@ -1,9 +1,14 @@
 # Completion feasibility after the rate-limit stop
 
-**Subsequent user correction:**05:59was our internal six-hour buffer, not the
-official deadline. Before new registration, the rate version is being revised
-prospectively to07:56lastjob admission,08:00target drain and a3h59validation/
-paper/review reserve before9November11:59UTC. Its fresh gate is pending. The
+**Subsequent user correction and admitted continuation:**05:59was our internal
+six-hour buffer, not the official deadline. The rate version was prospectively
+registered at a2f8bfa with07:56lastjob admission,08:00target drain and a3h59
+validation/paper/review reserve before9November11:59UTC. Its fresh deadline,
+budget and wallet gates passed, including all prior waiting contingencies;
+the18:59conditional finish was06:45UTC, not a guarantee. Both tags were pushed
+before new inference. At19:23,427fresh responses across all six profiles were
+HTTP200 with known usage and no anomalies, and the strict waiter was queued.
+Final validation, paper integration and four reviews remain outstanding. The
 18:30assessment below is retained as the historical05:59scenario, not a claim
 that the organizer required collection to stop then. All old freezes and all
 waiting contingencies remain intact; only a passing prospective gate can admit

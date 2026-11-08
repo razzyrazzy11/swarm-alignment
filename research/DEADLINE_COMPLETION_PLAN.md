@@ -16,6 +16,16 @@ independent review and source/freeze/tag/push must precede any new inference.
 Historical failed05:59gate results below remain valid for their old window,
 and must not be confused with the corrected prospective proposal.
 
+The new gate passed at18:59, including exact23787reader+480auxiliary calls,
+all previous costs/reservations and all declared wait sensitivities. The
+conditional finish was06:45UTC. Source/forecast/freezes were pushed under
+swarm-ledger-rate-v1 and rate-resume-analysis-v1 at a2f8bfa before inference.
+Collector runs/swarm-ledger-rate-v1-driver launched19:10; fresh collection
+started19:19; the gated waiter runs/rate-resume-postprocess-driver launched
+19:20 and waits for actual full termination. At19:23,427fresh calls across
+all six profiles were200/known usage/no anomaly. This is operational progress,
+not completed scientific validation or a deadline guarantee.
+
 Operational plan recorded on 8 November 2026, before inspection of the unfinished
 MAIN outcomes. This plan changes no scientific or collection registration.
 

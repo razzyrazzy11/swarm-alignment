@@ -7,6 +7,14 @@ This corrects our earlier05:59internalbuffer assumption without changing older
 freezes. Nothing in this schedule bypasses actual-data proof or permits early
 outcome scoring, automatic submission, or a false paper-completion claim.
 
+Current admitted lineage is the six-batch rate continuation, tagged at a2f8bfa.
+Use runs/swarm-ledger-rate-v1-driver and runs/rate-resume-postprocess-driver,
+rate-resume-analysis-v1 and swarm-ledger-rate-resume-release-proof.json.
+All earlier lineage descriptions below are historical. The result-blind
+handoff-20261108T191100Z and rate-preflight-20261108T191200Z artifacts passed
+engineering checks; both explicitly keep scientific validation, paper
+integration and visual QA false until actual completed-data gates pass.
+
 Working reserve after the08:00drain target: up to60minutes for the seven strict
 offline stages and candidate proof;60minutes for verified-result interpretation
 and authoring;30minutes for native export and every-page inspection;60minutes
