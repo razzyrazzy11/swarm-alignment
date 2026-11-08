@@ -79,10 +79,37 @@ lineage carry forward. Known rate failures count toward the existing1,024-per-
 phase server allowance and provider streaks; HTTP500total32 and connection32
 allowances are not reset. No spending setting or model route changes.
 
-The04:55–05:05UTC router pause, bounded health checks and collection cutoff
-9November05:59UTC remain. The new forecast separately allows an Adaption admission
-episode in addition to existing recovery stress, but is conditional and gives no
-completion guarantee. Frozen sources are not edited; hashes/tags precede fresh
+The04:55–05:05UTC router pause and bounded health checks remain. The official
+submission deadline is **9November11:59UTC**, equivalent to8November23:59AoE
+(UTC−12). The earlier05:59UTC collection cutoff was an internal six-hour
+validation/authoring buffer, not the organizer deadline; all older registrations
+continue to record it unchanged. Following the user's deadline correction, this
+new amendment prospectively sets **last scheduler admission at07:56UTC**, with
+a **target drained by08:00UTC**, leaving3hours59minutes before submission for
+strict validation, paper integration and visual QA. This is an explicitly
+disclosed operational window extension, not a claim that an older freeze allowed
+later collection.
+
+Only the unfrozen rate collector's local dispatch-time and persisted-cooldown
+helpers use the new admission boundary; original dispatch sources and configs
+are neither patched nor monkeypatched. ConnectivityGate receives the new
+boundary explicitly, and metadata checks use this same policy. Historical
+forecast/source verification remains against historical05:59 anchors. All
+capacity, cost, wallet and off-peak-only guards remain. The proposed window is
+Sunday through Monday before12:00UTC and therefore remains within the registered
+off-peak convention; no pricing conversion or spending ceiling is changed.
+
+The08:00 drain target reserves the registered180second request timeout plus
+60seconds of additional margin after last admission. The scheduler admission
+check precedes retained native pacing inside the worker; a request admitted just
+before07:56 can begin its single POST seconds later. Network/socket timeouts,
+draining and durable writes do not establish a hard whole-request wall-clock
+completion guarantee. If collection or validation does not finish, report its
+actual state rather than relaxing guards or inventing completion.
+
+The new forecast separately allows an Adaption admission episode in addition
+to existing recovery stress, must fit the new admission boundary, and remains
+conditional without a completion guarantee. Frozen sources are not edited; hashes/tags precede fresh
 calls. Strict six-batch export, actual termination proofs, completed original HF
 recovery, figure provenance and sensitivity precede empirical paper authoring.
 Final PDF inspection and queued reviews remain separate outstanding work.

@@ -21,6 +21,14 @@ class HeadroomTests(unittest.TestCase):
         self.assertEqual(set(item['sample_counts']),set(h.timing.PLANNED))
         self.assertEqual((h.timing.stamp(item['with_remaining_server500_at60s_utc'])-h.timing.stamp(item['conditional_finish_utc'])).total_seconds(),1920)
 
+    def test_headroom_uses_explicit_admission_clock_without_duration_change(self):
+        args=self.fixture();old=h.diagnose(*args)
+        cutoff=datetime(2026,11,9,7,56,tzinfo=timezone.utc);new=h.diagnose(*args,cutoff=cutoff)
+        before=old['window_sensitivities']['15'];after=new['window_sensitivities']['15']
+        self.assertEqual(after['conditional_finish_utc'],before['conditional_finish_utc'])
+        self.assertAlmostEqual(after['margin_after_remaining_server500_at60s_hours']-before['margin_after_remaining_server500_at60s_hours'],117/60)
+        self.assertEqual(new['collection_cutoff_utc'],cutoff.isoformat())
+
     def test_sparse_window_not_promoted_to_forecast(self):
         attempts,rows,now=self.fixture();v=h.diagnose(attempts,rows,now+timedelta(minutes=20))
         item=v['window_sensitivities']['15'];self.assertFalse(item['available'])

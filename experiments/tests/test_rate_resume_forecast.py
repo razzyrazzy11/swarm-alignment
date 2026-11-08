@@ -20,7 +20,7 @@ class ForecastTests(unittest.TestCase):
         self.assertTrue(v['deadline_feasible']);self.assertTrue(v['off_peak_wallet_gate_passed'])
 
     def test_budget_wallet_deadline_fail_closed(self):
-        args=self.args();args[2]['ollama']=Decimal(99);args[5]=datetime(2026,11,9,5,58,tzinfo=timezone.utc);args[6]=Decimal(5)
+        args=self.args();args[2]['ollama']=Decimal(99);args[5]=datetime(2026,11,9,7,55,tzinfo=timezone.utc);args[6]=Decimal(5)
         v=f.build(*args)
         self.assertFalse(v['deadline_feasible']);self.assertFalse(v['budget_feasible']);self.assertFalse(v['off_peak_wallet_gate_passed'])
 
@@ -31,6 +31,17 @@ class ForecastTests(unittest.TestCase):
     def test_nonfinite_timing_rejected(self):
         args=self.args();args[4]['stress_scenario']['scenario_with_auxiliary_margin_overhead_seconds']=float('nan')
         with self.assertRaises(ValueError):f.build(*args)
+
+    def test_new_operational_cutoff_preserves_old_anchor_and_paper_reserve(self):
+        args=self.args();args[5]=datetime(2026,11,9,6,tzinfo=timezone.utc)
+        v=f.build(*args)
+        self.assertEqual(args[0]['collection_cutoff_utc'],'2026-11-09T05:59:00+00:00')
+        self.assertEqual(v['original_collection_cutoff_utc'],args[0]['collection_cutoff_utc'])
+        self.assertEqual(v['collection_cutoff_utc'],'2026-11-09T07:56:00+00:00')
+        self.assertEqual(v['latest_dispatch_to_target_drain_seconds'],240)
+        self.assertEqual(v['validation_paper_reserve_seconds'],14340)
+        self.assertEqual(v['submission_deadline_utc'],'2026-11-09T11:59:00+00:00')
+        self.assertTrue(v['deadline_feasible'])
 
 
 if __name__=='__main__':unittest.main()

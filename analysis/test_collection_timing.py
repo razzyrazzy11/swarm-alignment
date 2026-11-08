@@ -37,6 +37,16 @@ class TimingTests(unittest.TestCase):
                          (expected+t.AUXILIARY_SECONDS)*1.25+t.OVERHEAD_SECONDS)
         self.assertIn('already include historical barriers',value['limitations'])
 
+    def test_new_admission_clock_keeps_all_timing_durations_identical(self):
+        old=t.summarize(self.attempts,self.terminals,self.now)
+        cutoff=datetime(2026,11,9,7,56,tzinfo=timezone.utc)
+        new=t.summarize(self.attempts,self.terminals,self.now,cutoff=cutoff)
+        self.assertEqual(new['scenario_with_auxiliary_margin_overhead_seconds'],old['scenario_with_auxiliary_margin_overhead_seconds'])
+        self.assertEqual(new['stress_scenario']['scenario_with_auxiliary_margin_overhead_seconds'],old['stress_scenario']['scenario_with_auxiliary_margin_overhead_seconds'])
+        self.assertEqual(new['scenario_collection_finish_utc'],old['scenario_collection_finish_utc'])
+        self.assertAlmostEqual(new['scenario_margin_to_cutoff_hours']-old['scenario_margin_to_cutoff_hours'],117/60)
+        self.assertAlmostEqual(new['stress_scenario']['margin_to_cutoff_hours']-old['stress_scenario']['margin_to_cutoff_hours'],117/60)
+
     def test_stress_formula_is_no_smaller_than_median_scenario(self):
         value=t.summarize(self.attempts,self.terminals,self.now)
         stress=value['stress_scenario']

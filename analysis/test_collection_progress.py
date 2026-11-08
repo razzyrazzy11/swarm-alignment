@@ -34,6 +34,37 @@ class ProgressTests(unittest.TestCase):
         self.assertAlmostEqual(result['conservative_hours_remaining_to_submission']-
                                result['conservative_margin_to_cutoff_hours'], 6)
 
+    def test_explicit_cutoff_changes_only_margins_not_duration(self):
+        old=p.project(self.attempts,self.terminals,self.now)
+        cutoff=datetime(2026,11,9,7,56,tzinfo=timezone.utc)
+        new=p.project(self.attempts,self.terminals,self.now,cutoff=cutoff)
+        for name in ('conservative_collection_seconds','cumulative_reader_seconds','optimistic_conditional_reader_seconds','conservative_collection_finish_utc'):
+            self.assertEqual(new[name],old[name])
+        self.assertAlmostEqual(new['conservative_margin_to_cutoff_hours']-old['conservative_margin_to_cutoff_hours'],117/60)
+        self.assertEqual(old['collection_cutoff_utc'],p.CUTOFF.isoformat())
+
+    def test_actual_rate_registration_selects_new_admission_without_changing_baseline(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);research=root/'research';research.mkdir()
+            baseline=root/'progress-projection.json';baseline.write_text('{"historical_cutoff":"05:59"}')
+            raw=baseline.read_bytes()
+            self.assertEqual(p.registered_deadline_policy(root)['collection_cutoff_utc'],p.CUTOFF.isoformat())
+            policy=dict(cutoff_utc='2026-11-09T07:56:00+00:00',target_drained_utc='2026-11-09T08:00:00+00:00',submission_deadline_utc=p.DEADLINE.isoformat())
+            (research/'swarm-ledger-rate-v1-freeze.json').write_text(json.dumps(dict(schema_version=1,tag='swarm-ledger-rate-v1',policy=policy)))
+            value=p.registered_deadline_policy(root)
+            self.assertEqual(value['collection_cutoff_utc'],policy['cutoff_utc'])
+            self.assertEqual(value['submission_deadline_utc'],p.DEADLINE.isoformat())
+            self.assertEqual(baseline.read_bytes(),raw)
+            self.assertEqual(p.CUTOFF.hour,5)
+
+    def test_malformed_rate_deadline_never_falls_back_to_old_clock(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);research=root/'research';research.mkdir();path=research/'swarm-ledger-rate-v1-freeze.json'
+            for value in ({'schema_version':1,'tag':'wrong','policy':{}},
+                          {'schema_version':1,'tag':'swarm-ledger-rate-v1','policy':dict(cutoff_utc=p.DEADLINE.isoformat(),target_drained_utc=p.DEADLINE.isoformat(),submission_deadline_utc=p.DEADLINE.isoformat())}):
+                path.write_text(json.dumps(value))
+                with self.assertRaises(ValueError):p.registered_deadline_policy(root)
+
     def test_failure_is_included_and_missing_latency_disclosed(self):
         self.terminals[0].update(http_status=None, known_usage=False, anomaly=True,
                                  latency_seconds=None)

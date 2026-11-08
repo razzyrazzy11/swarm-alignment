@@ -1,6 +1,6 @@
 """Offline regressions for immutable-prefix, no-retry MAIN continuation."""
 from copy import deepcopy
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
 from decimal import Decimal
 import hashlib,json,tempfile,unittest
 from pathlib import Path
@@ -295,7 +295,7 @@ class BuilderAndTransportTests(unittest.TestCase):
         for key in ('deadline_feasible','budget_feasible','off_peak_wallet_gate_passed'):
             bad=deepcopy(value);bad[key]=False
             with self.assertRaisesRegex(ValueError,'gate failed'):r.validate_resume_forecast(bad,at)
-        with self.assertRaisesRegex(ValueError,'no longer fits'):r.validate_resume_forecast(value,datetime(2026,11,9,5,58,tzinfo=timezone.utc))
+        with self.assertRaisesRegex(ValueError,'no longer fits'):r.validate_resume_forecast(value,datetime.fromisoformat(r.policy['cutoff_utc'])-timedelta(minutes=1))
 
 
 class AvailabilityTests(unittest.TestCase):
@@ -476,7 +476,7 @@ class EligibilityTests(unittest.TestCase):
 
     def test_transport_pacing_and_recovery_policy_are_literal_unchanged(self):
         import inspect
-        self.assertEqual(r.policy,r.third.policy)
+        self.assertEqual(r.policy,{**r.fourth.policy,'cutoff_utc':'2026-11-09T07:56:00+00:00','target_drained_utc':'2026-11-09T08:00:00+00:00','submission_deadline_utc':'2026-11-09T11:59:00+00:00'})
         new=inspect.getsource(r.ResumeTransport.request)
         amendment="        if p['provider']=='adaption' and adaption_rate_limit(status,private) is not None:\n            status.pop('fatal_provider_error',None)\n            status['provider_failure_class']='adaption_rate_limit'\n"
         self.assertEqual(new.replace(amendment,''),inspect.getsource(r.fourth.ResumeTransport.request))
@@ -581,6 +581,38 @@ class RateTests(unittest.TestCase):
                 self.assertEqual(len(values),6);self.assertTrue(coverage['complete']);self.assertEqual(coverage['unknown_usage'],1)
                 with patch.object(r.d,'pilot_spending_paths',return_value=[]):combined,main,_=r.cost_baseline()
                 self.assertEqual(combined['adaption'],sum(Decimal(row['estimated_cost']) for row in values));self.assertEqual(main,combined)
+
+
+
+class ProspectiveCutoffTests(unittest.TestCase):
+    def test_new_admission_after_old_buffer_before_new_boundary(self):
+        paths=(Path(r.d.__file__),r.d.CONFIG,Path(r.connectivity.__file__))
+        before={str(path):path.read_bytes() for path in paths}
+        self.assertTrue(r.dispatch_time_gate(at=datetime(2026,11,9,6,30,tzinfo=timezone.utc)))
+        self.assertTrue(r.dispatch_time_gate(at=datetime(2026,11,9,7,55,59,tzinfo=timezone.utc)))
+        for at in (datetime(2026,11,9,7,56,tzinfo=timezone.utc),datetime(2026,11,9,8,tzinfo=timezone.utc),datetime(2026,11,9,11,59,tzinfo=timezone.utc)):
+            with self.assertRaisesRegex(ValueError,'last dispatch'):r.dispatch_time_gate(at=at)
+        self.assertEqual(before,{str(path):path.read_bytes() for path in paths})
+        self.assertEqual(r.d.config()['collection_deadline_utc'],'2026-11-09T05:59:00+00:00')
+        self.assertEqual(r.connectivity.DEADLINE,'2026-11-09T05:59:00+00:00')
+    def test_offpeak_restriction_and_capacity_are_not_relaxed(self):
+        with patch.object(r.d,'validate_forecast',return_value=r.read(r.d.FORECAST)):
+            baseline=r.d.execution_config('main','readers')
+        with patch.object(r,'policy',{**r.policy,'cutoff_utc':'2026-11-09T14:00:00+00:00'}):
+            with self.assertRaisesRegex(ValueError,'Off-peak'):r.dispatch_time_gate(at=datetime(2026,11,9,13,tzinfo=timezone.utc))
+        with patch.object(r.d,'validate_forecast',return_value=r.read(r.d.FORECAST)):
+            current=r.d.execution_config('main','readers')
+        for key in ('max_active','provider_max_active','dispatch_model_limits','gateway_allowance','phase_caps','combined_caps','native_class_caps'):
+            self.assertEqual(baseline[key],current[key])
+    def test_cooldown_uses_new_local_clock_and_never_inference(self):
+        with tempfile.TemporaryDirectory() as directory,patch.object(r,'ROOT',Path(directory)):
+            checkpoint=Path(directory)/('runs/'+r.s.config()['study_id']+'-guard/dispatch-cooldown-private.json');checkpoint.parent.mkdir(parents=True);checkpoint.write_text('{"not_before_epoch":10}')
+            with patch.object(r.time,'time',side_effect=[5,5,10]),patch.object(r.time,'sleep') as sleep,patch.object(r,'dispatch_time_gate') as newgate,patch.object(r.d,'dispatch_time_gate',side_effect=AssertionError('Old cutoff must not run')),patch.object(r.ResumeTransport,'request') as inference:
+                r.capacity_cooldown()
+            newgate.assert_called_once_with('main');sleep.assert_called_once_with(1);inference.assert_not_called()
+            with patch.object(r.time,'time',return_value=5),patch.object(r,'dispatch_time_gate',side_effect=ValueError('new cutoff')),patch.object(r.ResumeTransport,'request') as inference:
+                with self.assertRaisesRegex(ValueError,'new cutoff'):r.capacity_cooldown()
+            inference.assert_not_called()
 
 
 

@@ -19,6 +19,15 @@ class RecoveryTests(unittest.TestCase):
     def test_cutoff_blocks_new_dispatch(self):
         v=r.decide({'status':'running'},None,r.CUTOFF,True)
         self.assertTrue(v['attention']);self.assertFalse(v['inference_retry_permitted'])
+    def test_rate_admission_clock_does_not_mislabel_old_internal_buffer_as_deadline(self):
+        now=datetime(2026,11,9,6,tzinfo=timezone.utc)
+        old=r.decide({'status':'running'},None,now,True)
+        cutoff=datetime(2026,11,9,7,56,tzinfo=timezone.utc)
+        new=r.decide({'status':'running'},None,now,True,cutoff=cutoff)
+        self.assertEqual(old['action'],'check_cutoff_and_drain_no_new_dispatch')
+        self.assertEqual(new['action'],'continue_metadata_monitoring')
+        self.assertFalse(new['collector_restart_permitted']);self.assertFalse(new['inference_retry_permitted'])
+        self.assertEqual(r.decide({'status':'running'},None,cutoff,True,cutoff=cutoff)['action'],'check_cutoff_and_drain_no_new_dispatch')
     def test_complete_requires_actual_termination_and_replay(self):
         v=r.decide({'status':'complete'},None,self.now,True)
         self.assertFalse(v['scientific_validation_complete'])

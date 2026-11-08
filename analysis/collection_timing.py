@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 from statistics import median
 from analysis.collection_progress import PLANNED, PROVIDER, CUTOFF, DEADLINE
-from analysis.collection_progress import AUXILIARY_SECONDS, OVERHEAD_SECONDS, require, stamp
+from analysis.collection_progress import AUXILIARY_SECONDS, OVERHEAD_SECONDS, require, stamp, registered_deadline_policy
 
 
 def union(intervals, start, end):
@@ -87,9 +87,11 @@ def rows(path, terminal=False):
     return result
 
 
-def summarize(attempts, terminals, now):
+def summarize(attempts, terminals, now, *, cutoff=CUTOFF):
     require(now.tzinfo is not None, 'Current time must be aware')
     now = now.astimezone(timezone.utc)
+    require(isinstance(cutoff,datetime) and cutoff.tzinfo is not None and cutoff<=DEADLINE,'Invalid reporting cutoff')
+    cutoff=cutoff.astimezone(timezone.utc)
     starts, seen = {}, set()
     for row in attempts:
         identity, profile = row.get('id'), row.get('profile_id')
@@ -188,7 +190,8 @@ def summarize(attempts, terminals, now):
         capacity_plus_barrier_scenario_seconds=scenario,
         scenario_with_auxiliary_margin_overhead_seconds=conservative,
         scenario_collection_finish_utc=finish.isoformat() if finish else None,
-        scenario_margin_to_cutoff_hours=(CUTOFF-finish).total_seconds()/3600 if finish else None,
+        collection_cutoff_utc=cutoff.isoformat(),submission_deadline_utc=DEADLINE.isoformat(),
+        scenario_margin_to_cutoff_hours=(cutoff-finish).total_seconds()/3600 if finish else None,
         scenario_hours_to_submission=(DEADLINE-finish).total_seconds()/3600 if finish else None,
         stress_scenario=dict(
             label='STRESS: recent service worsening and empirical long-pause sensitivity',
@@ -198,7 +201,7 @@ def summarize(attempts, terminals, now):
             capacity_plus_barrier_scenario_seconds=stress_scenario,
             scenario_with_auxiliary_margin_overhead_seconds=stress_conservative,
             collection_finish_utc=stress_finish.isoformat() if stress_finish else None,
-            margin_to_cutoff_hours=(CUTOFF-stress_finish).total_seconds()/3600 if stress_finish else None,
+            margin_to_cutoff_hours=(cutoff-stress_finish).total_seconds()/3600 if stress_finish else None,
             hours_to_submission=(DEADLINE-stress_finish).total_seconds()/3600 if stress_finish else None,
             unavailable_reason='Missing latency samples, missing timestamps, or no completed long idle gaps' if stress_conservative is None else None),
         limitations='Conditional timing scenario, not a bound or completion guarantee. Median completed internal >=15s global-idle gap proxies the two-probe health barrier; network idleness alone does not establish its cause. Draining and scheduling overhead are not fully captured. Service means use completed calls and can be biased downward by in-flight/right-censored slow calls; the recent task mix may differ from remaining work. In-flight jobs receive full mean service load and mask possible idle. Missing timestamps disable idle estimates. Existing cumulative-rate projections already include historical barriers: do not add this overhead to them. The stress scenario is not a probabilistic 95% forecast interval. No outcome accuracy is read.')
@@ -214,7 +217,9 @@ def main():
     directories=[args.directory]+args.additional_directory
     terminal=[r for directory in directories for r in rows(directory/'responses.jsonl',True)]
     attempts=[r for directory in directories for r in rows(directory/'attempts.jsonl')]
-    value=summarize(attempts,terminal,datetime.now(timezone.utc))
+    policy=registered_deadline_policy(root)
+    value=summarize(attempts,terminal,datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']))
+    value.update(policy)
     value['metadata_batches']=[str(directory) for directory in directories]
     args.output_dir.mkdir(parents=True,exist_ok=True)
     name='timing-diagnosis-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.json'

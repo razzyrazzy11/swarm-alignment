@@ -1,5 +1,21 @@
 # Result-blind paper preparation and completion gates
 
+The official deadline is9November11:59UTC (8November23:59AoE). A prospective
+rate-continuation admission limit07:56UTC targets08:00drain and reserves the
+remaining3h59 for actual validation/paper/QA and then the four queued reviews.
+This corrects our earlier05:59internalbuffer assumption without changing older
+freezes. Nothing in this schedule bypasses actual-data proof or permits early
+outcome scoring, automatic submission, or a false paper-completion claim.
+
+Working reserve after the08:00drain target: up to60minutes for the seven strict
+offline stages and candidate proof;60minutes for verified-result interpretation
+and authoring;30minutes for native export and every-page inspection;60minutes
+for the four queued reviews, repairs and final CI; and20minutes for the user's
+submission/receipt step. These budgets total3h50, leaving9minutes of nominal
+reserve. They are planning targets, not observed runtimes or permission to skip
+a failed check. A material review finding can consume more time and must be
+reported honestly. Earlier completion creates additional reserve.
+
 The new authoring input asks: **does a swarm auditor lack necessary evidence,
 or fail to use evidence that is already sufficient?** Track 4 is explicit.
 The draft follows a concrete handoff example, separates acquisition/delivery/

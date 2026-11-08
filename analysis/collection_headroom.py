@@ -7,9 +7,9 @@ from pathlib import Path
 from analysis import collection_timing as timing
 
 
-def diagnose(attempts, terminals, now, windows=(15,30,60), minimum=20):
+def diagnose(attempts, terminals, now, windows=(15,30,60), minimum=20, *, cutoff=timing.CUTOFF):
     timing.require(type(minimum) is int and minimum>0,'Invalid minimum sample count')
-    base=timing.summarize(attempts,terminals,now)
+    base=timing.summarize(attempts,terminals,now,cutoff=cutoff)
     starts={r['id']:timing.stamp(r['started']) for r in attempts}
     remaining={p:r['remaining'] for p,r in base['profiles'].items()}
     gap=base['stress_scenario']['empirical_nearest_rank_p95_idle_seconds']
@@ -48,11 +48,12 @@ def diagnose(attempts, terminals, now, windows=(15,30,60), minimum=20):
             item.update(resource_seconds=resource,
                 conditional_finish_utc=(now+timedelta(seconds=seconds)).isoformat(),
                 with_remaining_server500_at60s_utc=(now+timedelta(seconds=seconds+pauses)).isoformat(),
-                margin_after_remaining_server500_at60s_hours=(timing.CUTOFF-now).total_seconds()/3600-(seconds+pauses)/3600)
+                margin_after_remaining_server500_at60s_hours=(cutoff-now).total_seconds()/3600-(seconds+pauses)/3600)
         else:item['unavailable_profiles']=incomplete
         scenarios[str(minutes)]=item
     short=base['stress_scenario']['collection_finish_utc']
     return dict(schema_version=1,checked_at=now.isoformat(),independent_scientific_results_read=False,
+        collection_cutoff_utc=cutoff.isoformat(),submission_deadline_utc=timing.DEADLINE.isoformat(),
         baseline_median_conditional_finish=base['scenario_collection_finish_utc'],
         last100_conditional_stress_finish=short,
         last100_with_remaining_server500_at60s_utc=(timing.stamp(short)+timedelta(seconds=pauses)).isoformat() if short else None,
@@ -71,7 +72,9 @@ def main():
     directories=[root/'runs'/batch/'readers' for batch in ('swarm-ledger-resume-v1-main','swarm-ledger-resume-v2-main','swarm-ledger-resume-v3-main','swarm-ledger-efficient-v1-main','swarm-ledger-rate-v1-main')]
     terminal=[r for directory in directories for r in timing.rows(directory/'responses.jsonl',True)]
     attempts=[r for directory in directories for r in timing.rows(directory/'attempts.jsonl')]
-    value=diagnose(attempts,terminal,datetime.now(timezone.utc))
+    policy=timing.registered_deadline_policy(root)
+    value=diagnose(attempts,terminal,datetime.now(timezone.utc),cutoff=timing.stamp(policy['collection_cutoff_utc']))
+    value.update(policy)
     args.output_dir.mkdir(parents=True,exist_ok=True)
     name='headroom-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.json'
     with (args.output_dir/name).open('x',encoding='utf-8') as stream:json.dump(value,stream,indent=2,allow_nan=False);stream.write('\n')

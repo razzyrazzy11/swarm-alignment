@@ -2,21 +2,22 @@
 from datetime import datetime,timedelta,timezone
 import json
 from pathlib import Path
-from analysis.collection_progress import stamp,CUTOFF,require
+from analysis.collection_progress import stamp,CUTOFF,DEADLINE,require,registered_deadline_policy
 
 
-def decide(driver, availability, now, owned_process_alive):
+def decide(driver, availability, now, owned_process_alive, *, cutoff=CUTOFF):
     require(type(owned_process_alive) is bool,'Actual process observation required')
     require(now.tzinfo is not None,'Aware current time required')
+    require(isinstance(cutoff,datetime) and cutoff.tzinfo is not None and cutoff<=DEADLINE,'Invalid reporting cutoff')
     value=dict(schema_version=1,checked_at=now.isoformat(),inference_retry_permitted=False,
         collector_restart_permitted=False,automatic_recovery_owner='registered live collector',
-        scientific_validation_complete=False)
+        scientific_validation_complete=False,collection_cutoff_utc=cutoff.isoformat(),submission_deadline_utc=DEADLINE.isoformat())
     status=driver.get('status')
     if status=='complete':
         return dict(value,action='wait_for_actual_termination_and_strict_replay',attention=False)
     if status!='running' or not owned_process_alive:
         return dict(value,action='preserve_and_investigate_no_blind_restart',attention=True)
-    if now>=CUTOFF:
+    if now>=cutoff:
         return dict(value,action='check_cutoff_and_drain_no_new_dispatch',attention=True)
     if availability and availability.get('status')=='waiting':
         updated=stamp(availability['updated'])
@@ -50,7 +51,9 @@ def main():
         alive=alive and bool(child and stamp(child['created_utc'])<=stamp(driver['updated']))
     path=root/('runs/swarm-ledger-rate-v1-main/availability-state.json' if rate else 'runs/swarm-ledger-efficient-v1-main/availability-state.json' if efficient else 'runs/swarm-ledger-resume-v3-main/availability-state.json')
     available=json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
-    result=decide(driver,available,datetime.now(timezone.utc),alive)
+    policy=registered_deadline_policy(root)
+    result=decide(driver,available,datetime.now(timezone.utc),alive,cutoff=stamp(policy['collection_cutoff_utc']))
+    result.update(policy)
     print(json.dumps(result,allow_nan=False));raise SystemExit(bool(result['attention']))
 
 

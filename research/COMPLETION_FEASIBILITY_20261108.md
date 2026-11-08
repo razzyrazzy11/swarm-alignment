@@ -1,5 +1,14 @@
 # Completion feasibility after the rate-limit stop
 
+**Subsequent user correction:**05:59was our internal six-hour buffer, not the
+official deadline. Before new registration, the rate version is being revised
+prospectively to07:56lastjob admission,08:00target drain and a3h59validation/
+paper/review reserve before9November11:59UTC. Its fresh gate is pending. The
+18:30assessment below is retained as the historical05:59scenario, not a claim
+that the organizer required collection to stop then. All old freezes and all
+waiting contingencies remain intact; only a passing prospective gate can admit
+the new version.
+
 Operational assessment at8November2026,18:30UTC. This document reads no
 unfinished outcome accuracy and authorizes no inference or protocol change.
 

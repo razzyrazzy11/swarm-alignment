@@ -16,6 +16,27 @@ filtered out. The collector protocol separately defines any prospectively
 allowed, bounded wait before dispatching a different, never-started identity;
 this admission module neither authorizes nor weakens it.
 
+## Official deadline and prospective internal collection window
+
+The official deadline is 8 November 2026 at 23:59 Anywhere on Earth, which is
+9 November 2026 at **11:59 UTC**. The earlier **05:59 UTC** collection cutoff
+was an internal buffer, not the official submission deadline; it remains true
+for the older frozen operational registrations and historical projections.
+The new, prospectively registered rate policy admits the last new job before
+**07:56 UTC**, targets a drained collector by **08:00 UTC**, and reserves
+**3 hours 59 minutes** before submission for strict validation, interpretation,
+paper integration, actual-page inspection and final checks. Admission cutoff
+and drained-completion target are different clocks; late draining is a risk to
+report, not permission to submit another request.
+
+The literal scientific serializer still retains the original operational
+registration with its historical 05:59 cutoff. Do not rewrite that manifest or
+retroactively attribute the new window to it. The rate release companion binds
+the new rate freeze, whose policy records the effective admission window and
+official deadline. Updated metadata diagnostics select that window only once
+the actual rate registration exists, preserving earlier baselines. A scheduling
+or timing forecast is not a completion guarantee or a visual-review receipt.
+
 ## Exact planned union
 
 The new rate collector binds all five immutable stopped archives: original,
@@ -98,8 +119,8 @@ Use the sprint's Impact Potential and Innovation, Execution Quality, and
 Presentation and Clarity criteria to favor complete reproducible evidence and
 scoped conclusions. The 20-rules-of-learning skill organizes concrete example →
 definition → matched method → result → limitation; it is not scientific evidence
-or a prize guarantee. The unchanged cutoff, science budget and no-retry
-identities may not be relaxed by this analysis module.
+or a prize guarantee. The prospectively registered admission cutoff, science
+budget and no-retry identities may not be relaxed by this analysis module.
 
 Primary conventions: [RFC6585 §4](https://www.rfc-editor.org/rfc/rfc6585.html#section-4)
 defines HTTP429 and optional Retry-After without making it proof of an unapplied

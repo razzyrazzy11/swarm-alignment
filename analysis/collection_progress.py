@@ -32,6 +32,33 @@ def stamp(value):
     return result.astimezone(timezone.utc)
 
 
+def registered_deadline_policy(root):
+    """Select only an actual new registration; never rewrite the old baseline.
+
+    This reports an operational admission clock, not a change to Apart's
+    submission deadline. Frozen-source verification remains the health gate's
+    responsibility; malformed new metadata must not silently fall back.
+    """
+    path=Path(root)/'research/swarm-ledger-rate-v1-freeze.json'
+    if not path.exists():
+        return dict(collection_cutoff_utc=CUTOFF.isoformat(),
+            target_drained_utc=None,submission_deadline_utc=DEADLINE.isoformat(),
+            cutoff_policy_source='historical internal collection buffer',
+            cutoff_scope='Internal last-job admission cutoff; separate from official submission deadline')
+    value=json.loads(path.read_text(encoding='utf-8'))
+    require(type(value.get('schema_version')) is int and value['schema_version']==1
+            and value.get('tag')=='swarm-ledger-rate-v1','Rate deadline registration identity differs')
+    policy=value.get('policy');require(type(policy) is dict,'Rate deadline policy missing')
+    cutoff=stamp(policy.get('cutoff_utc'))
+    drain=stamp(policy.get('target_drained_utc',policy.get('target_drain_utc')))
+    deadline=stamp(policy.get('submission_deadline_utc'))
+    require(deadline==DEADLINE and cutoff<=drain<deadline,'Invalid registered collection/drain/submission clocks')
+    return dict(collection_cutoff_utc=cutoff.isoformat(),target_drained_utc=drain.isoformat(),
+        submission_deadline_utc=deadline.isoformat(),
+        cutoff_policy_source='research/swarm-ledger-rate-v1-freeze.json',
+        cutoff_scope='Prospectively registered internal last-job admission cutoff; not the official submission deadline')
+
+
 def read_metadata(path, terminal=False):
     """Drop only a concurrently incomplete final line; retain no answer fields."""
     path = Path(path)
@@ -65,9 +92,11 @@ def read_metadata(path, terminal=False):
     return result
 
 
-def project(attempts, terminals, now):
+def project(attempts, terminals, now, *, cutoff=CUTOFF):
     require(now.tzinfo is not None, 'Current time must have timezone')
     now = now.astimezone(timezone.utc)
+    require(isinstance(cutoff,datetime) and cutoff.tzinfo is not None and cutoff<=DEADLINE,'Invalid reporting cutoff')
+    cutoff=cutoff.astimezone(timezone.utc)
     started = {}
     for row in attempts:
         identity, profile = row.get('id'), row.get('profile_id')
@@ -140,13 +169,13 @@ def project(attempts, terminals, now):
         profiles=profiles, http_counts=dict(statuses), total_in_flight=len(started)-len(seen),
         cumulative_reader_seconds=old_seconds, cumulative_reader_finish_utc=finish(old_seconds),
         conservative_collection_seconds=conservative, conservative_collection_finish_utc=finish(conservative),
-        conservative_margin_to_cutoff_hours=(CUTOFF-finish_dt).total_seconds()/3600 if finish_dt else None,
+        conservative_margin_to_cutoff_hours=(cutoff-finish_dt).total_seconds()/3600 if finish_dt else None,
         conservative_hours_remaining_to_submission=(DEADLINE-finish_dt).total_seconds()/3600 if finish_dt else None,
         shared_capacity_resource_seconds=resources, optimistic_conditional_reader_seconds=bound,
         optimistic_conditional_reader_finish_utc=finish(bound),
-        optimistic_conditional_reader_margin_to_cutoff_hours=(CUTOFF-optimistic_dt).total_seconds()/3600 if optimistic_dt else None,
+        optimistic_conditional_reader_margin_to_cutoff_hours=(cutoff-optimistic_dt).total_seconds()/3600 if optimistic_dt else None,
         optimistic_conditional_reader_hours_remaining_to_submission=(DEADLINE-optimistic_dt).total_seconds()/3600 if optimistic_dt else None,
-        collection_cutoff_utc=CUTOFF.isoformat(), submission_deadline_utc=DEADLINE.isoformat(),
+        collection_cutoff_utc=cutoff.isoformat(), submission_deadline_utc=DEADLINE.isoformat(),
         auxiliary_seconds=AUXILIARY_SECONDS, margin_multiplier=1.25, overhead_seconds=OVERHEAD_SECONDS,
         method='Cumulative per-profile rates retain the prior conservative extrapolation. Shared-capacity loads use observed mean service time weighted by remaining jobs, including in-flight jobs; HF and Ollama profiles share two slots each, native models two each, global eight, native starts one second apart.',
         limits='The resource maximum is a capacity-only conditional scenario estimate under unchanged future mean service times, not a hard wall-clock bound or completion guarantee. In-flight jobs are charged a full observed mean service time, so this is not a mathematical lower bound. It omits queueing, future failures, pacing/backoffs and auxiliary work. Missing latency samples are disclosed; no projection changes any guard or schedule. No answer accuracy is inspected.')
@@ -165,7 +194,9 @@ def main():
     for directory in args.additional_directory:terminals.extend(read_metadata(directory/'responses.jsonl',terminal=True))
     attempts = read_metadata(args.attempts)
     for directory in args.additional_directory:attempts.extend(read_metadata(directory/'attempts.jsonl'))
-    result = project(attempts, terminals, datetime.now(timezone.utc))
+    policy=registered_deadline_policy(root)
+    result = project(attempts, terminals, datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']))
+    result.update(policy)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     name = 'capacity-projection-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '.json'
     with (args.output_dir/name).open('x', encoding='utf-8', newline='\n') as handle:

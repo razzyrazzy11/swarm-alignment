@@ -1,5 +1,21 @@
 # Completing the six-reader study and paper
 
+## Deadline clarification before the rate continuation is frozen
+
+The user corrected the deadline distinction on8November:23:59AoE on8November
+is9November11:59UTC, as the official sprint page confirms. The05:59limit was
+our earlier six-hour internal authoring buffer, not the organizer's cutoff.
+All older freezes keep that historical limit. The still-unfrozen rate version
+is being prospectively revised to stop NEWjob admission at07:56UTC and target
+drain by08:00, leaving3h59 before submission for strict validation, authoring,
+export, every-page QA and the four queued reviews. These are working budgets,
+not completion guarantees; admitted native pacing/socketIO can run later.
+All scientific conditions, bodies, caps, failures and existing waiting
+contingencies remain. A fresh exact-complement/access/budget/time gate, tests,
+independent review and source/freeze/tag/push must precede any new inference.
+Historical failed05:59gate results below remain valid for their old window,
+and must not be confused with the corrected prospective proposal.
+
 Operational plan recorded on 8 November 2026, before inspection of the unfinished
 MAIN outcomes. This plan changes no scientific or collection registration.
 

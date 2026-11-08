@@ -34,7 +34,9 @@ ROLES = ('principal','coordinator','x','y','reporter')
 expect=s.expect; canonical=s.canonical; digest=s.digest; read=s.read; rows=s.rows
 policy = dict(reset_window_utc=['04:55','05:05'], healthy_checks=2, healthy_interval_seconds=15,
               max_connectivity_wait_seconds=900, max_new_connection_failures=32,
-              cutoff_utc='2026-11-09T05:59:00+00:00', retries=0,
+              cutoff_utc='2026-11-09T07:56:00+00:00',
+              target_drained_utc='2026-11-09T08:00:00+00:00',
+              submission_deadline_utc='2026-11-09T11:59:00+00:00', retries=0,
               max_server500_failures=32, server500_cooldown_seconds=60,
               max_consecutive_provider_failures=8, availability_backoff_seconds=[60,120,240,480],
               availability_wait_bound_seconds=900)
@@ -499,6 +501,26 @@ def check_episode_bounds(episodes,at=None):
     return True
 
 
+def dispatch_time_gate(split='main',at=None):
+    """New prospective admission clock; historical operational sources stay fixed."""
+    expect(split=='main','Rate continuation is MAIN only')
+    at=datetime.now(timezone.utc) if at is None else at
+    expect(at.tzinfo is not None and at.utcoffset().total_seconds()==0,'UTC dispatch time required')
+    expect(at<datetime.fromisoformat(policy['cutoff_utc']),'Registered rate-continuation last dispatch reached')
+    if d.config()['off_peak_only']:expect(d.off_peak(at),'Off-peak-only operational allowance cannot be used now')
+    return True
+
+
+def capacity_cooldown():
+    """Same persisted wait, checked against the new admission clock, never a POST retry."""
+    until=0
+    checkpoint=ROOT/('runs/'+s.config()['study_id']+'-guard/dispatch-cooldown-private.json')
+    if checkpoint.exists():until=max(until,read(checkpoint)['not_before_epoch'])
+    expect(type(until) in (int,float),'Capacity cooldown clock invalid')
+    while time.time()<until:
+        dispatch_time_gate('main');time.sleep(min(1,until-time.time()))
+
+
 class EligibilityCache:
     """Immutable descriptors and exact counts; no queue reordering or cap changes."""
     def __init__(self,pending):
@@ -584,7 +606,7 @@ def _execute(phase,jobs,transport=None,gate=None):
                         if len(active)>=8 or time.monotonic()<cooldown or since_check>=c['metadata_recheck_calls'] or not gate.dispatch_allowed():break
                         provider,key=eligibility.descriptor(j)
                         if eligibility.active_providers[provider]>=c['provider_max_active'][provider] or per_model.get(key,0)>=c['dispatch_model_limits'][provider]:continue
-                        check_episode_bounds(episodes);d.dispatch_time_gate('main');amount=s.reservation(j)
+                        check_episode_bounds(episodes);dispatch_time_gate('main');amount=s.reservation(j)
                         expect(spent[provider]+reserved[provider]+amount<=Decimal(c['phase_caps']['main'][provider]),'Provider MAIN cost cap')
                         expect(combined[provider]+reserved[provider]+amount<=Decimal(c['combined_caps'][provider]),'Combined cost cap')
                         if provider=='adaption':expect(classes['readers' if j['metadata'].get('procedure') else 'actors']+reserved[provider]+amount<=Decimal(c['native_class_caps']['readers' if j['metadata'].get('procedure') else 'actors']),'Native class cap')
@@ -645,7 +667,7 @@ def run(phase,transport=None,gate=None):
         for previous in PHASES[:PHASES.index(phase)]:union_phase(previous,main_jobs(previous),True)
         jobs=main_jobs(phase)
         with s.exclusive(ROOT/'runs/swarm-ledger-rate-v1-guard'):
-            d.capacity_cooldown();return _execute(phase,jobs,transport,gate)
+            capacity_cooldown();return _execute(phase,jobs,transport,gate)
 
 
 def main():

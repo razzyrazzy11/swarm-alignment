@@ -23,8 +23,21 @@ The forecast preserves auxiliary work,25%headroom,3300seconds overhead,
 900second Adaptionrate episode. It is conditional, not a bound or guarantee.
 Unspecified future rate windows and longer waits may exceed the sensitivity.
 
-Collection retains the original9November05:59UTC cutoff,04:55–05:05UTC blackout,
-global8, native/model2, HFshared2, Ollamashared2 and native1second start spacing.
+The user corrected the deadline distinction before this new version was frozen:
+23:59AoE on8November is9November11:59UTC. The old05:59UTC internal six-hour
+authoring buffer remains recorded in every historical freeze, but is not the
+organizer's deadline. This separately registered version stops NEWjob admission
+at07:56UTC, targets owned-request drain by08:00 (180second request timeout plus
+60seconds margin), and reserves3hours59minutes before official submission for
+strict validation, paper authoring, export and every-page QA. No running request
+is killed to meet that target; native pacing follows admission, and a socket
+timeout is not a whole-request wall-clock bound. Slow metadata/draining may
+consume reserve, which is not a completion guarantee. The forecast retains all
+waiting sensitivities.
+Collection retains04:55–05:05UTC blackout,global8, native/model2, HFshared2,
+Ollamashared2 and native1second start spacing. The full actual admission interval
+remains off-peak under the unchanged Sunday/weekday-before12UTC billing rule;
+caps, wallet floor and pricing settings are unchanged.
 The new namespace and batch explicitly disclose operational timing differences.
 No failed identity is relabeled as a successful delivery or omitted.
 
