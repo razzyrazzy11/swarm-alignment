@@ -73,8 +73,14 @@ A subsequent local frozen-ledger replay passed all five recorded MAIN phases:
 the exact phase plans, request/body commitments, native-receipt hashes,
 normalization and cost accounting using the original ledger and literal actor
 job builder. This validates the retained prefixes; it is not the completed
-scientific analysis. HF's independent strict prefix replay is reported separately
-when finished, rather than inferred from the MAIN checks.
+scientific analysis. HF's independent frozen `prior_prefix` and
+`supplement_ledger` checks also passed, using the original process guards:
+the earlier nine terminals and all 1,732 v2 terminals retain valid body,
+native/error-receipt and cost commitments, with 157 identities still unstarted.
+The private metadata-only replay report is committed by SHA-256
+`649c7ae1c3ca3e8b7ffadc1ccb19f674d456b7cb0767e4538ece8e7cd73b1b5d`;
+it contains no exported model-answer text. These checks establish retained-record
+integrity, not successful delivery or correctness of failed requests.
 
 ## Consequences for this project
 
