@@ -19,6 +19,23 @@ jobs:
       - run: python -m unittest discover -s experiments/tests -v
       - name: Test independent evidence-domain sensitivity
         run: python -m unittest analysis.test_ledger_generator_sensitivity -v
+      - name: Verify router-reset continuation registrations when present
+        run: |
+          if [ -f research/hf-completion-v3-freeze.json ]; then
+            python -m experiments.hf_completion_v3 verify
+          fi
+          if [ -f research/swarm-ledger-resume-v1-freeze.json ]; then
+            python -c "from experiments.swarm_ledger_resume import verify; verify(check_prefix=False)"
+          fi
+          if [ -f research/router-resume-analysis-v1-freeze.json ]; then
+            python -m experiments.router_resume_analysis verify
+          fi
+          if [ -f research/swarm-ledger-resume-release-proof.json ]; then
+            python -m experiments.router_resume_analysis verify-main --output data/swarm-ledger-v1-public
+          fi
+          if [ -f research/hf-completed-original-results-v3.json ]; then
+            python -m experiments.router_resume_analysis verify-hf
+          fi
       - name: Verify prospective stateful freeze when present
         run: |
           if [ -f research/stateful-main-v2-freeze.json ]; then

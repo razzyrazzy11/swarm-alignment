@@ -18,3 +18,16 @@
 /research/SWARM_LEDGER_COMPLETE*.md text eol=lf
 /research/swarm-ledger-dispatch-v*-stop.json text eol=lf
 /analysis/ledger_complete_figures.py text eol=lf
+/experiments/collection_connectivity.py text eol=lf
+/experiments/hf_completion_v3.py text eol=lf
+/experiments/router_resume*.py text eol=lf
+/experiments/swarm_ledger_resume.py text eol=lf
+/experiments/tests/test_collection_connectivity.py text eol=lf
+/experiments/tests/test_hf_completion_v3.py text eol=lf
+/experiments/tests/test_router_resume*.py text eol=lf
+/experiments/tests/test_swarm_ledger_resume.py text eol=lf
+/research/COLLECTION_CONNECTIVITY_PROTOCOL.md text eol=lf
+/research/HF_COMPLETION_V3_PROTOCOL.md text eol=lf
+/research/ROUTER_RESUME_ANALYSIS_PROTOCOL.md text eol=lf
+/research/SWARM_LEDGER_RESUME_PROTOCOL.md text eol=lf
+/research/router-resume-forecast.json text eol=lf
