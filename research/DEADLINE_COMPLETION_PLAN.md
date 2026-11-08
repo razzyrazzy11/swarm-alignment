@@ -1,5 +1,120 @@
 # Completing the six-reader study and paper
 
+## Current authoritative path — paced seven-batch lineage
+
+Updated on 8 November 2026 using frozen engineering sources and process metadata
+only. No unfinished scientific answers or accuracy results were inspected. This
+section supersedes the historical snapshots below; it changes no registration.
+
+The current tags are `swarm-ledger-paced-v1` and `paced-resume-analysis-v1`, frozen
+at commit `327d582`. The strict MAIN union is **original → router-v1 → server-v2
+→ provider-v3 → efficient-v1 → rate-v1 → paced-v1**. Preserve every predecessor
+receipt, failed identity and unknown-cost reservation. Collect only the registered
+unstarted complement; never retry an identity or substitute an endpoint.
+
+Current paths: `runs/swarm-ledger-paced-v1-driver/state.json` and
+`runs/paced-resume-postprocess-driver/state.json`. The eventual MAIN proof is
+`research/swarm-ledger-paced-resume-release-proof.json`. At this check, metadata
+said `running/readers` for the collector and `waiting_collection` with no completed
+offline stages for the waiter. This snapshot does not prove later completion or
+process termination. No stopped older waiter can satisfy the current gates.
+
+## Deadline meanings
+
+| 9 November, UTC | Meaning |
+| --- | --- |
+| 07:56 | Last registered scheduler admission of new work. |
+| 08:00 | Target drain, not a guaranteed request or process finish. Native pacing and network I/O can run later. |
+| 11:59 | Official submission deadline: 8 November 23:59 Anywhere on Earth. |
+
+An actual 08:00 drain would leave 3 hours 59 minutes. This is nominal reserve,
+not a measured validation/authoring/review duration. There is no established
+60-minute bound for the seven offline stages. Use actual timed completion proof
+when available; do not skip a gate to fit a forecast. The old 05:59 internal buffer
+and gates that failed under their original window remain historical evidence.
+
+## Finish in dependency order
+
+1. **Collect and terminate.** Finish all 53,760 MAIN readings across the six
+   registered reader profiles, 240 separate calibration readings and 240 separate
+   influence readings. Require actual complete states and terminated owned
+   processes, retaining every failure and full reservation. Original HF recovery
+   stays separate and requires its strict reconstruction. Do not fabricate state,
+   remove locks or restart a collector. The optional serving pilot stays blocked.
+2. **Complete strict validation.** The existing paced waiter owns these seven
+   stages, in order: `hf_export`, `main_export`, `continuation_provenance`,
+   `figure_input`, `figures`, `figure_provenance`, `generator_sensitivity`.
+   Require actual success, no remaining child and process-aware termination.
+   Do not launch a second waiter or manually race its stages.
+3. **Admit verified-data authoring.** Generate a new private candidate through
+   the existing strict gate only after completed MAIN replay, original HF
+   reconstruction, current continuation/figure provenance and sensitivity replay.
+   A filename or hash alone is insufficient. Resolve the result/content author
+   slots in [the paper plan](PAPER_COMPLETION_PLAN.md); retain the primary
+   regardless of sign. Leave `visual_review` unresolved until actual export and
+   inspection in step 4.
+4. **Integrate and inspect the real paper.** Review the findings, explicitly
+   promote the candidate, preserve historical artifacts, build the official
+   template and export with an owned hidden Word instance. Inspect every actual
+   PDF page and figure before making the hash-bound review receipt and resolving
+   `visual_review`. Require all 14 slots complete at the final-artifact gate, plus
+   150–250 abstract words, at most eight main pages excluding references and
+   appendices, author information, references, truthful AI/prior-work disclosure
+   and the required Limitations and Dual-Use / Ethical Considerations appendix.
+5. **Complete reviews and release checks.** After validation and paper integration,
+   perform the four queued reviews below in their preserved order. Repair material
+   findings and repeat affected tests, export and every-page inspection. Final
+   commit integrity CI and the user's submission/receipt remain explicit gates.
+
+## Safe preparation and readiness limits
+
+Keep acquisition, usable-verdict delivery and use of sufficient evidence distinct;
+they can fail together. Apply 20-rules-of-learning through concrete examples,
+atomic checks and consistent terminology, not as scientific evidence. Preparation
+must not inspect unfinished outcomes or choose favorable findings.
+
+Neither plan is bound by a scientific freeze. However, `PAPER_COMPLETION_PLAN.md`
+is a committed input to `paper/completion_handoff.py`. **Commit its update before
+running a new handoff diagnosis.** Old receipts attest historical plan hashes;
+write a new private output, never overwrite them. Exact commands and 14 author
+slots are in [the paper plan](PAPER_COMPLETION_PLAN.md).
+
+Word registration alone did not establish successful export. A separate native
+rehearsal at 22:00 UTC on 8 November exported an existing synthetic DOCX read-only
+to a new private PDF in 7.886 seconds and rendered all ten pages with PDFium.
+Its `export-result.json` and `render-result.json` are under
+`runs/native-word-readiness-20261108T220033Z/`; both explicitly deny empirical
+report/final-paper QA status. This warm synthetic timing is not an estimate for
+the completed empirical report or its review. Use an owned hidden Word instance,
+one read-only open, and the opened document's `Windows.Item(1).Hwnd` for ownership
+tracking; do not use `Application.Hwnd` or an unrelated Word instance. Do not
+repeat the existing authoring marker. Actual-data export and every-page QA remain.
+
+## Four queued reviews — still deferred
+
+After current validation and paper integration, in the user's requested order:
+
+1. Investigate the historical 23/80 gateway failures, 17-call token-limit pilot,
+   and five GLM52 failures at lowest load; assess data corruption/leakage and
+   whether any necessary rerun needs a separate prospective registration.
+2. Trace the earlier screenshot CI failures at 7a00899 and a935405 to exact
+   logs, verify their repair and use the guards where required. The newer
+   470a946/6888c1d synthetic-fixture race was separately authorized and repaired.
+3. Dispatch complementary local multi-agent line-by-line reviews of code,
+   mathematics, data provenance, manuscript consistency, primary sources,
+   originality, sprint rules and judging criteria. Respect cloud egress limits.
+4. Cover previously unreviewed material and refine the narrative and visuals
+   within the official template. Use the concrete workflow to distinguish
+   missing evidence, sufficient evidence and reasoning error; connect each
+   result to its scope and limitations. This is the deferred final review,
+   separate from preparing the current integration machinery.
+
+<details>
+<summary>Historical snapshots — not the current operating instructions</summary>
+
+All dates, forecasts, "current" states and "unlaunched" labels below belong to
+their named earlier snapshot. They do not supersede the paced lineage above.
+
 ## Deadline clarification before the rate continuation is frozen
 
 The user corrected the deadline distinction on8November:23:59AoE on8November
@@ -85,7 +200,7 @@ feasibility branch to protect the full scientific comparison and manuscript;
 requeue would require separate prospective admission. It is not a missing
 scientific reader condition.
 
-## Current safest completion path (8 November, after v2 launch)
+## Historical completion path (8 November, after v2 launch)
 
 Latest operational amendment: v3 replaces the stopped v2 collector, preserving
 all archived requests. See [HF recovery operations](PROVIDER_RESUME_OPERATIONS.md).
@@ -240,3 +355,5 @@ select a favorable window merely to manufacture a passing gate.
   be established rather than inferred from a nominal schedule.
 - The repository's frozen complete-study, router continuation and analysis
   protocols own the experimental definitions, scientific replay and cutoff.
+
+</details>

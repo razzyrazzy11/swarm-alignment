@@ -1,5 +1,181 @@
 # Result-blind paper preparation and completion gates
 
+## Current authoritative paper path — paced seven-batch lineage
+
+Updated on 8 November 2026 from frozen engineering sources, preparation contracts
+and process metadata only. No unfinished empirical accuracy or raw answers were
+reviewed. Historical snapshots below are not current operating instructions.
+
+Use `swarm-ledger-paced-v1` and `paced-resume-analysis-v1`, frozen at commit
+`327d582`. MAIN is the strict seven-batch union: original, router-v1, server-v2,
+provider-v3, efficient-v1, rate-v1 and paced-v1. Preserve every failure, original
+flag and unknown-cost reservation. Current process paths are
+`runs/swarm-ledger-paced-v1-driver/state.json` and
+`runs/paced-resume-postprocess-driver/state.json`; the eventual proof is
+`research/swarm-ledger-paced-resume-release-proof.json`. At this check, metadata
+said collector `running/readers` and waiter `waiting_collection`, with zero
+offline stages complete. A snapshot is not scientific or termination proof.
+
+The registered admission limit is **9 November 07:56 UTC**; **08:00 is a target
+drain**, not a whole-request or termination guarantee. The official deadline is
+**9 November 11:59 UTC**, equivalent to 8 November 23:59 Anywhere on Earth. An
+actual 08:00 drain would leave 3 hours 59 minutes. No measured bound establishes
+that strict validation takes 60 minutes or that all later work fits this reserve.
+Use actual stage timings when known; report risk rather than waive checks.
+
+## Each layer requires its own proof
+
+| Layer | Acceptance evidence | Still outstanding afterward |
+| --- | --- | --- |
+| Engineering preparation | Current committed source/path/dependency checks; optional synthetic native-export rehearsal | Scientific completion, report authoring and final QA |
+| Collection | All six profiles and auxiliaries complete; actual owned processes terminated; predecessor evidence preserved | Scientific replay and provenance verification |
+| Strict analysis | All seven paced stages complete and terminated; MAIN/HF, continuation, figures and sensitivity verified | Result-specific interpretation and manuscript integration |
+| Paper integration | Result/content slots resolved; source-bound figures; reviewed candidate explicitly promoted; `visual_review` still pending | Native PDF export and every-page inspection |
+| Final artifacts | Actual Word export, content/page checks, every-page/figure inspection, truthful hash-bound receipt, normal/optimized verification; only then all 14 slots complete | The four queued reviews and final release checks |
+| Review and submission | Ordered reviews, material fixes revalidated, final commit/CI, separate user submission and receipt | No guarantee of acceptance, originality or a prize |
+
+The existing waiter owns this exact order: `hf_export`, `main_export`,
+`continuation_provenance`, `figure_input`, `figures`, `figure_provenance`,
+`generator_sensitivity`. Figure generation uses `C:/Python314/python.exe`; the
+other commands use the configured research interpreter. Do not substitute bare
+`python` blindly: it currently resolves to Python 3.14 on this machine. Do not
+launch another collector/waiter or manually race its stages against active work.
+
+## Current executable authoring commands
+
+From the repository root in PowerShell, use the current collector supervisor's
+interpreter and a new timestamped private target. These commands do not start
+inference. **Commit this refreshed plan before a new handoff diagnosis:**
+`completion_handoff.committed_sources` requires it and the other preparation
+inputs to match HEAD. A prior receipt retains the old raw plan hash; do not
+reuse it as proof of refreshed inputs or overwrite it.
+
+```powershell
+$researchPython = 'C:\Users\rsaca\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+$utcStamp = (Get-Date).ToUniversalTime().ToString('yyyyMMddTHHmmssZ')
+& $researchPython -m paper.completion_handoff diagnose --output "runs/paper-completion-handoff/paced-readiness-$utcStamp.json"
+```
+
+Diagnosis is result-blind and leaves scientific validation, integration and
+visual QA false. Preserve the committed draft and historical report. Only after
+actual full collection, all seven stages and their termination proofs succeed:
+
+```powershell
+$utcStamp = (Get-Date).ToUniversalTime().ToString('yyyyMMddTHHmmssZ')
+& $researchPython -m paper.completion_handoff candidate --output "runs/paper-completion-handoff/paced-candidate-$utcStamp.json"
+```
+
+The candidate gate checks actual completion and termination **before reading
+aggregates**, then requires complete MAIN replay, original HF reconstruction,
+current continuation/figure provenance and registered generator-domain sensitivity
+reconstruction. It does not promote content, choose a favorable interpretation or
+attest visual review. The candidate is an authoring scaffold, not a finished paper.
+
+## Fourteen author slots after strict data admission
+
+| Slot | Atomic completion check |
+| --- | --- |
+| `primary` | Registered G26 FULL16 procedure-minus-direct estimate, interval and independent n; retain null/adverse results. |
+| `six_reader_tables` | All six profiles and conditions; delivery, validity, admission, matched effects and explicit denominators. |
+| `actor_class_mix` | Actual host actions and label mix by assigned arm; always-NONE/ABSTAIN references. |
+| `acquisition` | Matched oracle answerability, supported correctness and restoration; distinguish availability from evidence use. |
+| `calibration` | Separate scripted class-specific errors/coverage; no pooling with natural trajectories or prevalence. |
+| `influence` | Controlled peer-note contrast with receiver state fixed; no emergent-collusion inference. |
+| `sensitivity` | Whether registered domain sensitivity changes the conclusion, with the original primary retained. |
+| `delivery` | All-request serving/format failures and the subset behind conditional correctness. |
+| `prior_iterations` | Earlier all-NONE sample, original HF recovery and exploratory weight work kept separate from MAIN. |
+| `figures` | Actual verified PNG/source hashes, captions and alt text; no layout placeholders. |
+| `interpretation` | Which repair each matched contrast supports; layers can fail together, with no internal-mechanism claim. |
+| `limitations_ethics` | Decisive main-text limits and the required Limitations and Dual-Use / Ethical Considerations appendix. |
+| `visual_review` | Actual exported PDF, every page inspected, then a truthful hash-bound review receipt. |
+| `references_originality` | Claim/source alignment, prior art, preexisting work and the new contribution distinguished. |
+
+Apply 20-rules-of-learning through a concrete handoff example before definitions,
+one claim per paragraph, stable terms and an explicit link from each finding to
+its matched contrast and limitation. A hidden authentic grant concerns acquisition;
+no usable returned verdict concerns delivery; a wrong parsed verdict on sufficient
+evidence raises the evidence-use question. This is an illustrative explanation,
+not an empirical case or an exhaustive causal partition. The skill supplies no
+scientific evidence or authority for an extra confirmatory analysis.
+
+## Build, export and inspect the actual report
+
+Review all admitted results, figures and sensitivities. Archive historical content
+and artifacts, then explicitly promote only the reviewed candidate to
+`paper/content.json`. Use the existing completed-study table/figure adapter; do
+not change the frozen legacy builder or the official template's styles, fonts,
+geometry and source run sizes.
+
+```powershell
+& $researchPython paper/figure_build.py
+```
+
+Export with a **new owned hidden Word.Application**, opening only the intended
+document. Close that owned document and quit that app in a finally block; do not
+attach to or terminate an unrelated user instance. Render and inspect every
+actual page and figure. Repair overflow and repeat affected export/inspection.
+Only afterward create the required source/hash-bound figure-review receipt and
+record/check the actual PDF:
+
+```powershell
+& $researchPython paper/verify.py --record-pdf
+& $researchPython paper/verify.py
+& $researchPython -O paper/verify.py
+& $researchPython -m unittest discover -s paper/tests -v
+```
+
+Require a **150–250-word abstract** and **at most eight main pages**, excluding
+references and appendices. Eight pages are a ceiling, not a target. Edit prose or
+move supporting detail rather than shrink fonts/margins. Include author names and
+affiliations, references, truthful AI/prior-work disclosure and the required
+Limitations and Dual-Use / Ethical Considerations appendix. Generated candidates,
+page counts and green CI cannot attest actual visual inspection.
+
+## Native-export rehearsal and readiness limits
+
+The older preflight records `export_application_probe='Not performed'`; that
+historical field has not been rewritten. A separate successful rehearsal at
+22:00 UTC on 8 November is recorded in
+`runs/native-word-readiness-20261108T220033Z/export-result.json` and
+`runs/native-word-readiness-20261108T220033Z/render-result.json`. It exported the
+existing synthetic input in 7.886 seconds and rendered all ten new PDF pages.
+Both receipts explicitly say this is not an empirical report or actual-paper
+visual QA. This warm synthetic timing does not predict final-report export or
+inspection time. Existing synthetic inputs are
+`runs/deadline-layout-probe/paper/layout-probe.docx` (historical metadata: six main,
+ten total pages) and
+`runs/talk-context-review/layout-probe/paper/layout-probe.docx` (seven main, eleven
+total). These are layout-only artifacts, not scientific findings or final QA.
+
+The safe recipe opens an existing synthetic DOCX **once, read-only**, in a new
+owned hidden Word instance, exports to a new unused private `runs/` directory,
+and renders only that new PDF with installed PDFium/Pillow. Track the owned
+instance through the opened document's `Windows.Item(1).Hwnd`; the earlier
+attempt using `Application.Hwnd` failed and is not successful readiness proof.
+Close only that document and quit only the owned app. Use the reviewed private
+export recipe, not a whole old finalizer that can author or promote content.
+Do not alter the real paper/draft/template, collector, waiter or registrations,
+make a final visual-review receipt, or repeat the existing authoring marker.
+Any new rehearsal requires its own proof. Real-data export, actual pagination
+and every-page inspection remain required even after this engineering success.
+
+## Four reviews remain after validation and integration
+
+Keep the exact order in [the deadline plan](DEADLINE_COMPLETION_PLAN.md#four-queued-reviews--still-deferred):
+historical failure/corruption investigation; historical screenshot-CI tracing;
+complementary line-by-line scientific/code/source/rules reviews; then unreviewed
+material and narrative/visual refinement. Preparation does not perform them.
+Resolve material findings and repeat affected validation, export and every-page
+inspection. Require final commit integrity CI. Submission/receipt is a separate
+user action; no automatic submission is authorized.
+
+<details>
+<summary>Historical preparation snapshots — not current operating instructions</summary>
+
+The dated rate/efficient/provider paths, old 05:59 buffer, runtime budgets and
+"current" labels below belong only to their earlier snapshot. They cannot override
+the paced path above or attest present completion.
+
 The official deadline is9November11:59UTC (8November23:59AoE). A prospective
 rate-continuation admission limit07:56UTC targets08:00drain and reserves the
 remaining3h59 for actual validation/paper/QA and then the four queued reviews.
@@ -38,7 +214,7 @@ the current report. The current PDF remains historical until actual integration.
 
 ## Prepare now
 
-### Current operational lineage after the HTTP500 stop
+### Historical operational lineage after the HTTP500 stop
 
 **Latest addition: HF availability amendment.** The v2 batch subsequently stopped
 with4,901 terminal readings, including two504s and twoHF429 `engine_overloaded`
@@ -206,7 +382,7 @@ Final authoring remains gated on complete strict replay, then actual PDF
 page-count verification and visual inspection of every page. The existing
 monitoring and four deferred reviews keep their current order.
 
-## Current final-data lineage
+## Historical efficient final-data lineage
 
 The efficient operational continuation uses the exact five-batch union:
 original, router-v1, server-v2, provider-v3 and efficient-v1. The previous v3
@@ -234,3 +410,5 @@ the four queued reviews. No preparation receipt substitutes for those actions.
   does not amend them or justify dropping a reader.
 - [Python exclusive-create file mode](https://docs.python.org/3.12/library/functions.html#open)
   makes accidental output replacement fail rather than overwrite an artifact.
+
+</details>
