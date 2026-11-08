@@ -5,6 +5,8 @@ from contextlib import ExitStack
 import json
 import sys
 import tempfile
+import json
+import shutil
 import unittest
 from unittest.mock import patch
 
@@ -16,6 +18,18 @@ from test_complete_report_contract import fixture
 
 
 class CompletePreparationTests(unittest.TestCase):
+    def test_reference_numbering_survives_candidate_promotion(self):
+        report, _ = fixture()
+        with patch.object(prep, 'ready', return_value=(report, {'toy': 'synthetic-only'})):
+            candidate=prep.candidate()
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)
+            (paper/'content.json').write_text(json.dumps(candidate),encoding='utf-8')
+            shutil.copy2(prep.PAPER/'complete-reference-basis.json',paper/'complete-reference-basis.json')
+            regenerated=prep.draft(paper)
+        self.assertEqual(regenerated['references'],prep.draft()['references'])
+        self.assertIn('NOT FOR SUBMISSION',regenerated['preparation_status'])
+
     def test_draft_does_not_read_results_or_claim_completion(self):
         with patch.object(prep.contract, 'load_completed', side_effect=AssertionError('No result access')):
             value = prep.draft()

@@ -26,6 +26,10 @@ matched acquisition populations, frozen estimand/bootstrap, always-NONE and
 always-ABSTAIN baselines, controlled influence, no training, finite oracle-domain
 limits, preexisting work, retained failures, and required ethical considerations.
 All workload counts describe the registered design, not interim discoveries.
+The stable `paper/complete-reference-basis.json` preserves historical citation
+numbering before the prepared draft selects and renumbers its sources. This
+keeps regeneration and tests working after a reviewed candidate is promoted;
+the current manuscript is used for author identity, not unstable citation IDs.
 
 ## Wait for actual scientific completion
 
@@ -72,6 +76,9 @@ claim final visual QA.
    appendix slots, with the same source/hash checks and unique-marker rule.
    A synthetic Word preflight with two main figures and two appendix figures
    fit six main pages; actual findings and every final page still need review.
+   After incorporating the talk-context synthesis, a second clearly labeled
+   synthetic probe fit seven main pages and eleven total pages. This leaves
+   one main page of nominal headroom, not a guarantee for the final actual data.
 3. Review the candidate, archive the historical content/artifacts, and explicitly
    promote the reviewed candidate to `paper/content.json`. Build using
    `python paper/figure_build.py`, preserving the retained official template.

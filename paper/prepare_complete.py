@@ -20,8 +20,25 @@ STAGES = ('hf_export', 'main_export', 'continuation_provenance', 'figure_input',
 
 
 def draft(paper=PAPER):
-    """Read only the existing authored reference list/identity, never run outputs."""
+    """Use stable historical citation numbering and current author identity."""
     old = json.loads((Path(paper) / 'content.json').read_text(encoding='utf-8'))
+    old = deepcopy(old)
+    basis = json.loads((Path(paper) / 'complete-reference-basis.json').read_text(encoding='utf-8'))
+    if (type(basis.get('schema_version')) is not int or basis['schema_version'] != 1
+            or basis.get('source_release') != 'results-v3'
+            or not isinstance(basis.get('references'), list)
+            or len(basis['references']) != 31
+            or any(not isinstance(text, str) or not text.startswith('['+str(i)+'] ')
+                   for i, text in enumerate(basis['references'], 1))):
+        raise ValueError('Historical reference basis requires review')
+    old['references'] = deepcopy(basis['references'])
+    additions = [
+        'Kitaoka (2026). Open Problems in Securing Systems Against AI Agent Swarms. Swarm Alignment Hackathon, 5 November, recording 00:56:11-00:57:25. https://apartresearch.com/sprints/swarm-alignment-2026#schedule',
+        'Kitaoka, Pham, Giudice and Merizian (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. MiniLab. https://arxiv.org/abs/2610.24052v1'
+    ]
+    talk_id = len(old['references']) + 1
+    minilab_id = talk_id + 1
+    old['references'].extend('['+str(talk_id+i)+'] '+text for i,text in enumerate(additions))
     value = {k: deepcopy(old[k]) for k in ('author', 'affiliation', 'references')}
     value.update(title='When Can a Swarm Be Audited?',
         subtitle='Track 4: Multi-Agent Oversight and Control',
@@ -57,6 +74,18 @@ def draft(paper=PAPER):
             'Router-aware continuation preserves stopped-prefix hashes and collects only unstarted identities. Authentic connection and gateway failures remain terminal, retain unknown-cost reservations where needed, and are not reasoning outcomes. Scheduling amendments and excluded capacity/serving pilots are separately labeled. The post-primary serving pilot is feasibility evidence only, not an extra scientific condition.',
             'AI tools assisted implementation and writing; the author is responsible for claims, references and data. Completion requires strict offline public replay, source and registration checks, figure provenance, and actual inspection of every exported PDF page. A successful metadata health check does not establish scientific correctness.']]],
         pending_results=PLACEHOLDER)
+    # New talk context is editorial, after registration and before MAIN accuracy
+    # inspection. It changes neither estimands nor which outcomes are reported.
+    value['sections'][0][1].append(
+        'The practical decision is whether an investigator should recover a missing authentic record, repair verdict delivery, or change how an auditor reads an already sufficient packet. Measuring these separately can prevent spending a monitor-improvement budget on the wrong failure.')
+    value['sections'][1][1].append(
+        'Kitaoka explicitly separates identifying the relevant agents and evidence from residual monitor failures with combined evidence ['+str(talk_id)+']. MiniLab studies distributed attacks that evade isolated-trajectory monitors ['+str(minilab_id)+']. Our contribution is the prospectively registered matched instrument for stateful delegation, not the invention of that distinction or a replication of MiniLab.')
+    value['sections'][2][1].append(
+        'Host-produced action records are assumed authentic; worker and reporter statements are untrusted. Hash-bound archives detect changes to retained files, not whether a compromised host told the truth. The fixed five-role team tests a controlled component of swarm oversight; it does not demonstrate spontaneous organization or containment of an arbitrary autonomous swarm.')
+    value['sections'][4][1].append(
+        'Read acquisition effects beside oracle answerability, then output validity, then supported and correct verdicts. More answerable packets do not by themselves establish better reasoning; a procedure effect with identical sufficient evidence does not establish that an internal mechanism changed. Assigned adversarial instructions are not successful attacks: report realized host actions and class composition separately, including null effects and failures.')
+    value['appendix'][1][1].append(
+        'The earlier 192-source natural sample contained only NONE labels, so its procedure gains concern reduced false accusations and cannot establish incident recall. The new study must report its actual label mix and separate scripted calibration; no attack success is inferred from its assigned arm. Controlled peer-note influence is not evidence of an emergent covert language. Talk context was reviewed after registration with MAIN accuracy still blinded; it does not create new confirmatory outcomes or authorize fine-tuning on the test set.')
     # Retain only sources actually used in this new paper and renumber them.
     text = ' '.join(p for _, ps in value['sections'] + value['appendix'] for p in ps)
     pattern = r'\[(\d+(?:,\d+)*)\]'
