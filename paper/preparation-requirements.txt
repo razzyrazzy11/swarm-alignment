@@ -1,0 +1,5 @@
+# Final-authoring dependency diagnosis imports these rendering libraries.
+# Keep the lightweight historical verifier requirements unchanged.
+-r requirements.txt
+Pillow==13.0.0
+pypdfium2==5.14.0
