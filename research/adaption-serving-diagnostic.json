@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-08T07:43:03.446755+00:00",
+  "scope": "Posthoc operational metadata checkpoint; incomplete live collection; no semantic accuracy inspection, inferential tests or inference calls",
+  "groups": [
+    {
+      "batch": "swarm-ledger-resume-v1-main",
+      "phase": "reporter",
+      "profile": "glm53",
+      "terminals": 152,
+      "http": {
+        "200": 152
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 10.163105263157895
+    },
+    {
+      "batch": "swarm-ledger-resume-v1-main",
+      "phase": "reporter",
+      "profile": "q27",
+      "terminals": 105,
+      "http": {
+        "200": 82,
+        "504": 23
+      },
+      "mean_504_latency_seconds": 60.32682608695652,
+      "mean_200_latency_seconds": 27.76848780487805
+    },
+    {
+      "batch": "swarm-ledger-resume-v1-main",
+      "phase": "reporter",
+      "profile": "q397",
+      "terminals": 88,
+      "http": {
+        "200": 73,
+        "504": 15
+      },
+      "mean_504_latency_seconds": 60.333400000000005,
+      "mean_200_latency_seconds": 43.45219178082192
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "principal",
+      "profile": "q397",
+      "terminals": 20,
+      "http": {
+        "200": 19,
+        "504": 1
+      },
+      "mean_504_latency_seconds": 60.328,
+      "mean_200_latency_seconds": 34.575736842105265
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "readers",
+      "profile": "g26",
+      "terminals": 32,
+      "http": {
+        "200": 32
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 0.57834375
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "readers",
+      "profile": "g31",
+      "terminals": 32,
+      "http": {
+        "200": 32
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 0.8194375
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "readers",
+      "profile": "q397",
+      "terminals": 32,
+      "http": {
+        "200": 30,
+        "504": 2
+      },
+      "mean_504_latency_seconds": 60.3355,
+      "mean_200_latency_seconds": 45.563066666666664
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "reporter",
+      "profile": "g26",
+      "terminals": 80,
+      "http": {
+        "200": 80
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 0.67015
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "reporter",
+      "profile": "glm53",
+      "terminals": 80,
+      "http": {
+        "200": 80
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 5.693425
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "reporter",
+      "profile": "q27",
+      "terminals": 80,
+      "http": {
+        "200": 80
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 9.35835
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "reporter",
+      "profile": "q397",
+      "terminals": 80,
+      "http": {
+        "200": 57,
+        "504": 23
+      },
+      "mean_504_latency_seconds": 60.33904347826087,
+      "mean_200_latency_seconds": 40.94921052631579
+    },
+    {
+      "batch": "swarm-ledger-v1-development",
+      "phase": "y",
+      "profile": "q397",
+      "terminals": 80,
+      "http": {
+        "200": 77,
+        "504": 3
+      },
+      "mean_504_latency_seconds": 60.36966666666667,
+      "mean_200_latency_seconds": 41.04405194805195
+    },
+    {
+      "batch": "swarm-ledger-v1-main",
+      "phase": "reporter",
+      "profile": "g26",
+      "terminals": 640,
+      "http": {
+        "200": 640
+      },
+      "mean_504_latency_seconds": null,
+      "mean_200_latency_seconds": 0.8241609375
+    },
+    {
+      "batch": "swarm-ledger-v1-main",
+      "phase": "reporter",
+      "profile": "glm53",
+      "terminals": 488,
+      "http": {
+        "200": 481,
+        "504": 5,
+        "None": 2
+      },
+      "mean_504_latency_seconds": 60.328,
+      "mean_200_latency_seconds": 15.509284823284823
+    },
+    {
+      "batch": "swarm-ledger-v1-main",
+      "phase": "reporter",
+      "profile": "q27",
+      "terminals": 424,
+      "http": {
+        "200": 404,
+        "504": 18,
+        "None": 2
+      },
+      "mean_504_latency_seconds": 60.327333333333335,
+      "mean_200_latency_seconds": 16.52032425742574
+    },
+    {
+      "batch": "swarm-ledger-v1-main",
+      "phase": "reporter",
+      "profile": "q397",
+      "terminals": 200,
+      "http": {
+        "200": 170,
+        "504": 28,
+        "None": 2
+      },
+      "mean_504_latency_seconds": 60.36664285714286,
+      "mean_200_latency_seconds": 40.93954117647059
+    },
+    {
+      "batch": "swarm-ledger-v1-main",
+      "phase": "y",
+      "profile": "q397",
+      "terminals": 640,
+      "http": {
+        "200": 597,
+        "504": 43
+      },
+      "mean_504_latency_seconds": 60.356465116279075,
+      "mean_200_latency_seconds": 42.59676046901173
+    }
+  ],
+  "raw_journal_prefix_commitments": {
+    "runs/swarm-ledger-v1-development/principal/responses.jsonl": {
+      "complete_prefix_bytes": 49879,
+      "sha256": "c62552a2ddddf5efb6256540df76efae89d0b0b28d66bb88e63903910d5a2046"
+    },
+    "runs/swarm-ledger-v1-development/coordinator/responses.jsonl": {
+      "complete_prefix_bytes": 50601,
+      "sha256": "f235f8beab1e771b35967ef115b96a378663ca6ee9fd5d37b58c6d623e0eac04"
+    },
+    "runs/swarm-ledger-v1-development/x/responses.jsonl": {
+      "complete_prefix_bytes": 229198,
+      "sha256": "c555a90911db280eee4fa8dc8479c7b6fd09a68a9a55c42467662ae8a54319df"
+    },
+    "runs/swarm-ledger-v1-development/y/responses.jsonl": {
+      "complete_prefix_bytes": 245092,
+      "sha256": "acf5b684c00edb3e11c27dba0a4f1f1c9868a9d959ad57ced149bf1a853130a3"
+    },
+    "runs/swarm-ledger-v1-development/reporter/responses.jsonl": {
+      "complete_prefix_bytes": 201263,
+      "sha256": "d979dd7d7fbd5f12ac68f0913d9d27bf5f313d1da95cfd8345367eb3ce172c6d"
+    },
+    "runs/swarm-ledger-v1-development/readers/responses.jsonl": {
+      "complete_prefix_bytes": 223373,
+      "sha256": "0dba4a41492e67811570a677ccc8d7649c661de19526c6f73ddf4afe2c4014eb"
+    },
+    "runs/swarm-ledger-v1-main/principal/responses.jsonl": {
+      "complete_prefix_bytes": 396014,
+      "sha256": "3dc4510cbdf343e142a2f0171d9db6fb6b69a884bf265596062736a7d4f54edf"
+    },
+    "runs/swarm-ledger-v1-main/coordinator/responses.jsonl": {
+      "complete_prefix_bytes": 400950,
+      "sha256": "8710aa6ddba982e85d856f769c65adea449ef68bf244d9e03fd1217ca39a7f16"
+    },
+    "runs/swarm-ledger-v1-main/x/responses.jsonl": {
+      "complete_prefix_bytes": 1812837,
+      "sha256": "3942ecdfe45e98bbc33b7790baff27ca28cbad7476a99490dda8eec4bb7736cc"
+    },
+    "runs/swarm-ledger-v1-main/y/responses.jsonl": {
+      "complete_prefix_bytes": 1944945,
+      "sha256": "4473bda7469d5b8ef50ac7eb9801af4cf4c05342859c0f8bb8c14a44abb96df8"
+    },
+    "runs/swarm-ledger-v1-main/reporter/responses.jsonl": {
+      "complete_prefix_bytes": 1097403,
+      "sha256": "306da592d9b332916769f3849a3c75f2f17e681720fc78d8c1fb649ad371fa4d"
+    },
+    "runs/swarm-ledger-resume-v1-main/reporter/responses.jsonl": {
+      "complete_prefix_bytes": 320244,
+      "sha256": "66d886816dfe1e8cdddb99902fe16bb3a6ad158d672076d21493a5fc04206b2a"
+    }
+  },
+  "interpretation": "Near60second504s suggest a serving-path deadline; exact gateway hop and congestion mechanism are unconfirmed."
+}
