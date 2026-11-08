@@ -38,5 +38,32 @@ class RecoveryTests(unittest.TestCase):
         self.assertFalse(v['scientific_validation_complete'])
         self.assertEqual(v['action'],'wait_for_actual_termination_and_strict_replay')
 
+    def startup_fixture(self):
+        created=(self.now-timedelta(minutes=10)).isoformat()
+        return dict(pid=123,created_utc=created,launched_utc=created,kind='collect',source_tag='swarm-ledger-paced-v1'),dict(pid=123,created_utc=created)
+    def test_exact_live_startup_identity_gets_bounded_wait_without_permission(self):
+        manifest,observed=self.startup_fixture();value=r.startup_decision(manifest,observed,self.now)
+        self.assertEqual(value['action'],'wait_for_registered_startup');self.assertFalse(value['attention'])
+        self.assertFalse(value['collector_launch_permitted']);self.assertFalse(value['collector_restart_permitted'])
+        self.assertFalse(value['inference_retry_permitted']);self.assertFalse(value['scientific_validation_complete'])
+    def test_missing_dead_or_mismatching_startup_identity_requires_attention(self):
+        manifest,observed=self.startup_fixture()
+        for supplied,actual in ((None,None),(manifest,None),(manifest,dict(observed,pid=124)),
+                                (manifest,dict(observed,created_utc=self.now.isoformat())),
+                                (dict(manifest,source_tag='old'),observed)):
+            value=r.startup_decision(supplied,actual,self.now)
+            self.assertTrue(value['attention']);self.assertFalse(value['collector_launch_permitted'])
+    def test_expired_startup_or_cutoff_requires_attention_without_restart(self):
+        manifest,observed=self.startup_fixture()
+        value=r.startup_decision(manifest,observed,self.now+timedelta(minutes=20))
+        self.assertEqual(value['action'],'inspect_unexplained_30_minute_startup');self.assertTrue(value['attention'])
+        value=r.startup_decision(manifest,observed,self.now,cutoff=self.now)
+        self.assertTrue(value['attention']);self.assertFalse(value['collector_restart_permitted'])
+    def test_native_creation_identity_retains_seventh_fractional_digit(self):
+        manifest,observed=self.startup_fixture()
+        manifest['created_utc']='2026-11-08T15:50:00.1234567Z'
+        observed['created_utc']='2026-11-08T15:50:00.1234568Z'
+        self.assertTrue(r.startup_decision(manifest,observed,self.now)['attention'])
+
 
 if __name__=='__main__':unittest.main()

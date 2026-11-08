@@ -37,13 +37,59 @@ def decide(driver, availability, now, owned_process_alive, *, cutoff=CUTOFF):
     return dict(value,action='continue_metadata_monitoring',attention=False)
 
 
+def startup_decision(manifest,observed,now,*,cutoff=CUTOFF):
+    """A bounded, exact native creation match can explain pre-state startup.
+
+    This is observation only: it never launches/restarts a process or permits
+    inference. Missing, invalid, reused or expired identities require attention.
+    """
+    require(now.tzinfo is not None and cutoff.tzinfo is not None,'Aware startup clock required')
+    value=dict(schema_version=1,checked_at=now.isoformat(),attention=True,
+        action='inspect_missing_or_invalid_startup_identity',inference_retry_permitted=False,
+        collector_restart_permitted=False,collector_launch_permitted=False,
+        scientific_validation_complete=False,collection_cutoff_utc=cutoff.isoformat(),
+        submission_deadline_utc=DEADLINE.isoformat(),startup_budget_seconds=1800)
+    try:
+        require(type(manifest) is dict and type(observed) is dict,'Native startup evidence missing')
+        require(manifest.get('kind')=='collect' and manifest.get('source_tag')=='swarm-ledger-paced-v1','Startup lineage differs')
+        require(type(manifest.get('pid')) is int and manifest['pid']>0 and type(observed.get('pid')) is int
+                and observed['pid']==manifest['pid'],'Startup PID differs')
+        # Compare the native timestamp literally, retaining its 100ns precision;
+        # datetime parsing alone would truncate the seventh fractional digit.
+        require(manifest.get('created_utc')==observed.get('created_utc'),'Native creation identity differs')
+        created=stamp(manifest.get('created_utc'));launched=stamp(manifest.get('launched_utc'))
+        require(created<=now and launched<=now,'Future startup evidence')
+        expires=launched+timedelta(seconds=1800)
+    except (ValueError,TypeError,KeyError):
+        return value
+    if now>=cutoff:return dict(value,action='check_cutoff_and_startup_no_new_dispatch')
+    if now>=expires:return dict(value,action='inspect_unexplained_30_minute_startup',startup_budget_expires_utc=expires.isoformat())
+    return dict(value,attention=False,action='wait_for_registered_startup',
+        startup_budget_expires_utc=expires.isoformat(),
+        scope='Live matching paced launch identity; source/prefix verification may precede durable driver state')
+
+
 def main():
     root=Path(__file__).resolve().parents[1]
     paced=(root/'research/swarm-ledger-paced-v1-freeze.json').exists()
     efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').exists()
     rate=(root/'research/swarm-ledger-rate-v1-freeze.json').exists()
     state=root/('runs/swarm-ledger-paced-v1-driver/state.json' if paced else 'runs/swarm-ledger-rate-v1-driver/state.json' if rate else 'runs/swarm-ledger-efficient-v1-driver/state.json' if efficient else 'runs/swarm-ledger-resume-v3-driver/state.json')
-    require(state.is_file(),'Actual registered v3 driver required')
+    if not state.is_file():
+        require(paced,'Actual registered driver required')
+        from experiments.server_resume_preflight import process_snapshot
+        manifest_path=root/'runs/paced-resume-launch/launch.json'
+        manifest=None;observed=None
+        if manifest_path.is_file() and not manifest_path.is_symlink():
+            try:
+                manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+                if type(manifest) is dict and type(manifest.get('pid')) is int and manifest['pid']>0:
+                    observed=process_snapshot(manifest['pid'])
+            except (ValueError,TypeError,OSError):pass
+        policy=registered_deadline_policy(root)
+        result=startup_decision(manifest,observed,datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']))
+        result.update(policy)
+        print(json.dumps(result,allow_nan=False));raise SystemExit(bool(result['attention']))
     driver=json.loads(state.read_text(encoding='utf-8'))
     from experiments.server_resume_preflight import process_snapshot
     observed=process_snapshot(driver['pid'])
