@@ -65,6 +65,30 @@ class ProgressTests(unittest.TestCase):
                 path.write_text(json.dumps(value))
                 with self.assertRaises(ValueError):p.registered_deadline_policy(root)
 
+    def test_actual_paced_marker_selects_spacing_and_auxiliary_delta(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);research=root/'research';research.mkdir()
+            policy=dict(cutoff_utc='2026-11-09T07:56:00+00:00',target_drained_utc='2026-11-09T08:00:00+00:00',submission_deadline_utc=p.DEADLINE.isoformat())
+            (research/'swarm-ledger-rate-v1-freeze.json').write_text(json.dumps(dict(schema_version=1,tag='swarm-ledger-rate-v1',policy=policy)))
+            rate=p.registered_deadline_policy(root)
+            self.assertEqual(p.registered_pacing_kwargs(rate)['auxiliary_delta_seconds'],0)
+            policy.update(native_model_spacing_seconds=3.2,native_global_spacing_seconds=1.6)
+            (research/'swarm-ledger-paced-v1-freeze.json').write_text(json.dumps(dict(schema_version=1,tag='swarm-ledger-paced-v1',policy=policy)))
+            paced=p.registered_deadline_policy(root)
+            self.assertEqual(paced['auxiliary_pacing_delta_seconds'],48)
+            self.assertIn('paced-v1',paced['cutoff_policy_source'])
+            self.assertEqual(paced['collection_cutoff_utc'],rate['collection_cutoff_utc'])
+
+    def test_paced_resources_include_model_and_global_spacing_without_failure_discount(self):
+        old=p.project(self.attempts,self.terminals,self.now)
+        new=p.project(self.attempts,self.terminals,self.now,native_model_spacing_seconds=3.2,native_global_spacing_seconds=1.6,auxiliary_delta_seconds=48)
+        resources=new['shared_capacity_resource_seconds'];profiles=new['profiles']
+        self.assertEqual(resources['g26_registered_model_spacing'],(profiles['g26']['remaining']-1)*3.2)
+        self.assertEqual(resources['native_registered_global_spacing'],(profiles['g26']['remaining']+profiles['g31']['remaining']-1)*1.6)
+        self.assertEqual(new['auxiliary_seconds'],old['auxiliary_seconds']+48)
+        self.assertEqual(new['http_counts'],old['http_counts'])
+        self.assertGreaterEqual(new['optimistic_conditional_reader_seconds'],old['optimistic_conditional_reader_seconds'])
+
     def test_failure_is_included_and_missing_latency_disclosed(self):
         self.terminals[0].update(http_status=None, known_usage=False, anomaly=True,
                                  latency_seconds=None)

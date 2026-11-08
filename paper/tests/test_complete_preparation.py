@@ -108,6 +108,48 @@ class CompletePreparationTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'Actual complete postprocessor'):prep.ready(paper)
                 load.assert_not_called()
 
+    def test_paced_registration_rejects_complete_rate_waiter(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)/'paper';paper.mkdir()
+            research=paper.parent/'research';research.mkdir()
+            for name in ('swarm-ledger-paced-v1-freeze.json','swarm-ledger-rate-v1-freeze.json'):
+                (research/name).write_text('{}')
+            old=paper.parent/'runs/rate-resume-postprocess-driver/state.json'
+            old.parent.mkdir(parents=True);old.write_text(json.dumps(dict(status='complete',completed_stages=list(prep.STAGES),child_pid=None)))
+            with patch.object(prep.contract,'load_completed') as load:
+                with self.assertRaisesRegex(ValueError,'Actual complete postprocessor'):prep.ready(paper)
+                load.assert_not_called()
+
+    def test_paced_waiting_blocks_before_any_complete_report_read(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)/'paper';paper.mkdir()
+            research=paper.parent/'research';research.mkdir()
+            (research/'swarm-ledger-paced-v1-freeze.json').write_text('{}')
+            state=paper.parent/'runs/paced-resume-postprocess-driver/state.json'
+            state.parent.mkdir(parents=True);state.write_text('{"status":"waiting_collection"}')
+            with patch.object(prep.contract,'load_completed') as load:
+                with self.assertRaisesRegex(ValueError,'must finish'):prep.ready(paper)
+                load.assert_not_called()
+
+    def test_complete_paced_waiter_routes_exact_actual_driver_and_figure_receipt(self):
+        from experiments import paced_resume_analysis as paced
+        from analysis import ledger_complete_figures as figures
+        with tempfile.TemporaryDirectory() as tmp:
+            paper=Path(tmp)/'paper';paper.mkdir()
+            research=paper.parent/'research';research.mkdir()
+            for name in ('swarm-ledger-paced-v1-freeze.json','swarm-ledger-rate-v1-freeze.json'):
+                (research/name).write_text('{}')
+            state=paper.parent/'runs/paced-resume-postprocess-driver/state.json'
+            state.parent.mkdir(parents=True);state.write_text(json.dumps(dict(status='complete',completed_stages=list(prep.STAGES),child_pid=None)))
+            with patch.object(paced,'terminated') as terminated,patch.object(paced,'drivers') as drivers,patch.object(paced,'verify_hf'),patch.object(prep.contract,'load_completed',return_value=({'synthetic':True},{})) as load,patch.object(figures,'verify_only') as figure,patch.object(prep,'verify_sensitivity',return_value='synthetic-sensitivity'):
+                report,bindings=prep.ready(paper)
+            terminated.assert_called_once_with('runs/paced-resume-postprocess-driver/state.json',complete=True)
+            self.assertEqual(drivers.call_args_list[0].args,('main',))
+            self.assertEqual(drivers.call_args_list[1].args,('hf',))
+            load.assert_called_once_with(paper,replay=True)
+            self.assertEqual(figure.call_args.args[1],paper.parent/'runs/paced-resume-postprocess-driver/verified-public-input.json')
+            self.assertEqual(bindings['generator_sensitivity_report_sha256'],'synthetic-sensitivity')
+
     def test_rate_registration_rejects_complete_efficient_waiter(self):
         with tempfile.TemporaryDirectory() as tmp:
             paper=Path(tmp)/'paper';paper.mkdir()

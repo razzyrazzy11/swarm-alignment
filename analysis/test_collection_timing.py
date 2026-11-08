@@ -47,6 +47,14 @@ class TimingTests(unittest.TestCase):
         self.assertAlmostEqual(new['scenario_margin_to_cutoff_hours']-old['scenario_margin_to_cutoff_hours'],117/60)
         self.assertAlmostEqual(new['stress_scenario']['margin_to_cutoff_hours']-old['stress_scenario']['margin_to_cutoff_hours'],117/60)
 
+    def test_paced_native_resources_and_auxiliary_are_charged_before_headroom(self):
+        old=t.summarize(self.attempts,self.terminals,self.now)
+        new=t.summarize(self.attempts,self.terminals,self.now,native_model_spacing_seconds=3.2,native_global_spacing_seconds=1.6,auxiliary_delta_seconds=48)
+        self.assertIn('g31_registered_model_spacing',new['shared_resource_seconds'])
+        delta=new['capacity_only_conditional_seconds']-old['capacity_only_conditional_seconds']
+        self.assertAlmostEqual(new['scenario_with_auxiliary_margin_overhead_seconds']-old['scenario_with_auxiliary_margin_overhead_seconds'],(delta+48)*1.25)
+        self.assertEqual(new['http_counts'],old['http_counts'])
+
     def test_stress_formula_is_no_smaller_than_median_scenario(self):
         value=t.summarize(self.attempts,self.terminals,self.now)
         stress=value['stress_scenario']

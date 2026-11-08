@@ -83,11 +83,12 @@ def pipeline(root):
     require((root/'research/swarm-ledger-resume-v3-freeze.json').is_file(),'Provider-v3 registration required')
     efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').is_file()
     rate=(root/'research/swarm-ledger-rate-v1-freeze.json').is_file()
-    analysis_name='experiments.rate_resume_analysis' if rate else 'experiments.efficient_resume_analysis' if efficient else 'experiments.provider_resume_analysis'
-    supervisor_name='experiments.rate_resume_supervisor' if rate else 'experiments.efficient_resume_supervisor' if efficient else 'experiments.provider_resume_supervisor'
-    waiter='runs/rate-resume-postprocess-driver' if rate else 'runs/efficient-resume-postprocess-driver' if efficient else 'runs/provider-resume-postprocess-driver'
-    collector='runs/swarm-ledger-rate-v1-driver' if rate else 'runs/swarm-ledger-efficient-v1-driver' if efficient else 'runs/swarm-ledger-resume-v3-driver'
-    proof='research/swarm-ledger-rate-resume-release-proof.json' if rate else 'research/swarm-ledger-efficient-resume-release-proof.json' if efficient else 'research/swarm-ledger-provider-resume-release-proof.json'
+    paced=(root/'research/swarm-ledger-paced-v1-freeze.json').is_file()
+    analysis_name='experiments.paced_resume_analysis' if paced else 'experiments.rate_resume_analysis' if rate else 'experiments.efficient_resume_analysis' if efficient else 'experiments.provider_resume_analysis'
+    supervisor_name='experiments.paced_resume_supervisor' if paced else 'experiments.rate_resume_supervisor' if rate else 'experiments.efficient_resume_supervisor' if efficient else 'experiments.provider_resume_supervisor'
+    waiter='runs/paced-resume-postprocess-driver' if paced else 'runs/rate-resume-postprocess-driver' if rate else 'runs/efficient-resume-postprocess-driver' if efficient else 'runs/provider-resume-postprocess-driver'
+    collector='runs/swarm-ledger-paced-v1-driver' if paced else 'runs/swarm-ledger-rate-v1-driver' if rate else 'runs/swarm-ledger-efficient-v1-driver' if efficient else 'runs/swarm-ledger-resume-v3-driver'
+    proof='research/swarm-ledger-paced-resume-release-proof.json' if paced else 'research/swarm-ledger-rate-resume-release-proof.json' if rate else 'research/swarm-ledger-efficient-resume-release-proof.json' if efficient else 'research/swarm-ledger-provider-resume-release-proof.json'
     analysis=importlib.import_module(analysis_name)
     supervisor=importlib.import_module(supervisor_name)
     prepare=importlib.import_module('paper.prepare_complete')
@@ -123,15 +124,15 @@ def diagnose(root=ROOT):
     with zipfile.ZipFile(template) as archive:
         require(all(name in archive.namelist() for name in ('word/document.xml','word/styles.xml','word/fontTable.xml')),'Template layout/font parts missing')
     draft=json.loads((paper/'complete-draft.json').read_text(encoding='utf-8'))
-    require(draft.get('preparation_status')=='RESULT-BLIND DRAFT — NOT FOR SUBMISSION','Committed result-blind draft required')
+    require(draft.get('preparation_status')=='RESULT-BLIND DRAFT â€” NOT FOR SUBMISSION','Committed result-blind draft required')
     require(draft.get('pending_results') and 'PENDING' in draft['abstract'],'Draft must not masquerade as completed findings')
     context=pipeline(root)
     for module in ('lxml.etree','pypdf','PIL.Image','pypdfium2','paper.complete_report_contract','paper.ledger_layout'):
         importlib.import_module(module)
     return dict(schema_version=1,created_at=datetime.now(timezone.utc).isoformat(),
-        status='RESULT-BLIND HANDOFF — NOT A REPORT OR READINESS ATTESTATION',
+        status='RESULT-BLIND HANDOFF â€” NOT A REPORT OR READINESS ATTESTATION',
         source_raw_sha256=sources,template_sha256=TEMPLATE_SHA,pipeline=context,
-        author_slots=[dict(id=name,status='UNRESOLVED — fill only after complete strict replay',instruction=instruction) for name,instruction in SLOTS],
+        author_slots=[dict(id=name,status='UNRESOLVED â€” fill only after complete strict replay',instruction=instruction) for name,instruction in SLOTS],
         authoring_steps=[
           dict(step=1,action='Wait for actual full collection and all seven offline stages, actual process termination and strict replay. Do not rerun stopped requests or stage commands blindly.'),
           dict(step=2,action='Create a new private verified-data candidate through the existing strict candidate gate.',command='python -m paper.completion_handoff candidate --output runs/paper-completion-handoff/<new-dated-candidate>.json'),

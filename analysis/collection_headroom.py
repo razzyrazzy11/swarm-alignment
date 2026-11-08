@@ -7,9 +7,9 @@ from pathlib import Path
 from analysis import collection_timing as timing
 
 
-def diagnose(attempts, terminals, now, windows=(15,30,60), minimum=20, *, cutoff=timing.CUTOFF):
+def diagnose(attempts, terminals, now, windows=(15,30,60), minimum=20, *, cutoff=timing.CUTOFF, native_model_spacing_seconds=0, native_global_spacing_seconds=1, auxiliary_delta_seconds=0):
     timing.require(type(minimum) is int and minimum>0,'Invalid minimum sample count')
-    base=timing.summarize(attempts,terminals,now,cutoff=cutoff)
+    base=timing.summarize(attempts,terminals,now,cutoff=cutoff,native_model_spacing_seconds=native_model_spacing_seconds,native_global_spacing_seconds=native_global_spacing_seconds,auxiliary_delta_seconds=auxiliary_delta_seconds)
     starts={r['id']:timing.stamp(r['started']) for r in attempts}
     remaining={p:r['remaining'] for p,r in base['profiles'].items()}
     gap=base['stress_scenario']['empirical_nearest_rank_p95_idle_seconds']
@@ -41,10 +41,10 @@ def diagnose(attempts, terminals, now, windows=(15,30,60), minimum=20, *, cutoff
             resource=dict(g26=service['g26']/2,g31=service['g31']/2,
                 hf=(service['hf_text']+service['hf_schema'])/2,
                 ollama=(service['ds_low']+service['ds_off'])/2,
-                global_eight=sum(service.values())/8,
-                native_spacing=max(0,remaining['g26']+remaining['g31']-1))
+                global_eight=sum(service.values())/8)
+            resource.update(timing.pacing_resources(base['profiles'],native_model_spacing_seconds,native_global_spacing_seconds,'native_spacing'))
             seconds=(max(resource.values())+timing.wave_counts(sum(remaining.values()))['upper']*gap+
-                     timing.AUXILIARY_SECONDS)*1.25+timing.OVERHEAD_SECONDS
+                     (timing.AUXILIARY_SECONDS+auxiliary_delta_seconds))*1.25+timing.OVERHEAD_SECONDS
             item.update(resource_seconds=resource,
                 conditional_finish_utc=(now+timedelta(seconds=seconds)).isoformat(),
                 with_remaining_server500_at60s_utc=(now+timedelta(seconds=seconds+pauses)).isoformat(),
@@ -69,11 +69,11 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',type=Path,default=root/'runs/experiment-sanity-check')
     args=parser.parse_args()
-    directories=[root/'runs'/batch/'readers' for batch in ('swarm-ledger-resume-v1-main','swarm-ledger-resume-v2-main','swarm-ledger-resume-v3-main','swarm-ledger-efficient-v1-main','swarm-ledger-rate-v1-main')]
+    directories=[root/'runs'/batch/'readers' for batch in ('swarm-ledger-resume-v1-main','swarm-ledger-resume-v2-main','swarm-ledger-resume-v3-main','swarm-ledger-efficient-v1-main','swarm-ledger-rate-v1-main','swarm-ledger-paced-v1-main')]
     terminal=[r for directory in directories for r in timing.rows(directory/'responses.jsonl',True)]
     attempts=[r for directory in directories for r in timing.rows(directory/'attempts.jsonl')]
     policy=timing.registered_deadline_policy(root)
-    value=diagnose(attempts,terminal,datetime.now(timezone.utc),cutoff=timing.stamp(policy['collection_cutoff_utc']))
+    value=diagnose(attempts,terminal,datetime.now(timezone.utc),cutoff=timing.stamp(policy['collection_cutoff_utc']),**timing.registered_pacing_kwargs(policy))
     value.update(policy)
     args.output_dir.mkdir(parents=True,exist_ok=True)
     name='headroom-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.json'

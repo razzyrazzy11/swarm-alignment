@@ -32,15 +32,17 @@ def decide(driver, availability, now, owned_process_alive, *, cutoff=CUTOFF):
         attention=now>=expiry
         return dict(value,action='inspect_expired_recovery_budget' if attention else 'wait_for_registered_automatic_resume',
             attention=attention,admission_budget_expires_utc=expiry.isoformat(),
-            failure_class=availability.get('failure_class'),next_dispatch_at=availability.get('next_dispatch_at'))
+            failure_class=availability.get('failure_class'),provider=availability.get('provider'),next_dispatch_at=availability.get('next_dispatch_at'),
+            scope='Provider-scoped hold when provider is set; other providers may continue under registered guards')
     return dict(value,action='continue_metadata_monitoring',attention=False)
 
 
 def main():
     root=Path(__file__).resolve().parents[1]
+    paced=(root/'research/swarm-ledger-paced-v1-freeze.json').exists()
     efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').exists()
     rate=(root/'research/swarm-ledger-rate-v1-freeze.json').exists()
-    state=root/('runs/swarm-ledger-rate-v1-driver/state.json' if rate else 'runs/swarm-ledger-efficient-v1-driver/state.json' if efficient else 'runs/swarm-ledger-resume-v3-driver/state.json')
+    state=root/('runs/swarm-ledger-paced-v1-driver/state.json' if paced else 'runs/swarm-ledger-rate-v1-driver/state.json' if rate else 'runs/swarm-ledger-efficient-v1-driver/state.json' if efficient else 'runs/swarm-ledger-resume-v3-driver/state.json')
     require(state.is_file(),'Actual registered v3 driver required')
     driver=json.loads(state.read_text(encoding='utf-8'))
     from experiments.server_resume_preflight import process_snapshot
@@ -49,7 +51,7 @@ def main():
     if driver.get('child_pid') is not None:
         child=process_snapshot(driver['child_pid'])
         alive=alive and bool(child and stamp(child['created_utc'])<=stamp(driver['updated']))
-    path=root/('runs/swarm-ledger-rate-v1-main/availability-state.json' if rate else 'runs/swarm-ledger-efficient-v1-main/availability-state.json' if efficient else 'runs/swarm-ledger-resume-v3-main/availability-state.json')
+    path=root/('runs/swarm-ledger-paced-v1-main/availability-state.json' if paced else 'runs/swarm-ledger-rate-v1-main/availability-state.json' if rate else 'runs/swarm-ledger-efficient-v1-main/availability-state.json' if efficient else 'runs/swarm-ledger-resume-v3-main/availability-state.json')
     available=json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
     policy=registered_deadline_policy(root)
     result=decide(driver,available,datetime.now(timezone.utc),alive,cutoff=stamp(policy['collection_cutoff_utc']))

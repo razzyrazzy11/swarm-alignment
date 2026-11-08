@@ -131,7 +131,10 @@ def load_completed(root,replay=True):
     from experiments import swarm_ledger_complete_analysis as analysis
     directory=Path(root).parent/'data/swarm-ledger-v1-public'
     require(directory.is_dir(),'Completed public release required; planned/toy report is insufficient')
-    if (Path(root).parent/'research/swarm-ledger-rate-v1-freeze.json').exists():
+    if (Path(root).parent/'research/swarm-ledger-paced-v1-freeze.json').exists():
+        from experiments import paced_resume_analysis as continuation
+        continuation.verify_main(directory,replay=False)
+    elif (Path(root).parent/'research/swarm-ledger-rate-v1-freeze.json').exists():
         from experiments import rate_resume_analysis as continuation
         continuation.verify_main(directory,replay=False)
     elif (Path(root).parent/'research/swarm-ledger-efficient-v1-freeze.json').exists():
@@ -153,7 +156,9 @@ def load_completed(root,replay=True):
               for name in ('manifest.json','report.json','registration.json','operational-registration.json')}
     bindings.update(scientific_registration_sha256=manifest['registration_sha256'],
                     operational_registration_sha256=manifest['operational_registration_sha256'])
-    for name in ('rate-resume-analysis-v1-freeze.json','swarm-ledger-rate-v1-freeze.json',
+    for name in ('paced-resume-analysis-v1-freeze.json','swarm-ledger-paced-v1-freeze.json',
+                 'swarm-ledger-paced-resume-release-proof.json',
+                 'rate-resume-analysis-v1-freeze.json','swarm-ledger-rate-v1-freeze.json',
                  'swarm-ledger-rate-resume-release-proof.json',
                  'efficient-resume-analysis-v1-freeze.json','swarm-ledger-efficient-v1-freeze.json',
                  'swarm-ledger-efficient-resume-release-proof.json',

@@ -107,6 +107,33 @@ class CompleteReportContractTests(unittest.TestCase):
                 replay.assert_called_once_with(directory)
             self.assertEqual(anchors['report.json'],hashlib.sha256(b'{}').hexdigest())
             self.assertEqual(anchors['scientific_registration_sha256'],'a'*64)
+    def test_paced_provenance_is_required_before_any_public_replay(self):
+        from experiments import swarm_ledger_complete_analysis as a
+        from experiments import paced_resume_analysis as paced
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'paper';root.mkdir()
+            directory=Path(tmp)/'data/swarm-ledger-v1-public';directory.mkdir(parents=True)
+            research=Path(tmp)/'research';research.mkdir()
+            (research/'swarm-ledger-paced-v1-freeze.json').write_text('{}')
+            (research/'swarm-ledger-rate-v1-freeze.json').write_text('{}')
+            with patch.object(paced,'verify_main',side_effect=ValueError('missing new paced proof')),patch.object(a,'verify_public') as replay,patch.object(a,'load_public_artifacts') as load:
+                with self.assertRaisesRegex(ValueError,'new paced proof'):c.load_completed(root)
+                replay.assert_not_called();load.assert_not_called()
+    def test_paced_loader_binds_new_lineage_and_uses_paced_proof(self):
+        from experiments import swarm_ledger_complete_analysis as a
+        from experiments import paced_resume_analysis as paced
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'paper';root.mkdir()
+            directory=Path(tmp)/'data/swarm-ledger-v1-public';directory.mkdir(parents=True)
+            for name in ('manifest.json','report.json','registration.json','operational-registration.json'):(directory/name).write_text('{}')
+            research=Path(tmp)/'research';research.mkdir()
+            lineage=('paced-resume-analysis-v1-freeze.json','swarm-ledger-paced-v1-freeze.json','swarm-ledger-paced-resume-release-proof.json')
+            for name in lineage:(research/name).write_text('{}')
+            manifest=dict(registration_sha256='a'*64,operational_registration_sha256='b'*64)
+            with patch.object(paced,'verify_main') as proof,patch.object(a,'verify_public'),patch.object(a,'load_public_artifacts',return_value=({},self.report,manifest)):
+                _,bindings=c.load_completed(root)
+            proof.assert_called_once_with(directory,replay=False)
+            self.assertTrue(all(bindings[name]==hashlib.sha256(b'{}').hexdigest() for name in lineage))
     def test_rate_provenance_is_required_before_any_public_replay(self):
         from experiments import swarm_ledger_complete_analysis as a
         from experiments import rate_resume_analysis as rate

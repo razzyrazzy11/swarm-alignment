@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 from statistics import median
 from analysis.collection_progress import PLANNED, PROVIDER, CUTOFF, DEADLINE
-from analysis.collection_progress import AUXILIARY_SECONDS, OVERHEAD_SECONDS, require, stamp, registered_deadline_policy
+from analysis.collection_progress import AUXILIARY_SECONDS, OVERHEAD_SECONDS, require, stamp, registered_deadline_policy, validate_pacing, pacing_resources, registered_pacing_kwargs
 
 
 def union(intervals, start, end):
@@ -87,9 +87,11 @@ def rows(path, terminal=False):
     return result
 
 
-def summarize(attempts, terminals, now, *, cutoff=CUTOFF):
+def summarize(attempts, terminals, now, *, cutoff=CUTOFF, native_model_spacing_seconds=0, native_global_spacing_seconds=1, auxiliary_delta_seconds=0):
     require(now.tzinfo is not None, 'Current time must be aware')
     now = now.astimezone(timezone.utc)
+    validate_pacing(native_model_spacing_seconds,native_global_spacing_seconds,auxiliary_delta_seconds)
+    auxiliary=AUXILIARY_SECONDS+auxiliary_delta_seconds
     require(isinstance(cutoff,datetime) and cutoff.tzinfo is not None and cutoff<=DEADLINE,'Invalid reporting cutoff')
     cutoff=cutoff.astimezone(timezone.utc)
     starts, seen = {}, set()
@@ -157,22 +159,23 @@ def summarize(attempts, terminals, now, *, cutoff=CUTOFF):
     def resource_times(work):
         if not all(load is not None for load in work.values()):
             return None
-        return dict(native_g26=work['g26']/2, native_g31=work['g31']/2,
+        result=dict(native_g26=work['g26']/2, native_g31=work['g31']/2,
             hf_shared=(work['hf_text']+work['hf_schema'])/2,
             ollama_shared=(work['ds_low']+work['ds_off'])/2,
-            global_eight_slots=sum(work.values())/8,
-            native_one_second_starts=max(0,profiles['g26']['remaining']+profiles['g31']['remaining']-1))
+            global_eight_slots=sum(work.values())/8)
+        result.update(pacing_resources(profiles,native_model_spacing_seconds,native_global_spacing_seconds,'native_one_second_starts'))
+        return result
     resources = resource_times(loads)
     capacity = max(resources.values()) if resources else None
     scenario = capacity+waves['upper']*typical if capacity is not None and typical is not None else None
-    conservative = (scenario+AUXILIARY_SECONDS)*1.25+OVERHEAD_SECONDS if scenario is not None else None
+    conservative = (scenario+auxiliary)*1.25+OVERHEAD_SECONDS if scenario is not None else None
     finish = now+timedelta(seconds=conservative) if conservative is not None else None
     stress_resources = resource_times(stress_loads) if all(
         profile['missing_latency_samples']==0 for profile in profiles.values()) else None
     stress_capacity = max(stress_resources.values()) if stress_resources else None
     stress_gap = nearest_rank(long,.95) if long else None
     stress_scenario = stress_capacity+waves['upper']*stress_gap if stress_capacity is not None and stress_gap is not None else None
-    stress_conservative = ((stress_scenario+AUXILIARY_SECONDS)*1.25+OVERHEAD_SECONDS
+    stress_conservative = ((stress_scenario+auxiliary)*1.25+OVERHEAD_SECONDS
                            if stress_scenario is not None else None)
     stress_finish = now+timedelta(seconds=stress_conservative) if stress_conservative is not None else None
     return dict(schema_version=1,checked_at=now.isoformat(),profiles=profiles,http_counts=dict(statuses),
@@ -190,7 +193,7 @@ def summarize(attempts, terminals, now, *, cutoff=CUTOFF):
         capacity_plus_barrier_scenario_seconds=scenario,
         scenario_with_auxiliary_margin_overhead_seconds=conservative,
         scenario_collection_finish_utc=finish.isoformat() if finish else None,
-        collection_cutoff_utc=cutoff.isoformat(),submission_deadline_utc=DEADLINE.isoformat(),
+        collection_cutoff_utc=cutoff.isoformat(),submission_deadline_utc=DEADLINE.isoformat(),auxiliary_seconds=auxiliary,
         scenario_margin_to_cutoff_hours=(cutoff-finish).total_seconds()/3600 if finish else None,
         scenario_hours_to_submission=(DEADLINE-finish).total_seconds()/3600 if finish else None,
         stress_scenario=dict(
@@ -218,7 +221,7 @@ def main():
     terminal=[r for directory in directories for r in rows(directory/'responses.jsonl',True)]
     attempts=[r for directory in directories for r in rows(directory/'attempts.jsonl')]
     policy=registered_deadline_policy(root)
-    value=summarize(attempts,terminal,datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']))
+    value=summarize(attempts,terminal,datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']),**registered_pacing_kwargs(policy))
     value.update(policy)
     value['metadata_batches']=[str(directory) for directory in directories]
     args.output_dir.mkdir(parents=True,exist_ok=True)

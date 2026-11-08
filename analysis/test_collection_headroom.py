@@ -29,6 +29,13 @@ class HeadroomTests(unittest.TestCase):
         self.assertAlmostEqual(after['margin_after_remaining_server500_at60s_hours']-before['margin_after_remaining_server500_at60s_hours'],117/60)
         self.assertEqual(new['collection_cutoff_utc'],cutoff.isoformat())
 
+    def test_paced_window_charges_spacing_and_auxiliary_without_avoided_failures(self):
+        args=self.fixture();old=h.diagnose(*args)
+        new=h.diagnose(*args,native_model_spacing_seconds=3.2,native_global_spacing_seconds=1.6,auxiliary_delta_seconds=48)
+        self.assertIn('native_registered_global_spacing',new['window_sensitivities']['15']['resource_seconds'])
+        self.assertGreaterEqual(h.timing.stamp(new['window_sensitivities']['15']['conditional_finish_utc']),h.timing.stamp(old['window_sensitivities']['15']['conditional_finish_utc']))
+        self.assertEqual(new['remaining_server500_pause_seconds'],old['remaining_server500_pause_seconds'])
+
     def test_sparse_window_not_promoted_to_forecast(self):
         attempts,rows,now=self.fixture();v=h.diagnose(attempts,rows,now+timedelta(minutes=20))
         item=v['window_sensitivities']['15'];self.assertFalse(item['available'])

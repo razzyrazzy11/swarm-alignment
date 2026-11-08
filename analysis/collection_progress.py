@@ -39,7 +39,9 @@ def registered_deadline_policy(root):
     submission deadline. Frozen-source verification remains the health gate's
     responsibility; malformed new metadata must not silently fall back.
     """
-    path=Path(root)/'research/swarm-ledger-rate-v1-freeze.json'
+    paced_path=Path(root)/'research/swarm-ledger-paced-v1-freeze.json'
+    paced=paced_path.exists()
+    path=paced_path if paced else Path(root)/'research/swarm-ledger-rate-v1-freeze.json'
     if not path.exists():
         return dict(collection_cutoff_utc=CUTOFF.isoformat(),
             target_drained_utc=None,submission_deadline_utc=DEADLINE.isoformat(),
@@ -47,17 +49,43 @@ def registered_deadline_policy(root):
             cutoff_scope='Internal last-job admission cutoff; separate from official submission deadline')
     value=json.loads(path.read_text(encoding='utf-8'))
     require(type(value.get('schema_version')) is int and value['schema_version']==1
-            and value.get('tag')=='swarm-ledger-rate-v1','Rate deadline registration identity differs')
+            and value.get('tag')==('swarm-ledger-paced-v1' if paced else 'swarm-ledger-rate-v1'),'Rate deadline registration identity differs')
     policy=value.get('policy');require(type(policy) is dict,'Rate deadline policy missing')
     cutoff=stamp(policy.get('cutoff_utc'))
     drain=stamp(policy.get('target_drained_utc',policy.get('target_drain_utc')))
     deadline=stamp(policy.get('submission_deadline_utc'))
     require(deadline==DEADLINE and cutoff<=drain<deadline,'Invalid registered collection/drain/submission clocks')
+    pacing={}
+    if paced:
+        model=policy.get('native_model_spacing_seconds');global_=policy.get('native_global_spacing_seconds')
+        validate_pacing(model,global_,0)
+        require(model>=3.2 and global_>=1.6,'Paced spacing unexpectedly relaxed')
+        delta=max(0,max(40*model,80*global_)-80)+max(0,max(80*model,240*global_)-1286.812875)
+        pacing=dict(native_model_spacing_seconds=model,native_global_spacing_seconds=global_,auxiliary_pacing_delta_seconds=delta)
     return dict(collection_cutoff_utc=cutoff.isoformat(),target_drained_utc=drain.isoformat(),
         submission_deadline_utc=deadline.isoformat(),
-        cutoff_policy_source='research/swarm-ledger-rate-v1-freeze.json',
+        cutoff_policy_source=path.relative_to(Path(root)).as_posix(),**pacing,
         cutoff_scope='Prospectively registered internal last-job admission cutoff; not the official submission deadline')
 
+
+
+def validate_pacing(model,global_,auxiliary_delta):
+    require(all(type(v) in (int,float) and math.isfinite(v) for v in (model,global_,auxiliary_delta))
+            and model>=0 and global_>=1 and auxiliary_delta>=0,'Invalid reporting pacing')
+
+
+def pacing_resources(profiles,model,global_,legacy_key):
+    values={'native_registered_global_spacing' if global_!=1 else legacy_key:
+            max(0,profiles['g26']['remaining']+profiles['g31']['remaining']-1)*global_}
+    if model:
+        values.update({p+'_registered_model_spacing':max(0,profiles[p]['remaining']-1)*model for p in ('g26','g31')})
+    return values
+
+
+def registered_pacing_kwargs(policy):
+    return dict(native_model_spacing_seconds=policy.get('native_model_spacing_seconds',0),
+                native_global_spacing_seconds=policy.get('native_global_spacing_seconds',1),
+                auxiliary_delta_seconds=policy.get('auxiliary_pacing_delta_seconds',0))
 
 def read_metadata(path, terminal=False):
     """Drop only a concurrently incomplete final line; retain no answer fields."""
@@ -92,9 +120,11 @@ def read_metadata(path, terminal=False):
     return result
 
 
-def project(attempts, terminals, now, *, cutoff=CUTOFF):
+def project(attempts, terminals, now, *, cutoff=CUTOFF, native_model_spacing_seconds=0, native_global_spacing_seconds=1, auxiliary_delta_seconds=0):
     require(now.tzinfo is not None, 'Current time must have timezone')
     now = now.astimezone(timezone.utc)
+    validate_pacing(native_model_spacing_seconds,native_global_spacing_seconds,auxiliary_delta_seconds)
+    auxiliary=AUXILIARY_SECONDS+auxiliary_delta_seconds
     require(isinstance(cutoff,datetime) and cutoff.tzinfo is not None and cutoff<=DEADLINE,'Invalid reporting cutoff')
     cutoff=cutoff.astimezone(timezone.utc)
     started = {}
@@ -149,7 +179,7 @@ def project(attempts, terminals, now, *, cutoff=CUTOFF):
         service_load[profile] = load
         linear.append(seconds)
     old_seconds = max(linear) if all(x is not None for x in linear) else None
-    conservative = ((old_seconds + AUXILIARY_SECONDS)*1.25 + OVERHEAD_SECONDS
+    conservative = ((old_seconds + auxiliary)*1.25 + OVERHEAD_SECONDS
                     if old_seconds is not None else None)
     resources = None
     if all(x is not None for x in service_load.values()):
@@ -157,9 +187,8 @@ def project(attempts, terminals, now, *, cutoff=CUTOFF):
             native_g31_model=service_load['g31']/2,
             hf_shared_provider=(service_load['hf_text']+service_load['hf_schema'])/2,
             ollama_shared_provider=(service_load['ds_off']+service_load['ds_low'])/2,
-            global_eight_slots=sum(service_load.values())/8,
-            native_one_second_start_spacing=max(0, sum(profiles[p]['remaining']
-                for p in ('g26','g31'))-1))
+            global_eight_slots=sum(service_load.values())/8)
+        resources.update(pacing_resources(profiles,native_model_spacing_seconds,native_global_spacing_seconds,'native_one_second_start_spacing'))
     bound = max(resources.values()) if resources else None
     def finish(seconds):
         return (now + timedelta(seconds=seconds)).isoformat() if seconds is not None else None
@@ -176,8 +205,8 @@ def project(attempts, terminals, now, *, cutoff=CUTOFF):
         optimistic_conditional_reader_margin_to_cutoff_hours=(cutoff-optimistic_dt).total_seconds()/3600 if optimistic_dt else None,
         optimistic_conditional_reader_hours_remaining_to_submission=(DEADLINE-optimistic_dt).total_seconds()/3600 if optimistic_dt else None,
         collection_cutoff_utc=cutoff.isoformat(), submission_deadline_utc=DEADLINE.isoformat(),
-        auxiliary_seconds=AUXILIARY_SECONDS, margin_multiplier=1.25, overhead_seconds=OVERHEAD_SECONDS,
-        method='Cumulative per-profile rates retain the prior conservative extrapolation. Shared-capacity loads use observed mean service time weighted by remaining jobs, including in-flight jobs; HF and Ollama profiles share two slots each, native models two each, global eight, native starts one second apart.',
+        auxiliary_seconds=auxiliary, margin_multiplier=1.25, overhead_seconds=OVERHEAD_SECONDS,
+        method='Cumulative per-profile rates retain the prior conservative extrapolation. Shared-capacity loads use observed mean service time weighted by remaining jobs, including in-flight jobs; HF and Ollama profiles share two slots each, native models two each, global eight; native spacing follows the explicitly reported resource constraints.',
         limits='The resource maximum is a capacity-only conditional scenario estimate under unchanged future mean service times, not a hard wall-clock bound or completion guarantee. In-flight jobs are charged a full observed mean service time, so this is not a mathematical lower bound. It omits queueing, future failures, pacing/backoffs and auxiliary work. Missing latency samples are disclosed; no projection changes any guard or schedule. No answer accuracy is inspected.')
 
 
@@ -195,7 +224,7 @@ def main():
     attempts = read_metadata(args.attempts)
     for directory in args.additional_directory:attempts.extend(read_metadata(directory/'attempts.jsonl'))
     policy=registered_deadline_policy(root)
-    result = project(attempts, terminals, datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']))
+    result = project(attempts, terminals, datetime.now(timezone.utc),cutoff=stamp(policy['collection_cutoff_utc']),**registered_pacing_kwargs(policy))
     result.update(policy)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     name = 'capacity-projection-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '.json'

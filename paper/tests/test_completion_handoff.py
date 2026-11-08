@@ -54,6 +54,29 @@ class CompletionHandoffTests(unittest.TestCase):
                 with self.assertRaises(ValueError):h.create_candidate(path,root)
                 gate.assert_called_once_with(Path(root)/'paper')
             self.assertFalse(path.exists());self.assertEqual(current.read_text(),'historical')
+    def test_paced_marker_has_priority_over_stale_complete_rate_pipeline(self):
+        from paper import prepare_complete as prepare
+        with tempfile.TemporaryDirectory() as root:
+            research=Path(root)/'research';research.mkdir()
+            for name in ('swarm-ledger-resume-v3-freeze.json','swarm-ledger-rate-v1-freeze.json','swarm-ledger-paced-v1-freeze.json'):
+                (research/name).write_text('{}')
+            old=Path(root)/'runs/rate-resume-postprocess-driver/state.json'
+            old.parent.mkdir(parents=True);old.write_text('{"status":"complete"}')
+            jobs=[(stage,['python','-m','synthetic']) for stage in h.STAGES]
+            jobs[0]=('hf_export',['python','-m','experiments.paced_resume_analysis','export-hf'])
+            jobs[1]=('main_export',['python','-m','experiments.paced_resume_analysis','export-main'])
+            jobs[3]=('figure_input',['python','runs/paced-resume-postprocess-driver/verified-public-input.json'])
+            modules={'experiments.paced_resume_analysis':SimpleNamespace(verify=lambda:None,verify_main=lambda output,replay=True:None),
+                     'experiments.paced_resume_supervisor':SimpleNamespace(STAGES=h.STAGES,processing_jobs=lambda:jobs),
+                     'paper.prepare_complete':prepare}
+            with patch.object(h.importlib,'import_module',side_effect=lambda name:modules[name]):
+                value=h.pipeline(root)
+            self.assertEqual(value['analysis_module'],'experiments.paced_resume_analysis')
+            self.assertEqual(value['collector_state'],'runs/swarm-ledger-paced-v1-driver/state.json')
+            self.assertEqual(value['postprocessor_state'],'runs/paced-resume-postprocess-driver/state.json')
+            self.assertEqual(value['figure_receipt'],'runs/paced-resume-postprocess-driver/verified-public-input.json')
+            self.assertEqual(value['main_proof'],'research/swarm-ledger-paced-resume-release-proof.json')
+            self.assertEqual(value['observed_postprocessor_status'],'not_started')
     def test_rate_marker_has_priority_over_stale_complete_efficient_pipeline(self):
         from paper import prepare_complete as prepare
         with tempfile.TemporaryDirectory() as root:
@@ -91,7 +114,7 @@ class CompletionHandoffTests(unittest.TestCase):
             paper=Path(root)/'paper';paper.mkdir();template=paper/'official-template.docx'
             with zipfile.ZipFile(template,'w') as archive:
                 for name in ('word/document.xml','word/styles.xml','word/fontTable.xml'):archive.writestr(name,'placeholder')
-            (paper/'complete-draft.json').write_text(json.dumps(dict(preparation_status='RESULT-BLIND DRAFT — NOT FOR SUBMISSION',pending_results='pending',abstract='PENDING')))
+            (paper/'complete-draft.json').write_text(json.dumps(dict(preparation_status='RESULT-BLIND DRAFT â€” NOT FOR SUBMISSION',pending_results='pending',abstract='PENDING')))
             with patch.object(h,'TEMPLATE_SHA',h.sha(template)),patch.object(h,'committed_sources',return_value={}),patch.object(h,'pipeline',return_value={'stages':list(h.STAGES)}),patch.object(prepare,'ready') as ready,patch.object(prepare,'candidate') as candidate:
                 value=h.diagnose(root)
                 ready.assert_not_called();candidate.assert_not_called()

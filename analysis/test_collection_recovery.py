@@ -9,6 +9,11 @@ class RecoveryTests(unittest.TestCase):
         v=r.decide({'status':'running'},dict(status='waiting',updated=self.now.isoformat(),episode_remaining_seconds=100),self.now,True)
         self.assertEqual(v['action'],'wait_for_registered_automatic_resume')
         self.assertFalse(v['attention']);self.assertFalse(v['inference_retry_permitted'])
+    def test_provider_hold_is_not_reported_as_global_stall(self):
+        value=r.decide({'status':'running'},dict(status='waiting',provider='adaption',failure_class='adaption_rate_limit',updated=self.now.isoformat(),episode_remaining_seconds=100,next_dispatch_at='later'),self.now,True)
+        self.assertFalse(value['attention']);self.assertEqual(value['provider'],'adaption')
+        self.assertIn('other providers may continue',value['scope'])
+        self.assertFalse(value['inference_retry_permitted'])
     def test_dead_or_stopped_never_restarted(self):
         for driver,alive in (({'status':'stopped'},False),({'status':'running'},False)):
             v=r.decide(driver,None,self.now,alive)
