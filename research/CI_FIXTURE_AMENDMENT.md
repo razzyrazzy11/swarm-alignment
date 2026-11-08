@@ -33,6 +33,31 @@ remain unchanged. Running raw discovery against the historical frozen fixture
 can still reproduce the historical scheduling defect; CI explicitly uses the
 documented runner. No assertion is skipped or turned into an expected failure.
 
+## Additional atomic-snapshot fixture amendment
+
+Branch run 42521622069 at commit 327d582 failed in
+`DispatchCollectorTests.test_pilot_preserves_reservation_and_does_not_gate_json_accuracy`.
+The original fake worker reads the entire attempts journal to assert its own
+start was persisted. The dispatcher can append another request concurrently;
+the strict parser may then encounter that unfinished append. The CI log retains
+only the collector's outer integrity-stop exception, so the historical inner
+exception cannot be recovered from that log alone. A controlled synthetic split
+append reproduces the same outer stop with `JSONDecodeError` captured inside.
+The other three runs of the same source passed; this is consistent with the
+scheduling-sensitive explanation, rather than proof of a production defect.
+
+The existing nonfrozen runner now wraps only this one original test method.
+Within that method, a shared reentrant lock protects the synthetic dispatcher
+append and the fake worker's snapshot. The original method, strict parser,
+assertions, test count and collector source are retained; both wrappers restore
+on every exit. The frozen file hash must equal
+`32ac534ceecf2ffe2cfc0abff882b64f6419a6f326ec28072400fb3b8fd3683e`.
+The real transport does not perform this synthetic concurrent journal read,
+and no live collector is patched or serialized. New regressions force a partial
+append, verify rejection without the adapter and complete parsing with it,
+check that malformed-record/disk failures still propagate, and execute the
+unchanged original test method. No CI assertion is skipped or retried.
+
 ## Effect on the study
 
 These CI failures prevented later steps in the Ubuntu job from running; their

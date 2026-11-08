@@ -1,9 +1,11 @@
 """Run all experiment tests with the disclosed, frozen-fixture race correction.
 
-Only synthetic PilotTests.run_fixture is adapted; collector code is untouched.
+Only named synthetic fixtures are adapted; collector code is untouched.
 See research/CI_FIXTURE_AMENDMENT.md. No credentials or inference are used.
 """
 import hashlib
+from contextlib import contextmanager, ExitStack
+from functools import wraps
 from pathlib import Path
 import tempfile
 import threading
@@ -12,6 +14,8 @@ import unittest
 from unittest.mock import patch
 
 FIXTURE_SHA256 = '58340e8ed2b58e34af88ae611377a61960f19e9769ff605b6ce1d3fdb909ac8d'
+DISPATCH_FIXTURE_SHA256 = '32ac534ceecf2ffe2cfc0abff882b64f6419a6f326ec28072400fb3b8fd3683e'
+DISPATCH_TEST = 'test_pilot_preserves_reservation_and_does_not_gate_json_accuracy'
 
 
 class ScriptedTransport:
@@ -67,13 +71,47 @@ def cases(suite):
             yield item
 
 
+@contextmanager
+def synchronized_fixture_journal(module):
+    """Serialize only a fake worker's snapshot with that fixture's appends.
+
+    The original test method and strict journal parser remain unchanged. This
+    context is never installed in a real collector or outside that one test.
+    """
+    lock = threading.RLock()
+    durable, rows = module.d.durable, module.s.rows
+    @wraps(durable)
+    def append(*args, **kwargs):
+        with lock:
+            return durable(*args, **kwargs)
+    @wraps(rows)
+    def snapshot(*args, **kwargs):
+        with lock:
+            return rows(*args, **kwargs)
+    with patch.object(module.d, 'durable', append), patch.object(module.s, 'rows', snapshot):
+        yield
+
+
+def dispatch_fixture_adapter(module, original):
+    @wraps(original)
+    def run(case):
+        with synchronized_fixture_journal(module):
+            return original(case)
+    return run
+
+
+def verify_fixture(root, relative, expected):
+    path = Path(root) / relative
+    actual = hashlib.sha256(path.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+    if actual != expected:
+        raise RuntimeError('Frozen fixture changed; compatibility amendment needs review: '+relative)
+
+
 def main():
     import sys
     root = Path(__file__).resolve().parents[1]
-    path = root / 'experiments/tests/test_adaption_serving_pilot.py'
-    actual = hashlib.sha256(path.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
-    if actual != FIXTURE_SHA256:
-        raise RuntimeError('Frozen fixture changed; compatibility amendment needs review')
+    verify_fixture(root, 'experiments/tests/test_adaption_serving_pilot.py', FIXTURE_SHA256)
+    verify_fixture(root, 'experiments/tests/test_swarm_ledger_dispatch.py', DISPATCH_FIXTURE_SHA256)
     suite = unittest.defaultTestLoader.discover(str(root / 'experiments/tests'))
     matches = {type(case) for case in cases(suite)
                if type(case).__module__ == 'test_adaption_serving_pilot'
@@ -82,8 +120,19 @@ def main():
         raise RuntimeError('Expected exactly one original pilot test class')
     cls = matches.pop()
     module = sys.modules[cls.__module__]
-    print('CI fixture amendment: deterministic synthetic call ordinal; all discovered tests retained.', flush=True)
-    with patch.object(cls, 'run_fixture', fixture_adapter(module)):
+    dispatch_matches = {type(case) for case in cases(suite)
+                        if type(case).__module__ == 'test_swarm_ledger_dispatch'
+                        and type(case).__name__ == 'DispatchCollectorTests'}
+    if len(dispatch_matches) != 1:
+        raise RuntimeError('Expected exactly one original dispatch test class')
+    dispatch_cls = dispatch_matches.pop()
+    dispatch_module = sys.modules[dispatch_cls.__module__]
+    original = getattr(dispatch_cls, DISPATCH_TEST)
+    print('CI fixture amendments: deterministic synthetic call ordinal and test-only atomic journal snapshot; all discovered tests retained.', flush=True)
+    with ExitStack() as stack:
+        stack.enter_context(patch.object(cls, 'run_fixture', fixture_adapter(module)))
+        stack.enter_context(patch.object(dispatch_cls, DISPATCH_TEST,
+            dispatch_fixture_adapter(dispatch_module, original)))
         result = unittest.TextTestRunner(verbosity=2).run(suite)
     return 0 if result.wasSuccessful() else 1
 
