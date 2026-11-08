@@ -14,6 +14,25 @@ the current report. The current PDF remains historical until actual integration.
 
 ## Prepare now
 
+### Current operational lineage after the HTTP500 stop
+
+The v1 router continuation stopped after15,025 reader terminals, including one
+unknown-usage HTTP500. The prospectively registered
+`swarm-ledger-resume-v2` collects only the38,735 unstarted MAIN readings and480
+auxiliary calls, retaining that failure and its reservation. All six conditions
+and original scientific analysis remain. See
+[server continuation operations](SERVER_RESUME_OPERATIONS.md).
+
+For this lineage, `paper/prepare_complete.py candidate` requires the actual
+complete and terminated `runs/server-resume-postprocess-driver/state.json`,
+the new server-resume analysis and strict three-batch proof, and its verified
+figure-input receipt. The old stopped waiter cannot satisfy readiness. The
+candidate contract binds both new freezes and
+`research/swarm-ledger-server-resume-release-proof.json`. Instructions below
+about the original router waiter describe the earlier lineage; use these new
+actual gates for final integration. The old excluded serving pilot remains
+blocked/unrun and must not be presented as empirical evidence.
+
 From the repository root, with the primary Python 3.12 runtime:
 
 ```

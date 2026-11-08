@@ -208,11 +208,14 @@ def main():
     root=Path(__file__).resolve().parents[1]
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--directory',type=Path,default=root/'runs/swarm-ledger-resume-v1-main/readers')
+    parser.add_argument('--additional-directory',type=Path,action='append',default=[])
     parser.add_argument('--output-dir',type=Path,default=root/'runs/experiment-sanity-check')
     args=parser.parse_args()
-    terminal=rows(args.directory/'responses.jsonl',True)
-    attempts=rows(args.directory/'attempts.jsonl')
+    directories=[args.directory]+args.additional_directory
+    terminal=[r for directory in directories for r in rows(directory/'responses.jsonl',True)]
+    attempts=[r for directory in directories for r in rows(directory/'attempts.jsonl')]
     value=summarize(attempts,terminal,datetime.now(timezone.utc))
+    value['metadata_batches']=[str(directory) for directory in directories]
     args.output_dir.mkdir(parents=True,exist_ok=True)
     name='timing-diagnosis-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.json'
     with (args.output_dir/name).open('x',encoding='utf-8',newline='\n') as handle:

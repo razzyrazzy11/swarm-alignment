@@ -157,11 +157,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--attempts', type=Path, default=root/'runs/swarm-ledger-resume-v1-main/readers/attempts.jsonl')
     parser.add_argument('--responses', type=Path, default=root/'runs/swarm-ledger-resume-v1-main/readers/responses.jsonl')
+    parser.add_argument('--additional-directory',type=Path,action='append',default=[])
     parser.add_argument('--output-dir', type=Path, default=root/'runs/experiment-sanity-check')
     args = parser.parse_args()
     # Read terminals first: a concurrent new terminal must already have a start.
     terminals = read_metadata(args.responses, terminal=True)
+    for directory in args.additional_directory:terminals.extend(read_metadata(directory/'responses.jsonl',terminal=True))
     attempts = read_metadata(args.attempts)
+    for directory in args.additional_directory:attempts.extend(read_metadata(directory/'attempts.jsonl'))
     result = project(attempts, terminals, datetime.now(timezone.utc))
     args.output_dir.mkdir(parents=True, exist_ok=True)
     name = 'capacity-projection-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '.json'
