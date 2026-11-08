@@ -68,6 +68,14 @@ was lost. Prefix-hash, unique-identity, terminal-subset, source-hash, pacing and
 reservation-cap checks found no journal mutation or duplicated identity. This is
 operational integrity evidence, not certification of scientific correctness.
 
+A subsequent local frozen-ledger replay passed all five recorded MAIN phases:
+8,152 terminal records, including the six generic reporter failures. It checked
+the exact phase plans, request/body commitments, native-receipt hashes,
+normalization and cost accounting using the original ledger and literal actor
+job builder. This validates the retained prefixes; it is not the completed
+scientific analysis. HF's independent strict prefix replay is reported separately
+when finished, rather than inferred from the MAIN checks.
+
 ## Consequences for this project
 
 The seven generic failures are recorded operational failures, not successful
