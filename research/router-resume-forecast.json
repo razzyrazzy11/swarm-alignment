@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-08T06:54:00.918844+00:00",
+  "collection_cutoff_utc": "2026-11-09T05:59:00+00:00",
+  "original_forecast_sha256": "6dfc10d16feec48688d65e27fd0c8b8567258af7c4b1535210f52180aa77007d",
+  "remaining_calls": {
+    "reporter": 808,
+    "readers": 53760,
+    "calibration": 240,
+    "influence": 240,
+    "total": 55048
+  },
+  "method": "Entire original remaining-phase bounds, including full2560 reporter bound;1.25margin+1800s overhead+900s outage+600s blackout",
+  "forecast_seconds": "59068.031093750",
+  "deadline_feasible": true,
+  "projected_remaining_peak_equivalent_cost": {
+    "adaption": "23.61007495312500",
+    "hf": "2.271690000",
+    "ollama": "75.440169000"
+  },
+  "spent_or_reserved_all_prior_science_and_pilots": {
+    "adaption": "32.8566537315",
+    "hf": "0.0114886",
+    "ollama": "0.0607692"
+  },
+  "projected_combined_peak_equivalent_cost": {
+    "adaption": "56.46672868462500",
+    "hf": "2.283178600",
+    "ollama": "75.500938200"
+  },
+  "budget_feasible": true,
+  "off_peak_wallet_gate_passed": true,
+  "billing": "Token-rate forecasts/reservations, not invoices. Adaption units are credits; HF and Ollama units are USD. Ollama off-peak conversion only.",
+  "uncertainty": "Operational forecast, not a completion guarantee; original request bodies/endpoints unchanged; client caps remain binding."
+}

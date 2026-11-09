@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "tag": "swarm-ledger-resume-v2",
+  "created": "2026-11-08T13:54:46.956553+00:00",
+  "policy": {
+    "reset_window_utc": [
+      "04:55",
+      "05:05"
+    ],
+    "healthy_checks": 2,
+    "healthy_interval_seconds": 15,
+    "max_connectivity_wait_seconds": 900,
+    "max_new_connection_failures": 32,
+    "cutoff_utc": "2026-11-09T05:59:00+00:00",
+    "retries": 0,
+    "max_server500_failures": 32,
+    "server500_cooldown_seconds": 60
+  },
+  "source_sha256": {
+    "experiments/swarm_ledger_resume_v2.py": "20bf8739a0372d3802eb9f401ed0bc5277e4bae29702f29d54084a23e63f5789",
+    "experiments/tests/test_swarm_ledger_resume_v2.py": "47c720230ce0b516c7ce7ce1ea495118ef656b73affcd7d222b8af44b96ad370",
+    "research/SWARM_LEDGER_RESUME_V2_PROTOCOL.md": "d35a9678a9225c0774c203ad1bf7f7f2ddcc78e6743f4196d367da91bc74c087",
+    "experiments/server_resume_analysis.py": "3f2bc3f61b95feae57e4d770169fc25233c741c7b584806255a15fdc2ba58445",
+    "experiments/tests/test_server_resume_analysis.py": "06f94ff3285a4a8ad779ad3f36e38cecdf2fa45ab19f1f660964b84613e9a2a9",
+    "research/SERVER_RESUME_ANALYSIS_PROTOCOL.md": "97f512960eb721e702c6e6d2b1e1e09a489d862339804f3beb41c6b194c1a5a0",
+    "experiments/server_resume_forecast.py": "bc63b30c1c341f06f03733f006a6a2c69ab59bdd93b470d7fb2b56406c404902",
+    "experiments/tests/test_server_resume_forecast.py": "57053fbc6f32c5130bd95fe3612900d399abc0a7f3699af937a01b51096ac3bd",
+    "experiments/server_resume_supervisor.py": "4ccc778f8a387c283e6c7aaf09cd9af1d1ca376ebebc5ed887febc4ac8b5cc68",
+    "experiments/tests/test_server_resume_supervisor.py": "cc32843a51c0d53c2f0c8cfc2c7cf36e28f0860b105830e41e05715215c49b1c",
+    "research/SERVER_RESUME_OPERATIONS.md": "2ed551c4dfd7bde0a3f8848bcde4d32693d55bf916844691b0c66d6d3b5c1ba6"
+  },
+  "parent_registration_sha256": {
+    "research/swarm-ledger-complete-v1-main-freeze.json": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+    "research/swarm-ledger-complete-dispatch-v1-main-freeze.json": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+    "research/swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec"
+  },
+  "original_prefix": {
+    "metadata_sha256": {
+      "runs/swarm-ledger-v1-main/contexts-private.json": "d869fbb85eb44d7d6bd714d73aba510ad15700ae443d3814d02f573c624cecb7",
+      "runs/swarm-ledger-v1-main/coordinator/attempts.jsonl": "4d176bba9530ca4f65c57161141dfb9484c53b81dcf25767e6f3aebeadbed552",
+      "runs/swarm-ledger-v1-main/coordinator/dispatch-events.jsonl": "debd5bcfe2d7f13679848d6879b9650ec2a64da3a0afbeac11f0ab1aa022c3c8",
+      "runs/swarm-ledger-v1-main/coordinator/plan.json": "95dab14834d3d16eba97b5746bc7f0bb2ff9a2a90664e070dcd7808811884b7d",
+      "runs/swarm-ledger-v1-main/coordinator/responses.jsonl": "8710aa6ddba982e85d856f769c65adea449ef68bf244d9e03fd1217ca39a7f16",
+      "runs/swarm-ledger-v1-main/principal/attempts.jsonl": "a72fbbf9c853e4a5f54012d22ae5c51a26916a31c00cd5b581a8e924422b3d05",
+      "runs/swarm-ledger-v1-main/principal/dispatch-events.jsonl": "5a5a5521881c922bd287a1ce63beb7aa3a34281dad493c1af2ea5211f6e1e7f9",
+      "runs/swarm-ledger-v1-main/principal/plan.json": "996b1a18a49daa6a9ca8d53dfce94036b3a47997a5fcaca4fd69ce87e1624d4c",
+      "runs/swarm-ledger-v1-main/principal/responses.jsonl": "3dc4510cbdf343e142a2f0171d9db6fb6b69a884bf265596062736a7d4f54edf",
+      "runs/swarm-ledger-v1-main/reporter/attempts.jsonl": "94515fe26e500ecb0d4810104444d4cba7a02fd06ea63e35d3358301cbf20f43",
+      "runs/swarm-ledger-v1-main/reporter/dispatch-events.jsonl": "fc56a31b797a798833bb1b20f542d57bda29bf4b9160fdc0415d1f098a9ddfea",
+      "runs/swarm-ledger-v1-main/reporter/plan.json": "f96377b5b5acf4218f09089dd811071fb75a2578364df636958dd27e1c15aca3",
+      "runs/swarm-ledger-v1-main/reporter/responses.jsonl": "306da592d9b332916769f3849a3c75f2f17e681720fc78d8c1fb649ad371fa4d",
+      "runs/swarm-ledger-v1-main/reporter/stop.json": "0ffa5da570f23875f752f106432098cac8232b8a71b2b256993c43e049fb515d",
+      "runs/swarm-ledger-v1-main/x/attempts.jsonl": "060020397f4e8132ac06970b2cf2957a1a389332e3118b026f0dd5a962743c29",
+      "runs/swarm-ledger-v1-main/x/dispatch-events.jsonl": "55e838b1635dc7d3f00ffd20625ef8760e44a2858b5d91d807015f3228e6edb5",
+      "runs/swarm-ledger-v1-main/x/plan.json": "7f83489d2fc7fb07b25b398c1c84f847cd95eb7beb54ccd7057850e932e5e46a",
+      "runs/swarm-ledger-v1-main/x/responses.jsonl": "3942ecdfe45e98bbc33b7790baff27ca28cbad7476a99490dda8eec4bb7736cc",
+      "runs/swarm-ledger-v1-main/y/attempts.jsonl": "13def0e74fa490384b543c749578873ca76a2d2b735246315f059156674cfaf5",
+      "runs/swarm-ledger-v1-main/y/dispatch-events.jsonl": "956f11ec2facfc4bb1db88b72bd4cb61d49ef25d10e4dec015276a0f3a8d52bf",
+      "runs/swarm-ledger-v1-main/y/plan.json": "d24e1584ceace93b33ae1ff53982e284df177e2df2d09cf312a98fd22ba18b2e",
+      "runs/swarm-ledger-v1-main/y/responses.jsonl": "4473bda7469d5b8ef50ac7eb9801af4cf4c05342859c0f8bb8c14a44abb96df8",
+      "runs/swarm-ledger-resume-v1-main/readers/attempts.jsonl": "3527e1791ab3c08ce178687917831ce1f5954c4a1546b239611817f12f0a1665",
+      "runs/swarm-ledger-resume-v1-main/readers/plan.json": "d1888eb1ca8f4e7853d1cc9746a9dacce4a31ca1bb18d9a45c72189d591cff60",
+      "runs/swarm-ledger-resume-v1-main/readers/responses.jsonl": "b632571b390d9c82245058615def224dc7fad36d48b616c5aee0395570f33a2b",
+      "runs/swarm-ledger-resume-v1-main/readers/stop.json": "934c75b1a913b13f88d783c8ef5eb222db905c5ca151a44f01c08d1946a251d8",
+      "runs/swarm-ledger-resume-v1-main/reporter/attempts.jsonl": "14ec5f6e9b5189017724e109a31635e58a100afe8a666228fdae966a399286f7",
+      "runs/swarm-ledger-resume-v1-main/reporter/plan.json": "c9bd6b887a771fb5873d635759574252e7bfb2098a2cc508e7bae1fdca10d47e",
+      "runs/swarm-ledger-resume-v1-main/reporter/responses.jsonl": "e66fa6fa09bb590fafecbb9141033d1260d4a5c894098470c7ec47a4477fe307",
+      "runs/swarm-ledger-v1-main-driver/state.json": "849d5b57122167d58ab36cde5e45ec07c1080e1a0751b2492c26641fd89c9d6d",
+      "runs/swarm-ledger-resume-v1-driver/state.json": "25542026ac5a54357f8f5fd521e6220641def5a874d335c96f1c8a17dade10a2"
+    },
+    "native_files": 23985,
+    "native_inventory_sha256": "fe8ce40acb98d464b421646ae4038892262a2436f6f22f026832d132fbb5d08e"
+  },
+  "forecast_sha256": "f9da2aa11987484dea4a678ce856750e8cabc023b08085beb995fd50795ada76",
+  "reader_unstarted_descriptor_sha256": "68bd69cc25510d422c742e3b0d4f62213a8bcad89490a14eb542b922ea2e7cd2",
+  "reader_unstarted": 38735,
+  "remaining_calls": {
+    "readers": 38735,
+    "calibration": 240,
+    "influence": 240,
+    "total": 39215
+  },
+  "base_commit": "f0bae24021ecea248e434f01caade851db21b1f5",
+  "timing": "Operational continuation after retained HTTP500 stop; before resumed inference; scientific design/endpoints/scoring unchanged"
+}

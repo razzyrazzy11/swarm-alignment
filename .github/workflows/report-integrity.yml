@@ -1,0 +1,217 @@
+name: Report integrity
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  report-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verifier and final-authoring preparation dependencies
+        run: python -m pip install -r paper/preparation-requirements.txt
+      - name: Verify current paper with its explicit admission mode
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+          content = json.loads(Path('paper/content.json').read_text(encoding='utf-8'))
+          registration = content.get('ledger_registration')
+          source = content.get('table2_source')
+          if registration == 'swarm-ledger-complete-v1-main' and source == 'swarm_ledger_complete':
+              flags = ['--public-replay']
+          elif registration is None and source == 'factorial_reporting':
+              flags = []
+          else:
+              raise SystemExit('Unrecognized or mismatched paper release format')
+          for optimization in ([], ['-O']):
+              subprocess.run([sys.executable, *optimization, 'paper/verify.py', *flags], check=True)
+          PY
+      - run: python -m unittest discover -s paper/tests -v
+      - name: Run all experiment tests with documented frozen-fixture amendment
+        run: python -m experiments.test_runner
+      - name: Test independent evidence-domain sensitivity
+        run: python -m unittest analysis.test_ledger_generator_sensitivity -v
+      - name: Test metadata-only deadline and utilization diagnostics
+        run: python -m unittest analysis.test_collection_progress analysis.test_collection_timing analysis.test_collection_utilization -v
+      - name: Verify router-reset continuation registrations when present
+        run: |
+          if [ -f research/adaption-serving-pilot-v1-freeze.json ]; then
+            python -m experiments.adaption_serving_pilot verify
+          fi
+          if [ -f research/hf-completion-v3-freeze.json ]; then
+            python -m experiments.hf_completion_v3 verify
+          fi
+          if [ -f research/swarm-ledger-resume-v1-freeze.json ]; then
+            python -c "from experiments.swarm_ledger_resume import verify; verify(check_prefix=False)"
+          fi
+          if [ -f research/router-resume-analysis-v1-freeze.json ]; then
+            python -m experiments.router_resume_analysis verify
+          fi
+          if [ -f research/swarm-ledger-resume-release-proof.json ]; then
+            python -m experiments.router_resume_analysis verify-main --output data/swarm-ledger-v1-public
+          fi
+          if [ -f research/hf-completed-original-results-v3.json ]; then
+            python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+          report = json.loads(Path('research/hf-completed-original-results-v3.json').read_text(encoding='utf-8'))
+          routes = {
+              'router-resume-analysis-v1': 'experiments.router_resume_analysis',
+              'paced-resume-analysis-v1': 'experiments.paced_resume_analysis',
+          }
+          tag = report.get('analysis_tag')
+          if not isinstance(tag, str) or tag not in routes:
+              raise SystemExit('Unrecognized original HF analysis_tag')
+          subprocess.run([sys.executable, '-m', routes[tag], 'verify-hf'], check=True)
+          PY
+          fi
+      - name: Verify prospective stateful freeze when present
+        run: |
+          if [ -f research/stateful-main-v2-freeze.json ]; then
+            python -m experiments.stateful_study verify-freeze
+          fi
+      - name: Verify HF and continuation registrations
+        run: |
+          python -m experiments.hf_stateful verify-freeze
+          python -m experiments.stateful_continue verify
+      - name: Replay published evidence and statistical results
+        run: |
+          python -m experiments.verify_release
+          python -m experiments.stateful_release verify
+          python -m experiments.verify_stateful_results
+      - name: Verify live and weight registrations and public releases
+        run: |
+          python -m experiments.live_study verify
+          python -m experiments.live_continue verify
+          python -m experiments.weight_study verify
+          python -m experiments.weight_study replay
+          if [ -f research/live-results.json ]; then
+            python -m experiments.live_analysis verify
+          fi
+      - name: Reproduce separately labeled exploratory diagnostic
+        run: python analysis/exploratory_restoration.py --check research/restoration-diagnostic-posthoc.json
+      - name: Reproduce descriptive posthoc calibration breakdown
+        run: |
+          if [ -f analysis/calibration-breakdown-posthoc.json ]; then
+            python analysis/calibration_breakdown.py --check analysis/calibration-breakdown-posthoc.json
+          fi
+      - name: Verify factorial registration and replay released evidence
+        run: |
+          if [ -f research/factorial-results.json ]; then
+            python -m experiments.factorial_study verify
+            python -m experiments.factorial_analysis verify
+          fi
+      - name: Verify separately registered rate continuation
+        run: |
+          if [ -f research/factorial-rate-continuation.json ]; then
+            python -m experiments.factorial_continue verify --registration research/factorial-rate-continuation.json
+          fi
+      - name: Verify isolated serving diagnostic registration
+        run: |
+          if [ -f research/hf-diagnostic-freeze.json ]; then
+            python -m experiments.hf_diagnostic verify
+          fi
+      - name: Verify workload capacity registration and public receipts
+        run: |
+          if [ -f research/hf-capacity-freeze.json ]; then
+            python -m experiments.hf_capacity verify
+          fi
+          if [ -f research/hf-capacity-results.json ]; then
+            python -m experiments.hf_capacity verify-results
+          fi
+          if [ -f research/hf-capacity-v2-freeze.json ]; then
+            python -m experiments.hf_capacity_v2 verify
+          fi
+          if [ -f research/hf-capacity-v2-results.json ]; then
+            python -m experiments.hf_capacity_v2 verify-results
+          fi
+      - name: Verify conditional final pacing registration
+        run: |
+          if [ -f research/factorial-paced-continuation.json ]; then
+            python -m experiments.factorial_paced verify --registration research/factorial-paced-continuation.json
+          fi
+      - name: Verify separately registered Ollama readers
+        run: |
+          if [ -f research/ollama-reader-v1-freeze.json ]; then
+            python -m experiments.ollama_study verify
+          fi
+      - name: Verify amended reporting and replay its public release
+        run: |
+          if [ -f research/factorial-reporting-freeze.json ]; then
+            python -m experiments.factorial_reporting verify-registration
+          fi
+          if [ -f research/factorial-report.json ]; then
+            python -m experiments.factorial_reporting verify
+          fi
+      - name: Verify original HF completion registrations
+        run: |
+          if [ -f research/hf-completion-v1-freeze.json ]; then
+            python -m experiments.hf_completion verify
+          fi
+          if [ -f research/hf-completed-original-analysis-freeze.json ]; then
+            python -m experiments.hf_completion_analysis verify-registration
+          fi
+          if [ -f research/hf-completion-v2-freeze.json ]; then
+            python -m experiments.hf_completion_v2 verify
+          fi
+          if [ -f research/hf-completion-release-v1-freeze.json ]; then
+            python -m experiments.hf_completion_release verify
+          fi
+          if [ -f research/hf-completed-original-results.json ]; then
+            python -m experiments.hf_completion_analysis verify
+          fi
+      - name: Verify separately registered five-agent study
+        run: |
+          for split in technical development main; do
+            if [ -f "research/swarm-ledger-v1-$split-freeze.json" ]; then
+              python -m experiments.swarm_ledger_study verify --split "$split"
+            fi
+          done
+      - name: Verify prospective scheduling registrations
+        run: |
+          for split in pilot main; do
+            if [ -f "research/swarm-ledger-dispatch-v1-$split-freeze.json" ]; then
+              python -m experiments.swarm_ledger_dispatch verify --split "$split"
+            fi
+          done
+          for split in pilot main; do
+            if [ -f "research/swarm-ledger-dispatch-v2-$split-freeze.json" ]; then
+              python -m experiments.swarm_ledger_dispatch_v2 verify --split "$split"
+            fi
+          done
+      - name: Replay completed Swarm Ledger public release when present
+        run: |
+          if [ -f data/swarm-ledger-v1-public/manifest.json ]; then
+            python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public
+          fi
+      - name: Verify complete-cohort MAIN registrations when present
+        run: |
+          if [ -f research/swarm-ledger-complete-v1-main-freeze.json ]; then
+            python -m experiments.swarm_ledger_complete verify
+          fi
+          if [ -f research/swarm-ledger-complete-dispatch-v1-main-freeze.json ]; then
+            python -m experiments.swarm_ledger_complete_dispatch verify --split main
+          fi
+          if [ -f research/generator-sensitivity-v1-freeze.json ]; then
+            python -m analysis.ledger_generator_sensitivity verify
+          fi
+  windows-release-guards:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test frozen Windows process-creation fixtures on Windows
+        run: python -m unittest analysis.test_ledger_release -v

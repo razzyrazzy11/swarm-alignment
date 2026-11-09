@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Please cite this bounded stateful evidence-audit study and its reproducible empirical artifacts."
+title: "When Can a Swarm Be Audited?"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Sacara
+    given-names: Razvan
+    orcid: https://orcid.org/0009-0004-3172-2476
+repository-code: "https://github.com/razzyrazzy11/swarm-alignment"
+version: "results-v3"
+date-released: 2026-11-07
+abstract: "Complete original primary on 192 sources with explicit incomplete Novita secondary, actual-only evidence and registered Ollama mode/implementation comparisons. Unknown cells remain missing; logical bounds are not CIs. No training or deployment-safety claim."

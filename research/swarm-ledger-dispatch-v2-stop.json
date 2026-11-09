@@ -1,0 +1,698 @@
+{
+  "schema_version": 1,
+  "kind": "excluded_capacity_pilot_stop",
+  "created": "2026-11-07T17:55:21.199661+00:00",
+  "study_id": "swarm-ledger-dispatch-v2",
+  "registration_tag": "swarm-ledger-dispatch-v2-pilot",
+  "registration_sha256": "b42d299787eae7137bbeaac69f535cf73e870543e9615796036f1c941561b965",
+  "source_sha256": {
+    "experiments/swarm_ledger_dispatch_v2.py": "aca160fabd9eff96a9f4b4054b4ba44c2dc076bf3f19d78cd13baa32e10e47c9",
+    "experiments/tests/test_swarm_ledger_dispatch_v2.py": "9a4c9979d497cf879015266109a320caae1a603ea5ee971ce7f3ea4bfaeceeca",
+    "experiments/swarm_ledger_forecast_v2.py": "b3014d4a97d08f1c0229cb95d1c67cf3b5f5a30ec118f22671e1f2f7afc053ef",
+    "experiments/tests/test_swarm_ledger_forecast_v2.py": "4efbdffc5e383f4612ba6f9ab1e8c1ae0b784de8ae14d492af9e3e825e6668a5",
+    "research/SWARM_LEDGER_DISPATCH_V2_PROTOCOL.md": "e0fc8ab8735836594e77af0ab6b22a8c3dfe27c4e693c3d2cb4780136815bdaa",
+    "research/swarm-ledger-dispatch-v2-config.json": "4484adf470299edfb41d7819ade50d2cc25f3af53f4df2136ca30d950bd59bec",
+    "research/SWARM_LEDGER_THROUGHPUT_REVIEW.md": "496b52a1ef083c4eca8b0d9971da5fccbb1ebb8d915ce0c12e1ef7cb60c4ac1c",
+    "research/swarm-ledger-dispatch-v1-stop.json": "70d30e56d0949f91dead03b4b007c270e71674d30aa2e5a79d8487647392dd73",
+    "research/SWARM_LEDGER_DISPATCH_DEVIATION.md": "612388b0bf2f1de26be7f44041a550c96b2ef09449dddc858b1dbaaf8c0ca71c",
+    "analysis/ledger_release.py": "e944ca0274ed30acb30dcd704c6e74549e73b3f4f0c6495fd3b82c60f4aa883e",
+    "analysis/test_ledger_release.py": "61d396c19c69d2dc9da0933b43e1f19484efb0d78caa59653d79382ba293913f",
+    "research/SWARM_LEDGER_RELEASE_PROTOCOL.md": "be166b25df6cb1168ef87edcf802f2a2a18a6016f5bd6ab8bb621ebc7675ab4a"
+  },
+  "phase": "native4",
+  "planned_phase": 64,
+  "planned_total": 198,
+  "started": 44,
+  "terminal": 44,
+  "unstarted_phase": 20,
+  "unstarted_total": 154,
+  "unknown_usage": 5,
+  "records": [
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:02",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1656,
+        "output_tokens": 636
+      },
+      "estimated_cost": "0.0051168",
+      "native_receipt_sha256": "0bc779afe8adadbd396acdd2cdd3de61fcbbeffcd2ecf9ccc436e72d0ab08d2d"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:00",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1690,
+        "output_tokens": 837
+      },
+      "estimated_cost": "0.0060488",
+      "native_receipt_sha256": "2e6a5f75c49ac9cba7a6db72e60e7c9dba64e8c79e5c947f366839725d3fd9ef"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:03",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1757,
+        "output_tokens": 841
+      },
+      "estimated_cost": "0.0061602",
+      "native_receipt_sha256": "babc9bea4dbc13b17d46500e25659ed18f6c8e3eb443b21df099c628fe79a350"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:01",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1735,
+        "output_tokens": 1043
+      },
+      "estimated_cost": "0.0070182",
+      "native_receipt_sha256": "e0eb144e1889c2e10092e0fa2e0888ede12c49f2a2bec9e1eb36b2a985ff577c"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:04",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1684,
+        "output_tokens": 640
+      },
+      "estimated_cost": "0.0051736",
+      "native_receipt_sha256": "44bd3f3f8fb986015f3c9eafead6a3c8eb4ef8df4afb264732505ac828d4adc4"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:05",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1759,
+        "output_tokens": 653
+      },
+      "estimated_cost": "0.0053358",
+      "native_receipt_sha256": "defe18d41b7be87b4fc7a0f521f1396700d9b7b7ef91b45fbaa7e693ae5e8c1a"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:00",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1851,
+        "output_tokens": 2839
+      },
+      "estimated_cost": "0.01095455",
+      "native_receipt_sha256": "2f298149840f73807ec01f9c9c65961d0264f400c218b734c7650059425cf7e2"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:07",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1757,
+        "output_tokens": 1147
+      },
+      "estimated_cost": "0.0075066",
+      "native_receipt_sha256": "75f560058e3cab90ab37a8abc4b9545227ddb54523dbbb309ce3d3e3d907a833"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:09",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1749,
+        "output_tokens": 809
+      },
+      "estimated_cost": "0.0060082",
+      "native_receipt_sha256": "c4fd943b00bc44a90715552bfaf736eedb8a8d86cf4231ef6bad683a7ebd0e12"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:10",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1691,
+        "output_tokens": 431
+      },
+      "estimated_cost": "0.0042638",
+      "native_receipt_sha256": "682a2e5fc29560eb8deffcfcb3e1aa1885bebc10e2fc71cac0ca7c1493e00ac2"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:01",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1888,
+        "output_tokens": 3634
+      },
+      "estimated_cost": "0.0137574",
+      "native_receipt_sha256": "946506ef76af51020a48d37aa54017eb80650a6878d8509557dee0b6efc09792"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:02",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1851,
+        "output_tokens": 3578
+      },
+      "estimated_cost": "0.01354105",
+      "native_receipt_sha256": "c76dba3008483a0419e711d1c8b904144a999ad2b79b3748f439b495546d0e41"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:03",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1903,
+        "output_tokens": 3710
+      },
+      "estimated_cost": "0.01403165",
+      "native_receipt_sha256": "a74b75817780a841b3c0b1b68fc0b2fe1a766ed5997e95a3b6cbc61c513e7de8"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:08",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1702,
+        "output_tokens": 2003
+      },
+      "estimated_cost": "0.011196",
+      "native_receipt_sha256": "5503a739d9558cf15d3c0bae7e1ecf00e01fc65a53ee3f0e8bae6d47d2003b42"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:12",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1680,
+        "output_tokens": 759
+      },
+      "estimated_cost": "0.0056916",
+      "native_receipt_sha256": "fa982d9d72100d03d45c67637e5f144ffff0450cee12e93156cb3a94aa5e2443"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:11",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1740,
+        "output_tokens": 1189
+      },
+      "estimated_cost": "0.0076676",
+      "native_receipt_sha256": "c023fb1a48b50f04d7164c9f4d245a35117336f59e51df22f0ff7e6f6307ce26"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:13",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1757,
+        "output_tokens": 529
+      },
+      "estimated_cost": "0.0047874",
+      "native_receipt_sha256": "4dd56421aa315c3c7b60cd5e1d56782792557be09fca9e324e8a480e81e49c9d"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:04",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1866,
+        "output_tokens": 3195
+      },
+      "estimated_cost": "0.0122088",
+      "native_receipt_sha256": "5911b7821ded1494708771b4dda275f07228781017271f1bd5e519d8f5fb3a29"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:15",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1749,
+        "output_tokens": 713
+      },
+      "estimated_cost": "0.0055858",
+      "native_receipt_sha256": "93a2aea1ac29a3e2b920ec7c6a28c427a48cd975a64034100a72a089251c2229"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:06",
+      "profile_id": "glm52",
+      "http_status": 504,
+      "known_usage": false,
+      "anomaly": true,
+      "response_status": "failed",
+      "returned_model": null,
+      "usage": null,
+      "estimated_cost": "0.0516224",
+      "native_receipt_sha256": "5af585f1793cd7e45e37c3eb92dadc14c03263c2baf03dff49227d4878e91afd"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:17",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1754,
+        "output_tokens": 1136
+      },
+      "estimated_cost": "0.007454",
+      "native_receipt_sha256": "3ed410e9f6a5621d36b718355d8d73ce4e50dcd66c2453164f87231f965fe82d"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:05",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1950,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.0154085",
+      "native_receipt_sha256": "43e6a47d70da57c8d5818b6408205056670b9f48527797eb2e9953b2553abed1"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:07",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1928,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.0153964",
+      "native_receipt_sha256": "3fcacdcf372b75757a763a8efba02b620ec1b95ee449f9b87b2085b28e25f327"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:16",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1691,
+        "output_tokens": 1956
+      },
+      "estimated_cost": "0.0109738",
+      "native_receipt_sha256": "d3d996b2514faf0724ec3dfeae47ecbc9b893d3d29d5df01a81945b873689a52"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:06",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1845,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.01535075",
+      "native_receipt_sha256": "03e8f74da2d43b85839aeb072c344b7523427ea6beb26d143fb2516a6ea7b5d8"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:08",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1871,
+        "output_tokens": 2537
+      },
+      "estimated_cost": "0.00990855",
+      "native_receipt_sha256": "da726a8be60090caeb935ae0d1f177ff3d40334760e4318284beb63935e54c99"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:20",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1686,
+        "output_tokens": 857
+      },
+      "estimated_cost": "0.0061312",
+      "native_receipt_sha256": "b4795975902b224d3c4f0e384ac45d03f25fd40d11cf003d109425276beab4fb"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:19",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1754,
+        "output_tokens": 1540
+      },
+      "estimated_cost": "0.0092316",
+      "native_receipt_sha256": "41ae5fef2d7c3a6dc8f9eb46b3ca6fd245d4ae663aeb0e509dbdd50d164a6ab9"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:14",
+      "profile_id": "glm52",
+      "http_status": 504,
+      "known_usage": false,
+      "anomaly": true,
+      "response_status": "failed",
+      "returned_model": null,
+      "usage": null,
+      "estimated_cost": "0.0516224",
+      "native_receipt_sha256": "06da40199814373a8385062b35aea5c9939a150b13452ded667fb3b7b048d51d"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:21",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1780,
+        "output_tokens": 724
+      },
+      "estimated_cost": "0.0056776",
+      "native_receipt_sha256": "c6c7a0c00c316c6e8eb1827bff2826e7c6d784ff4985436868dd58248b87fad8"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:11",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1907,
+        "output_tokens": 2953
+      },
+      "estimated_cost": "0.01138435",
+      "native_receipt_sha256": "923a454e9e8c546a8e9d20c7cbcde61cdcd46c936fd622838712b60319427a5c"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:12",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1846,
+        "output_tokens": 3559
+      },
+      "estimated_cost": "0.0134718",
+      "native_receipt_sha256": "713bc7649de4de65abb4bb2e0c9d32075c5632aa869ad2c26f34b5bd133f22ce"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:09",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1905,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.01538375",
+      "native_receipt_sha256": "aa573282f14fb7601684f422cc4389001ea7ef3a567d4d2ca3244efddf601080"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:10",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1857,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.01535735",
+      "native_receipt_sha256": "ab40a7f4b9cd628d268769b06881852d450db851e60b3ef9388ebc0144c30af7"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:24",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1677,
+        "output_tokens": 560
+      },
+      "estimated_cost": "0.0048118",
+      "native_receipt_sha256": "ae5b06d98903371b996e836740e6e686ec7f75b00c2e9e08ba1347082b4d7290"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:23",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1767,
+        "output_tokens": 689
+      },
+      "estimated_cost": "0.0055054",
+      "native_receipt_sha256": "9f8dd8812eeff9779bb9ba28def54ffc30540402424c4b8cfc4e22f19f560bf6"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:18",
+      "profile_id": "glm52",
+      "http_status": 504,
+      "known_usage": false,
+      "anomaly": true,
+      "response_status": "failed",
+      "returned_model": null,
+      "usage": null,
+      "estimated_cost": "0.0516224",
+      "native_receipt_sha256": "56f4c0ca18081b8f27dcd88119c4a07e35cfa07eef6d56ba50c47910cb94b7d6"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:22",
+      "profile_id": "glm52",
+      "http_status": 504,
+      "known_usage": false,
+      "anomaly": true,
+      "response_status": "failed",
+      "returned_model": null,
+      "usage": null,
+      "estimated_cost": "0.0516224",
+      "native_receipt_sha256": "ce6eda53ef39602eeb36e0a603670eabdf5ce4a2364db77478ffa7ce3c0f3794"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:13",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1917,
+        "output_tokens": 2932
+      },
+      "estimated_cost": "0.01131635",
+      "native_receipt_sha256": "c72544375aa832d629e665237edb0637aa9e931aad55d02daf5912d5dffce856"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:14",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1875,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.01536725",
+      "native_receipt_sha256": "9f8d0bbd8943193a27b43d3ce5cc49abd30196701893e6bf1d47d8ea116b2a9b"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:15",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "incomplete",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1915,
+        "output_tokens": 4096
+      },
+      "estimated_cost": "0.01538925",
+      "native_receipt_sha256": "02013b9fcc8497d9d31af1d4952e279ae64f180bae5c0711922cbaaf9e4e8de8"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:q397:16",
+      "profile_id": "q397",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "qwen3.5-397b",
+      "usage": {
+        "input_tokens": 1830,
+        "output_tokens": 3388
+      },
+      "estimated_cost": "0.0128645",
+      "native_receipt_sha256": "b9a2d2428f6d8b4cb7d078fca08b2d479b9db70c67c7c2c01f80540950293e0e"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:25",
+      "profile_id": "glm52",
+      "http_status": 200,
+      "known_usage": true,
+      "anomaly": false,
+      "response_status": "completed",
+      "returned_model": "glm-5.2",
+      "usage": {
+        "input_tokens": 1740,
+        "output_tokens": 526
+      },
+      "estimated_cost": "0.0047504",
+      "native_receipt_sha256": "7288589df8697aaf140fb6710a53aabe027aa9b65d7b3f2372a471aaf5fdc510"
+    },
+    {
+      "id": "swarm-ledger-dispatch-v2:native4:glm52:26",
+      "profile_id": "glm52",
+      "http_status": 504,
+      "known_usage": false,
+      "anomaly": true,
+      "response_status": "failed",
+      "returned_model": null,
+      "usage": null,
+      "estimated_cost": "0.0516224",
+      "native_receipt_sha256": "eba921cc978f6c89f2381639cf4995c8ae4c33ed9df90394d19363f8df401207"
+    }
+  ],
+  "estimated_cost_by_provider": {
+    "adaption": "0.63130045",
+    "hf": "0",
+    "ollama": "0"
+  },
+  "combined_pilot_caps": {
+    "adaption": "10.00",
+    "hf": "0.00",
+    "ollama": "0.10"
+  },
+  "private_file_raw_sha256": {
+    "plan": "e79b540256152498b3bcaa1a581552badc87b51d3f9b15af8a51531ab10a9211",
+    "attempts": "6fa14859787135e04e2940fb19ec126dc55e00403580cee6a5db7fb7e438ec42",
+    "responses": "48135392bb2c6ffaa00a6eb5267c958004cc328836a1fb68cbd1be4436feabb4",
+    "stop": "d96be0e93e719e652a243c915d029ad956518fe6aae920aaec34148f47d82a1c",
+    "dispatch_events": "02a31168d76e0c7a80da3880613dcf0bc1bfeb684fe9eaaa4e0b6fd383cc9129",
+    "driver_state": "eb81877f177d67eb726b6cffe2525c4961b3c9ae5156da27c744a30719651f07",
+    "recovery_driver_state": "8f5630d31e7e6b4c432c036785cc01320dde03e1c7ed5f9f3d2d47c6f52f8b8d"
+  },
+  "stop_reason": "provider_or_capture_integrity",
+  "interpretation": "Failed excluded serving-capacity pilot; five GLM52 HTTP504 errors exhaust the registered tolerance. No escalation, retries or unresolved sends. Q39717HTTP200;GLM52 22HTTP200+5HTTP504. Five unknown-usage reservations retained. Supervisor metadata-I/O failure did not stop its collector; collector ended on the registered gateway stop. Preserve both control states and all actual receipts."
+}

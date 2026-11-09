@@ -1,0 +1,23 @@
+{
+  "study_id": "ollama-reader-v1",
+  "conditions": [
+    {"id": "ds_off", "model": "deepseek-v4.1-flash:1017", "think": false, "views": "all", "input_rate": "0.30", "output_rate": "1.20"},
+    {"id": "ds_low", "model": "deepseek-v4.1-flash:1017", "think": "low", "views": "sufficient_calibration", "input_rate": "0.30", "output_rate": "1.20"},
+    {"id": "gemma_bridge", "model": "gemma4:31b", "think": false, "views": "sufficient_calibration", "input_rate": "0.14", "output_rate": "0.40"}
+  ],
+  "order_seed": 710033,
+  "input_byte_cap": 24000,
+  "max_output_tokens": 4096,
+  "max_active": 2,
+  "pilot_stage_cap": "0.10",
+  "readers_stage_cap": "9.90",
+  "combined_cap": "10.00",
+  "remaining_credit_floor": "5.00",
+  "balance_poll_seconds": 60,
+  "metadata_recheck_calls": 100,
+  "gateway_allowance": 8,
+  "gateway_backoff_seconds": 60,
+  "request_timeout_seconds": 180,
+  "retries": 0,
+  "cost_basis": "published_peak_uncached_estimate_not_invoice"
+}

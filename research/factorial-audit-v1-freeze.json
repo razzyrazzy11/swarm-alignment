@@ -1,0 +1,51 @@
+{
+  "created": "2026-11-07T01:01:48.172863+00:00",
+  "base_commit": "bf616cfe052566e04120bfaa8478be11c7234320",
+  "config": {
+    "study_id": "factorial-audit-v1",
+    "sources": 192,
+    "source_start": 6100000,
+    "calibration_start": 6300000,
+    "calibration_per_type": 4,
+    "actor_model": "gemma-4-26b-a4b-it",
+    "monitors": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it",
+      "meta-llama/Llama-3.3-70B-Instruct:novita"
+    ],
+    "hf_model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+    "hf_input_rate": "0.135",
+    "hf_output_rate": "0.40",
+    "max_output_tokens": 4096,
+    "input_byte_cap": 24000,
+    "concurrency": 4,
+    "hf_concurrency": 2,
+    "adaption_phase_cap": "10",
+    "hf_phase_cap": "2.00",
+    "gateway_allowance": 8,
+    "known_incomplete_count_stop": false,
+    "retries": 0,
+    "order_seed": 710027,
+    "bootstrap_seed": 710029,
+    "bootstrap_resamples": 10000,
+    "training_launch": false,
+    "primary": "primary-reader procedure minus direct raw correct definite verdict on the predeclared sufficient reference packet"
+  },
+  "source_sha256": {
+    "experiments/factorial.py": "639823b6ce23004eca80e4717bf9d2b6bbac396c2a8a1708f015b49cfc5328b4",
+    "experiments/factorial_reference.py": "27a536a34ed0de68657bb0b25d86c84029db941f46f56d7a0aac863b6aff0df9",
+    "experiments/factorial_study.py": "28802503b35da48bad047ab12f52b89d7155a3dda7af6accd6664e4bcc3dba64",
+    "experiments/factorial_analysis.py": "463a9d4b8a3ccf39c237f05c43b05267740ff4b7871477350fd1070dd5bdc13f",
+    "experiments/tests/test_factorial_engine.py": "b937a090c0499668f570176ee437d89af027d63060e85503e9242f1056bb368a",
+    "experiments/tests/test_factorial_reference.py": "32f419360c04a4cc7caa7d0929758bc3a9628878fcb065ac28f8457046eebdc3",
+    "experiments/tests/test_factorial_runner.py": "5441e59fde91203e0a25c51aacdd7edf5fa6db967a84f97c171a4b2c3cfc4e13",
+    "experiments/tests/test_factorial_analysis.py": "61bf14549dc73aa262d2356df4970a26a6bd1776948ccb4c923460bec136992c",
+    "research/factorial-config.json": "58f1a2a12c1022beaca0e4f59d0569d857315f6c493c513a5b59aba049e313e9",
+    "research/factorial-catalog.json": "8c9414a7cf35c24f9650fd25b8729982a4346c581f0696192d0fdaa83081b2ea",
+    "research/factorial-design.json": "634bbdec7f7992fd9c201a0548c8f48e5c79bf5af4894de6c5c606bc74cb5d7e",
+    "research/FACTORIAL_PROTOCOL.md": "2ffdf1ac5a4c7f71c1a03ebc671b8679e945902e6d31f3bef931809b3f5e88f0",
+    "research/FACTORIAL_SOURCES.md": "8ce28a6e2f2ac93c583c4b6beff5b1a6687b482e94348a67f1686f268a1792e0",
+    "research/FACTORIAL_RUBRIC.md": "4c03047104e41e95dd0bbc322591de5348368f8b7984dfd91a94b5696274fa30",
+    "research/live-audit-v2-freeze.json": "97f1c7e92cc3edd90c225f05352f90cdfaf319c256c605c2415a290ac549c79f"
+  }
+}

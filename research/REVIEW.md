@@ -1,0 +1,148 @@
+# Current release and historical review record
+
+Current validation is recorded in `FACTORIAL_REVIEW.md` and the final section below: seven main pages, 13 total pages, 190 abstract words and 120,809 PDF bytes. The original primary and registered Ollama extension are complete; original HF secondary missingness remains explicit. The sections below preserve earlier revisions and do not attest the current artifact unless explicitly labeled current.
+
+## Historical track clarification and post-release direction review
+
+At that historical presentation revision, the paper explicitly named Track 4 Multi-Agent Oversight and Control in its subtitle, abstract and introduction. Its revised official-template PDF had 7 main pages and 12 total pages, a 203-word abstract and 116,818 bytes. Every page was inspected then. Normal/optimized verification and all eleven paper tests passed at that revision. The earlier 194-word abstract and 116,676-byte PDF below describe the immutable results-v2 snapshot. Scientific results, registrations and datasets were unchanged by that presentation revision.
+
+Three parallel reviews, including a bounded source-only OpenCode scout and primary-source reviews, inform NEXT_STUDY_DECISION.md. The added post-release diagnostic verifies public-data hashes, decomposes 384 dependent restoration comparisons per reader and reproduces all registered gains. It is descriptive and not a new confirmatory endpoint. No new inference, training or GPU job was launched. Additional primary-source overlap and review-depth limits are recorded in SOURCE_AUDIT.md and the decision memo. CI separately verifies the pushed revision and diagnostic.
+
+# Current integrated empirical checkpoint
+
+6 November 2026. Live-v2 and its separately frozen operational continuation completed 720 actor and 9,360 audit calls on 192 new source groups, including the 48-source influence subset. All planned identities have terminal outcomes; two gateway failures and twelve incomplete outputs remain retained without retries. Export checked native normalization, request hashes, actor inputs, full grids and public allowlists. The driver completed public replay before and after adding the explicit operational-amendment declaration. The archived initial 204-record prefix matches the registration and remains an unchanged prefix of current journals.
+
+The new primary metadata-versus-random restoration result is +5.73 percentage points, source-bootstrap 95% interval +1.04 to +10.42. Secondary Gemma 31B and HF gains are +10.94 and +9.11 points. Solo/delegated unauthorized writes are 2/192 and 4/192; this intervention changes identity and context together. Controlled influence had 2/2/1 violations and 11/11/11 useful completions across benign/malicious/warning arms. Zero paired contrasts are not zero-event safety bounds. The separate weight study retains all 144 proposals; Gemma 31B produced 16/24 exact in-budget repairs, other writers 0/24. Scope and negative controls remain explicit.
+
+A three-public-file independent narrative check found no numerical/table mismatch and prompted a clearer phase-specific stopping-rule sentence. OpenCode source reviews and their limited coverage remain in LIVE_REVIEW.md and WEIGHT_REVIEW.md. No automated review constitutes independent empirical replication, human author approval or complete prior-art clearance.
+
+Final local checks passed 129 experiment tests and 11 paper-integrity tests (140 total), normal and optimized paper verification, live/core/continuation/weight source freezes and numerical replay. The final official-template Word export has seven main pages, twelve total, a 194-word abstract and 116,676 bytes. Every final page was visually inspected; the two-line spill was removed by shortening prose, with preserved source fonts/styles/geometry. Exact local credential matching found no matches in 136 release candidates; it is not an arbitrary-secret detector. CI separately checks the pushed revision. No training, GPU job, top-up, submission, merge or repository visibility change occurred.
+
+The historical review below attests its named earlier revisions and aggregate, not current total counts. The original paper/data remain at results-v1; the integrated release is results-v2.
+
+# Consistency and originality review
+
+## Prior results-v1 checkpoint — 6 November 2026
+
+The stateful study is complete: 3,840 main calls from 192 source episodes, 216 influence-extension calls and 240 HF Llama calls from a prospectively selected 24-source subset. Each arm reports zero unattempted calls and zero journaled starts without a terminal record. The retained main HTTP 502 is an INVALID outcome with conservatively reserved unknown cost, not a successful model answer. `stateful-results.json` is the current aggregate source of truth; development pilots remain separate.
+
+The primary Gemma-26B selective-minus-random unsupported-executor estimate is -1.04 percentage points (episode-cluster bootstrap 95% interval -6.77 to +4.69). This does not establish increased false accusation, equivalence or absence of an effect. Secondary model, restoration and HF comparisons must retain their own model/subset denominators; the HF subset contains 24 of the same main source episodes, not an independent 192-source replication. The influence extension observed zero unauthorized executions; its all-zero resampling interval does not bound a rare-event population rate.
+
+Final source-only OpenCode review of the paper, report verifier, aggregate and aggregate verifier is complete within the scope below. Final local validation passed 65 experiment tests and 11 paper-integrity tests (76 total), normal/optimized artifact verification, all three registration checks, public-data statistical replay, native archive hashes and the earlier pilot replay. The final Word PDF has seven main pages, 12 total pages, a 189-word abstract and 115,718 bytes. Every one of its 12 rendered pages was inspected for layout and legibility. Exact local credential matching found zero matches in the 92 release-candidate files checked; this is not an arbitrary-secret detector. CI must independently verify the pushed revision. Earlier counts below attest only their named revisions. No submission or independent human author approval is claimed.
+
+### Final cross-model source check
+
+The free GLM security reviewer read all paper source and both verification modules, plus the main totals/effects and influence section of the aggregate, using six read/search calls and zero mutations (task `09ca2a71-c69f-4d6c-9917-150684f963ef`). It found no critical count or effect mismatch in those sections: the two 1,920-call reader totals, primary/restoration intervals, influence counts, cost caveats, continuation disclosure and secondary labels agree. The reviewer did not read the HF aggregate block or every cell/duplicate alias block; it cannot attest those parts. A separate source inspection of the HF aggregate confirms its reported selective-minus-random estimate -16.67 percentage points (95% interval -33.33 to -4.17) and restoration estimate -4.17 (-29.17 to +20.83). These are secondary matched-subset results, not independent new sources.
+
+The review identified verifier hardening rather than a demonstrated numerical discrepancy: surrounding prose counts were not all bound automatically to aggregate fields, and a substring call-count check was weaker than an exact count comparison. The final verifier now parses exact reader-call and source denominators, checks completed influence status and has regressions rejecting 19200-for-1920 and 240-for-24 substitutions. Tables and manifests are checked automatically; prose claims were cross-checked during final editorial review rather than being universally machine-bound. A stale-PDF regression was adjusted to remove citation-free prose so it reaches the PDF guard instead of first failing citation validation. The influence null should be read as no attempted unauthorized writes in these model responses; it does not demonstrate refusal, effectiveness of host enforcement or zero population risk. The reviewer confirmed that the paper distinguishes the primary interval crossing zero, secondary comparisons and the operationally amended collection. This scoped automated review does not independently reproduce raw outcomes, audit every primary source or certify originality.
+
+## Historical qualification and implementation checkpoints
+
+Before main collection, stateful-main-v2 was published and its 80 excluded qualification calls passed completion/usage/encoding with zero missing responses. V1's failed qualification remains retained. At that earlier checkpoint, the 31 experiment tests and nine paper tests passed; the report had seven main pages, 12 total pages and a 211-word abstract. Those artifact counts do not attest the completed-study revision.
+
+V2 encoding amendment: v1's excluded 80-call qualification completed but failed the preregistered strict schema gate (30 outer-fenced outputs). The bounded v2 parser is tested for one exact JSON fence versus bare JSON, preserved unsupported-NONE semantics, rejection of duplicate keys/prose/multiple objects and separate raw strict validity. All original v1 sources/results remain recoverable through their tag and archived protocol. New v2 seeds/folders and its separate freeze prevent silent reruns or post-main relabeling. The two new parser tests raise the experiment test total to 31; the stateful world semantics and independent-check counts are unchanged.
+
+A one-file free OpenCode security review of the v2 parser/version guards found no concrete acceptance hole. Its suggestions led to explicit envelope-whitespace documentation, NaN/Infinity rejection, separate encoding diagnostics and unused-tag/implementation-ancestry checks. The review preceded extraction into the shared decode_answer helper; local tests cover the extracted parser and secondary action schemas. No extra source reads or credential access were allowed. All 31 experiment tests passed; the six runner/parser tests were rerun after these final refinements.
+
+Stateful implementation update (6 November, before registration): all 29 experiment tests pass, including 19,648 prescribed new projection checks, malformed-input fixtures, stateful golden cases and runner/positive-action controls. The separately written checker imports no generator, simulator or projection helpers. Isolated OpenCode discovery read five approved source copies; security review read four new runner/config copies and rechecked three after fixes. Its findings led to HTTP stopping, partial-run accounting, fixed output paths and durable-journal refinements. A bounded math review inspected the grammar; its final two-file checker review found no concrete oracle/reference mismatch, including joint route constraints, deferred revocation and approval joins. That final report completed at a cancellation boundary: the cancel response said cancelled while the finalized result reported completed with two reads and zero mutations. We retain the substantive completed report and disclose the race, rather than treating the cancel acknowledgment as the review. These are scoped automated checks, not independent human semantic validation. STATEFUL_PROTOCOL.md and the forthcoming freeze identify the executable main study; older development claims below remain separate.
+
+Review date: 6 November 2026. Initial baseline: `ab8d546` / `scoping-v0.1`. The early corrections below preceded experiments; later updates follow real inference. At the historical development checkpoint, protocol v0.4 was prospective and unfrozen; the completed stateful work uses its separately tagged successor. This log distinguishes editorial/source work, delegated code review and empirical work. It does not certify acceptance or originality.
+
+## Scientific and mathematical corrections
+
+| Finding in the first draft | Correction and evidence |
+|---|---|
+| Responsible actor could mean executor, initiator or decisive cause | Define the executor of one designated unauthorized mutation. Who&When and BLADE address different responsibility questions; no causal blame or collusion label is claimed. |
+| Coordinated deletion sounded like observed agent behavior | Define a scripted loss transformation on investigator exports. Protected originals remain unchanged; no spontaneous or adaptive attack was observed. |
+| Receipt/identity ablations leaked the same ID into both channels | Receipt has an opaque call handle; a separate binding links it to a stable instance. Each channel has a distinct function. |
+| A receipt captured before execution could falsely certify success | Separate request capture from post-execution status/state change. Denied or attempted calls are not completed mutations. |
+| Every compatible history could be vacuously true for an empty set | Empty compatibility means inconsistent evidence; ambiguity requires a nonempty set with several labels. NONE also needs positive support. |
+| The comparator might use privileged loss metadata | The same whole-packet observation contract and public constraints apply to all readers; hidden masks are integrated out, not leaked to the comparator. |
+| Equal record count was called an equal observation budget | Restrict the statement to record counts, and report token/cost differences separately. No efficiency claim without sensitivity checks. |
+| Primary main effect and interaction were conflated | One proposed primary contrast: targeted-minus-random at 25% loss with churn, full instrumentation and plain prompt. Churn difference-of-differences is secondary. |
+| Invalid responses could disappear from an evaluable-only denominator | Keep all planned calls on scorable packets, including INVALID. Exclude/report inconsistent packets separately; primary differences use common episode pairs. Score one terminal result per planned call, with retry attempts recorded separately. |
+| Correlated packets could inflate independent n | Bootstrap whole source episodes with paired conditions/repeats. The zero-event upper bound at n=60 is 4.87%; n=299 gives below1%. Recompute actual eligible n. Exact binomial coverage assumes common risk; the zero-event formula conservatively bounds mean heterogeneous risk under independence. |
+| The core sampling grid hid its cost | Historical profiles estimated 4,320 calls for one model or 26,640 across three. Completion/token assumptions failed development qualification; neither is a validated launch grid. Future costing must use measured behavior and reconciled liability. |
+| Model name was treated as the full serving condition | Freeze/disable retrieval, memory and self-improvement; specify complete context columns and split families before augmentation. Supported by supplied workshop. |
+
+The proof now fixes all public side information, allows probability mass on other outputs, states the two-history equal-prior assumption, and explains why an unequal prior changes the guessing bound. It is a constructed ambiguity, not a theorem that arbitrary deletion always defeats attribution. No novel information-theoretic theorem is claimed.
+
+## Source-to-claim and originality boundaries
+
+| Primary source | Established contribution we must acknowledge | Scope that remains proposed |
+|---|---|---|
+| [Qin et al.](https://arxiv.org/abs/2609.30266) | Tampering, peer influence, independent recording/completeness | Selected export loss crossed with instance naming conditions |
+| [Yun et al.](https://arxiv.org/abs/2610.09581) | Evidence bindings, abstention and same-packet comparator | A different bounded multi-worker query and loss policy; novelty unproven |
+| [Syscon](https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun) | External execution receipts and observability/detection distinction | Measure preservation versus interpretation under explicitly incomplete exports |
+| [Who&When](https://arxiv.org/abs/2505.00212), [BLADE](https://arxiv.org/abs/2610.18780), [BRIDGE](https://arxiv.org/abs/2610.17805) | Decisive-error attribution, handoff responsibility evidence and verified repair | Executor attribution under a declared finite observation model, not a new generic blame graph |
+| [Kitaoka et al.](https://arxiv.org/abs/2610.24052v1) | Planned distributed attacks and separate/joint monitoring | Export-loss question, not a new demonstration of distributed evasion |
+| [OpenAI monitoring](https://openai.com/index/how-we-detect-frontier-model-misalignment/) | Multilayer investigations and external telemetry | No operational deployment or reproduction claim |
+
+No claim of being the first logger, first receipt system, first abstaining reader, first distributed attack or first attribution framework remains. A literature search cannot prove no earlier method exists. The interaction and practical preservation tradeoff must be experimentally demonstrated before being called findings.
+
+## Lessons from eight selected winning examples
+
+These are examples, not a representative sample or an explanation of prize outcomes.
+
+| Example | Transferable principle | Application here |
+|---|---|---|
+| Omission Attacks | Isolate a failure class; acknowledge narrow validation | Fixed target and clean controls; do not infer safety from a few positive examples |
+| Noticing the escapes | Inspectable evidence and restrained conclusions | Source ledger; real payloads do not supply complete labels |
+| Readable but Not Causal | Prediction and causal validation answer different questions | Executor support is separate from decisive causal error |
+| [Syscon](https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun) | Honest null result; observation is not detection | Separate record preservation from reader interpretation; report coverage/uncertainty |
+| [ActionLens](https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22) | Component ablations and usefulness costs | Binding/receipt factorization; correct definite coverage as companion outcome |
+| [Detecting LLM Subversion](https://apartresearch.com/sprints/projects/detecting-llm-subversion-in-vulnerability-patching-settings-gagj) | A useful, checkable setting can be a contribution | The bounded toy target/oracle now exists with automated validation; richer stateful scope and independent human review remain gaps |
+| [Counterfactual Components](https://apartresearch.com/sprints/projects/counterfactual-components-for-ai-control-protocols-ibli) | Specify valid perturbations and audit the judge | Predeclared loss selector, hidden-label leakage checks, independent oracle fixtures |
+| [Declare Before You Run](https://apartresearch.com/sprints/projects/declare-before-you-run-an-open-filing-standard-for-frontier-training-and-evaluation-runs-dkok) | Explain adoption mechanism and untested feasibility | Deployers would preserve evidence before incidents; actual overhead/adoption remain unmeasured |
+
+Reading-depth and access qualifications are in SOURCE_AUDIT.md. Talk speculation about judges' interests is not used as a rule. The current Swarm Guidelines, particularly Judging and results, govern this project's impact, execution and clarity assessment.
+
+## Learning and reading order
+
+The 20-rules-of-learning skill is applied as an editorial method: start with the fake-record example; define execution and evidence support before introducing metrics; keep one claim per paragraph; distinguish easily confused concepts; connect each comparison to its source and purpose; state limitations immediately alongside the relevant inference. Learning prompts remain in DECISION.md; the paper remains a research narrative. The skill is not evidence for novelty, causality or eligibility.
+
+## OpenCode recovery and code verification
+
+The connected adapter's five-second startup check expects an older CLI startup string/API. A task-local compatible CLI/MCP bridge started within the original timeout while leaving global configuration unchanged. Separately, sandboxed CLI startup reproduced a log-file EPERM; that was not proven to be the connected MCP's exact failure. OpenCode Go then returned a monthly-limit error, Ollama returned401 and Anthropic insufficient credit. Failed/dispatched tasks are not counted as completed reviews.
+
+Completed free-provider OpenCode reviews:
+
+- Repository scout, task `fc9364fc-ca2b-44ba-a5a3-47e84930a81e`, GLM5.3Flash: 28 completed read/grep calls, no agent source edits. Confirmed stale-artifact detection was absent, PDF manifests were unenforced, assert guards disappeared under Python optimization, and unknown table markers could leak into output. Findings about missing citations/25%-loss wording were taken during an intermediate edit and rechecked against the final text rather than copied as current defects.
+- Mathematical review, task `278097d6-1c8c-4a8d-a4ae-133361894a78`, DeepSeekV4.1Flash, completed after an initial empty response and a same-session follow-up. Confirmed the two-world inequality and sample-size arithmetic, and exposed denominator, empty-history, mask-pairing and latent-metadata ambiguities. These were corrected. A further response confirmed the heterogeneous zero-event bound. Reviewer decimal rounding and a mistaken description of the primary effect as a difference-of-differences were independently corrected; review output is evidence to assess, not authority to copy.
+- The implementation delegation returned planning prose without code changes and was cancelled. It is incomplete, not an implementation success. Codex implemented the integrity fixes.
+- A bounded cross-model code review on the completed DeepSeek session inspected six source files without mutation. Its confirmed findings were one-way PDF text matching (removed prose could linger), premature manifest writes and duplicate/misordered paragraph spacing. The fixes add exact normalized whole-text comparison accounting for the retained template footnote, write the manifest atomically after all gates, and reuse correctly ordered paragraph properties. A regression now rejects attesting an old PDF after prose deletion. Claims about nonexistent tests, ZIP hash nondeterminism and unsupported module entry points were checked and rejected as false positives. Task-local review servers were stopped afterward.
+
+The updated verifier reconstructs expected DOCX parts in memory, checks current prose and table cells against PDF text, checks source/template/builder/DOCX/PDF hashes, derives page/word/size counts, validates citation IDs and checks ignored secrets/raw outputs. CI checks committed artifacts before any regeneration; Python `-O` keeps explicit guards active. Table1 is source-driven. Tests exercise stale prose, altered preserved XML, modified PDF bytes, missing PDF pages, unknown markers, orphan references and optimized Python. They validate artifact integrity, not scientific oracle correctness or absence of arbitrary malicious PDFs.
+
+Runtime `.swarm/` and browser download state are excluded from Git. No credentials or raw transcripts belong in the report package. Detailed diagnostic output stays task-local outside Git; the final source audit retains reading-depth limitations.
+
+Local validation: nine regression tests passed; normal and optimized verification passed. The reference-ID check covers all current citations, including the added Adaption price source. The current official template's preserve-only parts and section geometry remain unchanged. Microsoft Word exports and page-image inspection are repeated after source changes. The abstract has 193 words; final page counts are derived in pdf-check.json rather than inferred from an earlier render. No scientific experiments or research-credit charges were introduced by these checks.
+
+Historical credit-plan render: six main pages, two reference pages and one appendix/disclosure page (nine total), all inspected at that revision. All 26 references were cited then. One regression fixture used a hardcoded new reference ID; adding reference26 exposed it, and it now derives the next unused ID before testing orphan detection. The full nine-test suite passed after that correction. The cost calculator reproduces the historical 26,640-call/252.36-credit arithmetic; that output is planning data, not agent-performance evidence or a current validated launch profile. New empirical prose requires a fresh render/integrity pass; earlier page/reference counts do not attest the later report.
+
+## Development-status reconciliation after actual calls
+
+At the historical development checkpoint, PILOT_RESULTS.md with pilot-results.json documented the toy pilots, and SUITE_STRATEGY.md proposed the next stage. A finite enumerator and separately written constraint checker agreed on 55,296 valid projections of that toy grammar. This is automated validation, not independent human approval. That pilot mask helper covered only the eight-record full-instrumentation 25%-loss case; it did not implement the prospective 50% or instrumentation factorials. The later 12-position stateful study is separately registered and validated above.
+
+There are 318 retained Adaption request records across interrupted/qualification/formatting/fixed-reader/influence batches and four HF serving checks. Reader versions reuse 20 source seeds 71000–71019; these and influence seeds 84000–84003 are excluded from future confirmation. Three scenario-family names share one grammar and all were used in development. No family was held out. Each fixed-batch source has only one naming condition, so the data cannot estimate a paired churn interaction. Retained versions are not independent datasets to pool.
+
+The completed fixed batch reports grounded correctness of 54/60 and 59/60 for the two qualifying endpoints; these denominators are dependent packet views, not independent episodes. Selective loss reduced structural answerability more than random loss but did not increase observed unsupported worker accusations. The influence pilot produced 32 read choices and no write attempts/mutations. These are transparent development negatives, not evidence that a defense works or that inter-agent influence is absent generally. The four HF answers verify a serving route, not independent replication or checkpoint equivalence.
+
+The first runner had no durable pre-call journal, and early working sources were not all archived before execution. Some early calls remain unknown and exact source reconstruction is limited. Later fsynced journals, drainage and hashes improve future provenance without retroactively completing older evidence. Document retained records and unresolved liabilities instead of calling every missing response unattempted.
+
+The initially observed Adaption balance was 1,500 credits at 1 credit=$1 on the existing Builder plan; the user authorized all available credits, with no top-ups or subscription changes. Known provider-reported amounts total approximately 0.26418926 credits, but final debit is unreconciled after browser refresh failed and early unknown calls remain. The former $500 and 600-episode/26,640-call estimates are historical only. Training remains unlaunched: official iteration controls are not monetary caps, and both bounded charge and demonstrated base/adapter serving are required before allocation. No current account/charge claim rests only on a catalogue read.
+
+## Historical development-report validation
+
+At the development-report revision, 19 experiment tests and nine paper integrity tests passed. The 120-case sanitized release replayed and rescored without keys or network. Normal and optimized artifact verification passed; that official-template export had seven main pages, 12 total pages and a 196-word abstract. All 12 pages were inspected then. These are historical artifact checks, not verification of the later completed-study report.
+
+## Remaining final gates
+
+1. Resolve the final verifier-hardening findings and complete the root session's final tests, artifact checks and PDF inspection. Record actual current counts, not an earlier render's totals.
+2. Reconcile provider balances and unknown-charge liabilities separately from token-rate estimates. Training and custom-checkpoint serving remain unlaunched; no inference result establishes those capabilities.
+3. Obtain human author review of scientific claims, affiliations and submission details. Automated review cannot supply author approval or guarantee acceptance or originality.
+4. Recheck live submission rules, required appendix, final PDF links and page/size/abstract limits. No project has been submitted by this task.
+
+## Current factorial release validation, 7 November 2026
+
+The historical artifact counts and pending implementation checks above are superseded for the current report by `FACTORIAL_REVIEW.md`. The completed original primary and separately registered Ollama extension use the same 192 sources; original Novita missingness remains explicit. The 297 experiment tests, 23 paper tests, offline replay, descriptive posthoc calibration replay and normal/optimized artifact checks pass. The final PDF has a 190-word abstract, seven main pages, 13 total pages and 120,809 bytes; all final pages were visually inspected by the assistant. Human author approval, judge repository access and official submission remain author tasks. Provider costs remain estimates rather than reconciled invoices, and no acceptance or originality guarantee is asserted.

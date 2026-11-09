@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "checked": "2026-11-07T11:15:06.163185+00:00",
+  "mode": "Verified read-only model metadata; no account balance published",
+  "models": {
+    "deepseek-v4.1-flash:1017": {
+      "digest": "7f8e880bc207",
+      "thinking": {
+        "values": [
+          false,
+          "low",
+          "high",
+          "max"
+        ],
+        "default": "high"
+      },
+      "context_length": 1048576
+    },
+    "gemma4:31b": {
+      "digest": "221b330d11a8",
+      "thinking": {
+        "values": [
+          false,
+          true
+        ],
+        "default": false
+      },
+      "context_length": 262144
+    }
+  }
+}

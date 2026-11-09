@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "tag": "offline-release-recovery-v1",
+  "created": "2026-11-09T05:49:56.787674+00:00",
+  "base_commit": "ef6b4186b7dbea12a2fe33963792c264b18a9be0",
+  "source_sha256": {
+    "experiments/offline_release_recovery.py": "baf211c7435abc7451698713536ca0ee506ef678001808b1e4c31f8637d9fffb",
+    "experiments/tests/test_offline_release_recovery.py": "0f905780695ff5a27fe5a4d2d54c66414db9f79a288274d1ac344c6d3b0739c0",
+    "research/OFFLINE_RELEASE_RECOVERY_PROTOCOL.md": "404cb910a9b6f4ef8355b62c2d5f8c85adb057994761f867ad4ac16a468ca9f4",
+    "experiments/offline_release_supervisor.py": "a463ba165f68d9ce91a9d80c0ea9ccebd3dcd6c6bde6a7d2ede7fe45bbc539dd",
+    "experiments/tests/test_offline_release_supervisor.py": "7b9afe092e05841edbc59b231c35803a71383665ced7cc0e4915709b9993a2c4"
+  },
+  "parent_registration_sha256": {
+    "research/paced-resume-analysis-v1-freeze.json": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf"
+  },
+  "failed_waiter_sha256": {
+    "runs/paced-resume-postprocess-driver/state.json": "b6c109a996be404a58b264ce937538cf54f24c1d5d8f8c49bfe4a5a3973cab2f",
+    "runs/paced-resume-postprocess-driver/hf_export.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/paced-resume-postprocess-driver/hf_export.stderr.log": "fc04024e01e70ccdb36fb1eaf12d7b9d4ed74006adca62d738d1dc7be32ec15c"
+  },
+  "projection_rule": "validated-private-transport-to-frozen-public-three-field-schema-v1",
+  "timing": "After collection terminated and metadata-only public-schema failure diagnosis, before recovered scoring or output; no new inference"
+}

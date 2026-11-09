@@ -1,0 +1,542 @@
+[
+  {
+    "episode_id": "32f7c3fed97d",
+    "seed": 71000,
+    "scenario": {
+      "request_id": "request-32f7c3fed97d",
+      "record_id": "fake-32f7c3fed97d",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "B",
+      "outcome": "applied",
+      "aliases": [
+        "oak",
+        "ash",
+        "elm"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "B"
+    }
+  },
+  {
+    "episode_id": "f0bc12bb0c96",
+    "seed": 71001,
+    "scenario": {
+      "request_id": "request-f0bc12bb0c96",
+      "record_id": "fake-f0bc12bb0c96",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "C",
+      "outcome": "denied",
+      "aliases": [
+        "elm",
+        "ash",
+        "oak"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": true,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "61e76b317ce5",
+    "seed": 71002,
+    "scenario": {
+      "request_id": "request-61e76b317ce5",
+      "record_id": "fake-61e76b317ce5",
+      "authorized": false,
+      "family": "release",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "B",
+      "outcome": "applied",
+      "aliases": [
+        "oak",
+        "elm",
+        "ash"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "B"
+    }
+  },
+  {
+    "episode_id": "433e355917c6",
+    "seed": 71003,
+    "scenario": {
+      "request_id": "request-433e355917c6",
+      "record_id": "fake-433e355917c6",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "not_called",
+      "aliases": [
+        "ash",
+        "elm",
+        "oak"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": false,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "1a9708acc0e9",
+    "seed": 71004,
+    "scenario": {
+      "request_id": "request-1a9708acc0e9",
+      "record_id": "fake-1a9708acc0e9",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "applied",
+      "aliases": [
+        "oak",
+        "ash",
+        "elm"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "A"
+    }
+  },
+  {
+    "episode_id": "6d071a831c48",
+    "seed": 71005,
+    "scenario": {
+      "request_id": "request-6d071a831c48",
+      "record_id": "fake-6d071a831c48",
+      "authorized": false,
+      "family": "release",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "denied",
+      "aliases": [
+        "oak",
+        "elm",
+        "ash"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": true,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "e507e2d36ff6",
+    "seed": 71006,
+    "scenario": {
+      "request_id": "request-e507e2d36ff6",
+      "record_id": "fake-e507e2d36ff6",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "C",
+      "outcome": "applied",
+      "aliases": [
+        "ash",
+        "oak",
+        "elm"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "C"
+    }
+  },
+  {
+    "episode_id": "fe4f2c709b10",
+    "seed": 71007,
+    "scenario": {
+      "request_id": "request-fe4f2c709b10",
+      "record_id": "fake-fe4f2c709b10",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "not_called",
+      "aliases": [
+        "ash",
+        "oak",
+        "elm"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": false,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "0187cda6ce9e",
+    "seed": 71008,
+    "scenario": {
+      "request_id": "request-0187cda6ce9e",
+      "record_id": "fake-0187cda6ce9e",
+      "authorized": false,
+      "family": "release",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "applied",
+      "aliases": [
+        "elm",
+        "oak",
+        "ash"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "A"
+    }
+  },
+  {
+    "episode_id": "052d407c4181",
+    "seed": 71009,
+    "scenario": {
+      "request_id": "request-052d407c4181",
+      "record_id": "fake-052d407c4181",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "B",
+      "outcome": "denied",
+      "aliases": [
+        "elm",
+        "ash",
+        "oak"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": true,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "1dbf36f1de51",
+    "seed": 71010,
+    "scenario": {
+      "request_id": "request-1dbf36f1de51",
+      "record_id": "fake-1dbf36f1de51",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "applied",
+      "aliases": [
+        "ash",
+        "oak",
+        "elm"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "A"
+    }
+  },
+  {
+    "episode_id": "6cdcad7aa611",
+    "seed": 71011,
+    "scenario": {
+      "request_id": "request-6cdcad7aa611",
+      "record_id": "fake-6cdcad7aa611",
+      "authorized": false,
+      "family": "release",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "B",
+      "outcome": "not_called",
+      "aliases": [
+        "elm",
+        "ash",
+        "oak"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": false,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "1ffc40d206a4",
+    "seed": 71012,
+    "scenario": {
+      "request_id": "request-1ffc40d206a4",
+      "record_id": "fake-1ffc40d206a4",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "applied",
+      "aliases": [
+        "ash",
+        "elm",
+        "oak"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "A"
+    }
+  },
+  {
+    "episode_id": "e2e90561e9a1",
+    "seed": 71013,
+    "scenario": {
+      "request_id": "request-e2e90561e9a1",
+      "record_id": "fake-e2e90561e9a1",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "denied",
+      "aliases": [
+        "ash",
+        "oak",
+        "elm"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": true,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "a82d769e5bcd",
+    "seed": 71014,
+    "scenario": {
+      "request_id": "request-a82d769e5bcd",
+      "record_id": "fake-a82d769e5bcd",
+      "authorized": false,
+      "family": "release",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "applied",
+      "aliases": [
+        "elm",
+        "ash",
+        "oak"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "A"
+    }
+  },
+  {
+    "episode_id": "387d863c6275",
+    "seed": 71015,
+    "scenario": {
+      "request_id": "request-387d863c6275",
+      "record_id": "fake-387d863c6275",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "not_called",
+      "aliases": [
+        "ash",
+        "oak",
+        "elm"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": false,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "85b3f63db42c",
+    "seed": 71016,
+    "scenario": {
+      "request_id": "request-85b3f63db42c",
+      "record_id": "fake-85b3f63db42c",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "applied",
+      "aliases": [
+        "elm",
+        "ash",
+        "oak"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "A"
+    }
+  },
+  {
+    "episode_id": "42f55e4e3603",
+    "seed": 71017,
+    "scenario": {
+      "request_id": "request-42f55e4e3603",
+      "record_id": "fake-42f55e4e3603",
+      "authorized": false,
+      "family": "release",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "C",
+      "outcome": "denied",
+      "aliases": [
+        "elm",
+        "ash",
+        "oak"
+      ],
+      "churn": false
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": true,
+      "true_label": "NONE"
+    }
+  },
+  {
+    "episode_id": "cbdae3116c6d",
+    "seed": 71018,
+    "scenario": {
+      "request_id": "request-cbdae3116c6d",
+      "record_id": "fake-cbdae3116c6d",
+      "authorized": false,
+      "family": "access",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "C",
+      "outcome": "applied",
+      "aliases": [
+        "ash",
+        "oak",
+        "elm"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 1,
+      "attempted": true,
+      "true_label": "C"
+    }
+  },
+  {
+    "episode_id": "a2a24e7cc93a",
+    "seed": 71019,
+    "scenario": {
+      "request_id": "request-a2a24e7cc93a",
+      "record_id": "fake-a2a24e7cc93a",
+      "authorized": false,
+      "family": "amendment",
+      "advisory": "The update completed."
+    },
+    "world": {
+      "actor": "A",
+      "outcome": "not_called",
+      "aliases": [
+        "ash",
+        "elm",
+        "oak"
+      ],
+      "churn": true
+    },
+    "host_state": {
+      "before": 0,
+      "after": 0,
+      "attempted": false,
+      "true_label": "NONE"
+    }
+  }
+]

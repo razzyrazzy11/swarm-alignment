@@ -1,0 +1,3990 @@
+{
+  "schema_version": 1,
+  "status": "primary_complete_with_registered_extensions",
+  "study_id": "factorial-audit-v1",
+  "reporting_tag": "factorial-reporting-v1",
+  "primary_complete": true,
+  "original_plan_complete": false,
+  "extension_plan_complete": true,
+  "config": {
+    "study_id": "factorial-audit-v1",
+    "sources": 192,
+    "source_start": 6100000,
+    "calibration_start": 6300000,
+    "calibration_per_type": 4,
+    "actor_model": "gemma-4-26b-a4b-it",
+    "monitors": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it",
+      "meta-llama/Llama-3.3-70B-Instruct:novita"
+    ],
+    "hf_model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+    "hf_input_rate": "0.135",
+    "hf_output_rate": "0.40",
+    "max_output_tokens": 4096,
+    "input_byte_cap": 24000,
+    "concurrency": 4,
+    "hf_concurrency": 2,
+    "adaption_phase_cap": "10",
+    "hf_phase_cap": "2.00",
+    "gateway_allowance": 8,
+    "known_incomplete_count_stop": false,
+    "retries": 0,
+    "order_seed": 710027,
+    "bootstrap_seed": 710029,
+    "bootstrap_resamples": 10000,
+    "training_launch": false,
+    "primary": "primary-reader procedure minus direct raw correct definite verdict on the predeclared sufficient reference packet"
+  },
+  "extension_config": {
+    "study_id": "ollama-reader-v1",
+    "conditions": [
+      {
+        "id": "ds_off",
+        "model": "deepseek-v4.1-flash:1017",
+        "think": false,
+        "views": "all",
+        "input_rate": "0.30",
+        "output_rate": "1.20"
+      },
+      {
+        "id": "ds_low",
+        "model": "deepseek-v4.1-flash:1017",
+        "think": "low",
+        "views": "sufficient_calibration",
+        "input_rate": "0.30",
+        "output_rate": "1.20"
+      },
+      {
+        "id": "gemma_bridge",
+        "model": "gemma4:31b",
+        "think": false,
+        "views": "sufficient_calibration",
+        "input_rate": "0.14",
+        "output_rate": "0.40"
+      }
+    ],
+    "order_seed": 710033,
+    "input_byte_cap": 24000,
+    "max_output_tokens": 4096,
+    "max_active": 2,
+    "pilot_stage_cap": "0.10",
+    "readers_stage_cap": "9.90",
+    "combined_cap": "10.00",
+    "remaining_credit_floor": "5.00",
+    "balance_poll_seconds": 60,
+    "metadata_recheck_calls": 100,
+    "gateway_allowance": 8,
+    "gateway_backoff_seconds": 60,
+    "request_timeout_seconds": 180,
+    "retries": 0,
+    "cost_basis": "published_peak_uncached_estimate_not_invoice"
+  },
+  "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "reporting_freeze_sha256": "3aa651c7786180bd02ad97f4e2371b632679cedbf0b23224ccdff2ca4448ef6f",
+  "extension_freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0",
+  "original_checkpoint_sha256": "b55f795a0ac26a66b5d47582ab4714279d8ded035363a61be0fd5a410b4d601a",
+  "artifacts": {
+    "data/factorial_contexts.json": "5e386a7f4dccf3737e2a8f740b4f69d5bf841e2dc871257d85f43861044380b3",
+    "data/factorial_report_actors.jsonl": "8fb47ddd64fea332936ff78ae8fa1e4df6661935d27dd4b141f322e7c84298f2",
+    "data/factorial_report_trajectories.json": "bf9be467c9e19d2faaa9bb37eb23edb2be5d5f6cac5839242b2c61f6ea032bce",
+    "data/factorial_report_cases.jsonl": "4d8869b19a79be61944e9e6b61eeab2b634fb4257babb7e5872677071efa0d46",
+    "data/factorial_report_manifest.json": "153613f36d6f17370ba6c1cb8d141dab9737789e09b41c484a75bed2c3329152"
+  },
+  "raw_file_sha256": {
+    "original/smoke/plan.json": "898ae9ea727f0e6bc38338d7dcd7f9ce7535c90003548eed58b75dafdf1cf09e",
+    "original/smoke/attempts.jsonl": "491440b7f5d13725a55f1a856ae44b3f42dd674569ac186e841d4eab62ec894f",
+    "original/smoke/responses.jsonl": "6783ac9b3cb478c28d732563e232e28437c6ab672d89675c8e0b0e1e5de7d4ee",
+    "original/smoke/summary.json": "4aba25115542e3ef9acf55a067b266c246c8d77bbeea158c36b179de9ad1b1a9",
+    "original/issue/plan.json": "bde23e4201531a26564ab3fba64c8a310ff30b30f91c549a9ac015e75b36434e",
+    "original/issue/attempts.jsonl": "d57dad336d0cc1c39d6bc7e4cc45c8a5193091abb80276c11e1a2e4b61e23e56",
+    "original/issue/responses.jsonl": "467081c7e8484f399736d43d0286f574f0ef3a6581727b4057fd4b99e4952525",
+    "original/issue/summary.json": "90f2033e4dd3800064e59eb2f6d13a3f15752bd944f0809a230886bfa030fa3d",
+    "original/delegate/plan.json": "a106a24c9537497a88be7bb65b84d4ff9cc92b9c5a3354e77bbee0682d1bed8e",
+    "original/delegate/attempts.jsonl": "0c212ee2c229c5d683035fc2e223f2fefaa95ec8d6ab968a50c87a2430ee2ee3",
+    "original/delegate/responses.jsonl": "f137d4dc488d32eac45d5e800d72b38578cf2f4cae1cd3964c4c51a46a72532a",
+    "original/delegate/summary.json": "758a7f8ad19efb045a3cbc15992cdbb508eb3c9cbcbb95e2eb96517ec2f63fa9",
+    "original/settle/plan.json": "9e3386c4a3a560458a8c84d5f76117660d28f648c069872c52c59f546dfbacdb",
+    "original/settle/attempts.jsonl": "422125168cdf70e42a9372b9af18d4b6f67c7f9ddad57e72958cee19aaeca3f1",
+    "original/settle/responses.jsonl": "afc7ec610ad02280a0cc045271a2ffedc72c648146ae1651da0c39f5e6152f54",
+    "original/settle/summary.json": "45a1569155843fbe0165e59881b7b68e7f7db59d8fea23effcab353b430ca065",
+    "original/audits/plan.json": "3827464811aa4db473a30b08e9ec775b13a3a4ed0214f99815053863e49ac531",
+    "original/audits/attempts.jsonl": "eeabb3e3fd94c1d274b139f62619b6e61987ee0389d048dc5be7e8dc2b8c493c",
+    "original/audits/responses.jsonl": "e4201e45eedcf256ee1e7c609789024596fe4a8520024145eb6d672712bf30e9",
+    "original/audits/summary.json": "046ace158d287466fd03231134cf68e4a4baacfbb7ce9473cfc4f109002c8b6f",
+    "extension/pilot/plan.json": "461d0aa7dec632d514fa74d205dde68a29bed3d66509b42ecebf939978d7d795",
+    "extension/pilot/attempts.jsonl": "865e87fd9c8378b1639d893df2de94a8a870a6eae8f1095e7a81be90550e44bb",
+    "extension/pilot/responses.jsonl": "b17d593b31f02f289ba492a1cf18e786524d4cdba79f09cfb8edebeba2507a2a",
+    "extension/pilot/summary.json": "e76249a5dd18768cff6a1af01dd85d1f7986bb8999a90d58fba0033efa57f38d",
+    "extension/readers/plan.json": "35b54caf2d93d5970860ac53901cd3b6afe24acbb4cf478cc42a1ba003caba33",
+    "extension/readers/attempts.jsonl": "2e56f67b349936384eb55b7cdc347bb3188abebc9f1998ffd161aecf66b91882",
+    "extension/readers/responses.jsonl": "3c6d8b482929ccc0fc1d38a4239108e832e02a01a934e36b1883bf599fe0d26e",
+    "extension/readers/summary.json": "3a9aa773f218091fd556ff86886c48a9e53447f94d1eec3090b290a8ac9c9bac"
+  },
+  "phases": {
+    "original": {
+      "issue": {
+        "planned": 192,
+        "returned": 192,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.0050452770",
+          "hf": "0"
+        },
+        "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652"
+      },
+      "delegate": {
+        "planned": 192,
+        "returned": 192,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 1,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.0081871065",
+          "hf": "0"
+        },
+        "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652"
+      },
+      "settle": {
+        "planned": 192,
+        "returned": 192,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.0055535940",
+          "hf": "0"
+        },
+        "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652"
+      },
+      "smoke": {
+        "planned": 6,
+        "returned": 6,
+        "complete": true,
+        "halted": false,
+        "unstarted": 0,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "0.0000307880",
+          "hf": "0.00002607"
+        },
+        "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652"
+      },
+      "audits": {
+        "planned": 11640,
+        "returned": 9742,
+        "complete": false,
+        "halted": true,
+        "unstarted": 1898,
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "costs": {
+          "adaption": "1.1187768720",
+          "hf": "0.880229785"
+        },
+        "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652"
+      }
+    },
+    "extension": {
+      "pilot": {
+        "planned": 6,
+        "returned": 6,
+        "unstarted": 0,
+        "complete": true,
+        "halted": false,
+        "stop_reason": "",
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "estimated_cost": "0.00043054",
+        "cost_basis": "published_peak_uncached_estimate_not_invoice",
+        "freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0"
+      },
+      "readers": {
+        "planned": 4728,
+        "returned": 4728,
+        "unstarted": 0,
+        "complete": true,
+        "halted": false,
+        "stop_reason": "",
+        "gateway_errors": 0,
+        "incomplete": 0,
+        "estimated_cost": "2.21024212",
+        "cost_basis": "published_peak_uncached_estimate_not_invoice",
+        "freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0"
+      }
+    }
+  },
+  "analysis": {
+    "sources": 192,
+    "actor_calls": 576,
+    "audit_calls": 14470,
+    "original_audit_calls": 9742,
+    "extension_audit_calls": 4728,
+    "main_audit_calls": 14252,
+    "calibration_calls": 218,
+    "planned_original_audit_calls": 11640,
+    "planned_extension_audit_calls": 4728,
+    "primary": {
+      "model": "gemma-4-26b-a4b-it",
+      "view": "sufficient",
+      "metric": "raw supported definite procedure minus direct",
+      "result": {
+        "n": 192,
+        "estimate": 0.171875,
+        "ci95": [
+          0.109375,
+          0.234375
+        ],
+        "resamples": 10000,
+        "unit": "source group",
+        "strata": "eight preassigned context profiles"
+      }
+    },
+    "models": {
+      "gemma-4-26b-a4b-it": {
+        "by_view": {
+          "identity_loss": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 169,
+                "supported_definite": 169,
+                "unsupported_executor": 1,
+                "unsupported_none": 0,
+                "invalid": 11,
+                "abstain": 11,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 312139,
+                "output_tokens": 9609,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 234.035,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 169,
+                "supported_definite": 169,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 11,
+                "abstain": 12,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 312139,
+                "output_tokens": 9609,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 234.035,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 189,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 3,
+                "abstain": 0,
+                "strict_invalid": 191,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 338059,
+                "output_tokens": 4688,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 186.90600000000015,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 189,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 3,
+                "abstain": 0,
+                "strict_invalid": 191,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 338059,
+                "output_tokens": 4688,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 186.90600000000015,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "random_contract": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 165,
+                "supported_definite": 164,
+                "unsupported_executor": 25,
+                "unsupported_none": 1,
+                "invalid": 0,
+                "abstain": 2,
+                "strict_invalid": 192,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 316819,
+                "output_tokens": 3293,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 176.42399999999992,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 168,
+                "supported_definite": 164,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 28,
+                "strict_invalid": 192,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 316819,
+                "output_tokens": 3293,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 176.42399999999992,
+                "restored_bytes_total": 35991
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 186,
+                "supported_definite": 185,
+                "unsupported_executor": 3,
+                "unsupported_none": 3,
+                "invalid": 0,
+                "abstain": 1,
+                "strict_invalid": 191,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 342739,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 151.0050000000001,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 185,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 7,
+                "strict_invalid": 191,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 342739,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 151.0050000000001,
+                "restored_bytes_total": 35991
+              }
+            }
+          },
+          "random_metadata": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 162,
+                "supported_definite": 159,
+                "unsupported_executor": 26,
+                "unsupported_none": 2,
+                "invalid": 0,
+                "abstain": 5,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 316873,
+                "output_tokens": 3300,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 202.83600000000004,
+                "restored_bytes_total": 36025
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 166,
+                "supported_definite": 159,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 33,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 316873,
+                "output_tokens": 3300,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 202.83600000000004,
+                "restored_bytes_total": 36025
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 182,
+                "supported_definite": 182,
+                "unsupported_executor": 6,
+                "unsupported_none": 4,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 342793,
+                "output_tokens": 3270,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 185.2730000000001,
+                "restored_bytes_total": 36025
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 182,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 10,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 342793,
+                "output_tokens": 3270,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 185.2730000000001,
+                "restored_bytes_total": 36025
+              }
+            }
+          },
+          "random_none": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 119,
+                "supported_definite": 85,
+                "unsupported_executor": 40,
+                "unsupported_none": 25,
+                "invalid": 4,
+                "abstain": 38,
+                "strict_invalid": 192,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 301478,
+                "output_tokens": 5418,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 195.65300000000005,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 176,
+                "supported_definite": 85,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 4,
+                "abstain": 103,
+                "strict_invalid": 192,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 301478,
+                "output_tokens": 5418,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 195.65300000000005,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 122,
+                "supported_definite": 94,
+                "unsupported_executor": 18,
+                "unsupported_none": 49,
+                "invalid": 0,
+                "abstain": 31,
+                "strict_invalid": 188,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 327398,
+                "output_tokens": 3324,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 194.30800000000002,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 188,
+                "supported_definite": 94,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 98,
+                "strict_invalid": 188,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 327398,
+                "output_tokens": 3324,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 194.30800000000002,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "random_random": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 137,
+                "supported_definite": 126,
+                "unsupported_executor": 33,
+                "unsupported_none": 18,
+                "invalid": 0,
+                "abstain": 15,
+                "strict_invalid": 192,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 316649,
+                "output_tokens": 3327,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 186.84400000000025,
+                "restored_bytes_total": 36001
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 177,
+                "supported_definite": 126,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 66,
+                "strict_invalid": 192,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 316649,
+                "output_tokens": 3327,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 186.84400000000025,
+                "restored_bytes_total": 36001
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 140,
+                "supported_definite": 137,
+                "unsupported_executor": 18,
+                "unsupported_none": 34,
+                "invalid": 0,
+                "abstain": 3,
+                "strict_invalid": 190,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 342569,
+                "output_tokens": 3278,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 203.91599999999994,
+                "restored_bytes_total": 36001
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 188,
+                "supported_definite": 137,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 55,
+                "strict_invalid": 190,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 342569,
+                "output_tokens": 3278,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 203.91599999999994,
+                "restored_bytes_total": 36001
+              }
+            }
+          },
+          "selective_contract": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 165,
+                "supported_definite": 165,
+                "unsupported_executor": 24,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 3,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 316953,
+                "output_tokens": 3294,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 186.09600000000012,
+                "restored_bytes_total": 37102
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 165,
+                "supported_definite": 165,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 27,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 316953,
+                "output_tokens": 3294,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 186.09600000000012,
+                "restored_bytes_total": 37102
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 189,
+                "unsupported_executor": 3,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342873,
+                "output_tokens": 3267,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 187.767,
+                "restored_bytes_total": 37102
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 189,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 3,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342873,
+                "output_tokens": 3267,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 187.767,
+                "restored_bytes_total": 37102
+              }
+            }
+          },
+          "selective_metadata": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 160,
+                "supported_definite": 160,
+                "unsupported_executor": 30,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 2,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 317011,
+                "output_tokens": 3298,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 179.91199999999998,
+                "restored_bytes_total": 37005
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 160,
+                "supported_definite": 160,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 32,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 317011,
+                "output_tokens": 3298,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 179.91199999999998,
+                "restored_bytes_total": 37005
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 189,
+                "unsupported_executor": 3,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342931,
+                "output_tokens": 3267,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 178.11700000000008,
+                "restored_bytes_total": 37005
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 189,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 3,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342931,
+                "output_tokens": 3267,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 178.11700000000008,
+                "restored_bytes_total": 37005
+              }
+            }
+          },
+          "selective_none": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 111,
+                "supported_definite": 61,
+                "unsupported_executor": 30,
+                "unsupported_none": 48,
+                "invalid": 1,
+                "abstain": 52,
+                "strict_invalid": 192,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 301166,
+                "output_tokens": 4147,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 181.90600000000018,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 189,
+                "supported_definite": 61,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 1,
+                "abstain": 130,
+                "strict_invalid": 192,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 301166,
+                "output_tokens": 4147,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 181.90600000000018,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 98,
+                "supported_definite": 63,
+                "unsupported_executor": 16,
+                "unsupported_none": 76,
+                "invalid": 2,
+                "abstain": 35,
+                "strict_invalid": 190,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 327086,
+                "output_tokens": 5194,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 190.70100000000008,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 190,
+                "supported_definite": 63,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 2,
+                "abstain": 127,
+                "strict_invalid": 190,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 327086,
+                "output_tokens": 5194,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 190.70100000000008,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "selective_random": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 123,
+                "supported_definite": 101,
+                "unsupported_executor": 36,
+                "unsupported_none": 31,
+                "invalid": 0,
+                "abstain": 24,
+                "strict_invalid": 192,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 316375,
+                "output_tokens": 3348,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 196.48800000000003,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 181,
+                "supported_definite": 101,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 91,
+                "strict_invalid": 192,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 316375,
+                "output_tokens": 3348,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 196.48800000000003,
+                "restored_bytes_total": 35991
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 130,
+                "supported_definite": 111,
+                "unsupported_executor": 12,
+                "unsupported_none": 50,
+                "invalid": 0,
+                "abstain": 19,
+                "strict_invalid": 191,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 342295,
+                "output_tokens": 3309,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 168.83000000000007,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 191,
+                "supported_definite": 111,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 81,
+                "strict_invalid": 191,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 342295,
+                "output_tokens": 3309,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 168.83000000000007,
+                "restored_bytes_total": 35991
+              }
+            }
+          },
+          "sufficient": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 144,
+                "supported_definite": 144,
+                "unsupported_executor": 44,
+                "unsupported_none": 0,
+                "invalid": 2,
+                "abstain": 2,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 258646,
+                "output_tokens": 4109,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 166.99700000000016,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 144,
+                "supported_definite": 144,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 2,
+                "abstain": 46,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 258646,
+                "output_tokens": 4109,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 166.99700000000016,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 177,
+                "supported_definite": 177,
+                "unsupported_executor": 15,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 284566,
+                "output_tokens": 3279,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 173.02700000000007,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 177,
+                "supported_definite": 177,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 15,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 284566,
+                "output_tokens": 3279,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 173.02700000000007,
+                "restored_bytes_total": 0
+              }
+            }
+          }
+        },
+        "totals": {
+          "calls": 3840,
+          "grounded_correct": 3057,
+          "supported_definite": 2850,
+          "unsupported_executor": 383,
+          "unsupported_none": 341,
+          "invalid": 23,
+          "abstain": 243,
+          "strict_invalid": 3829,
+          "singleton": 3110,
+          "known_usage_calls": 3840,
+          "input_tokens": 6407418,
+          "output_tokens": 79283,
+          "measured_latency_calls": 3840,
+          "provider_latency_seconds_sum": 3727.0409999999947,
+          "restored_bytes_total": 436230
+        },
+        "primary_same_packet_procedure_minus_direct": {
+          "n": 192,
+          "estimate": 0.171875,
+          "ci95": [
+            0.109375,
+            0.234375
+          ],
+          "resamples": 10000,
+          "unit": "source group",
+          "strata": "eight preassigned context profiles"
+        },
+        "secondary_acquisition_grounded": {
+          "metadata_minus_random": {
+            "n": 192,
+            "estimate": 0.16145833333333334,
+            "ci95": [
+              0.11458333333333333,
+              0.20572916666666666
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          },
+          "contract_minus_metadata": {
+            "n": 192,
+            "estimate": 0.020833333333333332,
+            "ci95": [
+              -0.005208333333333333,
+              0.049479166666666664
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          }
+        },
+        "availability": {
+          "planned": 3880,
+          "returned": 3880,
+          "unstarted": 0,
+          "main_planned": 3840,
+          "main_returned": 3840,
+          "calibration_planned": 40,
+          "calibration_returned": 40,
+          "complete": true
+        }
+      },
+      "gemma-4-31b-it": {
+        "by_view": {
+          "identity_loss": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 312139,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 230.03199999999987,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 312139,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 230.03199999999987,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 338059,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 197.99499999999992,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 338059,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 197.99499999999992,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "random_contract": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 188,
+                "supported_definite": 188,
+                "unsupported_executor": 0,
+                "unsupported_none": 4,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 316819,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 183.90399999999997,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 188,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 4,
+                "strict_invalid": 192,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 316819,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 183.90399999999997,
+                "restored_bytes_total": 35991
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 188,
+                "supported_definite": 188,
+                "unsupported_executor": 0,
+                "unsupported_none": 4,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 342739,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 188.85299999999984,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 188,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 4,
+                "strict_invalid": 192,
+                "singleton": 188,
+                "known_usage_calls": 192,
+                "input_tokens": 342739,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 188.85299999999984,
+                "restored_bytes_total": 35991
+              }
+            }
+          },
+          "random_metadata": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 185,
+                "supported_definite": 185,
+                "unsupported_executor": 0,
+                "unsupported_none": 7,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 316873,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 171.251,
+                "restored_bytes_total": 36025
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 185,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 7,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 316873,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 171.251,
+                "restored_bytes_total": 36025
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 185,
+                "supported_definite": 185,
+                "unsupported_executor": 0,
+                "unsupported_none": 7,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 342793,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 196.367,
+                "restored_bytes_total": 36025
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 185,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 7,
+                "strict_invalid": 192,
+                "singleton": 185,
+                "known_usage_calls": 192,
+                "input_tokens": 342793,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 196.367,
+                "restored_bytes_total": 36025
+              }
+            }
+          },
+          "random_none": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 98,
+                "supported_definite": 98,
+                "unsupported_executor": 7,
+                "unsupported_none": 87,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 301478,
+                "output_tokens": 3271,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 175.2039999999999,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 98,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 94,
+                "strict_invalid": 192,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 301478,
+                "output_tokens": 3271,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 175.2039999999999,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 102,
+                "supported_definite": 98,
+                "unsupported_executor": 7,
+                "unsupported_none": 83,
+                "invalid": 0,
+                "abstain": 4,
+                "strict_invalid": 192,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 327398,
+                "output_tokens": 3279,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 210.36399999999995,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 98,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 94,
+                "strict_invalid": 192,
+                "singleton": 98,
+                "known_usage_calls": 192,
+                "input_tokens": 327398,
+                "output_tokens": 3279,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 210.36399999999995,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "random_random": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 143,
+                "supported_definite": 141,
+                "unsupported_executor": 7,
+                "unsupported_none": 42,
+                "invalid": 0,
+                "abstain": 2,
+                "strict_invalid": 192,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 316649,
+                "output_tokens": 3275,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 207.1269999999999,
+                "restored_bytes_total": 36001
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 141,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 51,
+                "strict_invalid": 192,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 316649,
+                "output_tokens": 3275,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 207.1269999999999,
+                "restored_bytes_total": 36001
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 141,
+                "supported_definite": 141,
+                "unsupported_executor": 7,
+                "unsupported_none": 44,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 342569,
+                "output_tokens": 3271,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 181.80800000000002,
+                "restored_bytes_total": 36001
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 141,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 51,
+                "strict_invalid": 192,
+                "singleton": 141,
+                "known_usage_calls": 192,
+                "input_tokens": 342569,
+                "output_tokens": 3271,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 181.80800000000002,
+                "restored_bytes_total": 36001
+              }
+            }
+          },
+          "selective_contract": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 316953,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 213.2879999999998,
+                "restored_bytes_total": 37102
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 316953,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 213.2879999999998,
+                "restored_bytes_total": 37102
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342873,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 171.13799999999995,
+                "restored_bytes_total": 37102
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342873,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 171.13799999999995,
+                "restored_bytes_total": 37102
+              }
+            }
+          },
+          "selective_metadata": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 317011,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 218.1099999999999,
+                "restored_bytes_total": 37005
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 317011,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 218.1099999999999,
+                "restored_bytes_total": 37005
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342931,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 192.019,
+                "restored_bytes_total": 37005
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 342931,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 192.019,
+                "restored_bytes_total": 37005
+              }
+            }
+          },
+          "selective_none": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 63,
+                "supported_definite": 63,
+                "unsupported_executor": 4,
+                "unsupported_none": 125,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 301166,
+                "output_tokens": 3268,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 188.44900000000015,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 63,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 129,
+                "strict_invalid": 192,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 301166,
+                "output_tokens": 3268,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 188.44900000000015,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 68,
+                "supported_definite": 63,
+                "unsupported_executor": 3,
+                "unsupported_none": 121,
+                "invalid": 0,
+                "abstain": 5,
+                "strict_invalid": 192,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 327086,
+                "output_tokens": 3277,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 192.125,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 63,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 129,
+                "strict_invalid": 192,
+                "singleton": 63,
+                "known_usage_calls": 192,
+                "input_tokens": 327086,
+                "output_tokens": 3277,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 192.125,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "selective_random": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 112,
+                "supported_definite": 112,
+                "unsupported_executor": 3,
+                "unsupported_none": 77,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 316375,
+                "output_tokens": 3267,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 201.502,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 112,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 80,
+                "strict_invalid": 192,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 316375,
+                "output_tokens": 3267,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 201.502,
+                "restored_bytes_total": 35991
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 112,
+                "supported_definite": 112,
+                "unsupported_executor": 4,
+                "unsupported_none": 76,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 342295,
+                "output_tokens": 3268,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 200.8989999999999,
+                "restored_bytes_total": 35991
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 112,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 80,
+                "strict_invalid": 192,
+                "singleton": 112,
+                "known_usage_calls": 192,
+                "input_tokens": 342295,
+                "output_tokens": 3268,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 200.8989999999999,
+                "restored_bytes_total": 35991
+              }
+            }
+          },
+          "sufficient": {
+            "direct": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 258646,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 200.9589999999999,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 192,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 258646,
+                "output_tokens": 3264,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 200.9589999999999,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 188,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 284566,
+                "output_tokens": 3244,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 239.18399999999994,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 192,
+                "grounded_correct": 192,
+                "supported_definite": 192,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 0,
+                "abstain": 0,
+                "strict_invalid": 188,
+                "singleton": 192,
+                "known_usage_calls": 192,
+                "input_tokens": 284566,
+                "output_tokens": 3244,
+                "measured_latency_calls": 192,
+                "provider_latency_seconds_sum": 239.18399999999994,
+                "restored_bytes_total": 0
+              }
+            }
+          }
+        },
+        "totals": {
+          "calls": 3840,
+          "grounded_correct": 3121,
+          "supported_definite": 3110,
+          "unsupported_executor": 42,
+          "unsupported_none": 677,
+          "invalid": 0,
+          "abstain": 11,
+          "strict_invalid": 3836,
+          "singleton": 3110,
+          "known_usage_calls": 3840,
+          "input_tokens": 6407418,
+          "output_tokens": 65324,
+          "measured_latency_calls": 3840,
+          "provider_latency_seconds_sum": 3960.5780000000123,
+          "restored_bytes_total": 436230
+        },
+        "primary_same_packet_procedure_minus_direct": {
+          "n": 192,
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "resamples": 10000,
+          "unit": "source group",
+          "strata": "eight preassigned context profiles"
+        },
+        "secondary_acquisition_grounded": {
+          "metadata_minus_random": {
+            "n": 192,
+            "estimate": 0.3177083333333333,
+            "ci95": [
+              0.2760416666666667,
+              0.359375
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          },
+          "contract_minus_metadata": {
+            "n": 192,
+            "estimate": 0.0078125,
+            "ci95": [
+              0.0,
+              0.018229166666666668
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          }
+        },
+        "availability": {
+          "planned": 3880,
+          "returned": 3880,
+          "unstarted": 0,
+          "main_planned": 3840,
+          "main_returned": 3840,
+          "calibration_planned": 40,
+          "calibration_returned": 40,
+          "complete": true
+        }
+      },
+      "meta-llama/Llama-3.3-70B-Instruct:novita": {
+        "observed_by_view": {
+          "identity_loss": {
+            "direct": {
+              "raw": {
+                "calls": 103,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 103,
+                "abstain": 0,
+                "strict_invalid": 103,
+                "singleton": 103,
+                "known_usage_calls": 103,
+                "input_tokens": 143494,
+                "output_tokens": 63379,
+                "measured_latency_calls": 103,
+                "provider_latency_seconds_sum": 1251.157,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 103,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 103,
+                "abstain": 0,
+                "strict_invalid": 103,
+                "singleton": 103,
+                "known_usage_calls": 103,
+                "input_tokens": 143494,
+                "output_tokens": 63379,
+                "measured_latency_calls": 103,
+                "provider_latency_seconds_sum": 1251.157,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 95,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 95,
+                "abstain": 0,
+                "strict_invalid": 95,
+                "singleton": 95,
+                "known_usage_calls": 95,
+                "input_tokens": 144369,
+                "output_tokens": 61024,
+                "measured_latency_calls": 95,
+                "provider_latency_seconds_sum": 1201.5779999999997,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 95,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 95,
+                "abstain": 0,
+                "strict_invalid": 95,
+                "singleton": 95,
+                "known_usage_calls": 95,
+                "input_tokens": 144369,
+                "output_tokens": 61024,
+                "measured_latency_calls": 95,
+                "provider_latency_seconds_sum": 1201.5779999999997,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "random_contract": {
+            "direct": {
+              "raw": {
+                "calls": 98,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 98,
+                "abstain": 0,
+                "strict_invalid": 98,
+                "singleton": 96,
+                "known_usage_calls": 98,
+                "input_tokens": 138322,
+                "output_tokens": 54758,
+                "measured_latency_calls": 98,
+                "provider_latency_seconds_sum": 1093.553,
+                "restored_bytes_total": 18455
+              },
+              "gated": {
+                "calls": 98,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 98,
+                "abstain": 0,
+                "strict_invalid": 98,
+                "singleton": 96,
+                "known_usage_calls": 98,
+                "input_tokens": 138322,
+                "output_tokens": 54758,
+                "measured_latency_calls": 98,
+                "provider_latency_seconds_sum": 1093.553,
+                "restored_bytes_total": 18455
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 90,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 90,
+                "abstain": 0,
+                "strict_invalid": 90,
+                "singleton": 90,
+                "known_usage_calls": 89,
+                "input_tokens": 137008,
+                "output_tokens": 54321,
+                "measured_latency_calls": 90,
+                "provider_latency_seconds_sum": 1078.014,
+                "restored_bytes_total": 16874
+              },
+              "gated": {
+                "calls": 90,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 90,
+                "abstain": 0,
+                "strict_invalid": 90,
+                "singleton": 90,
+                "known_usage_calls": 89,
+                "input_tokens": 137008,
+                "output_tokens": 54321,
+                "measured_latency_calls": 90,
+                "provider_latency_seconds_sum": 1078.014,
+                "restored_bytes_total": 16874
+              }
+            }
+          },
+          "random_metadata": {
+            "direct": {
+              "raw": {
+                "calls": 110,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 110,
+                "abstain": 0,
+                "strict_invalid": 110,
+                "singleton": 106,
+                "known_usage_calls": 110,
+                "input_tokens": 155408,
+                "output_tokens": 62101,
+                "measured_latency_calls": 110,
+                "provider_latency_seconds_sum": 1240.5179999999998,
+                "restored_bytes_total": 20446
+              },
+              "gated": {
+                "calls": 110,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 110,
+                "abstain": 0,
+                "strict_invalid": 110,
+                "singleton": 106,
+                "known_usage_calls": 110,
+                "input_tokens": 155408,
+                "output_tokens": 62101,
+                "measured_latency_calls": 110,
+                "provider_latency_seconds_sum": 1240.5179999999998,
+                "restored_bytes_total": 20446
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 100,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 100,
+                "abstain": 0,
+                "strict_invalid": 100,
+                "singleton": 97,
+                "known_usage_calls": 99,
+                "input_tokens": 152400,
+                "output_tokens": 59941,
+                "measured_latency_calls": 100,
+                "provider_latency_seconds_sum": 1205.633,
+                "restored_bytes_total": 19115
+              },
+              "gated": {
+                "calls": 100,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 100,
+                "abstain": 0,
+                "strict_invalid": 100,
+                "singleton": 97,
+                "known_usage_calls": 99,
+                "input_tokens": 152400,
+                "output_tokens": 59941,
+                "measured_latency_calls": 100,
+                "provider_latency_seconds_sum": 1205.633,
+                "restored_bytes_total": 19115
+              }
+            }
+          },
+          "random_none": {
+            "direct": {
+              "raw": {
+                "calls": 105,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 105,
+                "abstain": 0,
+                "strict_invalid": 105,
+                "singleton": 52,
+                "known_usage_calls": 105,
+                "input_tokens": 141274,
+                "output_tokens": 62071,
+                "measured_latency_calls": 105,
+                "provider_latency_seconds_sum": 1221.607,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 105,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 105,
+                "abstain": 0,
+                "strict_invalid": 105,
+                "singleton": 52,
+                "known_usage_calls": 105,
+                "input_tokens": 141274,
+                "output_tokens": 62071,
+                "measured_latency_calls": 105,
+                "provider_latency_seconds_sum": 1221.607,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 100,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 100,
+                "abstain": 0,
+                "strict_invalid": 100,
+                "singleton": 50,
+                "known_usage_calls": 100,
+                "input_tokens": 147314,
+                "output_tokens": 66577,
+                "measured_latency_calls": 100,
+                "provider_latency_seconds_sum": 1305.2129999999995,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 100,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 100,
+                "abstain": 0,
+                "strict_invalid": 100,
+                "singleton": 50,
+                "known_usage_calls": 100,
+                "input_tokens": 147314,
+                "output_tokens": 66577,
+                "measured_latency_calls": 100,
+                "provider_latency_seconds_sum": 1305.2129999999995,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "random_random": {
+            "direct": {
+              "raw": {
+                "calls": 102,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 102,
+                "abstain": 0,
+                "strict_invalid": 102,
+                "singleton": 72,
+                "known_usage_calls": 100,
+                "input_tokens": 141064,
+                "output_tokens": 55681,
+                "measured_latency_calls": 102,
+                "provider_latency_seconds_sum": 1108.6349999999998,
+                "restored_bytes_total": 19351
+              },
+              "gated": {
+                "calls": 102,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 102,
+                "abstain": 0,
+                "strict_invalid": 102,
+                "singleton": 72,
+                "known_usage_calls": 100,
+                "input_tokens": 141064,
+                "output_tokens": 55681,
+                "measured_latency_calls": 102,
+                "provider_latency_seconds_sum": 1108.6349999999998,
+                "restored_bytes_total": 19351
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 88,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 88,
+                "abstain": 0,
+                "strict_invalid": 88,
+                "singleton": 62,
+                "known_usage_calls": 88,
+                "input_tokens": 135384,
+                "output_tokens": 54385,
+                "measured_latency_calls": 88,
+                "provider_latency_seconds_sum": 1070.8780000000004,
+                "restored_bytes_total": 16520
+              },
+              "gated": {
+                "calls": 88,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 88,
+                "abstain": 0,
+                "strict_invalid": 88,
+                "singleton": 62,
+                "known_usage_calls": 88,
+                "input_tokens": 135384,
+                "output_tokens": 54385,
+                "measured_latency_calls": 88,
+                "provider_latency_seconds_sum": 1070.8780000000004,
+                "restored_bytes_total": 16520
+              }
+            }
+          },
+          "selective_contract": {
+            "direct": {
+              "raw": {
+                "calls": 97,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 97,
+                "abstain": 0,
+                "strict_invalid": 97,
+                "singleton": 97,
+                "known_usage_calls": 97,
+                "input_tokens": 136992,
+                "output_tokens": 52913,
+                "measured_latency_calls": 97,
+                "provider_latency_seconds_sum": 1056.5329999999997,
+                "restored_bytes_total": 18555
+              },
+              "gated": {
+                "calls": 97,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 97,
+                "abstain": 0,
+                "strict_invalid": 97,
+                "singleton": 97,
+                "known_usage_calls": 97,
+                "input_tokens": 136992,
+                "output_tokens": 52913,
+                "measured_latency_calls": 97,
+                "provider_latency_seconds_sum": 1056.5329999999997,
+                "restored_bytes_total": 18555
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 95,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 95,
+                "abstain": 0,
+                "strict_invalid": 95,
+                "singleton": 95,
+                "known_usage_calls": 95,
+                "input_tokens": 146345,
+                "output_tokens": 60445,
+                "measured_latency_calls": 95,
+                "provider_latency_seconds_sum": 1188.5910000000001,
+                "restored_bytes_total": 18299
+              },
+              "gated": {
+                "calls": 95,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 95,
+                "abstain": 0,
+                "strict_invalid": 95,
+                "singleton": 95,
+                "known_usage_calls": 95,
+                "input_tokens": 146345,
+                "output_tokens": 60445,
+                "measured_latency_calls": 95,
+                "provider_latency_seconds_sum": 1188.5910000000001,
+                "restored_bytes_total": 18299
+              }
+            }
+          },
+          "selective_metadata": {
+            "direct": {
+              "raw": {
+                "calls": 94,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 94,
+                "abstain": 0,
+                "strict_invalid": 94,
+                "singleton": 94,
+                "known_usage_calls": 94,
+                "input_tokens": 132850,
+                "output_tokens": 50548,
+                "measured_latency_calls": 94,
+                "provider_latency_seconds_sum": 1006.219,
+                "restored_bytes_total": 18294
+              },
+              "gated": {
+                "calls": 94,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 94,
+                "abstain": 0,
+                "strict_invalid": 94,
+                "singleton": 94,
+                "known_usage_calls": 94,
+                "input_tokens": 132850,
+                "output_tokens": 50548,
+                "measured_latency_calls": 94,
+                "provider_latency_seconds_sum": 1006.219,
+                "restored_bytes_total": 18294
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 87,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 87,
+                "abstain": 0,
+                "strict_invalid": 87,
+                "singleton": 87,
+                "known_usage_calls": 87,
+                "input_tokens": 133991,
+                "output_tokens": 52382,
+                "measured_latency_calls": 87,
+                "provider_latency_seconds_sum": 1045.2340000000004,
+                "restored_bytes_total": 16723
+              },
+              "gated": {
+                "calls": 87,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 87,
+                "abstain": 0,
+                "strict_invalid": 87,
+                "singleton": 87,
+                "known_usage_calls": 87,
+                "input_tokens": 133991,
+                "output_tokens": 52382,
+                "measured_latency_calls": 87,
+                "provider_latency_seconds_sum": 1045.2340000000004,
+                "restored_bytes_total": 16723
+              }
+            }
+          },
+          "selective_none": {
+            "direct": {
+              "raw": {
+                "calls": 110,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 110,
+                "abstain": 0,
+                "strict_invalid": 110,
+                "singleton": 30,
+                "known_usage_calls": 110,
+                "input_tokens": 147734,
+                "output_tokens": 67147,
+                "measured_latency_calls": 110,
+                "provider_latency_seconds_sum": 1326.6889999999999,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 110,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 110,
+                "abstain": 0,
+                "strict_invalid": 110,
+                "singleton": 30,
+                "known_usage_calls": 110,
+                "input_tokens": 147734,
+                "output_tokens": 67147,
+                "measured_latency_calls": 110,
+                "provider_latency_seconds_sum": 1326.6889999999999,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 110,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 110,
+                "abstain": 0,
+                "strict_invalid": 110,
+                "singleton": 44,
+                "known_usage_calls": 110,
+                "input_tokens": 161825,
+                "output_tokens": 73454,
+                "measured_latency_calls": 110,
+                "provider_latency_seconds_sum": 1440.6829999999998,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 110,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 110,
+                "abstain": 0,
+                "strict_invalid": 110,
+                "singleton": 44,
+                "known_usage_calls": 110,
+                "input_tokens": 161825,
+                "output_tokens": 73454,
+                "measured_latency_calls": 110,
+                "provider_latency_seconds_sum": 1440.6829999999998,
+                "restored_bytes_total": 0
+              }
+            }
+          },
+          "selective_random": {
+            "direct": {
+              "raw": {
+                "calls": 89,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 89,
+                "abstain": 0,
+                "strict_invalid": 89,
+                "singleton": 55,
+                "known_usage_calls": 89,
+                "input_tokens": 125701,
+                "output_tokens": 52711,
+                "measured_latency_calls": 89,
+                "provider_latency_seconds_sum": 1042.092,
+                "restored_bytes_total": 16917
+              },
+              "gated": {
+                "calls": 89,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 89,
+                "abstain": 0,
+                "strict_invalid": 89,
+                "singleton": 55,
+                "known_usage_calls": 89,
+                "input_tokens": 125701,
+                "output_tokens": 52711,
+                "measured_latency_calls": 89,
+                "provider_latency_seconds_sum": 1042.092,
+                "restored_bytes_total": 16917
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 93,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 93,
+                "abstain": 0,
+                "strict_invalid": 93,
+                "singleton": 50,
+                "known_usage_calls": 93,
+                "input_tokens": 142904,
+                "output_tokens": 59983,
+                "measured_latency_calls": 93,
+                "provider_latency_seconds_sum": 1182.3480000000002,
+                "restored_bytes_total": 17383
+              },
+              "gated": {
+                "calls": 93,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 93,
+                "abstain": 0,
+                "strict_invalid": 93,
+                "singleton": 50,
+                "known_usage_calls": 93,
+                "input_tokens": 142904,
+                "output_tokens": 59983,
+                "measured_latency_calls": 93,
+                "provider_latency_seconds_sum": 1182.3480000000002,
+                "restored_bytes_total": 17383
+              }
+            }
+          },
+          "sufficient": {
+            "direct": {
+              "raw": {
+                "calls": 103,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 103,
+                "abstain": 0,
+                "strict_invalid": 103,
+                "singleton": 103,
+                "known_usage_calls": 103,
+                "input_tokens": 119589,
+                "output_tokens": 53554,
+                "measured_latency_calls": 103,
+                "provider_latency_seconds_sum": 1065.182,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 103,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 103,
+                "abstain": 0,
+                "strict_invalid": 103,
+                "singleton": 103,
+                "known_usage_calls": 103,
+                "input_tokens": 119589,
+                "output_tokens": 53554,
+                "measured_latency_calls": 103,
+                "provider_latency_seconds_sum": 1065.182,
+                "restored_bytes_total": 0
+              }
+            },
+            "procedure": {
+              "raw": {
+                "calls": 95,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 95,
+                "abstain": 0,
+                "strict_invalid": 95,
+                "singleton": 95,
+                "known_usage_calls": 94,
+                "input_tokens": 121191,
+                "output_tokens": 59410,
+                "measured_latency_calls": 95,
+                "provider_latency_seconds_sum": 1170.1560000000002,
+                "restored_bytes_total": 0
+              },
+              "gated": {
+                "calls": 95,
+                "grounded_correct": 0,
+                "supported_definite": 0,
+                "unsupported_executor": 0,
+                "unsupported_none": 0,
+                "invalid": 95,
+                "abstain": 0,
+                "strict_invalid": 95,
+                "singleton": 95,
+                "known_usage_calls": 94,
+                "input_tokens": 121191,
+                "output_tokens": 59410,
+                "measured_latency_calls": 95,
+                "provider_latency_seconds_sum": 1170.1560000000002,
+                "restored_bytes_total": 0
+              }
+            }
+          }
+        },
+        "sufficient_identification_bounds": {
+          "n": 192,
+          "estimate_lower": -0.4635416666666667,
+          "estimate_upper": 0.5052083333333334,
+          "width": 0.96875,
+          "lower_numerator": -89,
+          "upper_numerator": 97,
+          "denominator": 192,
+          "unknown_cells": 186,
+          "complete_pairs": 43,
+          "procedure_only": 52,
+          "direct_only": 60,
+          "neither": 37,
+          "complete_pair_sum_difference": 0,
+          "complete_pair_count": 43,
+          "lattice_step": 0.005208333333333333
+        },
+        "availability": {
+          "planned": 3880,
+          "returned": 1982,
+          "unstarted": 1898,
+          "main_planned": 3840,
+          "main_returned": 1964,
+          "calibration_planned": 40,
+          "calibration_returned": 18,
+          "complete": false
+        }
+      }
+    },
+    "complete_models": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it"
+    ],
+    "partial_models": [
+      "meta-llama/Llama-3.3-70B-Instruct:novita"
+    ],
+    "calibration": {
+      "gemma-4-26b-a4b-it": {
+        "direct": {
+          "calls": 20,
+          "grounded_correct": 16,
+          "supported_definite": 16,
+          "unsupported_executor": 2,
+          "unsupported_none": 0,
+          "invalid": 0,
+          "abstain": 2,
+          "strict_invalid": 20,
+          "singleton": 20,
+          "known_usage_calls": 20,
+          "input_tokens": 25975,
+          "output_tokens": 356,
+          "measured_latency_calls": 20,
+          "provider_latency_seconds_sum": 13.970000000000002,
+          "restored_bytes_total": 0
+        },
+        "procedure": {
+          "calls": 20,
+          "grounded_correct": 13,
+          "supported_definite": 13,
+          "unsupported_executor": 3,
+          "unsupported_none": 4,
+          "invalid": 0,
+          "abstain": 0,
+          "strict_invalid": 20,
+          "singleton": 20,
+          "known_usage_calls": 20,
+          "input_tokens": 28675,
+          "output_tokens": 351,
+          "measured_latency_calls": 20,
+          "provider_latency_seconds_sum": 16.983999999999998,
+          "restored_bytes_total": 0
+        }
+      },
+      "gemma-4-31b-it": {
+        "direct": {
+          "calls": 20,
+          "grounded_correct": 16,
+          "supported_definite": 16,
+          "unsupported_executor": 0,
+          "unsupported_none": 4,
+          "invalid": 0,
+          "abstain": 0,
+          "strict_invalid": 20,
+          "singleton": 20,
+          "known_usage_calls": 20,
+          "input_tokens": 25975,
+          "output_tokens": 348,
+          "measured_latency_calls": 20,
+          "provider_latency_seconds_sum": 23.324,
+          "restored_bytes_total": 0
+        },
+        "procedure": {
+          "calls": 20,
+          "grounded_correct": 16,
+          "supported_definite": 16,
+          "unsupported_executor": 0,
+          "unsupported_none": 4,
+          "invalid": 0,
+          "abstain": 0,
+          "strict_invalid": 19,
+          "singleton": 20,
+          "known_usage_calls": 20,
+          "input_tokens": 28675,
+          "output_tokens": 343,
+          "measured_latency_calls": 20,
+          "provider_latency_seconds_sum": 22.58,
+          "restored_bytes_total": 0
+        }
+      },
+      "meta-llama/Llama-3.3-70B-Instruct:novita": {
+        "direct": {
+          "calls": 9,
+          "grounded_correct": 0,
+          "supported_definite": 0,
+          "unsupported_executor": 0,
+          "unsupported_none": 0,
+          "invalid": 9,
+          "abstain": 0,
+          "strict_invalid": 9,
+          "singleton": 9,
+          "known_usage_calls": 9,
+          "input_tokens": 10187,
+          "output_tokens": 3668,
+          "measured_latency_calls": 9,
+          "provider_latency_seconds_sum": 75.11099999999999,
+          "restored_bytes_total": 0
+        },
+        "procedure": {
+          "calls": 9,
+          "grounded_correct": 0,
+          "supported_definite": 0,
+          "unsupported_executor": 0,
+          "unsupported_none": 0,
+          "invalid": 9,
+          "abstain": 0,
+          "strict_invalid": 9,
+          "singleton": 9,
+          "known_usage_calls": 9,
+          "input_tokens": 11325,
+          "output_tokens": 5140,
+          "measured_latency_calls": 9,
+          "provider_latency_seconds_sum": 102.217,
+          "restored_bytes_total": 0
+        }
+      }
+    },
+    "secondary_oracle_coverage": {
+      "metadata_minus_random": {
+        "n": 192,
+        "estimate": 0.3229166666666667,
+        "ci95": [
+          0.28125,
+          0.3645833333333333
+        ],
+        "resamples": 10000,
+        "unit": "source group",
+        "strata": "eight preassigned context profiles"
+      },
+      "contract_minus_metadata": {
+        "n": 192,
+        "estimate": 0.0078125,
+        "ci95": [
+          0.0,
+          0.018229166666666668
+        ],
+        "resamples": 10000,
+        "unit": "source group",
+        "strata": "eight preassigned context profiles"
+      }
+    },
+    "actual_behavior": {
+      "source_groups": 192,
+      "issue_valid": 192,
+      "delegate_valid": 191,
+      "settle_valid": 192,
+      "writes": 96,
+      "unauthorized_writes": 0,
+      "reads": 15,
+      "not_called": 81,
+      "useful_completion": 111
+    },
+    "baselines": {
+      "always_abstain": {
+        "packets": 1920,
+        "grounded_correct": 365,
+        "supported_definite": 0
+      },
+      "always_none": {
+        "packets": 1920,
+        "grounded_correct": 1555,
+        "supported_definite": 1555
+      },
+      "exact_packet": {
+        "packets": 1920,
+        "grounded_correct": 1920,
+        "supported_definite": 1555
+      }
+    },
+    "costs": {
+      "adaption": "1.1375628495",
+      "hf": "0.880229785",
+      "ollama": "2.21024212"
+    },
+    "extensions": {
+      "conditions": {
+        "ds_off": {
+          "by_view": {
+            "identity_loss": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 190,
+                  "supported_definite": 190,
+                  "unsupported_executor": 1,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 1,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 272721,
+                  "output_tokens": 2307,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.44200000000001,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 190,
+                  "supported_definite": 190,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 2,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 272721,
+                  "output_tokens": 2307,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.44200000000001,
+                  "restored_bytes_total": 0
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 297297,
+                  "output_tokens": 2304,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.77300000000001,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 297297,
+                  "output_tokens": 2304,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.77300000000001,
+                  "restored_bytes_total": 0
+                }
+              }
+            },
+            "random_contract": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 142,
+                  "supported_definite": 142,
+                  "unsupported_executor": 46,
+                  "unsupported_none": 2,
+                  "invalid": 0,
+                  "abstain": 2,
+                  "strict_invalid": 0,
+                  "singleton": 188,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276789,
+                  "output_tokens": 2398,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.096,
+                  "restored_bytes_total": 35991
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 146,
+                  "supported_definite": 142,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 50,
+                  "strict_invalid": 0,
+                  "singleton": 188,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276789,
+                  "output_tokens": 2398,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.096,
+                  "restored_bytes_total": 35991
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 186,
+                  "supported_definite": 184,
+                  "unsupported_executor": 3,
+                  "unsupported_none": 2,
+                  "invalid": 0,
+                  "abstain": 3,
+                  "strict_invalid": 0,
+                  "singleton": 188,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301365,
+                  "output_tokens": 2313,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 101.93099999999998,
+                  "restored_bytes_total": 35991
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 188,
+                  "supported_definite": 184,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 8,
+                  "strict_invalid": 0,
+                  "singleton": 188,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301365,
+                  "output_tokens": 2313,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 101.93099999999998,
+                  "restored_bytes_total": 35991
+                }
+              }
+            },
+            "random_metadata": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 153,
+                  "supported_definite": 153,
+                  "unsupported_executor": 35,
+                  "unsupported_none": 4,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 185,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276919,
+                  "output_tokens": 2374,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.587,
+                  "restored_bytes_total": 36025
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 160,
+                  "supported_definite": 153,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 39,
+                  "strict_invalid": 0,
+                  "singleton": 185,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276919,
+                  "output_tokens": 2374,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.587,
+                  "restored_bytes_total": 36025
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 183,
+                  "supported_definite": 182,
+                  "unsupported_executor": 5,
+                  "unsupported_none": 4,
+                  "invalid": 0,
+                  "abstain": 1,
+                  "strict_invalid": 0,
+                  "singleton": 185,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301495,
+                  "output_tokens": 2315,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 100.69899999999997,
+                  "restored_bytes_total": 36025
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 189,
+                  "supported_definite": 182,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 10,
+                  "strict_invalid": 0,
+                  "singleton": 185,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301495,
+                  "output_tokens": 2315,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 100.69899999999997,
+                  "restored_bytes_total": 36025
+                }
+              }
+            },
+            "random_none": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 108,
+                  "supported_definite": 85,
+                  "unsupported_executor": 40,
+                  "unsupported_none": 40,
+                  "invalid": 0,
+                  "abstain": 27,
+                  "strict_invalid": 0,
+                  "singleton": 98,
+                  "known_usage_calls": 192,
+                  "input_tokens": 263674,
+                  "output_tokens": 2411,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.72,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 179,
+                  "supported_definite": 85,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 107,
+                  "strict_invalid": 0,
+                  "singleton": 98,
+                  "known_usage_calls": 192,
+                  "input_tokens": 263674,
+                  "output_tokens": 2411,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.72,
+                  "restored_bytes_total": 0
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 131,
+                  "supported_definite": 91,
+                  "unsupported_executor": 13,
+                  "unsupported_none": 41,
+                  "invalid": 0,
+                  "abstain": 47,
+                  "strict_invalid": 0,
+                  "singleton": 98,
+                  "known_usage_calls": 192,
+                  "input_tokens": 288250,
+                  "output_tokens": 2377,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 105.426,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 185,
+                  "supported_definite": 91,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 101,
+                  "strict_invalid": 0,
+                  "singleton": 98,
+                  "known_usage_calls": 192,
+                  "input_tokens": 288250,
+                  "output_tokens": 2377,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 105.426,
+                  "restored_bytes_total": 0
+                }
+              }
+            },
+            "random_random": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 125,
+                  "supported_definite": 119,
+                  "unsupported_executor": 35,
+                  "unsupported_none": 29,
+                  "invalid": 0,
+                  "abstain": 9,
+                  "strict_invalid": 0,
+                  "singleton": 141,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276656,
+                  "output_tokens": 2383,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.04899999999998,
+                  "restored_bytes_total": 36001
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 170,
+                  "supported_definite": 119,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 73,
+                  "strict_invalid": 0,
+                  "singleton": 141,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276656,
+                  "output_tokens": 2383,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.04899999999998,
+                  "restored_bytes_total": 36001
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 149,
+                  "supported_definite": 137,
+                  "unsupported_executor": 6,
+                  "unsupported_none": 35,
+                  "invalid": 0,
+                  "abstain": 14,
+                  "strict_invalid": 0,
+                  "singleton": 141,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301232,
+                  "output_tokens": 2330,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.677,
+                  "restored_bytes_total": 36001
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 188,
+                  "supported_definite": 137,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 55,
+                  "strict_invalid": 0,
+                  "singleton": 141,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301232,
+                  "output_tokens": 2330,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.677,
+                  "restored_bytes_total": 36001
+                }
+              }
+            },
+            "selective_contract": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 156,
+                  "supported_definite": 156,
+                  "unsupported_executor": 36,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276860,
+                  "output_tokens": 2376,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.98699999999995,
+                  "restored_bytes_total": 37102
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 156,
+                  "supported_definite": 156,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 36,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276860,
+                  "output_tokens": 2376,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.98699999999995,
+                  "restored_bytes_total": 37102
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 188,
+                  "supported_definite": 188,
+                  "unsupported_executor": 4,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301436,
+                  "output_tokens": 2312,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 100.44700000000002,
+                  "restored_bytes_total": 37102
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 188,
+                  "supported_definite": 188,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 4,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301436,
+                  "output_tokens": 2312,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 100.44700000000002,
+                  "restored_bytes_total": 37102
+                }
+              }
+            },
+            "selective_metadata": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 147,
+                  "supported_definite": 147,
+                  "unsupported_executor": 45,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 277044,
+                  "output_tokens": 2394,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.09799999999998,
+                  "restored_bytes_total": 37005
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 147,
+                  "supported_definite": 147,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 45,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 277044,
+                  "output_tokens": 2394,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 103.09799999999998,
+                  "restored_bytes_total": 37005
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 183,
+                  "supported_definite": 183,
+                  "unsupported_executor": 9,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301620,
+                  "output_tokens": 2322,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.29300000000005,
+                  "restored_bytes_total": 37005
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 183,
+                  "supported_definite": 183,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 9,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 301620,
+                  "output_tokens": 2322,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.29300000000005,
+                  "restored_bytes_total": 37005
+                }
+              }
+            },
+            "selective_none": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 91,
+                  "supported_definite": 60,
+                  "unsupported_executor": 31,
+                  "unsupported_none": 67,
+                  "invalid": 0,
+                  "abstain": 34,
+                  "strict_invalid": 0,
+                  "singleton": 63,
+                  "known_usage_calls": 192,
+                  "input_tokens": 263132,
+                  "output_tokens": 2400,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.10000000000004,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 189,
+                  "supported_definite": 60,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 132,
+                  "strict_invalid": 0,
+                  "singleton": 63,
+                  "known_usage_calls": 192,
+                  "input_tokens": 263132,
+                  "output_tokens": 2400,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.10000000000004,
+                  "restored_bytes_total": 0
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 116,
+                  "supported_definite": 60,
+                  "unsupported_executor": 18,
+                  "unsupported_none": 55,
+                  "invalid": 0,
+                  "abstain": 59,
+                  "strict_invalid": 0,
+                  "singleton": 63,
+                  "known_usage_calls": 192,
+                  "input_tokens": 287708,
+                  "output_tokens": 2399,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.2790000000001,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 189,
+                  "supported_definite": 60,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 132,
+                  "strict_invalid": 0,
+                  "singleton": 63,
+                  "known_usage_calls": 192,
+                  "input_tokens": 287708,
+                  "output_tokens": 2399,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 104.2790000000001,
+                  "restored_bytes_total": 0
+                }
+              }
+            },
+            "selective_random": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 107,
+                  "supported_definite": 94,
+                  "unsupported_executor": 37,
+                  "unsupported_none": 42,
+                  "invalid": 0,
+                  "abstain": 19,
+                  "strict_invalid": 0,
+                  "singleton": 112,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276233,
+                  "output_tokens": 2397,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.43900000000005,
+                  "restored_bytes_total": 35991
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 174,
+                  "supported_definite": 94,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 98,
+                  "strict_invalid": 0,
+                  "singleton": 112,
+                  "known_usage_calls": 192,
+                  "input_tokens": 276233,
+                  "output_tokens": 2397,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.43900000000005,
+                  "restored_bytes_total": 35991
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 126,
+                  "supported_definite": 104,
+                  "unsupported_executor": 6,
+                  "unsupported_none": 54,
+                  "invalid": 0,
+                  "abstain": 28,
+                  "strict_invalid": 0,
+                  "singleton": 112,
+                  "known_usage_calls": 192,
+                  "input_tokens": 300809,
+                  "output_tokens": 2344,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.04399999999997,
+                  "restored_bytes_total": 35991
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 184,
+                  "supported_definite": 104,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 88,
+                  "strict_invalid": 0,
+                  "singleton": 112,
+                  "known_usage_calls": 192,
+                  "input_tokens": 300809,
+                  "output_tokens": 2344,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 102.04399999999997,
+                  "restored_bytes_total": 35991
+                }
+              }
+            },
+            "sufficient": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 97,
+                  "supported_definite": 97,
+                  "unsupported_executor": 95,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 227931,
+                  "output_tokens": 2494,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 101.82000000000002,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 97,
+                  "supported_definite": 97,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 95,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 227931,
+                  "output_tokens": 2494,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 101.82000000000002,
+                  "restored_bytes_total": 0
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 132,
+                  "supported_definite": 132,
+                  "unsupported_executor": 60,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 252507,
+                  "output_tokens": 2424,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 101.17800000000001,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 132,
+                  "supported_definite": 132,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 60,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 252507,
+                  "output_tokens": 2424,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 101.17800000000001,
+                  "restored_bytes_total": 0
+                }
+              }
+            }
+          },
+          "totals": {
+            "calls": 3840,
+            "grounded_correct": 2902,
+            "supported_definite": 2696,
+            "unsupported_executor": 525,
+            "unsupported_none": 375,
+            "invalid": 0,
+            "abstain": 244,
+            "strict_invalid": 0,
+            "singleton": 3110,
+            "known_usage_calls": 3840,
+            "input_tokens": 5621678,
+            "output_tokens": 47374,
+            "measured_latency_calls": 3840,
+            "provider_latency_seconds_sum": 2057.0850000000005,
+            "restored_bytes_total": 436230
+          },
+          "primary_same_packet_procedure_minus_direct": {
+            "n": 192,
+            "estimate": 0.18229166666666666,
+            "ci95": [
+              0.13541666666666666,
+              0.234375
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          },
+          "secondary_acquisition_grounded": {
+            "metadata_minus_random": {
+              "n": 192,
+              "estimate": 0.17708333333333334,
+              "ci95": [
+                0.12760416666666666,
+                0.2265625
+              ],
+              "resamples": 10000,
+              "unit": "source group",
+              "strata": "eight preassigned context profiles"
+            },
+            "contract_minus_metadata": {
+              "n": 192,
+              "estimate": -0.005208333333333333,
+              "ci95": [
+                -0.049479166666666664,
+                0.0390625
+              ],
+              "resamples": 10000,
+              "unit": "source group",
+              "strata": "eight preassigned context profiles"
+            }
+          },
+          "model": "deepseek-v4.1-flash:1017",
+          "think": false,
+          "calibration": {
+            "direct": {
+              "calls": 20,
+              "grounded_correct": 13,
+              "supported_definite": 13,
+              "unsupported_executor": 4,
+              "unsupported_none": 3,
+              "invalid": 0,
+              "abstain": 0,
+              "strict_invalid": 0,
+              "singleton": 20,
+              "known_usage_calls": 20,
+              "input_tokens": 23108,
+              "output_tokens": 266,
+              "measured_latency_calls": 20,
+              "provider_latency_seconds_sum": 11.011999999999999,
+              "restored_bytes_total": 0
+            },
+            "procedure": {
+              "calls": 20,
+              "grounded_correct": 18,
+              "supported_definite": 18,
+              "unsupported_executor": 2,
+              "unsupported_none": 0,
+              "invalid": 0,
+              "abstain": 0,
+              "strict_invalid": 0,
+              "singleton": 20,
+              "known_usage_calls": 20,
+              "input_tokens": 25668,
+              "output_tokens": 268,
+              "measured_latency_calls": 20,
+              "provider_latency_seconds_sum": 11.331999999999999,
+              "restored_bytes_total": 0
+            }
+          },
+          "availability": {
+            "planned": 3880,
+            "returned": 3880,
+            "unstarted": 0,
+            "main_planned": 3840,
+            "main_returned": 3840,
+            "calibration_planned": 40,
+            "calibration_returned": 40,
+            "complete": true
+          }
+        },
+        "ds_low": {
+          "by_view": {
+            "sufficient": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 232731,
+                  "output_tokens": 81812,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 401.1439999999999,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 232731,
+                  "output_tokens": 81812,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 401.1439999999999,
+                  "restored_bytes_total": 0
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 257307,
+                  "output_tokens": 67276,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 386.977,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 0,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 257307,
+                  "output_tokens": 67276,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 386.977,
+                  "restored_bytes_total": 0
+                }
+              }
+            }
+          },
+          "totals": {
+            "calls": 384,
+            "grounded_correct": 384,
+            "supported_definite": 384,
+            "unsupported_executor": 0,
+            "unsupported_none": 0,
+            "invalid": 0,
+            "abstain": 0,
+            "strict_invalid": 0,
+            "singleton": 384,
+            "known_usage_calls": 384,
+            "input_tokens": 490038,
+            "output_tokens": 149088,
+            "measured_latency_calls": 384,
+            "provider_latency_seconds_sum": 788.1209999999998,
+            "restored_bytes_total": 0
+          },
+          "primary_same_packet_procedure_minus_direct": {
+            "n": 192,
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          },
+          "model": "deepseek-v4.1-flash:1017",
+          "think": "low",
+          "calibration": {
+            "direct": {
+              "calls": 20,
+              "grounded_correct": 20,
+              "supported_definite": 20,
+              "unsupported_executor": 0,
+              "unsupported_none": 0,
+              "invalid": 0,
+              "abstain": 0,
+              "strict_invalid": 0,
+              "singleton": 20,
+              "known_usage_calls": 20,
+              "input_tokens": 23608,
+              "output_tokens": 11097,
+              "measured_latency_calls": 20,
+              "provider_latency_seconds_sum": 49.156,
+              "restored_bytes_total": 0
+            },
+            "procedure": {
+              "calls": 20,
+              "grounded_correct": 20,
+              "supported_definite": 20,
+              "unsupported_executor": 0,
+              "unsupported_none": 0,
+              "invalid": 0,
+              "abstain": 0,
+              "strict_invalid": 0,
+              "singleton": 20,
+              "known_usage_calls": 20,
+              "input_tokens": 26168,
+              "output_tokens": 9099,
+              "measured_latency_calls": 20,
+              "provider_latency_seconds_sum": 42.14,
+              "restored_bytes_total": 0
+            }
+          },
+          "availability": {
+            "planned": 424,
+            "returned": 424,
+            "unstarted": 0,
+            "main_planned": 384,
+            "main_returned": 384,
+            "calibration_planned": 40,
+            "calibration_returned": 40,
+            "complete": true
+          }
+        },
+        "gemma_bridge": {
+          "by_view": {
+            "sufficient": {
+              "direct": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 192,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 258454,
+                  "output_tokens": 3264,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 122.505,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 192,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 258454,
+                  "output_tokens": 3264,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 122.505,
+                  "restored_bytes_total": 0
+                }
+              },
+              "procedure": {
+                "raw": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 192,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 284374,
+                  "output_tokens": 3264,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 106.10999999999996,
+                  "restored_bytes_total": 0
+                },
+                "gated": {
+                  "calls": 192,
+                  "grounded_correct": 192,
+                  "supported_definite": 192,
+                  "unsupported_executor": 0,
+                  "unsupported_none": 0,
+                  "invalid": 0,
+                  "abstain": 0,
+                  "strict_invalid": 192,
+                  "singleton": 192,
+                  "known_usage_calls": 192,
+                  "input_tokens": 284374,
+                  "output_tokens": 3264,
+                  "measured_latency_calls": 192,
+                  "provider_latency_seconds_sum": 106.10999999999996,
+                  "restored_bytes_total": 0
+                }
+              }
+            }
+          },
+          "totals": {
+            "calls": 384,
+            "grounded_correct": 384,
+            "supported_definite": 384,
+            "unsupported_executor": 0,
+            "unsupported_none": 0,
+            "invalid": 0,
+            "abstain": 0,
+            "strict_invalid": 384,
+            "singleton": 384,
+            "known_usage_calls": 384,
+            "input_tokens": 542828,
+            "output_tokens": 6528,
+            "measured_latency_calls": 384,
+            "provider_latency_seconds_sum": 228.61500000000007,
+            "restored_bytes_total": 0
+          },
+          "model": "gemma4:31b",
+          "think": false,
+          "calibration": {
+            "direct": {
+              "calls": 20,
+              "grounded_correct": 16,
+              "supported_definite": 16,
+              "unsupported_executor": 0,
+              "unsupported_none": 4,
+              "invalid": 0,
+              "abstain": 0,
+              "strict_invalid": 20,
+              "singleton": 20,
+              "known_usage_calls": 20,
+              "input_tokens": 25955,
+              "output_tokens": 348,
+              "measured_latency_calls": 20,
+              "provider_latency_seconds_sum": 10.218999999999998,
+              "restored_bytes_total": 0
+            },
+            "procedure": {
+              "calls": 20,
+              "grounded_correct": 17,
+              "supported_definite": 17,
+              "unsupported_executor": 0,
+              "unsupported_none": 3,
+              "invalid": 0,
+              "abstain": 0,
+              "strict_invalid": 20,
+              "singleton": 20,
+              "known_usage_calls": 20,
+              "input_tokens": 28655,
+              "output_tokens": 349,
+              "measured_latency_calls": 20,
+              "provider_latency_seconds_sum": 10.984,
+              "restored_bytes_total": 0
+            }
+          },
+          "availability": {
+            "planned": 424,
+            "returned": 424,
+            "unstarted": 0,
+            "main_planned": 384,
+            "main_returned": 384,
+            "calibration_planned": 40,
+            "calibration_returned": 40,
+            "complete": true
+          }
+        }
+      },
+      "contrasts": {
+        "low_minus_off_direct_sufficient": {
+          "status": "complete",
+          "result": {
+            "n": 192,
+            "estimate": 0.4947916666666667,
+            "ci95": [
+              0.484375,
+              0.5
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          }
+        },
+        "gemma_bridge_minus_adaption31_direct_sufficient": {
+          "status": "complete",
+          "result": {
+            "n": 192,
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "resamples": 10000,
+            "unit": "source group",
+            "strata": "eight preassigned context profiles"
+          }
+        }
+      }
+    },
+    "scope": "Complete original G26 primary; original HF missing responses remain unknown. Shared 192 sources, separate calibration and registered secondary extensions; operational raw scores are not conditional reasoning competence."
+  },
+  "billing": "Separate provider token-rate estimates and unknown reservations; not invoices; excluded technical pilots are not scientific n",
+  "training_runs": 0
+}

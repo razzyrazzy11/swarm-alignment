@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "pdf_sha256": "258db1fe19b6955f57b2b5a7b91b8e4e92c7d8542b8c5c7d494a9812dc2ee423",
+  "figure_sha256": {
+    "FIGURE1": "6a689c7ee800c4beffd6166f8f94e5378d89b2de66080510e9109e7c636a3474",
+    "FIGURE2": "11f21a348f8a535d912ceb1eee6d2debc3f30ad1076213423935d447c55dc332",
+    "FIGURE3": "ce0b457bfae4b1f101d86460eb9f689968fa2b7f5ff4d5dfe6df1411e92b6cae",
+    "FIGURE4": "1b925a28b32078838e487f01b540f600ed9c76af287fc4d1f5d43e89f8b35157"
+  },
+  "rendered_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "inspected_all_pages": true,
+  "reviewer": "Codex coordinator visual inspection of every actual revised native Word PDF page 1 through 16",
+  "reviewed_at": "2026-11-09T11:17:02.307440+00:00"
+}

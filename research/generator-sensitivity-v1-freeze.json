@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "tag": "generator-sensitivity-v1",
+  "created": "2026-11-07T18:53:47.402922+00:00",
+  "domain_rule": "public-budget structural generator domain v1; no private arm/policy/profile conditioning",
+  "source_sha256": {
+    "analysis/ledger_generator_sensitivity.py": "5f72646cfc1a5bcb2c55cde6cccd8e8922f8042c1fa9aa491c9fe70cc5dd6792",
+    "analysis/test_ledger_generator_sensitivity.py": "766dc8c940f7e2d6b133d35d97c8f98ce62e912062a4c9be7e937353279fb73b",
+    "research/SWARM_LEDGER_GENERATOR_SENSITIVITY_PROTOCOL.md": "4a4151851395006d7e8ee1b4ab24f5b25545d8183e0b1a6d22efcd934de1002c"
+  },
+  "scientific_main_registration_sha256": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+  "scientific_source_sha256": {
+    "experiments/swarm_ledger.py": "79ca3d15d57c315f1c6eca39cadcec400ccff49957395955b9041c97dc706aab",
+    "experiments/swarm_ledger_analysis.py": "32959898dd868fd4dcdccbdaec40b2a630ceca16fa07dd77b049bd5ccf928f06",
+    "experiments/swarm_ledger_complete.py": "b2b3ffc2988c1fedff1255d2cebfa7648c71c970a78eb3bb7818fa8812425ff7",
+    "experiments/swarm_ledger_complete_analysis.py": "727c864fe7e471f9c52da011e06680293e420cb81f5a942be38eb1d033e16a23",
+    "experiments/swarm_ledger_complete_dispatch.py": "a607df53e3b7465047daac14d0f037d13891c7b94cccafa9f00e965c86ba5216",
+    "experiments/swarm_ledger_complete_forecast.py": "6b15b911b2351d345b668ce6309048a05247a8eda521a3a343f445d8008be2a5",
+    "experiments/swarm_ledger_reference.py": "dd4fdc4d22989fc79ea0c6f58df9cc234f65caa4ec537de904072756165714f5",
+    "experiments/swarm_ledger_study.py": "3324c24ff88ca02ac0f79083bf40ce44fd95a823beaf0a162a939072ab76a83a",
+    "experiments/tests/test_swarm_ledger.py": "da7d5efe1ccbb38ed4b44f5aeaec1ccf8f5ea4f03a5bc58bb0b8fb206d34bb62",
+    "experiments/tests/test_swarm_ledger_analysis.py": "a6d89ec47616b56d805ec78f5a940efb606950d4fab015f6e94ee219aceeecd0",
+    "experiments/tests/test_swarm_ledger_complete.py": "6b2730c6cf4dad2e89ba3f6a19c547f82781497ab4fe7f103bbb1d95724a0de1",
+    "experiments/tests/test_swarm_ledger_complete_analysis.py": "d5072005122e598118909273d4d70f889b24a9b4eb3140193c4c6bfcf96c7a47",
+    "experiments/tests/test_swarm_ledger_complete_dispatch.py": "47ab41939d70989fc2cef42cdfe9fd6a172ad8e9ee030f1472577ae8c4983799",
+    "experiments/tests/test_swarm_ledger_complete_forecast.py": "9133940b509f1b53d4d8c7b3731a7c968ff8b13737cf668ac2f0ea92235a592e",
+    "experiments/tests/test_swarm_ledger_reference.py": "e02c008bd781c888afdae5a3724e3fc624041a3ecf3a03f2b429d80759dcaf42",
+    "experiments/tests/test_swarm_ledger_study.py": "d573c0f2a5e1359e87d77b46f17e5d4c929a37ae9251344bdc19b70eec35f7b4",
+    "research/SWARM_LEDGER_COMPLETE_DISPATCH_PROTOCOL.md": "d74ac24ef8503682abdaece19b385b87bd7b0eac811ffd264fe7d87401e673ac",
+    "research/SWARM_LEDGER_COMPLETE_PROTOCOL.md": "6a1220c10d9e7429126b1d10c92480167ace54bc0b6f05d4df5fac7c3c07c97c",
+    "research/SWARM_LEDGER_PROTOCOL.md": "f93b72cc632839bea1d95876e02a5083830a58c68abc15a2bac3a0da57263f54",
+    "research/swarm-ledger-catalog.json": "f7978df3ea07da31e844d04ba5c9006c01cf51b3fecf3ea5aa0a99c5ee66272f",
+    "research/swarm-ledger-complete-config.json": "eb7aadfc45aa973c1c8b215119ffd3a6fd55d689177a55129b67d8f205f37cf4",
+    "research/swarm-ledger-complete-dispatch-config.json": "71c9ccc40e2896b26e13922f79870234d85c6361e66d75712e9001d0dfd62b5d",
+    "research/swarm-ledger-config.json": "8aca135fc324f5ff648bc481eaaa1523938fd024765f05f047fd9abc67764d94",
+    "research/swarm-ledger-dispatch-v1-stop.json": "70d30e56d0949f91dead03b4b007c270e71674d30aa2e5a79d8487647392dd73",
+    "research/swarm-ledger-dispatch-v2-stop.json": "92b6f4764cb884e3fb9e9cdeec0c3b4ffe76d11b8b15404e919a30ee3c53a827"
+  },
+  "contexts_sha256": "9edd73516724d8bf497cc85d8d8476bcac96032b2f75eb701a135e535bc52adf",
+  "pre_reader_gate": {
+    "main_reader_attempts": 0,
+    "main_calibration_attempts": 0,
+    "actor_collection_already_started": true,
+    "outcomes_inspected": false
+  },
+  "base_commit": "4d4a8f647329ae0d03c8ca850e2364b73bd6ad87"
+}

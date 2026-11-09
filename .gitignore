@@ -218,3 +218,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Sprint secrets and raw experimental outputs
+.env
+.env.*
+!.env.example
+.pem
+.key
+*.pem
+*.key
+id_rsa
+id_ed25519
+.modal.toml
+**/runs*
+
+# OpenCode orchestration state and browser downloads are not research artifacts
+.swarm/
+.playwright-mcp/

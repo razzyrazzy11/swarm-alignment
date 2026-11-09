@@ -1,0 +1,129 @@
+{
+  "abstract_words": 196,
+  "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
+  "content_sha256": "a22f2ef71961e1cac59a39bc32796eafc7e8e79089f41e5f936b275b90c1ce00",
+  "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
+  "docx_sha256": "f5631cbc9e7da217dcd068784a51b3a2afdc13a18d5b5a72db11467e2fc1d399",
+  "changed_package_parts": [
+    "[Content_Types].xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml"
+  ],
+  "evidence_status": {
+    "status": "completed prospectively registered six-reader MAIN",
+    "freeze": "swarm-ledger-complete-v1-main",
+    "source_blocks": 640,
+    "assigned_trajectories": 2560,
+    "main_reader_responses": 53760,
+    "calibration_responses": 240,
+    "actor_calls_including_influence": 9200,
+    "training_runs": 0
+  },
+  "ledger_sources": {
+    "manifest.json": "13be80ff5147012e770b68571b2483399cfdaeb894486bd81b9df3603208385b",
+    "report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
+    "registration.json": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+    "operational-registration.json": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+    "scientific_registration_sha256": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+    "operational_registration_sha256": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+    "offline-release-recovery-v2-freeze.json": "32f13b107fd853d18664d74e9fe0a12f408177a8ae242e5223f534791dacd6ac",
+    "hf-offline-release-recovery-v2-proof.json": "6c2045cedcbcf4b30c224253d91e5113464d7dc64ce578f45b5a9572ca9474c7",
+    "offline-release-recovery-v1-freeze.json": "09eec1ebc67a0752cd8e422cbfd59a0cd83cfc08a28a5e6d33e8708f4540eb66",
+    "paced-resume-analysis-v1-freeze.json": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+    "swarm-ledger-paced-v1-freeze.json": "196f59749f747bfff978f2f301ab494de4718b181d1b0258ed6bec92cf73d08e",
+    "swarm-ledger-paced-resume-release-proof.json": "3bfdc7de1216bcd72d1f5f62f7a4b6129aa1ecd1b39b8e511eb5cd3a41eb3522",
+    "rate-resume-analysis-v1-freeze.json": "251c37815989b32982bbb2600a28e72fd8848bb56252ad5f2852787ef2e93fde",
+    "swarm-ledger-rate-v1-freeze.json": "64ed28ace7ca685dc1d0e860a7b32bc846b7e79b69de2fd7914aba5eb6c0724e",
+    "efficient-resume-analysis-v1-freeze.json": "98bfb89de742b79ec953bfc5e2594fb9d4f14568aab3156244ca32a4eb6a95be",
+    "swarm-ledger-efficient-v1-freeze.json": "730148c4df749069938559506bfcb9401fbbb45dbe39fc19a8442e629b332541",
+    "provider-resume-analysis-v1-freeze.json": "fd985b8388633d791bf3c848c80616922e5332adb497ffa347c59c3a55002724",
+    "swarm-ledger-resume-v3-freeze.json": "45d023485fd1b49eebe5317f49ee97001f9e77ffd2ee6223bda3945f69cb1f41",
+    "server-resume-analysis-v1-freeze.json": "f7d5918f7579112e0d26f32c239cc70c008bf73b0280e940a9f553229830c9e0",
+    "swarm-ledger-resume-v2-freeze.json": "f36a0cb4857ef92ecb5ad7e6123470b0fa8ccb0e82a85de911a9b11f7b0f344e",
+    "router-resume-analysis-v1-freeze.json": "b8a2ee6878adc9e282d3dde6639d801394e030c3237a2580a15a1c4537bddf8c",
+    "swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
+    "hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf",
+    "hf-completed-original-results-v3.json": "3d7620a49b86bebcc825ccf83073c58614b191e16ccb7f938c37e3cdeffee9d1",
+    "adaption-serving-pilot-v1-freeze.json": "6e507962f30245d52170843944ec2fddc0765c9377dd4cb0bfa0d2b4c6e384b9"
+  },
+  "complete_report_contract_sha256": "100a1eb08f0effa0a3cca59bf32ec5131b77937e98e908e0ce90137ecb86dc11",
+  "ledger_layout_sha256": "1d72df8946bbb0be1e971a416541fa915cf1a33c3b22dab7369b22218011e8ce",
+  "added_package_parts": [
+    "word/media/swarm-ledger-11f21a348f8a535d912ceb1eee6d2debc3f30ad1076213423935d447c55dc332.png",
+    "word/media/swarm-ledger-1b925a28b32078838e487f01b540f600ed9c76af287fc4d1f5d43e89f8b35157.png",
+    "word/media/swarm-ledger-6a689c7ee800c4beffd6166f8f94e5378d89b2de66080510e9109e7c636a3474.png",
+    "word/media/swarm-ledger-ce0b457bfae4b1f101d86460eb9f689968fa2b7f5ff4d5dfe6df1411e92b6cae.png"
+  ],
+  "figures": [
+    {
+      "id": "FIGURE1",
+      "path": "figures/swarm-ledger-complete-v1/ledger_procedure_effect.png",
+      "sha256": "6a689c7ee800c4beffd6166f8f94e5378d89b2de66080510e9109e7c636a3474",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 5.7,
+      "caption": "Figure 1. Procedure minus direct correct-definite effect on identical sufficient FULL16 packets. All assigned calls enter each score; intervals resample 640 independent blocks within forty strata. G26 is the sole primary; other reader effects are secondary and not familywise adjusted.",
+      "alt_text": "Six matched effects: G26 adverse, G31 positive, Llama text and schema positive, DeepSeek off near zero, DeepSeek low adverse.",
+      "pixel_width": 1950,
+      "pixel_height": 1170,
+      "width_emu": 5212080,
+      "height_emu": 3127248,
+      "image_part": "word/media/swarm-ledger-6a689c7ee800c4beffd6166f8f94e5378d89b2de66080510e9109e7c636a3474.png",
+      "relationship_id": "rIdSwarmFigure1"
+    },
+    {
+      "id": "FIGURE2",
+      "path": "figures/swarm-ledger-complete-v1/ledger_acquisition.png",
+      "sha256": "11f21a348f8a535d912ceb1eee6d2debc3f30ad1076213423935d447c55dc332",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 5.7,
+      "caption": "Figure 2. Oracle answerability (dashed) and correct-definite verdicts (solid) under evidence loss and restoration. Reader lines exclude abstentions; Table 3 separately counts supported correctness including required abstention. Each point uses 1,280 matched trajectories in 640 blocks. Lines connect discrete interventions, not a continuous dose. No intervals are plotted.",
+      "alt_text": "Dashed finite-domain answerability and solid correct-definite verdict rates on 1,280 matched trajectories; abstentions do not count in the reader lines. Restoration recovers answerability while readers retain errors.",
+      "pixel_width": 1950,
+      "pixel_height": 1470,
+      "width_emu": 5212080,
+      "height_emu": 3929106,
+      "image_part": "word/media/swarm-ledger-11f21a348f8a535d912ceb1eee6d2debc3f30ad1076213423935d447c55dc332.png",
+      "relationship_id": "rIdSwarmFigure2"
+    },
+    {
+      "id": "FIGURE3",
+      "path": "figures/swarm-ledger-complete-v1/ledger_full_composition.png",
+      "sha256": "ce0b457bfae4b1f101d86460eb9f689968fa2b7f5ff4d5dfe6df1411e92b6cae",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 6.2,
+      "caption": "Figure 3. FULL16 outcomes for DIRECT (D) and PROCEDURE (P), each over all 2,560 assignments. Correct and wrong definite decisions, ABSTAIN and INVALID sum to 100%. Correctness is distinct from strict output encoding.",
+      "alt_text": "Stacked proportions of correct definite, wrong definite, abstain and invalid decisions for all six readers and both instructions.",
+      "pixel_width": 1950,
+      "pixel_height": 1680,
+      "width_emu": 5669280,
+      "height_emu": 4884303,
+      "image_part": "word/media/swarm-ledger-ce0b457bfae4b1f101d86460eb9f689968fa2b7f5ff4d5dfe6df1411e92b6cae.png",
+      "relationship_id": "rIdSwarmFigure3"
+    },
+    {
+      "id": "FIGURE4",
+      "path": "figures/swarm-ledger-complete-v1/ledger_workflow.png",
+      "sha256": "1b925a28b32078838e487f01b540f600ed9c76af287fc4d1f5d43e89f8b35157",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 6.2,
+      "caption": "Figure 4. Five-role workflow and evidence boundary. Authentic host records establish bounded fake-data effects; agent notes are untrusted. Acquisition asks which records are available, and evidence use asks which verdict they support.",
+      "alt_text": "Principal, coordinator, X executor, Y executor and reporter feed host-produced records, then evidence acquisition and evidence use.",
+      "pixel_width": 1950,
+      "pixel_height": 1050,
+      "width_emu": 5669280,
+      "height_emu": 3052689,
+      "image_part": "word/media/swarm-ledger-1b925a28b32078838e487f01b540f600ed9c76af287fc4d1f5d43e89f8b35157.png",
+      "relationship_id": "rIdSwarmFigure4"
+    }
+  ],
+  "figure_builder_sha256": "ab03159a5b20ee009e8e874815fdb0648bd2175173e5f921434a7ea55023247c",
+  "figure_verifier_sha256": "15ff8a91661c76825224928750ceb5a737e49cc69b4bf997ade99d9bb2f0c42c"
+}

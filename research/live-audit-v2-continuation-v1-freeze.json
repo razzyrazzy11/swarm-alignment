@@ -1,0 +1,21 @@
+{
+  "created": "2026-11-06T22:48:13.427441+00:00",
+  "base_commit": "b84e7b53402e0a6fff6fed1002a0e70a9ff3490c",
+  "source_sha256": {
+    "experiments/live_continue.py": "76df85ce6e301c2f287c42a907769b3f5ace681a1683f05d069926dfea28eb1a",
+    "experiments/tests/test_live_continue.py": "ba1e3d8f157f4c488427c7af4b278c90b81d764b4c3b22c1398af947b38d3a8e",
+    "research/LIVE_CONTINUATION.md": "800db6ffeabed555f0f47510ef9efb7710928289b9887c85e47e0f7468b1e335",
+    "research/live-audit-v2-freeze.json": "97f1c7e92cc3edd90c225f05352f90cdfaf319c256c605c2415a290ac549c79f"
+  },
+  "core_freeze_sha256": "97f1c7e92cc3edd90c225f05352f90cdfaf319c256c605c2415a290ac549c79f",
+  "predecessor_hashes": {
+    "plan.json": "1653aadab00a553b144794aed5849cdb3452c27d072f8614ed3788143082db04",
+    "attempts.jsonl": "44c4526438349a0dc2f4148d29076e7cdc5953cfe0d53af3194cec43a772a77f",
+    "responses.jsonl": "4cd7e687048c542899b922dac7b593aceea367be9e91c2b87414f091a83570af",
+    "summary.json": "292f9f5b0c251890f94d790e01de2be6b9b63444b2f1a22a0a30ca7d7264147f"
+  },
+  "original_planned": 8064,
+  "previous_starts": 204,
+  "unstarted": 7860,
+  "override": "Retain known-usage incomplete responses as INVALID without count halt. Fill bounded 4/2 sliding window from unchanged priority permutation; reserve all active liabilities. Other gates and scientific plan unchanged."
+}

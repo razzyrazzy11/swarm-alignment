@@ -1,0 +1,1622 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-07T18:23:57.213560+00:00",
+  "development_freeze_sha256": "301aeeb76440e3d1e69c10ddac3f49c119407fb46dee0ac952c38c529ec16279",
+  "historical_pilot_metadata_sha256": "414ab9c0dea60fbb02adb2ddf74193017e49f5d4a56eeb39ac71f0c04c9ee65c",
+  "safety_multiplier": 1.25,
+  "overhead_seconds": 1800,
+  "collection_cutoff_utc": "2026-11-09T05:59:00+00:00",
+  "candidates": [
+    {
+      "native_per_model": 2,
+      "ollama_per_model": 2,
+      "base_seconds": "74506.3248750",
+      "native_critical_seconds": "74506.3248750",
+      "forecast_seconds": "94932.906093750",
+      "projected_main_peak_costs": {
+        "adaption": "58.65832605312500",
+        "hf": "2.271690000",
+        "ollama": "75.440169000"
+      },
+      "projected_native_actor_peak_cost": "52.95539190312500",
+      "projected_native_reader_peak_cost": "5.70293415000",
+      "off_peak_wallet_gate_passed": true,
+      "ollama_combined_peak_cap": "100.00",
+      "main_ollama_peak_cap": "99.70",
+      "phase_bounds": [
+        {
+          "phase": "principal",
+          "global_service_seconds": "1033.70000",
+          "native_seconds": "2989.06800",
+          "hf_seconds": "120.00",
+          "ollama_seconds": "120.00",
+          "native_service_seconds": "2869.06800",
+          "hf_service_seconds": "0",
+          "ollama_service_seconds": "0",
+          "global_cooldown_seconds": "120.00",
+          "provider_cooldown_seconds": {
+            "adaption": "120.00",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "8.00",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "8.00",
+          "bottleneck_service_seconds": "2869.06800",
+          "bottleneck_seconds": "2989.06800"
+        },
+        {
+          "phase": "coordinator",
+          "global_service_seconds": "609.93800",
+          "native_seconds": "1885.88400",
+          "hf_seconds": "0",
+          "ollama_seconds": "0",
+          "native_service_seconds": "1885.88400",
+          "hf_service_seconds": "0",
+          "ollama_service_seconds": "0",
+          "global_cooldown_seconds": "0",
+          "provider_cooldown_seconds": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "0",
+          "bottleneck_service_seconds": "1885.88400",
+          "bottleneck_seconds": "1885.88400"
+        },
+        {
+          "phase": "x",
+          "global_service_seconds": "4400.5330000",
+          "native_seconds": "11290.9440",
+          "hf_seconds": "0",
+          "ollama_seconds": "0",
+          "native_service_seconds": "11290.9440",
+          "hf_service_seconds": "0",
+          "ollama_service_seconds": "0",
+          "global_cooldown_seconds": "0",
+          "provider_cooldown_seconds": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "0",
+          "bottleneck_service_seconds": "11290.9440",
+          "bottleneck_seconds": "11290.9440"
+        },
+        {
+          "phase": "y",
+          "global_service_seconds": "5440.2500000",
+          "native_seconds": "13726.0040000",
+          "hf_seconds": "360.0000",
+          "ollama_seconds": "360.0000",
+          "native_service_seconds": "13366.0040000",
+          "hf_service_seconds": "0",
+          "ollama_service_seconds": "0",
+          "global_cooldown_seconds": "360.0000",
+          "provider_cooldown_seconds": {
+            "adaption": "360.0000",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "24.0000",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "24.0000",
+          "bottleneck_service_seconds": "13366.0040000",
+          "bottleneck_seconds": "13726.0040000"
+        },
+        {
+          "phase": "reporter",
+          "global_service_seconds": "4979.6570000",
+          "native_seconds": "17647.6120000",
+          "hf_seconds": "2760.0000",
+          "ollama_seconds": "2760.0000",
+          "native_service_seconds": "14887.6120000",
+          "hf_service_seconds": "0",
+          "ollama_service_seconds": "0",
+          "global_cooldown_seconds": "2760.0000",
+          "provider_cooldown_seconds": {
+            "adaption": "2760.0000",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "184.0000",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "184.0000",
+          "bottleneck_service_seconds": "14887.6120000",
+          "bottleneck_seconds": "17647.6120000"
+        },
+        {
+          "phase": "readers",
+          "global_service_seconds": "8229.92000000",
+          "native_seconds": "25600.0",
+          "hf_seconds": "3261.12000000",
+          "ollama_seconds": "20712.76000000",
+          "native_service_seconds": "25600.0",
+          "hf_service_seconds": "3261.12000000",
+          "ollama_service_seconds": "20712.76000000",
+          "global_cooldown_seconds": "0",
+          "provider_cooldown_seconds": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "0",
+          "bottleneck_service_seconds": "25600.0",
+          "bottleneck_seconds": "25600.0"
+        },
+        {
+          "phase": "calibration",
+          "global_service_seconds": "31.15890625",
+          "native_seconds": "80.0",
+          "hf_seconds": "25.47750000",
+          "ollama_seconds": "71.20250000",
+          "native_service_seconds": "80.0",
+          "hf_service_seconds": "25.47750000",
+          "ollama_service_seconds": "71.20250000",
+          "global_cooldown_seconds": "0",
+          "provider_cooldown_seconds": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "0",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "0",
+          "bottleneck_service_seconds": "80.0",
+          "bottleneck_seconds": "80.0"
+        },
+        {
+          "phase": "influence",
+          "global_service_seconds": "510.0234375",
+          "native_seconds": "1286.8128750",
+          "hf_seconds": "33.7500",
+          "ollama_seconds": "33.7500",
+          "native_service_seconds": "1253.0628750",
+          "hf_service_seconds": "0",
+          "ollama_service_seconds": "0",
+          "global_cooldown_seconds": "33.7500",
+          "provider_cooldown_seconds": {
+            "adaption": "33.7500",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_terminals": {
+            "adaption": "2.2500",
+            "hf": "0",
+            "ollama": "0"
+          },
+          "projected_known_transient_total": "2.2500",
+          "bottleneck_service_seconds": "1253.0628750",
+          "bottleneck_seconds": "1286.8128750"
+        }
+      ],
+      "cost_groups": [
+        {
+          "profile_id": "g26",
+          "phase": "principal",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.011709600"
+        },
+        {
+          "profile_id": "q27",
+          "phase": "principal",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.82335740000"
+        },
+        {
+          "profile_id": "glm53",
+          "phase": "principal",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.1728900000"
+        },
+        {
+          "profile_id": "q397",
+          "phase": "principal",
+          "calls": 160,
+          "effective_known_transient_rate": "0.05",
+          "projected_peak_cost": "2.45098300000"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "coordinator",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.01335180000"
+        },
+        {
+          "profile_id": "q27",
+          "phase": "coordinator",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.40726940000"
+        },
+        {
+          "profile_id": "glm53",
+          "phase": "coordinator",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.108140000"
+        },
+        {
+          "profile_id": "q397",
+          "phase": "coordinator",
+          "calls": 160,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "2.3541500000"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "x",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.053223600000"
+        },
+        {
+          "profile_id": "q27",
+          "phase": "x",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "3.29717360000"
+        },
+        {
+          "profile_id": "glm53",
+          "phase": "x",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "1.3835600000"
+        },
+        {
+          "profile_id": "q397",
+          "phase": "x",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "9.452240000"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "y",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.05581440"
+        },
+        {
+          "profile_id": "q27",
+          "phase": "y",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "3.2984528000"
+        },
+        {
+          "profile_id": "glm53",
+          "phase": "y",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "1.3890800000"
+        },
+        {
+          "profile_id": "q397",
+          "phase": "y",
+          "calls": 640,
+          "effective_known_transient_rate": "0.0375",
+          "projected_peak_cost": "9.77685550000000"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "reporter",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.057466800000"
+        },
+        {
+          "profile_id": "q27",
+          "phase": "reporter",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "3.297392000"
+        },
+        {
+          "profile_id": "glm53",
+          "phase": "reporter",
+          "calls": 640,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "1.3871600000"
+        },
+        {
+          "profile_id": "q397",
+          "phase": "reporter",
+          "calls": 640,
+          "effective_known_transient_rate": "0.2875",
+          "projected_peak_cost": "11.8038530000000"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "readers",
+          "calls": 12800,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "2.60222400000"
+        },
+        {
+          "profile_id": "g31",
+          "phase": "readers",
+          "calls": 12800,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "3.082944000"
+        },
+        {
+          "profile_id": "hf_text",
+          "phase": "readers",
+          "calls": 5120,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "1.127040000"
+        },
+        {
+          "profile_id": "hf_schema",
+          "phase": "readers",
+          "calls": 5120,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "1.127040000"
+        },
+        {
+          "profile_id": "ds_off",
+          "phase": "readers",
+          "calls": 5120,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "3.595392000"
+        },
+        {
+          "profile_id": "ds_low",
+          "phase": "readers",
+          "calls": 12800,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "71.5929600"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "calibration",
+          "calls": 40,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.00813195000"
+        },
+        {
+          "profile_id": "g31",
+          "phase": "calibration",
+          "calls": 40,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.009634200"
+        },
+        {
+          "profile_id": "hf_text",
+          "phase": "calibration",
+          "calls": 40,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.008805000"
+        },
+        {
+          "profile_id": "hf_schema",
+          "phase": "calibration",
+          "calls": 40,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.008805000"
+        },
+        {
+          "profile_id": "ds_off",
+          "phase": "calibration",
+          "calls": 40,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.028089000"
+        },
+        {
+          "profile_id": "ds_low",
+          "phase": "calibration",
+          "calls": 40,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.2237280"
+        },
+        {
+          "profile_id": "g26",
+          "phase": "influence",
+          "calls": 60,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.00523260"
+        },
+        {
+          "profile_id": "q27",
+          "phase": "influence",
+          "calls": 60,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.3092299500"
+        },
+        {
+          "profile_id": "glm53",
+          "phase": "influence",
+          "calls": 60,
+          "effective_known_transient_rate": "0",
+          "projected_peak_cost": "0.1302262500"
+        },
+        {
+          "profile_id": "q397",
+          "phase": "influence",
+          "calls": 60,
+          "effective_known_transient_rate": "0.0375",
+          "projected_peak_cost": "0.91658020312500"
+        }
+      ],
+      "gateway_allowance_feasible": true,
+      "deadline_feasible": true
+    }
+  ],
+  "development_serving_metadata": [
+    {
+      "profile_id": "g26",
+      "phase": "principal",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.63975",
+      "max_known_input_tokens": 520,
+      "max_known_output_tokens": 46,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "principal",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "3.19845",
+      "max_known_input_tokens": 467,
+      "max_known_output_tokens": 993,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q27",
+      "phase": "principal",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "11.98345",
+      "max_known_input_tokens": 533,
+      "max_known_output_tokens": 3436,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q397",
+      "phase": "principal",
+      "count": 20,
+      "known_usage_count": 19,
+      "unknown_usage_count": 1,
+      "mean_latency_seconds": "35.86335",
+      "max_known_input_tokens": 494,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 1,
+      "known_transient_rate": "0.05",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 1,
+          "rate": "0.05",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "g26",
+      "phase": "coordinator",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.5548",
+      "max_known_input_tokens": 574,
+      "max_known_output_tokens": 56,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "coordinator",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "2.29605",
+      "max_known_input_tokens": 522,
+      "max_known_output_tokens": 578,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q27",
+      "phase": "coordinator",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "4.0725",
+      "max_known_input_tokens": 573,
+      "max_known_output_tokens": 1007,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q397",
+      "phase": "coordinator",
+      "count": 20,
+      "known_usage_count": 20,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "23.57355",
+      "max_known_input_tokens": 549,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "g26",
+      "phase": "x",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.691075",
+      "max_known_input_tokens": 683,
+      "max_known_output_tokens": 35,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "x",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "8.294825",
+      "max_known_input_tokens": 607,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q27",
+      "phase": "x",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "10.7365625",
+      "max_known_input_tokens": 653,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q397",
+      "phase": "x",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "35.2842",
+      "max_known_input_tokens": 630,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "g26",
+      "phase": "y",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.72775",
+      "max_known_input_tokens": 720,
+      "max_known_output_tokens": 36,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "y",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "10.571275",
+      "max_known_input_tokens": 653,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q27",
+      "phase": "y",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "14.9353375",
+      "max_known_input_tokens": 694,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q397",
+      "phase": "y",
+      "count": 80,
+      "known_usage_count": 77,
+      "unknown_usage_count": 3,
+      "mean_latency_seconds": "41.7687625",
+      "max_known_input_tokens": 673,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 3,
+      "known_transient_rate": "0.0375",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 3,
+          "rate": "0.0375",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "g26",
+      "phase": "reporter",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.67015",
+      "max_known_input_tokens": 683,
+      "max_known_output_tokens": 48,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "reporter",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "5.693425",
+      "max_known_input_tokens": 637,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q27",
+      "phase": "reporter",
+      "count": 80,
+      "known_usage_count": 80,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "9.35835",
+      "max_known_input_tokens": 660,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q397",
+      "phase": "reporter",
+      "count": 80,
+      "known_usage_count": 57,
+      "unknown_usage_count": 23,
+      "mean_latency_seconds": "46.5237875",
+      "max_known_input_tokens": 638,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 23,
+      "known_transient_rate": "0.2875",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 23,
+          "rate": "0.2875",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "ds_low",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "3.02053125",
+      "max_known_input_tokens": 1808,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "ds_off",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.53959375",
+      "max_known_input_tokens": 1783,
+      "max_known_output_tokens": 14,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "g26",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.57834375",
+      "max_known_input_tokens": 2014,
+      "max_known_output_tokens": 21,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "g31",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.8194375",
+      "max_known_input_tokens": 2014,
+      "max_known_output_tokens": 21,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "glm52",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "12.71059375",
+      "max_known_input_tokens": 1759,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "hf_schema",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.63184375",
+      "max_known_input_tokens": 1689,
+      "max_known_output_tokens": 15,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "hf_text",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 32,
+      "unknown_usage_count": 0,
+      "mean_latency_seconds": "0.64203125",
+      "max_known_input_tokens": 1689,
+      "max_known_output_tokens": 15,
+      "known_transient_count": 0,
+      "known_transient_rate": "0",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    },
+    {
+      "profile_id": "q397",
+      "phase": "readers",
+      "count": 32,
+      "known_usage_count": 30,
+      "unknown_usage_count": 2,
+      "mean_latency_seconds": "46.48634375",
+      "max_known_input_tokens": 1942,
+      "max_known_output_tokens": 4096,
+      "known_transient_count": 2,
+      "known_transient_rate": "0.0625",
+      "max_retry_after_seconds": "0",
+      "transient_classes": {
+        "gateway_5xx": {
+          "count": 2,
+          "rate": "0.0625",
+          "max_retry_after_seconds": "0"
+        },
+        "overload_429": {
+          "count": 0,
+          "rate": "0",
+          "max_retry_after_seconds": "0"
+        }
+      }
+    }
+  ],
+  "journal_sha256": {
+    "technical/technical/plan.json": "7e612df06e42fe71b964ee7c4e8ff4d39cd42f41c2addfde46848282a6a5009f",
+    "technical/technical/attempts.jsonl": "378dab22ab6cf1981d512c85790e4d77ebff82ea68bba854c8e8fa4a7b8939f2",
+    "technical/technical/responses.jsonl": "4b6932f193eca9c3027f5ed3d283cb5b89638ce4186bbac9f67d2f8f11ea9460",
+    "development/principal/plan.json": "24c93f522e7500d290402c7739e4353f28333fb34b56b7f077cfbcf5617b1466",
+    "development/principal/attempts.jsonl": "e7207eb485429df5b982053c556d40ac0235326630b73ee00d27b62f6e94953b",
+    "development/principal/responses.jsonl": "c62552a2ddddf5efb6256540df76efae89d0b0b28d66bb88e63903910d5a2046",
+    "development/coordinator/plan.json": "9228eaa3b728f6b4d8f490c13be4e4f28614200b0705abb055e40eea7558b87e",
+    "development/coordinator/attempts.jsonl": "3bb93dac07803f081cdaaf3456043675cb8114fee82f87756f3333e3eacfb2c7",
+    "development/coordinator/responses.jsonl": "f235f8beab1e771b35967ef115b96a378663ca6ee9fd5d37b58c6d623e0eac04",
+    "development/x/plan.json": "0bcd9b6091510afc0e735515f995161c377ccff983a4c1d0b23c5c9348b9bab6",
+    "development/x/attempts.jsonl": "725953103b233c7c0a33b651ed89862318b7d69a1515db6b2e2a9fa2d006b984",
+    "development/x/responses.jsonl": "c555a90911db280eee4fa8dc8479c7b6fd09a68a9a55c42467662ae8a54319df",
+    "development/y/plan.json": "06046c0ce34f6938702dacdc4b4b3b11b480a529831367954a0770bfb2d50cf2",
+    "development/y/attempts.jsonl": "41affa638a052f74219ee7854ae9cccaede0a2ca1bc98c1bac58e2bd53a34ec2",
+    "development/y/responses.jsonl": "acf5b684c00edb3e11c27dba0a4f1f1c9868a9d959ad57ced149bf1a853130a3",
+    "development/reporter/plan.json": "9aa2a030fce08edd559f6a0cb6f92aa7b8a237d53c5ae968fb7a2d6641cf1dd7",
+    "development/reporter/attempts.jsonl": "573c72d00acf8cb9ea3f8f945da710aaeb1548ce26927ccbc0c804d747c64399",
+    "development/reporter/responses.jsonl": "d979dd7d7fbd5f12ac68f0913d9d27bf5f313d1da95cfd8345367eb3ce172c6d",
+    "development/readers/plan.json": "95b7c7fbc2516d38707f34128deccbff9619ec8849b455aeae723b5a4b48e9a3",
+    "development/readers/attempts.jsonl": "12b7e0c36a9fe90468d45a19e6ad120c47c2add6c5dda2c90b8a8c7a96ad58b7",
+    "development/readers/responses.jsonl": "0dba4a41492e67811570a677ccc8d7649c661de19526c6f73ddf4afe2c4014eb",
+    "pilot_spending/runs/swarm-ledger-dispatch-v1-pilot/native4/responses.jsonl": "f60086ac7bb7f422315d5650d260e63b771e29a6cbba8b953bb8c91b7ade62dc",
+    "pilot_spending/runs/swarm-ledger-dispatch-v2-pilot/native4/responses.jsonl": "48135392bb2c6ffaa00a6eb5267c958004cc328836a1fb68cbd1be4436feabb4"
+  },
+  "driver_state_sha256": "97a4ab6aaf8cf4f2553e7688e73e0d4473b00d2478b8eba5de538047703ff7ee",
+  "pilot_cost_lineage": {
+    "estimated_cost_by_provider": {
+      "adaption": "0.81430880",
+      "hf": "0",
+      "ollama": "0"
+    },
+    "baselines": [
+      {
+        "path": "research/swarm-ledger-dispatch-v1-stop.json",
+        "sha256": "70d30e56d0949f91dead03b4b007c270e71674d30aa2e5a79d8487647392dd73",
+        "registration_tag": "swarm-ledger-dispatch-v1-pilot",
+        "registration_sha256": "ed5a0eacfaaf5f5e3fbdfabeae32c1221d20c83869728a97c8d80232ecef4415"
+      },
+      {
+        "path": "research/swarm-ledger-dispatch-v2-stop.json",
+        "sha256": "92b6f4764cb884e3fb9e9cdeec0c3b4ffe76d11b8b15404e919a30ee3c53a827",
+        "registration_tag": "swarm-ledger-dispatch-v2-pilot",
+        "registration_sha256": "b42d299787eae7137bbeaac69f535cf73e870543e9615796036f1c941561b965"
+      }
+    ]
+  },
+  "main_known_gateway_allowance": 1024,
+  "known_gateway_projection_caveat": "Projected phase counts are engineering expectations, not a guarantee against exhausting the registered terminal-error allowance.",
+  "pilot_metadata_sha256": "414ab9c0dea60fbb02adb2ddf74193017e49f5d4a56eeb39ac71f0c04c9ee65c",
+  "science_config_sha256": "915b2ed3a300d13f57ea7f81ae1ecf906abb3fd2a4857ec37738ac8aa32bb4c4",
+  "forecast_source_sha256": "6b15b911b2351d345b668ce6309048a05247a8eda521a3a343f445d8008be2a5",
+  "cost_groups": [
+    {
+      "profile_id": "g26",
+      "phase": "principal",
+      "calls": 160,
+      "usage_source_phase": "principal",
+      "projected_input_tokens": "650.00",
+      "projected_output_tokens": "92",
+      "margined_known_row_cost": "0.000073185",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "coordinator",
+      "calls": 160,
+      "usage_source_phase": "coordinator",
+      "projected_input_tokens": "717.50",
+      "projected_output_tokens": "112",
+      "margined_known_row_cost": "0.00008344875",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "x",
+      "calls": 640,
+      "usage_source_phase": "x",
+      "projected_input_tokens": "853.75",
+      "projected_output_tokens": "70",
+      "margined_known_row_cost": "0.000083161875",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "y",
+      "calls": 640,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "900.00",
+      "projected_output_tokens": "72",
+      "margined_known_row_cost": "0.00008721",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "reporter",
+      "calls": 640,
+      "usage_source_phase": "reporter",
+      "projected_input_tokens": "853.75",
+      "projected_output_tokens": "96",
+      "margined_known_row_cost": "0.000089791875",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "influence",
+      "calls": 60,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "900.00",
+      "projected_output_tokens": "72",
+      "margined_known_row_cost": "0.00008721",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "q27",
+      "phase": "principal",
+      "calls": 160,
+      "usage_source_phase": "principal",
+      "projected_input_tokens": "666.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.00514598375",
+      "full_unknown_row_reservation": "0.006056"
+    },
+    {
+      "profile_id": "q27",
+      "phase": "coordinator",
+      "calls": 160,
+      "usage_source_phase": "coordinator",
+      "projected_input_tokens": "716.25",
+      "projected_output_tokens": "2014",
+      "margined_known_row_cost": "0.00254543375",
+      "full_unknown_row_reservation": "0.006056"
+    },
+    {
+      "profile_id": "q27",
+      "phase": "x",
+      "calls": 640,
+      "usage_source_phase": "x",
+      "projected_input_tokens": "816.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.00515183375",
+      "full_unknown_row_reservation": "0.006056"
+    },
+    {
+      "profile_id": "q27",
+      "phase": "y",
+      "calls": 640,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "867.50",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0051538325",
+      "full_unknown_row_reservation": "0.006056"
+    },
+    {
+      "profile_id": "q27",
+      "phase": "reporter",
+      "calls": 640,
+      "usage_source_phase": "reporter",
+      "projected_input_tokens": "825.00",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.005152175",
+      "full_unknown_row_reservation": "0.006056"
+    },
+    {
+      "profile_id": "q27",
+      "phase": "influence",
+      "calls": 60,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "867.50",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0051538325",
+      "full_unknown_row_reservation": "0.006056"
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "principal",
+      "calls": 160,
+      "usage_source_phase": "principal",
+      "projected_input_tokens": "583.75",
+      "projected_output_tokens": "1986",
+      "margined_known_row_cost": "0.0010805625",
+      "full_unknown_row_reservation": "0.005648"
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "coordinator",
+      "calls": 160,
+      "usage_source_phase": "coordinator",
+      "projected_input_tokens": "652.50",
+      "projected_output_tokens": "1156",
+      "margined_known_row_cost": "0.000675875",
+      "full_unknown_row_reservation": "0.005648"
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "x",
+      "calls": 640,
+      "usage_source_phase": "x",
+      "projected_input_tokens": "758.75",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0021618125",
+      "full_unknown_row_reservation": "0.005648"
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "y",
+      "calls": 640,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "816.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0021704375",
+      "full_unknown_row_reservation": "0.005648"
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "reporter",
+      "calls": 640,
+      "usage_source_phase": "reporter",
+      "projected_input_tokens": "796.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0021674375",
+      "full_unknown_row_reservation": "0.005648"
+    },
+    {
+      "profile_id": "glm53",
+      "phase": "influence",
+      "calls": 60,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "816.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0021704375",
+      "full_unknown_row_reservation": "0.005648"
+    },
+    {
+      "profile_id": "q397",
+      "phase": "principal",
+      "calls": 160,
+      "usage_source_phase": "principal",
+      "projected_input_tokens": "617.50",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.014675625",
+      "full_unknown_row_reservation": "0.027536"
+    },
+    {
+      "profile_id": "q397",
+      "phase": "coordinator",
+      "calls": 160,
+      "usage_source_phase": "coordinator",
+      "projected_input_tokens": "686.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0147134375",
+      "full_unknown_row_reservation": "0.027536"
+    },
+    {
+      "profile_id": "q397",
+      "phase": "x",
+      "calls": 640,
+      "usage_source_phase": "x",
+      "projected_input_tokens": "787.50",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.014769125",
+      "full_unknown_row_reservation": "0.027536"
+    },
+    {
+      "profile_id": "q397",
+      "phase": "y",
+      "calls": 640,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "841.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0147986875",
+      "full_unknown_row_reservation": "0.027536"
+    },
+    {
+      "profile_id": "q397",
+      "phase": "reporter",
+      "calls": 640,
+      "usage_source_phase": "reporter",
+      "projected_input_tokens": "797.50",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.014774625",
+      "full_unknown_row_reservation": "0.027536"
+    },
+    {
+      "profile_id": "q397",
+      "phase": "influence",
+      "calls": 60,
+      "usage_source_phase": "y",
+      "projected_input_tokens": "841.25",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0147986875",
+      "full_unknown_row_reservation": "0.027536"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "readers",
+      "calls": 12800,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2517.50",
+      "projected_output_tokens": "42",
+      "margined_known_row_cost": "0.00020329875",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g26",
+      "phase": "calibration",
+      "calls": 40,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2517.50",
+      "projected_output_tokens": "42",
+      "margined_known_row_cost": "0.00020329875",
+      "full_unknown_row_reservation": "0.00288048"
+    },
+    {
+      "profile_id": "g31",
+      "phase": "readers",
+      "calls": 12800,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2517.50",
+      "projected_output_tokens": "42",
+      "margined_known_row_cost": "0.000240855",
+      "full_unknown_row_reservation": "0.00355264"
+    },
+    {
+      "profile_id": "g31",
+      "phase": "calibration",
+      "calls": 40,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2517.50",
+      "projected_output_tokens": "42",
+      "margined_known_row_cost": "0.000240855",
+      "full_unknown_row_reservation": "0.00355264"
+    },
+    {
+      "profile_id": "hf_text",
+      "phase": "readers",
+      "calls": 5120,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2111.25",
+      "projected_output_tokens": "30",
+      "margined_known_row_cost": "0.000220125",
+      "full_unknown_row_reservation": "0.0036288"
+    },
+    {
+      "profile_id": "hf_text",
+      "phase": "calibration",
+      "calls": 40,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2111.25",
+      "projected_output_tokens": "30",
+      "margined_known_row_cost": "0.000220125",
+      "full_unknown_row_reservation": "0.0036288"
+    },
+    {
+      "profile_id": "hf_schema",
+      "phase": "readers",
+      "calls": 5120,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2111.25",
+      "projected_output_tokens": "30",
+      "margined_known_row_cost": "0.000220125",
+      "full_unknown_row_reservation": "0.0036288"
+    },
+    {
+      "profile_id": "hf_schema",
+      "phase": "calibration",
+      "calls": 40,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2111.25",
+      "projected_output_tokens": "30",
+      "margined_known_row_cost": "0.000220125",
+      "full_unknown_row_reservation": "0.0036288"
+    },
+    {
+      "profile_id": "ds_off",
+      "phase": "readers",
+      "calls": 5120,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2228.75",
+      "projected_output_tokens": "28",
+      "margined_known_row_cost": "0.000702225",
+      "full_unknown_row_reservation": "0.0121152"
+    },
+    {
+      "profile_id": "ds_off",
+      "phase": "calibration",
+      "calls": 40,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2228.75",
+      "projected_output_tokens": "28",
+      "margined_known_row_cost": "0.000702225",
+      "full_unknown_row_reservation": "0.0121152"
+    },
+    {
+      "profile_id": "ds_low",
+      "phase": "readers",
+      "calls": 12800,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2260.00",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0055932",
+      "full_unknown_row_reservation": "0.0121152"
+    },
+    {
+      "profile_id": "ds_low",
+      "phase": "calibration",
+      "calls": 40,
+      "usage_source_phase": "readers",
+      "projected_input_tokens": "2260.00",
+      "projected_output_tokens": "4096",
+      "margined_known_row_cost": "0.0055932",
+      "full_unknown_row_reservation": "0.0121152"
+    }
+  ],
+  "fixed_native_levels": [
+    2
+  ],
+  "capacity_pilot_extrapolation_used": false,
+  "dispatch_limits": {
+    "native_per_model": 2,
+    "native_provider": 8,
+    "global_cap": 8,
+    "hf": 2,
+    "ollama": 2,
+    "native_dispatch_interval_seconds": 1
+  },
+  "workload": {
+    "actor_calls_including_influence": 9200,
+    "reader_calls_including_calibration": 54000,
+    "total_calls": 63200,
+    "scientific_main_blocks": 640
+  },
+  "accuracy_used_for_selection": false,
+  "cost_basis": "Frozen peak rates: calls\u00c3\u2014[(1\u00e2\u02c6\u2019effective known-transient rate)\u00c3\u2014margined known row cost +rate\u00c3\u2014full unknown row reservation]. DEV input1.25/output2 margins clipped to original ceilings; All disjoint transient rates use original DEV groups only; unused historical reader groups remain archived. Estimates/reservations, not invoices.",
+  "future_backoff_policy": {
+    "adaption_gateway_502_503_504_seconds": 15,
+    "other_known_transients_seconds": 60,
+    "max_retry_after_seconds": 900
+  },
+  "rate_source": "https://ollama.com/pricing",
+  "off_peak_window_verified": true,
+  "backoff_assumptions": "Disjoint gateway5xx/explicit-overload429 DEV rates by profile/phase; Failed capacity-pilot rates and throughput are never extrapolated. Future Adaption502/503/504 floor15 seconds;429 and other providers60, each max with observed valid Retry-After up to900. Historical DEV waits used60; future policy is prospective. Sum calls\u00c3\u2014class-rate\u00c3\u2014class-delay globally per phase before1.25+1800. Episodes may coalesce. All original terminal actor latencies, including failed slow reporters, enter DEV means. Summed pauses may deliberately double-count waiting. This engineering envelope is neither a calibrated wallclock estimate nor a statistical upper confidence bound or completion guarantee."
+}

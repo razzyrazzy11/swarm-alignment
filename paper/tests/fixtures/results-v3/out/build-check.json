@@ -1,0 +1,36 @@
+{
+  "abstract_words": 190,
+  "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
+  "content_sha256": "5eb956892b2560f780cc274e0c8bda800d73d1ed955768657db7b4030083b2c1",
+  "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
+  "docx_sha256": "7554cd2f9a9baa9bfacbe3a6693e303a997678e663d14a72c10c1db096c1b810",
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "evidence_status": {
+    "status": "primary complete; original secondary incomplete",
+    "primary_complete": true,
+    "source_groups": 192,
+    "actor_calls": 576,
+    "original_audit_calls": 9742,
+    "extension_audit_calls": 4728,
+    "main_audit_calls": 14252,
+    "calibration_calls": 218,
+    "original_plan_complete": false,
+    "extension_plan_complete": true,
+    "training_runs": 0,
+    "freeze": "factorial-audit-v1"
+  },
+  "results_sha256": "76729de6bfc4b6bf76673801c7250ae7efeca19b5fa6650678c0c3ab356507e2",
+  "factorial_reporting_sources": {
+    "factorial-config.json": "0b516c576ef1381675588950dd9d92db3dd57bd0fc2e455acf1a3aa7a24e3f27",
+    "factorial-audit-v1-freeze.json": "41216a87860884bb503837d9b5f8d89259588c14ad20af976d71444d0b6bd57e",
+    "factorial-reporting-freeze.json": "fc655afb73bb73c410e6634ad862f1ab31afc4e1552f6dffb33d695abcbdde2f",
+    "factorial-report.json": "af7314a8d83c0c5273800a93e75c76f34320811f00d338ab02d2aa7b8a72b89f",
+    "ollama-reader-v1-freeze.json": "56c5592106f40160c0b0478d4d80fb1684c037a80e1fb7119ef292f9ed1ff87d",
+    "live-results.json": "01f4dff0d3d87f826bd50aad3111d97059a2af9c5de008dd4128867d875bf299",
+    "weight-results.json": "85e1519943edad879c813c33045cc16ef25cbdba7eabb579b91b394dba63609a",
+    "stateful-results.json": "f234123f460ca018eb4eacb65414c23af0d06d55cd29c77679c715f23b1306e2"
+  },
+  "factorial_reporting_contract_sha256": "8b2a5f18ab48b18240e434d174190f11f56b4991b65a515e15a23e14f689dc35"
+}

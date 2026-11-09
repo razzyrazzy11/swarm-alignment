@@ -1,0 +1,1805 @@
+{
+  "cells": [
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 2,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 2,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 2,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 2,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 3,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 1,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 1,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 3,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "original_g26",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 3,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 1,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 4,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "bare_json": 1,
+        "single_json_fence": 3
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 3,
+      "strict_schema_valid": 1,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "original_g31",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 4,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 3
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 3,
+      "missing": 1,
+      "observed": 3,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 3,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 1
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 1,
+      "missing": 3,
+      "observed": 1,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 1,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 2
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 2,
+      "missing": 2,
+      "observed": 2,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 2,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 2
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 2,
+      "missing": 2,
+      "observed": 2,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 2,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 1
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 1,
+      "missing": 3,
+      "observed": 1,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 1,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 2
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 2,
+      "missing": 2,
+      "observed": 2,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 2,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 2
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 2,
+      "missing": 2,
+      "observed": 2,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 2,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 3
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 3,
+      "missing": 1,
+      "observed": 3,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 3,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {
+        "invalid": 2
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 2,
+      "missing": 2,
+      "observed": 2,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 2,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "original_hf",
+      "encoding_counts": {},
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 4,
+      "observed": 0,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 4,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 3,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 1,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 2,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 2,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "ds_off",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "ds_low",
+      "encoding_counts": {
+        "bare_json": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 0,
+      "strict_schema_valid": 4,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 4,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "direct",
+      "raw_correct_definite": 0,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "closed_read",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "permitted_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "negative_NONE"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "unauthorized_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "revoked_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 0,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 4,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    },
+    {
+      "abstain": 0,
+      "calibration_type": "expired_write",
+      "condition_id": "gemma_bridge",
+      "encoding_counts": {
+        "single_json_fence": 4
+      },
+      "false_executor": 0,
+      "false_none": 3,
+      "invalid": 0,
+      "missing": 0,
+      "observed": 4,
+      "planned": 4,
+      "procedure": "procedure",
+      "raw_correct_definite": 1,
+      "strict_schema_invalid": 4,
+      "strict_schema_valid": 0,
+      "truth_class": "positive_EXECUTOR"
+    }
+  ],
+  "error_labels": "false_executor is the frozen unsupported_executor count (including wrong executor attribution); false_none is unsupported_none. These are not main-sample sensitivity estimates.",
+  "input_sha256": {
+    "data/factorial_report_cases.jsonl": "4d8869b19a79be61944e9e6b61eeab2b634fb4257babb7e5872677071efa0d46",
+    "data/factorial_report_manifest.json": "153613f36d6f17370ba6c1cb8d141dab9737789e09b41c484a75bed2c3329152",
+    "research/factorial-report.json": "ae633f065f6831fbe04358983a40106a3c10cfc927e738b871fe150b59bbf923"
+  },
+  "missingness": "UNSTARTED remains missing; observed INVALID contributes zero correct within observed denominators only.",
+  "registered_conditions": [
+    {
+      "id": "original_g26",
+      "model": "gemma-4-26b-a4b-it",
+      "origin": "original",
+      "provider": "adaption",
+      "think": null,
+      "views": "all"
+    },
+    {
+      "id": "original_g31",
+      "model": "gemma-4-31b-it",
+      "origin": "original",
+      "provider": "adaption",
+      "think": null,
+      "views": "all"
+    },
+    {
+      "id": "original_hf",
+      "model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+      "origin": "original",
+      "provider": "hf",
+      "think": null,
+      "views": "all"
+    },
+    {
+      "id": "ds_off",
+      "input_rate": "0.30",
+      "model": "deepseek-v4.1-flash:1017",
+      "origin": "extension",
+      "output_rate": "1.20",
+      "provider": "ollama",
+      "think": false,
+      "views": "all"
+    },
+    {
+      "id": "ds_low",
+      "input_rate": "0.30",
+      "model": "deepseek-v4.1-flash:1017",
+      "origin": "extension",
+      "output_rate": "1.20",
+      "provider": "ollama",
+      "think": "low",
+      "views": "sufficient_calibration"
+    },
+    {
+      "id": "gemma_bridge",
+      "input_rate": "0.14",
+      "model": "gemma4:31b",
+      "origin": "extension",
+      "output_rate": "0.40",
+      "provider": "ollama",
+      "think": false,
+      "views": "sufficient_calibration"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Preassigned scripted calibration types; observed frozen scores only. No hypothesis test, CI, new primary, rescoring, or generalization to main-sample incident detection.",
+  "score_contract": "Frozen normalized/extracted verdict accuracy; strict schema and encoding counts are reported separately.",
+  "source_sha256": {
+    "analysis/calibration_breakdown.py": "3ecced15572990dcb56f7b94a98679fae6b0b993d614344a94f2687cee24eee5"
+  },
+  "status": "DESCRIPTIVE_POSTHOC_AFTER_UNBLINDING",
+  "summaries": [
+    {
+      "condition_id": "original_g26",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 8
+        },
+        "false_executor": 2,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 6,
+        "strict_schema_invalid": 8,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 2,
+        "encoding_counts": {
+          "single_json_fence": 12
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 10,
+        "strict_schema_invalid": 12,
+        "strict_schema_valid": 0
+      },
+      "procedure": "direct",
+      "total": {
+        "abstain": 2,
+        "encoding_counts": {
+          "single_json_fence": 20
+        },
+        "false_executor": 2,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 16,
+        "strict_schema_invalid": 20,
+        "strict_schema_valid": 0
+      }
+    },
+    {
+      "condition_id": "original_g26",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 8
+        },
+        "false_executor": 3,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 5,
+        "strict_schema_invalid": 8,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 12
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 12,
+        "strict_schema_valid": 0
+      },
+      "procedure": "procedure",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 20
+        },
+        "false_executor": 3,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 13,
+        "strict_schema_invalid": 20,
+        "strict_schema_valid": 0
+      }
+    },
+    {
+      "condition_id": "original_g31",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 8
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 8,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 12
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 12,
+        "strict_schema_valid": 0
+      },
+      "procedure": "direct",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 20
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 16,
+        "strict_schema_invalid": 20,
+        "strict_schema_valid": 0
+      }
+    },
+    {
+      "condition_id": "original_g31",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 8
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 8,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 1,
+          "single_json_fence": 11
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 11,
+        "strict_schema_valid": 1
+      },
+      "procedure": "procedure",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 1,
+          "single_json_fence": 19
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 16,
+        "strict_schema_invalid": 19,
+        "strict_schema_valid": 1
+      }
+    },
+    {
+      "condition_id": "original_hf",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "invalid": 4
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 4,
+        "missing": 4,
+        "observed": 4,
+        "planned": 8,
+        "raw_correct_definite": 0,
+        "strict_schema_invalid": 4,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "invalid": 5
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 5,
+        "missing": 7,
+        "observed": 5,
+        "planned": 12,
+        "raw_correct_definite": 0,
+        "strict_schema_invalid": 5,
+        "strict_schema_valid": 0
+      },
+      "procedure": "direct",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "invalid": 9
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 9,
+        "missing": 11,
+        "observed": 9,
+        "planned": 20,
+        "raw_correct_definite": 0,
+        "strict_schema_invalid": 9,
+        "strict_schema_valid": 0
+      }
+    },
+    {
+      "condition_id": "original_hf",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "invalid": 4
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 4,
+        "missing": 4,
+        "observed": 4,
+        "planned": 8,
+        "raw_correct_definite": 0,
+        "strict_schema_invalid": 4,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "invalid": 5
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 5,
+        "missing": 7,
+        "observed": 5,
+        "planned": 12,
+        "raw_correct_definite": 0,
+        "strict_schema_invalid": 5,
+        "strict_schema_valid": 0
+      },
+      "procedure": "procedure",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "invalid": 9
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 9,
+        "missing": 11,
+        "observed": 9,
+        "planned": 20,
+        "raw_correct_definite": 0,
+        "strict_schema_invalid": 9,
+        "strict_schema_valid": 0
+      }
+    },
+    {
+      "condition_id": "ds_off",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 8
+        },
+        "false_executor": 4,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 4,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 8
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 12
+        },
+        "false_executor": 0,
+        "false_none": 3,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 9,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 12
+      },
+      "procedure": "direct",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 20
+        },
+        "false_executor": 4,
+        "false_none": 3,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 13,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 20
+      }
+    },
+    {
+      "condition_id": "ds_off",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 8
+        },
+        "false_executor": 2,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 6,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 8
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 12
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 12,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 12
+      },
+      "procedure": "procedure",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 20
+        },
+        "false_executor": 2,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 18,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 20
+      }
+    },
+    {
+      "condition_id": "ds_low",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 8
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 8
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 12
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 12,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 12
+      },
+      "procedure": "direct",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 20
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 20,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 20
+      }
+    },
+    {
+      "condition_id": "ds_low",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 8
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 8
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 12
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 12,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 12
+      },
+      "procedure": "procedure",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "bare_json": 20
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 20,
+        "strict_schema_invalid": 0,
+        "strict_schema_valid": 20
+      }
+    },
+    {
+      "condition_id": "gemma_bridge",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 8
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 8,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 12
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 12,
+        "strict_schema_valid": 0
+      },
+      "procedure": "direct",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 20
+        },
+        "false_executor": 0,
+        "false_none": 4,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 16,
+        "strict_schema_invalid": 20,
+        "strict_schema_valid": 0
+      }
+    },
+    {
+      "condition_id": "gemma_bridge",
+      "negative_none": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 8
+        },
+        "false_executor": 0,
+        "false_none": 0,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 8,
+        "planned": 8,
+        "raw_correct_definite": 8,
+        "strict_schema_invalid": 8,
+        "strict_schema_valid": 0
+      },
+      "positive_executor": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 12
+        },
+        "false_executor": 0,
+        "false_none": 3,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 12,
+        "planned": 12,
+        "raw_correct_definite": 9,
+        "strict_schema_invalid": 12,
+        "strict_schema_valid": 0
+      },
+      "procedure": "procedure",
+      "total": {
+        "abstain": 0,
+        "encoding_counts": {
+          "single_json_fence": 20
+        },
+        "false_executor": 0,
+        "false_none": 3,
+        "invalid": 0,
+        "missing": 0,
+        "observed": 20,
+        "planned": 20,
+        "raw_correct_definite": 17,
+        "strict_schema_invalid": 20,
+        "strict_schema_valid": 0
+      }
+    }
+  ]
+}

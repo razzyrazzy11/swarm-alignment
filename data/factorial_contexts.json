@@ -1,0 +1,3076 @@
+{
+  "main": [
+    {
+      "seed": 6100000,
+      "stratum": 0,
+      "namespace": 243130981128936099070801591465161823315,
+      "initial": 0,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100001,
+      "stratum": 1,
+      "namespace": 121248260520921625977831717306014199620,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100002,
+      "stratum": 2,
+      "namespace": 160519544927101885451940653655695763959,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100003,
+      "stratum": 3,
+      "namespace": 15298843366854217859438278068012687183,
+      "initial": 3,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100004,
+      "stratum": 4,
+      "namespace": 248050195499447739258500938907744723558,
+      "initial": 4,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100005,
+      "stratum": 5,
+      "namespace": 301853673003362251421568228219425855601,
+      "initial": 0,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100006,
+      "stratum": 6,
+      "namespace": 99845475474039063149365865437843135003,
+      "initial": 1,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100007,
+      "stratum": 7,
+      "namespace": 107006346248265943676292714683299208970,
+      "initial": 2,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100008,
+      "stratum": 0,
+      "namespace": 43496027646145325418795288908339702522,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100009,
+      "stratum": 1,
+      "namespace": 78304367049365197490943038445718157485,
+      "initial": 4,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100010,
+      "stratum": 2,
+      "namespace": 47399146497631621108198435671691228216,
+      "initial": 0,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100011,
+      "stratum": 3,
+      "namespace": 171657400269495116715663161116765344837,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100012,
+      "stratum": 4,
+      "namespace": 157774589242669992454656647526155413958,
+      "initial": 2,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100013,
+      "stratum": 5,
+      "namespace": 339650545860164416078134684879628381419,
+      "initial": 3,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100014,
+      "stratum": 6,
+      "namespace": 152652922351193268919076236007554891594,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100015,
+      "stratum": 7,
+      "namespace": 333486243617595512452408811762486865297,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100016,
+      "stratum": 0,
+      "namespace": 153353457936668200975630379134501726451,
+      "initial": 1,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100017,
+      "stratum": 1,
+      "namespace": 259745082326265394237136029912740764333,
+      "initial": 2,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100018,
+      "stratum": 2,
+      "namespace": 289544831368218634969981249674965508108,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100019,
+      "stratum": 3,
+      "namespace": 270364474728484796362102490060446247661,
+      "initial": 4,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100020,
+      "stratum": 4,
+      "namespace": 139237521028644710549008913250628539422,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100021,
+      "stratum": 5,
+      "namespace": 79881656698300012145507548396893784240,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100022,
+      "stratum": 6,
+      "namespace": 95425947543050794772806691610371483685,
+      "initial": 2,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100023,
+      "stratum": 7,
+      "namespace": 103049503304047267415883493373482902620,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100024,
+      "stratum": 0,
+      "namespace": 68101609237153565854973395441446712123,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100025,
+      "stratum": 1,
+      "namespace": 276723392864389116400463205931541824696,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100026,
+      "stratum": 2,
+      "namespace": 84326723794489127417001297710468236326,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100027,
+      "stratum": 3,
+      "namespace": 33775078871303436857455659656906686806,
+      "initial": 2,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100028,
+      "stratum": 4,
+      "namespace": 92265587856455375082683735510336934527,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100029,
+      "stratum": 5,
+      "namespace": 322771439505429426184396330780767230050,
+      "initial": 4,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100030,
+      "stratum": 6,
+      "namespace": 16550774746483448359444464494476180817,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100031,
+      "stratum": 7,
+      "namespace": 132505255333724586506827145744849556317,
+      "initial": 1,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100032,
+      "stratum": 0,
+      "namespace": 327494494384638655522813345290657793745,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100033,
+      "stratum": 1,
+      "namespace": 145121424445468338634954619310248510149,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100034,
+      "stratum": 2,
+      "namespace": 210713118101148265994626322520399864978,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100035,
+      "stratum": 3,
+      "namespace": 103542458674189758232827358239269649617,
+      "initial": 0,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100036,
+      "stratum": 4,
+      "namespace": 291746597514206420952152210300106924461,
+      "initial": 1,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100037,
+      "stratum": 5,
+      "namespace": 16328265848506221281946985693996230017,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100038,
+      "stratum": 6,
+      "namespace": 272092049893086078493757918994220807997,
+      "initial": 3,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100039,
+      "stratum": 7,
+      "namespace": 244318710712063504181952974609769603556,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100040,
+      "stratum": 0,
+      "namespace": 232087744195427606911281410106817786421,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100041,
+      "stratum": 1,
+      "namespace": 114867850249209154380880631745797506044,
+      "initial": 1,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100042,
+      "stratum": 2,
+      "namespace": 327050129324428839445796367876450450007,
+      "initial": 2,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100043,
+      "stratum": 3,
+      "namespace": 327308170589943507405370466873555593859,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100044,
+      "stratum": 4,
+      "namespace": 166703731738202936575141223345890208990,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100045,
+      "stratum": 5,
+      "namespace": 247185680343251528167351519438472341225,
+      "initial": 0,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100046,
+      "stratum": 6,
+      "namespace": 292853130345317587435349686901707466832,
+      "initial": 1,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100047,
+      "stratum": 7,
+      "namespace": 213643817480414861655339508840210511346,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100048,
+      "stratum": 0,
+      "namespace": 151443302508607441120107094541445007251,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100049,
+      "stratum": 1,
+      "namespace": 224743120541169027615911162088836006459,
+      "initial": 4,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100050,
+      "stratum": 2,
+      "namespace": 323030965366212535289640961006786180781,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100051,
+      "stratum": 3,
+      "namespace": 245998474946795669622579497384442291599,
+      "initial": 1,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100052,
+      "stratum": 4,
+      "namespace": 129035417538654290886673363220743410901,
+      "initial": 2,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100053,
+      "stratum": 5,
+      "namespace": 128558111475592660251343440753487234210,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100054,
+      "stratum": 6,
+      "namespace": 273389421291420174251116930262653407984,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100055,
+      "stratum": 7,
+      "namespace": 46704099704416902768609203063731551516,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100056,
+      "stratum": 0,
+      "namespace": 39884472263186617126748075453077937666,
+      "initial": 1,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100057,
+      "stratum": 1,
+      "namespace": 51819845943318449295054013074590559778,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100058,
+      "stratum": 2,
+      "namespace": 43489650784993807315309854022603913254,
+      "initial": 3,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100059,
+      "stratum": 3,
+      "namespace": 164384076478655016027823974154376481415,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100060,
+      "stratum": 4,
+      "namespace": 329588643322323879723449885041121636659,
+      "initial": 0,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100061,
+      "stratum": 5,
+      "namespace": 238453753725474184766208113749166351100,
+      "initial": 1,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100062,
+      "stratum": 6,
+      "namespace": 128662470268613845205327956741139323900,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100063,
+      "stratum": 7,
+      "namespace": 215898750848848831242417633718729585465,
+      "initial": 3,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100064,
+      "stratum": 0,
+      "namespace": 85545490560263213149212599254526681657,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100065,
+      "stratum": 1,
+      "namespace": 258511743947017547029472778490768057978,
+      "initial": 0,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100066,
+      "stratum": 2,
+      "namespace": 42433179448141527007110597380080003065,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100067,
+      "stratum": 3,
+      "namespace": 316575190224981553177535357584969382711,
+      "initial": 2,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100068,
+      "stratum": 4,
+      "namespace": 208218461724534298467624984568471151282,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100069,
+      "stratum": 5,
+      "namespace": 2814786482398274030908057297087614407,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100070,
+      "stratum": 6,
+      "namespace": 194236472636871714948084327905006211009,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100071,
+      "stratum": 7,
+      "namespace": 212048328451196517981730055881791983244,
+      "initial": 1,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100072,
+      "stratum": 0,
+      "namespace": 230409045415061865686873165067832035377,
+      "initial": 2,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100073,
+      "stratum": 1,
+      "namespace": 130321927543986381262410865295340523674,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100074,
+      "stratum": 2,
+      "namespace": 267932475592591849388113143031236115892,
+      "initial": 4,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100075,
+      "stratum": 3,
+      "namespace": 255498503949392008517616107059133887682,
+      "initial": 0,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100076,
+      "stratum": 4,
+      "namespace": 283851837553626586385532721755510239032,
+      "initial": 1,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100077,
+      "stratum": 5,
+      "namespace": 231491597763729271112791720115747483931,
+      "initial": 2,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100078,
+      "stratum": 6,
+      "namespace": 141563452779088786626649852293591604987,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100079,
+      "stratum": 7,
+      "namespace": 76032319299777163013974877290067749745,
+      "initial": 4,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100080,
+      "stratum": 0,
+      "namespace": 201246545725783052447179971235595778021,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100081,
+      "stratum": 1,
+      "namespace": 37295687803713674559979312176069533489,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100082,
+      "stratum": 2,
+      "namespace": 252038779906494524601735610991666837365,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100083,
+      "stratum": 3,
+      "namespace": 192538728942630375514462490175817551165,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100084,
+      "stratum": 4,
+      "namespace": 79154032015587273221718324133435204321,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100085,
+      "stratum": 5,
+      "namespace": 62680062044439636395675386814817539330,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100086,
+      "stratum": 6,
+      "namespace": 97895045343140320908348941470851911750,
+      "initial": 1,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100087,
+      "stratum": 7,
+      "namespace": 230640351901793221710316687298445391692,
+      "initial": 2,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100088,
+      "stratum": 0,
+      "namespace": 253080997519428923066350961884106491777,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100089,
+      "stratum": 1,
+      "namespace": 322401612143797364531967863288660458126,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100090,
+      "stratum": 2,
+      "namespace": 180295884069856489319279094401512245468,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100091,
+      "stratum": 3,
+      "namespace": 273820256974662738747382919407055578540,
+      "initial": 1,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100092,
+      "stratum": 4,
+      "namespace": 19826591649827959103626282640404638133,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100093,
+      "stratum": 5,
+      "namespace": 185738154272206647001405756519954613300,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100094,
+      "stratum": 6,
+      "namespace": 137589144967032626963478673719171213367,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100095,
+      "stratum": 7,
+      "namespace": 66418661603351057393648226419675014537,
+      "initial": 0,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100096,
+      "stratum": 0,
+      "namespace": 41422165908939935864720906915492529341,
+      "initial": 1,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100097,
+      "stratum": 1,
+      "namespace": 93233146992355170198995025148223234092,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100098,
+      "stratum": 2,
+      "namespace": 190213249113108707208700132359837862151,
+      "initial": 3,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100099,
+      "stratum": 3,
+      "namespace": 306928609316932576702542445687513169730,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100100,
+      "stratum": 4,
+      "namespace": 17859834310220953367343864254013573626,
+      "initial": 0,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100101,
+      "stratum": 5,
+      "namespace": 233371061244142392716980615709769611240,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100102,
+      "stratum": 6,
+      "namespace": 254111083761277214707716001162924798293,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100103,
+      "stratum": 7,
+      "namespace": 23783360135576897570180486735804538156,
+      "initial": 3,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100104,
+      "stratum": 0,
+      "namespace": 224257972659798494236127146880268846731,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100105,
+      "stratum": 1,
+      "namespace": 193193883733039542460985926696808044870,
+      "initial": 0,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100106,
+      "stratum": 2,
+      "namespace": 41159807838917632086065318377135926102,
+      "initial": 1,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100107,
+      "stratum": 3,
+      "namespace": 330806602474447701850687993476576788260,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100108,
+      "stratum": 4,
+      "namespace": 233542683318845305304808526050908283716,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100109,
+      "stratum": 5,
+      "namespace": 331439727339493558930490108234774362858,
+      "initial": 4,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100110,
+      "stratum": 6,
+      "namespace": 294553570944265587136810742199812331496,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100111,
+      "stratum": 7,
+      "namespace": 54125978548041055292793878281340705794,
+      "initial": 1,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100112,
+      "stratum": 0,
+      "namespace": 313082023467365672992907249062758758315,
+      "initial": 2,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100113,
+      "stratum": 1,
+      "namespace": 312861241584211476064456098453829480565,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100114,
+      "stratum": 2,
+      "namespace": 314637070780258383338644456155949611341,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100115,
+      "stratum": 3,
+      "namespace": 169385694564697261044396109585216085139,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100116,
+      "stratum": 4,
+      "namespace": 129484856768500856610770409559182793409,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100117,
+      "stratum": 5,
+      "namespace": 255098918399232834827822152605807339025,
+      "initial": 2,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100118,
+      "stratum": 6,
+      "namespace": 327875607728152574785603740871679779407,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100119,
+      "stratum": 7,
+      "namespace": 84618854283064228636677784134649400405,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100120,
+      "stratum": 0,
+      "namespace": 163645119082500716572747336148063164958,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100121,
+      "stratum": 1,
+      "namespace": 211535852133358364024741518409747741795,
+      "initial": 1,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100122,
+      "stratum": 2,
+      "namespace": 44949455309695576983687166811579038390,
+      "initial": 2,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100123,
+      "stratum": 3,
+      "namespace": 554129730974606064526966559772969557,
+      "initial": 3,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100124,
+      "stratum": 4,
+      "namespace": 51215670256845883043062218983515678620,
+      "initial": 4,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100125,
+      "stratum": 5,
+      "namespace": 57403932058567431331972962739886518947,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100126,
+      "stratum": 6,
+      "namespace": 88247008986222239007584376117549818224,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100127,
+      "stratum": 7,
+      "namespace": 87747997353166832072170100684661376469,
+      "initial": 2,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100128,
+      "stratum": 0,
+      "namespace": 53708870591358548009533335276726431670,
+      "initial": 3,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100129,
+      "stratum": 1,
+      "namespace": 284375729688079557135985685183396285133,
+      "initial": 4,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100130,
+      "stratum": 2,
+      "namespace": 276938343120137280751297204448805572095,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100131,
+      "stratum": 3,
+      "namespace": 178496165352501718536619851409511215052,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100132,
+      "stratum": 4,
+      "namespace": 144980385641962232410913920865753734816,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100133,
+      "stratum": 5,
+      "namespace": 230720530146585353432930349522273729175,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100134,
+      "stratum": 6,
+      "namespace": 81506856504061013478902216566624242209,
+      "initial": 4,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100135,
+      "stratum": 7,
+      "namespace": 143784297821442170226960843046236351590,
+      "initial": 0,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100136,
+      "stratum": 0,
+      "namespace": 271285989684431367924180869334309484334,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100137,
+      "stratum": 1,
+      "namespace": 16170956052470320835476787067510482874,
+      "initial": 2,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100138,
+      "stratum": 2,
+      "namespace": 26700135304706070734866977259193874515,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100139,
+      "stratum": 3,
+      "namespace": 246963858112756087706103822758723331197,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100140,
+      "stratum": 4,
+      "namespace": 4143852566538397712567537375207437885,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100141,
+      "stratum": 5,
+      "namespace": 14090850417895574290759313223528897552,
+      "initial": 1,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100142,
+      "stratum": 6,
+      "namespace": 240880160188333899483019981465193603858,
+      "initial": 2,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100143,
+      "stratum": 7,
+      "namespace": 326766607964915710633989368660246796142,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100144,
+      "stratum": 0,
+      "namespace": 185245066504864647682711721045471768047,
+      "initial": 4,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100145,
+      "stratum": 1,
+      "namespace": 318415350251253225842784781814448106302,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100146,
+      "stratum": 2,
+      "namespace": 15877619654840539325840620532144308064,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100147,
+      "stratum": 3,
+      "namespace": 191945375416615336962121311247082659025,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100148,
+      "stratum": 4,
+      "namespace": 123620871673292242019145179267101699937,
+      "initial": 3,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100149,
+      "stratum": 5,
+      "namespace": 320484629050758490814148405181147122569,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100150,
+      "stratum": 6,
+      "namespace": 222299677686049425399093712263822294068,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100151,
+      "stratum": 7,
+      "namespace": 271627922071593960963351852825659862062,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100152,
+      "stratum": 0,
+      "namespace": 331211029534661600489908726381454390957,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100153,
+      "stratum": 1,
+      "namespace": 237378521182387284283321908925525504558,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100154,
+      "stratum": 2,
+      "namespace": 138906743190235961933275830977055722696,
+      "initial": 4,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100155,
+      "stratum": 3,
+      "namespace": 181479119532963933433968391254368445948,
+      "initial": 0,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100156,
+      "stratum": 4,
+      "namespace": 288675525608500044735044173713320506059,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100157,
+      "stratum": 5,
+      "namespace": 320611252679483151447434223293317457307,
+      "initial": 2,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100158,
+      "stratum": 6,
+      "namespace": 169770094203329419288862585082886090417,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100159,
+      "stratum": 7,
+      "namespace": 318531027779856303639845821977102322346,
+      "initial": 4,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100160,
+      "stratum": 0,
+      "namespace": 179005635610186198623750035430651815633,
+      "initial": 0,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100161,
+      "stratum": 1,
+      "namespace": 205104069031144852288478853321664310009,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100162,
+      "stratum": 2,
+      "namespace": 195655917461493311231532808089170133968,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100163,
+      "stratum": 3,
+      "namespace": 64519162311879323436939800673752089447,
+      "initial": 3,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100164,
+      "stratum": 4,
+      "namespace": 28635849191671805143770634885700835624,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100165,
+      "stratum": 5,
+      "namespace": 30127617234529262050116569613507867735,
+      "initial": 0,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100166,
+      "stratum": 6,
+      "namespace": 74675236326653015915249613255857842622,
+      "initial": 1,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100167,
+      "stratum": 7,
+      "namespace": 164551742311939062090863832768919025864,
+      "initial": 2,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100168,
+      "stratum": 0,
+      "namespace": 196558949380738959694772623591568236086,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100169,
+      "stratum": 1,
+      "namespace": 336465714821849629453243977773430760781,
+      "initial": 4,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100170,
+      "stratum": 2,
+      "namespace": 204821869962795419586806516453086272912,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100171,
+      "stratum": 3,
+      "namespace": 96857197895544075482596464988054143025,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100172,
+      "stratum": 4,
+      "namespace": 225268605408842530732868603328066708061,
+      "initial": 2,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100173,
+      "stratum": 5,
+      "namespace": 243974873112939119106258326385788038436,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100174,
+      "stratum": 6,
+      "namespace": 305630451060540514346776226619290732225,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100175,
+      "stratum": 7,
+      "namespace": 246365684599253150627008746050775090959,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100176,
+      "stratum": 0,
+      "namespace": 145800926263731861073673131300974654599,
+      "initial": 1,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100177,
+      "stratum": 1,
+      "namespace": 20017883400038395278692210722087986096,
+      "initial": 2,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100178,
+      "stratum": 2,
+      "namespace": 172671247597340638936873799096816642226,
+      "initial": 3,
+      "route": [
+        "A",
+        "C",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100179,
+      "stratum": 3,
+      "namespace": 30075926915067211833731095844551814446,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100180,
+      "stratum": 4,
+      "namespace": 236230848290120741541076947494060510608,
+      "initial": 0,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100181,
+      "stratum": 5,
+      "namespace": 238630666255893081828701083104228767044,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100182,
+      "stratum": 6,
+      "namespace": 38156490251074306053551397512712328916,
+      "initial": 2,
+      "route": [
+        "C",
+        "B",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100183,
+      "stratum": 7,
+      "namespace": 156307051055186073093491961786033474621,
+      "initial": 3,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": false,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100184,
+      "stratum": 0,
+      "namespace": 264814322742492579765348716165473029555,
+      "initial": 4,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100185,
+      "stratum": 1,
+      "namespace": 246582934575512163015003144404921707936,
+      "initial": 0,
+      "route": [
+        "C",
+        "A",
+        "B"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100186,
+      "stratum": 2,
+      "namespace": 92944514937227149735564786920337034029,
+      "initial": 1,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100187,
+      "stratum": 3,
+      "namespace": 12374016775437134456302128094078601504,
+      "initial": 2,
+      "route": [
+        "A",
+        "B",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100188,
+      "stratum": 4,
+      "namespace": 260348750190332808201369951170095748600,
+      "initial": 3,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": false,
+      "late": true
+    },
+    {
+      "seed": 6100189,
+      "stratum": 5,
+      "namespace": 200574463896998668199644370014344560951,
+      "initial": 4,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": true,
+      "revoked": true,
+      "late": false
+    },
+    {
+      "seed": 6100190,
+      "stratum": 6,
+      "namespace": 233286918462090548413662503428749769117,
+      "initial": 0,
+      "route": [
+        "B",
+        "A",
+        "C"
+      ],
+      "authorized": true,
+      "scope_ok": false,
+      "quota_ok": true,
+      "revoked": false,
+      "late": false
+    },
+    {
+      "seed": 6100191,
+      "stratum": 7,
+      "namespace": 8402177869789957656315936834609543600,
+      "initial": 1,
+      "route": [
+        "B",
+        "C",
+        "A"
+      ],
+      "authorized": true,
+      "scope_ok": true,
+      "quota_ok": false,
+      "revoked": false,
+      "late": false
+    }
+  ]
+}

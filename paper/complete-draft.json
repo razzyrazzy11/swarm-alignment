@@ -1,0 +1,99 @@
+{
+  "author": "Razvan Sacara",
+  "affiliation": "Swarm Alignment Hackathon participant",
+  "references": [
+    "[1] Hammond et al. (2025). Multi-Agent Risks from Advanced AI. https://arxiv.org/abs/2502.14143",
+    "[2] Yun et al. (2026). Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs. https://arxiv.org/abs/2610.09581",
+    "[3] Zhang et al. (2025). Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems. https://arxiv.org/abs/2505.00212",
+    "[4] Greenblatt et al. (2023; published 2024). AI Control: Improving Safety Despite Intentional Subversion. https://arxiv.org/abs/2312.06942",
+    "[5] Apart Research (2026). Swarm Alignment Hackathon: Resources, Guidelines, Judging and results. Accessed 6 November. https://apartresearch.com/sprints/swarm-alignment-2026#guidelines",
+    "[6] Sheffey et al. (2026). Syscon: Kernel-Level Syscall Monitoring for AI Agent Control in Sandboxed Environments. Report and reviews. https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun",
+    "[7] Chitransh and Kumar (2026). ActionLens: Pre-Execution Environment Probing for Agent Action Approval. Report and reviews. https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22",
+    "[8] Adaption (2026). Responses API and hosted-model documentation. Accessed 6 November. https://docs.adaptionlabs.ai/api/resources/responses/methods/create",
+    "[9] Hugging Face (2026). Inference Providers: explicit routing and billing. Accessed 6 November. https://huggingface.co/docs/inference-providers/en/index",
+    "[10] Sacara (2026). Undercover Agents: preexisting October trusted-agent study. https://github.com/razzyrazzy11/trusted-agent-sting",
+    "[11] Hu et al.(2026). ActiveEvidence. https://arxiv.org/abs/2610.20532v2",
+    "[12] Geifman and El-Yaniv (2017). Selective Classification for Deep Neural Networks. https://arxiv.org/abs/1705.08500",
+    "[13] Ollama. Native cloud API and thinking controls. https://docs.ollama.com/cloud ; https://docs.ollama.com/capabilities/thinking",
+    "[14] Kitaoka (2026). Open Problems in Securing Systems Against AI Agent Swarms. Swarm Alignment Hackathon, 5 November, recording 00:56:11-00:57:25. https://apartresearch.com/sprints/swarm-alignment-2026#schedule",
+    "[15] Kitaoka, Pham, Giudice and Merizian (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. MiniLab. https://arxiv.org/abs/2610.24052v1"
+  ],
+  "title": "When Can a Swarm Be Audited?",
+  "subtitle": "Track 4: Multi-Agent Oversight and Control",
+  "preparation_status": "RESULT-BLIND DRAFT — NOT FOR SUBMISSION",
+  "abstract": "[PENDING VERIFIED COMPLETE PUBLIC RELEASE — NOT A RESULT]",
+  "sections": [
+    [
+      "1. Introduction",
+      [
+        "A worker reports that a delegated update was completed. An investigator must establish who acted and whether the authority still held. A missing authentic record and a mistaken interpretation of an available record call for different interventions. We ask: does a swarm auditor lack necessary evidence, or fail to use evidence that is already sufficient?",
+        "This Track 4 study separates three stages: obtaining trustworthy evidence, delivering a usable verdict, and reasoning from evidence sufficient in a declared finite history model. The setting is bounded fake-data delegation; it does not expose real services to agent actions. Multi-agent risk motivates oversight [1,4,5]; the target here is a specific worker-event label, not intent or causal blame for the entire group [3].",
+        "The practical decision is whether an investigator should recover a missing authentic record, repair verdict delivery, or change how an auditor reads an already sufficient packet. Measuring these separately can prevent spending a monitor-improvement budget on the wrong failure."
+      ]
+    ],
+    [
+      "2. Related work and contribution",
+      [
+        "Evidence-binding work distinguishes correct answers from justified findings [2]. Active evidence acquisition changes what an investigator observes [11]; selective prediction distinguishes justified abstention from an unsupported definite answer [12]. We use these distinctions as separate evaluation layers rather than treating a better information packet as proof of improved reasoning.",
+        "Prior Apart projects such as Syscon and ActionLens connect instrumentation to a testable oversight decision [6,7]. Our contribution is a prospectively registered matched comparison within a stateful, five-role workflow: instruction changes keep evidence fixed, while restoration comparisons keep source trajectories matched. The bounded scope and baselines limit claims of transfer.",
+        "Kitaoka explicitly separates identifying the relevant agents and evidence from residual monitor failures with combined evidence [14]. MiniLab studies distributed attacks that evade isolated-trajectory monitors [15]. Our contribution is the prospectively registered matched instrument for stateful delegation, not the invention of that distinction or a replication of MiniLab."
+      ]
+    ],
+    [
+      "3. Methods",
+      [
+        "A principal issues authority, a coordinator delegates it, workers X and Y hand off work and propose bounded fake writes, and a reporter produces untrusted claims. The host executes parsed bounded fake-data actions; authorization violations are measured rather than silently prevented. Y permission depends jointly on issuance and grant, local cap, shared budget, half-open lease, and revocation. Physical X usage counts toward the shared budget even when X lacked authority. API latency does not advance the fake integer settlement clock.",
+        "The registered grid has four actor profiles, five policy classes, two layouts and sixteen repetitions. The same principal/coordinator prefix is cloned across honest, X-adversarial, Y-adversarial and both-adversarial arms. Repeated arms, views and readers are dependent measurements, not additional independent samples.",
+        "All six FULL16 readers receive DIRECT and PROCEDURE instructions on the same four-arm evidence: Adaption Gemma 26B and 31B; Hugging Face Llama text and schema delivery; and Ollama DeepSeek thinking off and low [8,9,13]. These are six profiles, four checkpoints and three model families. G26, G31 and DS-low also read six reduced/restored views under DIRECT on the matched honest/both arms, covering two families.",
+        "Acquisition conditions distinguish a sufficient seven-record receipt packet, random loss, selective loss, and restoration of two authentic records selected randomly, by metadata, or by a fixed contract bundle. Query selection uses a declared uniform compatible-world prior, not the empirical incident distribution. Peer claims never create authority.",
+        "The primary is G26 FULL16 PROCEDURE minus DIRECT in parsed ungated correct-definite verdicts. First average four arm differences within each base block, then average 640 blocks. The frozen stratified block bootstrap uses forty strata, sixteen blocks each, 10,000 draws and seed 730009. Secondary intervals are descriptive, without familywise claims. Semantic validity, strict bare-JSON encoding, admitted output, wrong sufficient-evidence verdicts, and supported abstention remain distinct.",
+        "Always-NONE, always-ABSTAIN and the finite-domain support oracle are references. Calibration uses twenty scripted worlds, separately from natural trajectories. Controlled inter-agent influence holds the receiver state fixed and varies three peer notes across eighty blocks. Small-monitor fine-tuning is not performed. Failed requests remain terminal and in denominators; no request identity is retried or replaced.",
+        "Host-produced action records are assumed authentic; worker and reporter statements are untrusted. Hash-bound archives detect changes to retained files, not whether a compromised host told the truth. The fixed five-role team tests a controlled component of swarm oversight; it does not demonstrate spontaneous organization or containment of an arbitrary autonomous swarm."
+      ]
+    ],
+    [
+      "4. Results",
+      [
+        "[PENDING VERIFIED COMPLETE PUBLIC RELEASE — NOT A RESULT]",
+        "TABLE1",
+        "TABLE2",
+        "TABLE3"
+      ]
+    ],
+    [
+      "5. Interpretation and implications",
+      [
+        "Interpret acquisition gains alongside changes in oracle answerability and supported correctness. Interpret a procedure gain on sufficient evidence as an operational instruction effect, not a demonstration of an internal cognitive mechanism. A format or serving failure is failed verdict delivery; an admitted parsed wrong verdict with sufficient evidence is a different failure.",
+        "The six-reader grid tests how robust these distinctions are across the registered implementations. The schema/text and thinking-mode contrasts are matched interventions, whereas comparisons between different hosted checkpoints can bundle weights, quantization, templates and serving differences. Empirical conclusions must follow the complete results and uncertainty, including null or adverse effects.",
+        "Read acquisition effects beside oracle answerability, then output validity, then supported and correct verdicts. More answerable packets do not by themselves establish better reasoning; a procedure effect with identical sufficient evidence does not establish that an internal mechanism changed. Assigned adversarial instructions are not successful attacks: report realized host actions and class composition separately, including null effects and failures.",
+        "These are diagnostic layers, not mutually exclusive causes. A missing record can coexist with a delivery failure. Report delivery and instruction-assignment outcomes over all planned requests, and label sufficient-evidence and admitted-output subsets with their own denominators. A correct but unsupported guess is not a supported finding; justified abstention can be appropriate when evidence is insufficient. The frozen primary remains unchanged, and any new cross-layer breakdown is descriptive."
+      ]
+    ],
+    [
+      "6. Conclusion",
+      [
+        "The practical oversight decision is whether to recover an authentic witness, change how a reader uses an already sufficient packet, or repair verdict delivery. This instrument measures those possibilities separately in a bounded workflow. General swarm safety and hidden intent require further evidence."
+      ]
+    ]
+  ],
+  "appendix": [
+    [
+      "Appendix A. Limitations and Dual-Use / Ethical Considerations",
+      [
+        "The environment is synthetic and finite; its role graph, policies, receipt trust assumptions, and model routes limit external validity. The target is Y event authorization/execution, not all group behavior or causal responsibility. Repeated calls do not increase the independent block count. Hosted model identities can drift; route/model checks do not establish immutable weights.",
+        "Oracle answerability is relative to its declared compatible-world domain. The five-policy generator can encode correlations that a generator-aware reader could exploit. The separately registered generator-knowledge sensitivity must be discussed with the primary domain; it does not replace or rescore the original primary. The uniform acquisition prior is not an empirical posterior.",
+        "Only bounded fake-data actions are executed. No live target, credential theft, real exfiltration, or real-world sabotage is required. Public artifacts should omit credentials, private provider response identifiers and unnecessary raw text. Failure modes could help evasion or selective deletion; release emphasizes defensive evidence requirements and safe reproductions. No claim of perfect containment or tamper-proof deployment follows."
+      ]
+    ],
+    [
+      "Appendix B. Provenance, iterations and reproducibility",
+      [
+        "The earlier October trusted-agent-sting project [10] is preexisting context, not new sprint evidence. Earlier swarm-audit, weight-policy and incomplete-serving iterations are separately registered and retained; they are not pooled into the new 640-block primary. The original HF completion is a separate recovery of its original planned identities, not a replacement reader in this MAIN.",
+        "Router-aware continuation preserves stopped-prefix hashes and collects only unstarted identities. Authentic connection and gateway failures remain terminal, retain unknown-cost reservations where needed, and are not reasoning outcomes. Scheduling amendments and excluded capacity/serving pilots are separately labeled. The post-primary serving pilot is feasibility evidence only, not an extra scientific condition.",
+        "AI tools assisted implementation and writing; the author is responsible for claims, references and data. Completion requires strict offline public replay, source and registration checks, figure provenance, and actual inspection of every exported PDF page. A successful metadata health check does not establish scientific correctness.",
+        "The earlier 192-source natural sample contained only NONE labels, so its procedure gains concern reduced false accusations and cannot establish incident recall. The new study must report its actual label mix and separate scripted calibration; no attack success is inferred from its assigned arm. Controlled peer-note influence is not evidence of an emergent covert language. Talk context was reviewed after registration with MAIN accuracy still blinded; it does not create new confirmatory outcomes or authorize fine-tuning on the test set."
+      ]
+    ]
+  ],
+  "pending_results": "[PENDING VERIFIED COMPLETE PUBLIC RELEASE — NOT A RESULT]"
+}

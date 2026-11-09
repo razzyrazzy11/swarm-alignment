@@ -1,0 +1,46 @@
+{
+  "checked": "2026-11-06T20:17:25.364431+00:00",
+  "http_status": 200,
+  "selected": [
+    {
+      "id": "Qwen/Qwen3.8-27B",
+      "providers": [
+        {
+          "provider": "novita",
+          "status": "live",
+          "pricing": {
+            "input": 0.42,
+            "output": 3
+          },
+          "context_length": 1000000
+        },
+        {
+          "provider": "nscale",
+          "status": "live",
+          "pricing": {
+            "input": 0.2,
+            "output": 2.5
+          },
+          "context_length": 1048576
+        },
+        {
+          "provider": "featherless-ai",
+          "status": "live",
+          "pricing": null,
+          "context_length": null
+        },
+        {
+          "provider": "deepinfra",
+          "status": "live",
+          "pricing": {
+            "input": 0.2,
+            "output": 2.5
+          },
+          "context_length": 262144
+        }
+      ]
+    }
+  ],
+  "model_count": 126,
+  "inference_calls": 0
+}

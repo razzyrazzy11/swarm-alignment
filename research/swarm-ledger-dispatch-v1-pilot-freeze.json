@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "stage": "pilot",
+  "created": "2026-11-07T16:45:45.791711+00:00",
+  "config": {
+    "study_id": "swarm-ledger-dispatch-v1",
+    "status": "READY_FOR_REGISTRATION",
+    "native_candidates": [
+      4,
+      8,
+      16
+    ],
+    "native_pilot_profiles": [
+      "q397",
+      "glm52"
+    ],
+    "native_pilot_cases_per_level": 32,
+    "minimum_native_admitted_per_profile": 31,
+    "native_known_error_allowance_per_group": 2,
+    "main_known_gateway_allowance": 1024,
+    "native_provider_max_active": 16,
+    "native_dispatch_spacing_seconds": 1.0,
+    "total_max_active": 21,
+    "hf_max_active": 2,
+    "ollama_max_active": 3,
+    "ollama_pilot_cases": 6,
+    "pilot_phase_order": [
+      "native4",
+      "native8",
+      "native16",
+      "ollama3"
+    ],
+    "pilot_seed": 731177,
+    "pilot_caps": {
+      "adaption": "10.00",
+      "hf": "0.00",
+      "ollama": "0.10"
+    },
+    "selection_rule": "lowest_forecast_native_critical_seconds_healthy_complete",
+    "max_ollama_combined_peak_equivalent_cap": "50.00",
+    "off_peak_only": true,
+    "collection_deadline_utc": "2026-11-09T05:59:00+00:00",
+    "retry_after_limit_seconds": 900,
+    "retries": 0,
+    "rate_limit_source": "https://ollama.com/pricing",
+    "development_driver_state": "runs/swarm-ledger-v1-development-driver/state.json"
+  },
+  "anchor_hash_semantics": "sha256_bytes_with_crlf_normalized_to_lf",
+  "source_sha256": {
+    "experiments/swarm_ledger_dispatch.py": "df23772a0980cbab8e680bd0b9923394d937f96ed3aed0c467bcf336769c288b",
+    "experiments/tests/test_swarm_ledger_dispatch.py": "32ac534ceecf2ffe2cfc0abff882b64f6419a6f326ec28072400fb3b8fd3683e",
+    "experiments/swarm_ledger_forecast.py": "aad2a494cf59a0d99914ce9a1164e768bc65b7e4fc8db449f631bda607126af0",
+    "experiments/tests/test_swarm_ledger_forecast.py": "20e9fd0443df2718c8a0e8c47ee38fb21f31ef502457aca65dab5b12ef8ae3e1",
+    "research/SWARM_LEDGER_DISPATCH_PROTOCOL.md": "b161d72865a927552e17c2034c7833d235009a5dff84f29b0b12aaaaf6cd1e47",
+    "research/swarm-ledger-dispatch-config.json": "f9d9917ed1baeb21bf8876fb7be29c7bd5f7098133a23f39682267fd8c19f564",
+    "research/SWARM_LEDGER_THROUGHPUT_REVIEW.md": "496b52a1ef083c4eca8b0d9971da5fccbb1ebb8d915ce0c12e1ef7cb60c4ac1c"
+  },
+  "scientific_technical_freeze_sha256": "0d8c28e1a50bb693d415eb3ed3e20ff8e1bbb15a4c8ccd6c36fce5d12759329f",
+  "scientific_development_freeze_sha256": "301aeeb76440e3d1e69c10ddac3f49c119407fb46dee0ac952c38c529ec16279",
+  "scientific_source_sha256": {
+    "experiments/swarm_ledger.py": "79ca3d15d57c315f1c6eca39cadcec400ccff49957395955b9041c97dc706aab",
+    "experiments/swarm_ledger_reference.py": "dd4fdc4d22989fc79ea0c6f58df9cc234f65caa4ec537de904072756165714f5",
+    "experiments/swarm_ledger_study.py": "3324c24ff88ca02ac0f79083bf40ce44fd95a823beaf0a162a939072ab76a83a",
+    "experiments/tests/test_swarm_ledger_study.py": "d573c0f2a5e1359e87d77b46f17e5d4c929a37ae9251344bdc19b70eec35f7b4",
+    "experiments/swarm_ledger_analysis.py": "32959898dd868fd4dcdccbdaec40b2a630ceca16fa07dd77b049bd5ccf928f06",
+    "experiments/tests/test_swarm_ledger_analysis.py": "a6d89ec47616b56d805ec78f5a940efb606950d4fab015f6e94ee219aceeecd0",
+    "experiments/tests/test_swarm_ledger.py": "da7d5efe1ccbb38ed4b44f5aeaec1ccf8f5ea4f03a5bc58bb0b8fb206d34bb62",
+    "experiments/tests/test_swarm_ledger_reference.py": "e02c008bd781c888afdae5a3724e3fc624041a3ecf3a03f2b429d80759dcaf42",
+    "research/swarm-ledger-config.json": "8aca135fc324f5ff648bc481eaaa1523938fd024765f05f047fd9abc67764d94",
+    "research/swarm-ledger-catalog.json": "f7978df3ea07da31e844d04ba5c9006c01cf51b3fecf3ea5aa0a99c5ee66272f",
+    "research/SWARM_LEDGER_PROTOCOL.md": "f93b72cc632839bea1d95876e02a5083830a58c68abc15a2bac3a0da57263f54"
+  },
+  "base_commit": "43d060785e5bb75b2022a65a7c2d46935cb281e4",
+  "tag": "swarm-ledger-dispatch-v1-pilot",
+  "pilot_jobs": {
+    "native4": [
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:00",
+        "request_sha256": "2bd6c6836f5d8957b98868e0fa26918492e79c317c66d49086ed0b4bd2f6c172"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:01",
+        "request_sha256": "ef40f9151004e3e9af4545c7571f9e3ea60910049dd0b831048acca14e5c8406"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:02",
+        "request_sha256": "4febe87711c40e379a244d558e365650108d31b1670b92bf159ad42b89bdb6e1"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:03",
+        "request_sha256": "935b84ae4679d87dcd946be8ab8de598bd58b57ab582e500b39d9ad75375fc92"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:04",
+        "request_sha256": "b5a1db829c7100dcd29d36891739cbdced0d3f9cf80faaa9a4cef189a34a73da"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:05",
+        "request_sha256": "64ed42c5fb913bec5fded3b64e2005781504a9f47764cd788e80dab3fe13b28f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:06",
+        "request_sha256": "5f7d78cfb0c244d99efc2ad64f3a37df8b9fb9d8d3515c110997d77a0ce5818b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:07",
+        "request_sha256": "e37b7e802ce38e1fa642db6cc9a4565e94d6dbce9ff8aa5bc8f50979b1f44c9f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:08",
+        "request_sha256": "f9c02995b550d709f605979aaa52ff119559db6c0d5241478000a8f25f071fdb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:09",
+        "request_sha256": "e3f3f1db1050b0a7deb41053c71c540aa3b410080165a05ebe29f1ca93d9aceb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:10",
+        "request_sha256": "907511a9b9016c7c3b2f26485a2fdee5e4830f7e190d9badd63d86926435cc09"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:11",
+        "request_sha256": "1aa728a3699aecf93c2de6ae57bbee8865ec0cc902beaab897cc776e4c76dc7b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:12",
+        "request_sha256": "22d5f85cc54820fffb9e58aca36d7884b821a373c7f3aac1fb37ab923fd8ce2e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:13",
+        "request_sha256": "25c9e9cac85cda74fc8e65e7c92755504344f36d865a198b75104ab55712d518"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:14",
+        "request_sha256": "0b11a3652f2e6d1e7accd45199ee3ac1989f0dee7ce3d0956d9d8fc81ffbbd4b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:15",
+        "request_sha256": "926ead8e6982352d10362beab9fbfe19c2362c023f227f0a8136df3be3ba691f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:16",
+        "request_sha256": "0368111f5f3c54eec5a02e0063323fa70e8e0d84b4df8917e794d370fbdf57f6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:17",
+        "request_sha256": "3b2b77821234782443e9fb0026884dd7a8f7dadf665b75484d01f712f6dfbd80"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:18",
+        "request_sha256": "4d440d682a5e859b9ba559ba7d8de1eb82c9049eebd067fb90b9420f80a7160a"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:19",
+        "request_sha256": "5b94932b6534a5bdd86f9bdb9d75a77ca7b32f81c547dff9f971eac9769018d4"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:20",
+        "request_sha256": "9a1ac07e6cc9580c4c7476363a02761b72f06b44f4065e141754d5b3ace3ca18"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:21",
+        "request_sha256": "f417f590c3d93947fa7731810ed647ef9fb511a91bbefea49ecd1973afd2e4cf"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:22",
+        "request_sha256": "21467ecb2738d5b49fea6802df9d293592c2a9d1e06c1938b9cfcba534cf3b8a"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:23",
+        "request_sha256": "640d4e0449051f4d6b290f7630674fa256b33a1d97ae71885d661764d79017a7"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:24",
+        "request_sha256": "88a671db2d9cc11d9102aa5d7d7e0685faa623eb4ff7a88d933a47a19b4d89cb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:25",
+        "request_sha256": "ae48a1404137594379edd14f873b97c45f7be3fb5d9df8a0c80dcf98b92135de"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:26",
+        "request_sha256": "005da7c0f9935e25e297360f37d21a6b638efd7d48016d0618855bf84e78049b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:27",
+        "request_sha256": "80e67f3544be714a8bc496e3e36727609b8dbc2e477316b14b1527cf5aa4add9"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:28",
+        "request_sha256": "4a30969715b381d537232dbdbee86497d5ba9e3836be5f7a52d7714804ce6159"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:29",
+        "request_sha256": "19245d54589eca3b011a3dd097191cdadfdb44197dca0ab12674893161eeda9b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:30",
+        "request_sha256": "21a4404724422726e6330dc7e7162fd06082b4abdf412539e73c436998cffa48"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:q397:31",
+        "request_sha256": "de0d3411e2005774a35338afa1bc8642860bace5ff285fcd12c9190c762c997f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:00",
+        "request_sha256": "0e29639b8f715a0c281c4cd07427ab3fea9af16366ee9ac9daa61f101f3b703f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:01",
+        "request_sha256": "56b47ede5b4d52c7775d115c7df0ef39c27c91776e423285a1bc9d131dc55c1c"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:02",
+        "request_sha256": "860796ab11f2687d55d9f96b7ca43d805f25d5c858bc716e98986d728d7c025e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:03",
+        "request_sha256": "f8411b8b3bd44f5546a6e6591ea07ac14a82966e24df16dc16d6fa43183690e5"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:04",
+        "request_sha256": "bf45a2834424ec3dd0ecf55377ab42c7aa73d56f17a6e0ff8811a6b4f1165abe"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:05",
+        "request_sha256": "7a17f96ce5e40a14521c9e23cd40cf23999fe8e80860959c2331fc2da96ed314"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:06",
+        "request_sha256": "57e25c9e8e51395a5f88c8664d88e372efadac6c8d6d259067d8c919b8779c22"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:07",
+        "request_sha256": "09842d8eabd2ca00b9bece7e100f3c3c406d6076168f1a12333f1e8d390364e6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:08",
+        "request_sha256": "74c5e809b7fdaa18cfd73316eda0aa96cebc29475483ac1a36271beaec510c2b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:09",
+        "request_sha256": "84ece05f4e82e9b75c38a6a04f1323276bbf88c8ee01e4a59ad951749b0b1fc3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:10",
+        "request_sha256": "0a050fc061da27a9ac4c99e15e463c5167bddb6d89ac7f9d2718caaed1840fe2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:11",
+        "request_sha256": "b7a23838d83abcde26305417c0c137ae2d2be48a8910a3fd1cfcdcccd835458e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:12",
+        "request_sha256": "fbd4ad9ccd5d61b83df4610eef308f9690a6c603eb70bef8ff3c58dc78d71929"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:13",
+        "request_sha256": "10af36a9d7575349ed92758432e050619f6a04c6fec1ce8a67b78ce573b700d6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:14",
+        "request_sha256": "e93c217d345ec58cd4fc169c53c4700a1174b3795bd143dea4662babe16cb008"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:15",
+        "request_sha256": "57cabd9a1efa58215a7fe2b1b2907420c1a80e9fbbf997915ea0872d1e27fedc"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:16",
+        "request_sha256": "898265b429e6e729eeb5051daeb84e0b6acc79a51284a4ab08e156970bb9a716"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:17",
+        "request_sha256": "3607f7fe97f1d0e361c08ad5a83ecf63e946216bd4f04b9e04c3f2bfad560a92"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:18",
+        "request_sha256": "d3e8f547f6ca85a732a603faf53e2d0179e3936e2fda1419f23631444b674ce3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:19",
+        "request_sha256": "61db925bbb9e22759c56c08d8f0fdde5e5f194d0bff652c12aafe85f0478b20e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:20",
+        "request_sha256": "da6a6f73880c393f3e76b98056307bf133f1c0472855499b9342c3c63f261a35"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:21",
+        "request_sha256": "68e0c851efefc94431cb0a6076355bcab7fcd6dbec0d808df4dcb7e1a60a955f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:22",
+        "request_sha256": "a52d93e5fad7f264040a6106e2e9ab20e8371adaa2d515480eeeb898f4f21382"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:23",
+        "request_sha256": "556a63c8a6383a7eb822c0781bcf66a0f2febc4409ec5e8f077363fe1aa52417"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:24",
+        "request_sha256": "7208f7d37c8c2391cac2e76d6188c61fe957a987a6eb458284cd758d90db5969"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:25",
+        "request_sha256": "5faac3bcf54f1a16e5943d64ee23e526849eded00c23a6a61ce5d14a6b261a68"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:26",
+        "request_sha256": "4a1b3804109d8c997b8ccfc42fb5925539cc4301eb3e2fd1e49d1379e5bb42bf"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:27",
+        "request_sha256": "4c2afb16bdd70dc5d1e5691ca70cd73b1a2f440d95e67a7b5b92c0fb0b3e2b77"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:28",
+        "request_sha256": "0c5f3582f0cb24ed166256cfebba7f9688b8b555477baca15b2a39deb34bcc79"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:29",
+        "request_sha256": "45988f18ab0b8288dcc82b927bbdfac5dcbf2f7f2ea23310da9615a6cd7404d2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:30",
+        "request_sha256": "65078c81706bbfb1300e2dfff05f1b8b277789175b2f8927b3090676ed7545f3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native4:glm52:31",
+        "request_sha256": "74dcf9a0ae243ea58b1c636505a94458882d543b96fa7b787c2fb60374c25d71"
+      }
+    ],
+    "native8": [
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:00",
+        "request_sha256": "2bd6c6836f5d8957b98868e0fa26918492e79c317c66d49086ed0b4bd2f6c172"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:01",
+        "request_sha256": "ef40f9151004e3e9af4545c7571f9e3ea60910049dd0b831048acca14e5c8406"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:02",
+        "request_sha256": "4febe87711c40e379a244d558e365650108d31b1670b92bf159ad42b89bdb6e1"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:03",
+        "request_sha256": "935b84ae4679d87dcd946be8ab8de598bd58b57ab582e500b39d9ad75375fc92"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:04",
+        "request_sha256": "b5a1db829c7100dcd29d36891739cbdced0d3f9cf80faaa9a4cef189a34a73da"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:05",
+        "request_sha256": "64ed42c5fb913bec5fded3b64e2005781504a9f47764cd788e80dab3fe13b28f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:06",
+        "request_sha256": "5f7d78cfb0c244d99efc2ad64f3a37df8b9fb9d8d3515c110997d77a0ce5818b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:07",
+        "request_sha256": "e37b7e802ce38e1fa642db6cc9a4565e94d6dbce9ff8aa5bc8f50979b1f44c9f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:08",
+        "request_sha256": "f9c02995b550d709f605979aaa52ff119559db6c0d5241478000a8f25f071fdb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:09",
+        "request_sha256": "e3f3f1db1050b0a7deb41053c71c540aa3b410080165a05ebe29f1ca93d9aceb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:10",
+        "request_sha256": "907511a9b9016c7c3b2f26485a2fdee5e4830f7e190d9badd63d86926435cc09"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:11",
+        "request_sha256": "1aa728a3699aecf93c2de6ae57bbee8865ec0cc902beaab897cc776e4c76dc7b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:12",
+        "request_sha256": "22d5f85cc54820fffb9e58aca36d7884b821a373c7f3aac1fb37ab923fd8ce2e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:13",
+        "request_sha256": "25c9e9cac85cda74fc8e65e7c92755504344f36d865a198b75104ab55712d518"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:14",
+        "request_sha256": "0b11a3652f2e6d1e7accd45199ee3ac1989f0dee7ce3d0956d9d8fc81ffbbd4b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:15",
+        "request_sha256": "926ead8e6982352d10362beab9fbfe19c2362c023f227f0a8136df3be3ba691f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:16",
+        "request_sha256": "0368111f5f3c54eec5a02e0063323fa70e8e0d84b4df8917e794d370fbdf57f6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:17",
+        "request_sha256": "3b2b77821234782443e9fb0026884dd7a8f7dadf665b75484d01f712f6dfbd80"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:18",
+        "request_sha256": "4d440d682a5e859b9ba559ba7d8de1eb82c9049eebd067fb90b9420f80a7160a"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:19",
+        "request_sha256": "5b94932b6534a5bdd86f9bdb9d75a77ca7b32f81c547dff9f971eac9769018d4"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:20",
+        "request_sha256": "9a1ac07e6cc9580c4c7476363a02761b72f06b44f4065e141754d5b3ace3ca18"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:21",
+        "request_sha256": "f417f590c3d93947fa7731810ed647ef9fb511a91bbefea49ecd1973afd2e4cf"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:22",
+        "request_sha256": "21467ecb2738d5b49fea6802df9d293592c2a9d1e06c1938b9cfcba534cf3b8a"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:23",
+        "request_sha256": "640d4e0449051f4d6b290f7630674fa256b33a1d97ae71885d661764d79017a7"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:24",
+        "request_sha256": "88a671db2d9cc11d9102aa5d7d7e0685faa623eb4ff7a88d933a47a19b4d89cb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:25",
+        "request_sha256": "ae48a1404137594379edd14f873b97c45f7be3fb5d9df8a0c80dcf98b92135de"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:26",
+        "request_sha256": "005da7c0f9935e25e297360f37d21a6b638efd7d48016d0618855bf84e78049b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:27",
+        "request_sha256": "80e67f3544be714a8bc496e3e36727609b8dbc2e477316b14b1527cf5aa4add9"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:28",
+        "request_sha256": "4a30969715b381d537232dbdbee86497d5ba9e3836be5f7a52d7714804ce6159"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:29",
+        "request_sha256": "19245d54589eca3b011a3dd097191cdadfdb44197dca0ab12674893161eeda9b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:30",
+        "request_sha256": "21a4404724422726e6330dc7e7162fd06082b4abdf412539e73c436998cffa48"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:q397:31",
+        "request_sha256": "de0d3411e2005774a35338afa1bc8642860bace5ff285fcd12c9190c762c997f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:00",
+        "request_sha256": "0e29639b8f715a0c281c4cd07427ab3fea9af16366ee9ac9daa61f101f3b703f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:01",
+        "request_sha256": "56b47ede5b4d52c7775d115c7df0ef39c27c91776e423285a1bc9d131dc55c1c"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:02",
+        "request_sha256": "860796ab11f2687d55d9f96b7ca43d805f25d5c858bc716e98986d728d7c025e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:03",
+        "request_sha256": "f8411b8b3bd44f5546a6e6591ea07ac14a82966e24df16dc16d6fa43183690e5"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:04",
+        "request_sha256": "bf45a2834424ec3dd0ecf55377ab42c7aa73d56f17a6e0ff8811a6b4f1165abe"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:05",
+        "request_sha256": "7a17f96ce5e40a14521c9e23cd40cf23999fe8e80860959c2331fc2da96ed314"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:06",
+        "request_sha256": "57e25c9e8e51395a5f88c8664d88e372efadac6c8d6d259067d8c919b8779c22"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:07",
+        "request_sha256": "09842d8eabd2ca00b9bece7e100f3c3c406d6076168f1a12333f1e8d390364e6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:08",
+        "request_sha256": "74c5e809b7fdaa18cfd73316eda0aa96cebc29475483ac1a36271beaec510c2b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:09",
+        "request_sha256": "84ece05f4e82e9b75c38a6a04f1323276bbf88c8ee01e4a59ad951749b0b1fc3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:10",
+        "request_sha256": "0a050fc061da27a9ac4c99e15e463c5167bddb6d89ac7f9d2718caaed1840fe2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:11",
+        "request_sha256": "b7a23838d83abcde26305417c0c137ae2d2be48a8910a3fd1cfcdcccd835458e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:12",
+        "request_sha256": "fbd4ad9ccd5d61b83df4610eef308f9690a6c603eb70bef8ff3c58dc78d71929"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:13",
+        "request_sha256": "10af36a9d7575349ed92758432e050619f6a04c6fec1ce8a67b78ce573b700d6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:14",
+        "request_sha256": "e93c217d345ec58cd4fc169c53c4700a1174b3795bd143dea4662babe16cb008"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:15",
+        "request_sha256": "57cabd9a1efa58215a7fe2b1b2907420c1a80e9fbbf997915ea0872d1e27fedc"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:16",
+        "request_sha256": "898265b429e6e729eeb5051daeb84e0b6acc79a51284a4ab08e156970bb9a716"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:17",
+        "request_sha256": "3607f7fe97f1d0e361c08ad5a83ecf63e946216bd4f04b9e04c3f2bfad560a92"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:18",
+        "request_sha256": "d3e8f547f6ca85a732a603faf53e2d0179e3936e2fda1419f23631444b674ce3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:19",
+        "request_sha256": "61db925bbb9e22759c56c08d8f0fdde5e5f194d0bff652c12aafe85f0478b20e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:20",
+        "request_sha256": "da6a6f73880c393f3e76b98056307bf133f1c0472855499b9342c3c63f261a35"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:21",
+        "request_sha256": "68e0c851efefc94431cb0a6076355bcab7fcd6dbec0d808df4dcb7e1a60a955f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:22",
+        "request_sha256": "a52d93e5fad7f264040a6106e2e9ab20e8371adaa2d515480eeeb898f4f21382"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:23",
+        "request_sha256": "556a63c8a6383a7eb822c0781bcf66a0f2febc4409ec5e8f077363fe1aa52417"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:24",
+        "request_sha256": "7208f7d37c8c2391cac2e76d6188c61fe957a987a6eb458284cd758d90db5969"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:25",
+        "request_sha256": "5faac3bcf54f1a16e5943d64ee23e526849eded00c23a6a61ce5d14a6b261a68"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:26",
+        "request_sha256": "4a1b3804109d8c997b8ccfc42fb5925539cc4301eb3e2fd1e49d1379e5bb42bf"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:27",
+        "request_sha256": "4c2afb16bdd70dc5d1e5691ca70cd73b1a2f440d95e67a7b5b92c0fb0b3e2b77"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:28",
+        "request_sha256": "0c5f3582f0cb24ed166256cfebba7f9688b8b555477baca15b2a39deb34bcc79"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:29",
+        "request_sha256": "45988f18ab0b8288dcc82b927bbdfac5dcbf2f7f2ea23310da9615a6cd7404d2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:30",
+        "request_sha256": "65078c81706bbfb1300e2dfff05f1b8b277789175b2f8927b3090676ed7545f3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native8:glm52:31",
+        "request_sha256": "74dcf9a0ae243ea58b1c636505a94458882d543b96fa7b787c2fb60374c25d71"
+      }
+    ],
+    "native16": [
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:00",
+        "request_sha256": "2bd6c6836f5d8957b98868e0fa26918492e79c317c66d49086ed0b4bd2f6c172"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:01",
+        "request_sha256": "ef40f9151004e3e9af4545c7571f9e3ea60910049dd0b831048acca14e5c8406"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:02",
+        "request_sha256": "4febe87711c40e379a244d558e365650108d31b1670b92bf159ad42b89bdb6e1"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:03",
+        "request_sha256": "935b84ae4679d87dcd946be8ab8de598bd58b57ab582e500b39d9ad75375fc92"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:04",
+        "request_sha256": "b5a1db829c7100dcd29d36891739cbdced0d3f9cf80faaa9a4cef189a34a73da"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:05",
+        "request_sha256": "64ed42c5fb913bec5fded3b64e2005781504a9f47764cd788e80dab3fe13b28f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:06",
+        "request_sha256": "5f7d78cfb0c244d99efc2ad64f3a37df8b9fb9d8d3515c110997d77a0ce5818b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:07",
+        "request_sha256": "e37b7e802ce38e1fa642db6cc9a4565e94d6dbce9ff8aa5bc8f50979b1f44c9f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:08",
+        "request_sha256": "f9c02995b550d709f605979aaa52ff119559db6c0d5241478000a8f25f071fdb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:09",
+        "request_sha256": "e3f3f1db1050b0a7deb41053c71c540aa3b410080165a05ebe29f1ca93d9aceb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:10",
+        "request_sha256": "907511a9b9016c7c3b2f26485a2fdee5e4830f7e190d9badd63d86926435cc09"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:11",
+        "request_sha256": "1aa728a3699aecf93c2de6ae57bbee8865ec0cc902beaab897cc776e4c76dc7b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:12",
+        "request_sha256": "22d5f85cc54820fffb9e58aca36d7884b821a373c7f3aac1fb37ab923fd8ce2e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:13",
+        "request_sha256": "25c9e9cac85cda74fc8e65e7c92755504344f36d865a198b75104ab55712d518"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:14",
+        "request_sha256": "0b11a3652f2e6d1e7accd45199ee3ac1989f0dee7ce3d0956d9d8fc81ffbbd4b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:15",
+        "request_sha256": "926ead8e6982352d10362beab9fbfe19c2362c023f227f0a8136df3be3ba691f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:16",
+        "request_sha256": "0368111f5f3c54eec5a02e0063323fa70e8e0d84b4df8917e794d370fbdf57f6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:17",
+        "request_sha256": "3b2b77821234782443e9fb0026884dd7a8f7dadf665b75484d01f712f6dfbd80"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:18",
+        "request_sha256": "4d440d682a5e859b9ba559ba7d8de1eb82c9049eebd067fb90b9420f80a7160a"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:19",
+        "request_sha256": "5b94932b6534a5bdd86f9bdb9d75a77ca7b32f81c547dff9f971eac9769018d4"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:20",
+        "request_sha256": "9a1ac07e6cc9580c4c7476363a02761b72f06b44f4065e141754d5b3ace3ca18"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:21",
+        "request_sha256": "f417f590c3d93947fa7731810ed647ef9fb511a91bbefea49ecd1973afd2e4cf"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:22",
+        "request_sha256": "21467ecb2738d5b49fea6802df9d293592c2a9d1e06c1938b9cfcba534cf3b8a"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:23",
+        "request_sha256": "640d4e0449051f4d6b290f7630674fa256b33a1d97ae71885d661764d79017a7"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:24",
+        "request_sha256": "88a671db2d9cc11d9102aa5d7d7e0685faa623eb4ff7a88d933a47a19b4d89cb"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:25",
+        "request_sha256": "ae48a1404137594379edd14f873b97c45f7be3fb5d9df8a0c80dcf98b92135de"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:26",
+        "request_sha256": "005da7c0f9935e25e297360f37d21a6b638efd7d48016d0618855bf84e78049b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:27",
+        "request_sha256": "80e67f3544be714a8bc496e3e36727609b8dbc2e477316b14b1527cf5aa4add9"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:28",
+        "request_sha256": "4a30969715b381d537232dbdbee86497d5ba9e3836be5f7a52d7714804ce6159"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:29",
+        "request_sha256": "19245d54589eca3b011a3dd097191cdadfdb44197dca0ab12674893161eeda9b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:30",
+        "request_sha256": "21a4404724422726e6330dc7e7162fd06082b4abdf412539e73c436998cffa48"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:q397:31",
+        "request_sha256": "de0d3411e2005774a35338afa1bc8642860bace5ff285fcd12c9190c762c997f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:00",
+        "request_sha256": "0e29639b8f715a0c281c4cd07427ab3fea9af16366ee9ac9daa61f101f3b703f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:01",
+        "request_sha256": "56b47ede5b4d52c7775d115c7df0ef39c27c91776e423285a1bc9d131dc55c1c"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:02",
+        "request_sha256": "860796ab11f2687d55d9f96b7ca43d805f25d5c858bc716e98986d728d7c025e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:03",
+        "request_sha256": "f8411b8b3bd44f5546a6e6591ea07ac14a82966e24df16dc16d6fa43183690e5"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:04",
+        "request_sha256": "bf45a2834424ec3dd0ecf55377ab42c7aa73d56f17a6e0ff8811a6b4f1165abe"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:05",
+        "request_sha256": "7a17f96ce5e40a14521c9e23cd40cf23999fe8e80860959c2331fc2da96ed314"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:06",
+        "request_sha256": "57e25c9e8e51395a5f88c8664d88e372efadac6c8d6d259067d8c919b8779c22"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:07",
+        "request_sha256": "09842d8eabd2ca00b9bece7e100f3c3c406d6076168f1a12333f1e8d390364e6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:08",
+        "request_sha256": "74c5e809b7fdaa18cfd73316eda0aa96cebc29475483ac1a36271beaec510c2b"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:09",
+        "request_sha256": "84ece05f4e82e9b75c38a6a04f1323276bbf88c8ee01e4a59ad951749b0b1fc3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:10",
+        "request_sha256": "0a050fc061da27a9ac4c99e15e463c5167bddb6d89ac7f9d2718caaed1840fe2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:11",
+        "request_sha256": "b7a23838d83abcde26305417c0c137ae2d2be48a8910a3fd1cfcdcccd835458e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:12",
+        "request_sha256": "fbd4ad9ccd5d61b83df4610eef308f9690a6c603eb70bef8ff3c58dc78d71929"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:13",
+        "request_sha256": "10af36a9d7575349ed92758432e050619f6a04c6fec1ce8a67b78ce573b700d6"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:14",
+        "request_sha256": "e93c217d345ec58cd4fc169c53c4700a1174b3795bd143dea4662babe16cb008"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:15",
+        "request_sha256": "57cabd9a1efa58215a7fe2b1b2907420c1a80e9fbbf997915ea0872d1e27fedc"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:16",
+        "request_sha256": "898265b429e6e729eeb5051daeb84e0b6acc79a51284a4ab08e156970bb9a716"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:17",
+        "request_sha256": "3607f7fe97f1d0e361c08ad5a83ecf63e946216bd4f04b9e04c3f2bfad560a92"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:18",
+        "request_sha256": "d3e8f547f6ca85a732a603faf53e2d0179e3936e2fda1419f23631444b674ce3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:19",
+        "request_sha256": "61db925bbb9e22759c56c08d8f0fdde5e5f194d0bff652c12aafe85f0478b20e"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:20",
+        "request_sha256": "da6a6f73880c393f3e76b98056307bf133f1c0472855499b9342c3c63f261a35"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:21",
+        "request_sha256": "68e0c851efefc94431cb0a6076355bcab7fcd6dbec0d808df4dcb7e1a60a955f"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:22",
+        "request_sha256": "a52d93e5fad7f264040a6106e2e9ab20e8371adaa2d515480eeeb898f4f21382"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:23",
+        "request_sha256": "556a63c8a6383a7eb822c0781bcf66a0f2febc4409ec5e8f077363fe1aa52417"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:24",
+        "request_sha256": "7208f7d37c8c2391cac2e76d6188c61fe957a987a6eb458284cd758d90db5969"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:25",
+        "request_sha256": "5faac3bcf54f1a16e5943d64ee23e526849eded00c23a6a61ce5d14a6b261a68"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:26",
+        "request_sha256": "4a1b3804109d8c997b8ccfc42fb5925539cc4301eb3e2fd1e49d1379e5bb42bf"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:27",
+        "request_sha256": "4c2afb16bdd70dc5d1e5691ca70cd73b1a2f440d95e67a7b5b92c0fb0b3e2b77"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:28",
+        "request_sha256": "0c5f3582f0cb24ed166256cfebba7f9688b8b555477baca15b2a39deb34bcc79"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:29",
+        "request_sha256": "45988f18ab0b8288dcc82b927bbdfac5dcbf2f7f2ea23310da9615a6cd7404d2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:30",
+        "request_sha256": "65078c81706bbfb1300e2dfff05f1b8b277789175b2f8927b3090676ed7545f3"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:native16:glm52:31",
+        "request_sha256": "74dcf9a0ae243ea58b1c636505a94458882d543b96fa7b787c2fb60374c25d71"
+      }
+    ],
+    "ollama3": [
+      {
+        "id": "swarm-ledger-dispatch-v1:ollama3:00",
+        "request_sha256": "bde68fc7b201edc64eec5d78b5ea550fe93f57074cc1705f86de3db6b5b273a2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:ollama3:01",
+        "request_sha256": "1b0cb6ef48347d3c4b00c99431d1cd5acda68c0031759a827237ff765388b771"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:ollama3:02",
+        "request_sha256": "bde68fc7b201edc64eec5d78b5ea550fe93f57074cc1705f86de3db6b5b273a2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:ollama3:03",
+        "request_sha256": "1b0cb6ef48347d3c4b00c99431d1cd5acda68c0031759a827237ff765388b771"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:ollama3:04",
+        "request_sha256": "bde68fc7b201edc64eec5d78b5ea550fe93f57074cc1705f86de3db6b5b273a2"
+      },
+      {
+        "id": "swarm-ledger-dispatch-v1:ollama3:05",
+        "request_sha256": "1b0cb6ef48347d3c4b00c99431d1cd5acda68c0031759a827237ff765388b771"
+      }
+    ]
+  }
+}

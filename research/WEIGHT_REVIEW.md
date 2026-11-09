@@ -1,0 +1,11 @@
+# Weight-space pre-collection checks
+
+6 November 2026. These are offline implementation checks, not new hosted-model results.
+
+OpenCode reviewed only isolated allowlisted source copies, without credentials, private plans, native logs or model inference. The delegated test writer produced 19 engine tests; all pass. Tests cover 2,304 good/defective/function-preserving state checks, Boolean/revocation goldens, matrix shapes, finite numeric limits, duplicate keys, exact six-versus-seven changed-cell budgets, ReLU permutation/rescaling invariance and same-position/same-norm random controls. A faulty generated test counted inert edits without the existing repair changes; the fixture was corrected, preserving the true total-budget check.
+
+The independent algorithm review found no concrete finite-gate error. Its suspected non-object parse exception was independently rejected: the shared decoder already rejects non-object JSON, and a regression covers this. It correctly cautioned that the benign transformed GOOD checkpoint is a negative harm control, not a budget-matched repair comparison; all 20 random draws remain in the denominator; representation variants do not create unrelated task laws; and safe all-zero policies are not useful exact policies.
+
+The three-source runner/security review confirmed the 144-call main grid, 24-variant denominators and stratified bootstrap, conditional random controls and exclusion of qualification from functional estimates. Root fixes bind qualification to its exact six unique IDs, mark wrong-model/missing-usage/profile violations invalid even if they are the final terminal response, and validate public field/provider allowlists. Four additional root-authored runner/statistics regressions pass, for 23 new weight-study tests. No native/private archive is required to replay public results.
+
+The scope remains tiny, constructed delegated policies with mechanical state labels. The common API adapter and the separate live-v2 freeze are hash-bound; this log and automated reviews do not substitute for human author review, certify originality or establish arbitrary-model safety. Fine-tuning and joint training are separate, unlaunched interventions.

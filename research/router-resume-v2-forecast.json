@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-08T13:51:30.714803+00:00",
+  "collection_cutoff_utc": "2026-11-09T05:59:00+00:00",
+  "remaining_calls_by_profile_and_phase": {
+    "calibration:ds_low": 40,
+    "calibration:ds_off": 40,
+    "calibration:g26": 40,
+    "calibration:g31": 40,
+    "calibration:hf_schema": 40,
+    "calibration:hf_text": 40,
+    "influence:g26": 60,
+    "influence:glm53": 60,
+    "influence:q27": 60,
+    "influence:q397": 60,
+    "readers:ds_low": 10576,
+    "readers:ds_off": 4231,
+    "readers:g26": 9269,
+    "readers:g31": 9211,
+    "readers:hf_schema": 2748,
+    "readers:hf_text": 2700
+  },
+  "remaining_calls": {
+    "readers": 38735,
+    "calibration": 240,
+    "influence": 240
+  },
+  "projected_remaining_peak_equivalent_cost": {
+    "adaption": "5.48192667187500",
+    "hf": "1.216851000",
+    "ollama": "62.376614175"
+  },
+  "spent_or_reserved_all_prior_science_and_pilots": {
+    "adaption": "40.6345825160",
+    "hf": "0.8387661",
+    "ollama": "4.2064680"
+  },
+  "projected_combined_peak_equivalent_cost": {
+    "adaption": "46.11650918787500",
+    "hf": "2.055617100",
+    "ollama": "66.583082175"
+  },
+  "budget_feasible": true,
+  "off_peak_wallet_gate_passed": true,
+  "forecast_seconds": "52273.360885",
+  "conditional_finish_utc": "2026-11-09T04:22:44.075688+00:00",
+  "deadline_feasible": true,
+  "method": "Original per-profile/phase cost projections scaled only by exact unstarted counts; observed shared-capacity/recent-service/p95-barrier stress plus32x60s server-error pauses. Existing auxiliary,25%headroom,3300s outage/blackout/overhead retained.",
+  "uncertainty": "Conditional on a newly admitted active collector; not a guarantee, bound or probability. No successful-answer selection or outcome accuracy inspected. Unknown terminal usage keeps full reservation; live caps and wallet floor remain binding.",
+  "billing": "Adaption credits; HF/Ollama USD peak equivalents. Off-peak wallet conversion only, private balance never serialized.",
+  "source_metadata_sha256": {
+    "runs/swarm-ledger-resume-v1-main/readers/attempts.jsonl": "3527e1791ab3c08ce178687917831ce1f5954c4a1546b239611817f12f0a1665",
+    "runs/swarm-ledger-resume-v1-main/readers/responses.jsonl": "b632571b390d9c82245058615def224dc7fad36d48b616c5aee0395570f33a2b",
+    "research/swarm-ledger-complete-forecast.json": "6dfc10d16feec48688d65e27fd0c8b8567258af7c4b1535210f52180aa77007d"
+  }
+}

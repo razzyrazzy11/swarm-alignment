@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "config": {
+    "diagnostic_id": "hf-serving-diagnostic-v1",
+    "registration_tag": "hf-serving-diagnostic-v1",
+    "model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+    "hf_input_rate": "0.135",
+    "hf_output_rate": "0.40",
+    "prompt": "Reply exactly OK",
+    "temperature": 0,
+    "max_tokens": 16,
+    "input_byte_cap": 4096,
+    "cap_usd": "0.001",
+    "error_body_byte_cap": 16384,
+    "retries": 0,
+    "output_directory": "runs/hf-serving-diagnostic-v1",
+    "driver_state": "runs/factorial-driver-v1/state.json",
+    "finalizer_state": "runs/factorial-finalize-v1/state.json",
+    "driver_pid": 16772,
+    "finalizer_pid": 82520,
+    "minimum_main_429": 5
+  },
+  "source_sha256": {
+    "experiments/hf_diagnostic.py": "b5cb430d2b86c23629c710de87c338c0bfae06914f8b1560916605060d7be4bf",
+    "experiments/tests/test_hf_diagnostic.py": "e3bf3ecbd1d1c180ddbb4c271f253ae00ecb61623f831e0b69eb331728c3c715",
+    "research/HF_DIAGNOSTIC_PROTOCOL.md": "4e2473d1e4b0e4a3bd7ec6403129efe8e2a6454fdf59681ecf28058af632c259",
+    "research/hf-diagnostic-config.json": "b9e2b16503c6efb71e8bfd2f73d91e27b698c9b7cc09cc138f2f956e594e7909",
+    "experiments/factorial_continue.py": "8c9162b1ea641d8e04c3c80dabfadacfde9b85157c444f2bf86846423ea79a29"
+  },
+  "original_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "base_commit": "1bea6603e992d7eb816b1411b3b8008a79fe00d6"
+}

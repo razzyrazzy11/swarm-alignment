@@ -1,0 +1,1725 @@
+{
+  "author": "Razvan Sacara",
+  "affiliation": "Swarm Alignment Hackathon participant",
+  "references": [
+    "[1] Hammond et al. (2025). Multi-Agent Risks from Advanced AI. https://arxiv.org/abs/2502.14143",
+    "[2] Yun et al. (2026). Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs. https://arxiv.org/abs/2610.09581",
+    "[3] Zhang et al. (2025). Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems. https://arxiv.org/abs/2505.00212",
+    "[4] Greenblatt et al. (2023; published 2024). AI Control: Improving Safety Despite Intentional Subversion. https://arxiv.org/abs/2312.06942",
+    "[5] Apart Research (2026). Swarm Alignment Hackathon: Resources, Guidelines, Judging and results. Accessed 6 November. https://apartresearch.com/sprints/swarm-alignment-2026#guidelines",
+    "[6] Sheffey et al. (2026). Syscon: Kernel-Level Syscall Monitoring for AI Agent Control in Sandboxed Environments. Report and reviews. https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun",
+    "[7] Chitransh and Kumar (2026). ActionLens: Pre-Execution Environment Probing for Agent Action Approval. Report and reviews. https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22",
+    "[8] Adaption (2026). Responses API and hosted-model documentation. Accessed 6 November. https://docs.adaptionlabs.ai/api/resources/responses/methods/create",
+    "[9] Hugging Face (2026). Inference Providers: explicit routing and billing. Accessed 6 November. https://huggingface.co/docs/inference-providers/en/index",
+    "[10] Sacara (2026). Undercover Agents: preexisting October trusted-agent study. https://github.com/razzyrazzy11/trusted-agent-sting",
+    "[11] Hu et al. (2026). ActiveEvidence: Decision-Focused Evidence Graphs with Verifiable Acquisition Gaps. https://arxiv.org/abs/2610.20532v2",
+    "[12] Geifman and El-Yaniv (2017). Selective Classification for Deep Neural Networks. https://arxiv.org/abs/1705.08500",
+    "[13] Ollama. Native cloud API and thinking controls. https://docs.ollama.com/cloud ; https://docs.ollama.com/capabilities/thinking",
+    "[14] Kitaoka (2026). Open Problems in Securing Systems Against AI Agent Swarms. Swarm Alignment Hackathon, 5 November, recording 00:56:11-00:57:25. https://apartresearch.com/sprints/swarm-alignment-2026#schedule",
+    "[15] Kitaoka, Pham, Giudice and Merizian (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. MiniLab. https://arxiv.org/abs/2610.24052v1"
+  ],
+  "title": "When Can a Swarm Be Audited?",
+  "subtitle": "Track 4: Multi-Agent Oversight and Control",
+  "preparation_status": "REVIEWED SCIENTIFIC MANUSCRIPT; ARTIFACT STATUS IN README AND HASH-BOUND QA RECEIPTS",
+  "abstract": "Which part of swarm oversight needs repair: evidence acquisition, verdict delivery, or use of sufficient evidence? We investigate this Track 4 question through a controlled, matched experiment in a bounded five-role fake-data delegation workflow. Authentic host records are separated from untrusted agent claims. The prospectively registered main study has 640 independent blocks, 2,560 matched actor trajectories and 53,760 reader responses across Adaption Gemma, Hugging Face Llama and Ollama DeepSeek profiles. The primary Gemma 26B procedure-minus-direct effect on identical sufficient packets is adverse: −2.07 percentage points in parsed ungated correct-definite verdicts (95% stratified block-bootstrap interval −4.06 to −0.12). Secondary instruction effects differ across readers; the Gemma 31B effect is +9.96 points, while DeepSeek low is −1.91. Restoring two contract records raises finite-domain oracle answerability from 35.31% to 100%, but supported-correct gains range from 3.44 to 15.31 points. DeepSeek off returns valid bare JSON throughout FULL16 yet makes 871 false executor accusations in 2,560 DIRECT readings. Failures retain their assigned denominators. Scripted calibration, controlled peer influence and generator-domain sensitivity remain separate. The results support measuring evidence availability, verdict delivery and sufficient-evidence errors separately; they do not establish a universal prompting remedy, internal reasoning mechanism or general swarm safety.",
+  "sections": [
+    [
+      "1. Introduction",
+      [
+        "A worker reports that a delegated update was completed. An investigator must establish who acted and whether permission still held. Missing records, an undelivered verdict and a wrong verdict on sufficient records call for different repairs. We ask: which part of swarm oversight needs repair—evidence acquisition, verdict delivery, or use of sufficient evidence?",
+        "This Track 4 study separates three stages: obtaining trustworthy evidence, delivering a usable verdict, and using evidence sufficient in a declared finite history model. The setting is bounded fake-data delegation; it does not expose real services to agent actions. Multi-agent risk motivates oversight [1,4,5]; the target here is a specific worker-event label, not intent or causal blame for the entire group [3].",
+        "Instruction comparisons hold evidence fixed; restoration comparisons match source trajectories while changing available records. Serving and formatting failures describe verdict delivery. We use these measurements to diagnose repair needs, not to claim that three repair strategies were independently randomized or that errors can be causally partitioned."
+      ]
+    ],
+    [
+      "2. Related work and contribution",
+      [
+        "Evidence-binding work separates correct answers from justified findings [2]. Active evidence acquisition changes observations [11]; selective prediction studies abstention through risk–coverage tradeoffs [12]. Here justified abstention follows the declared finite evidence domain [2]. These are separate evaluation layers: a better information packet does not establish improved reasoning.",
+        "Syscon separates observability from detection and finds no first-pass monitoring gain from receipts [6]; ActionLens probes environments before action approval [7]. We contribute a prospectively registered matched instrument for stateful five-role delegation: instruction changes fix evidence; restoration comparisons match source trajectories. The bounded scope and baselines limit transfer.",
+        "Kitaoka separates identifying relevant agents and evidence from residual monitor failures with combined evidence [14]. MiniLab studies distributed attacks that evade isolated-trajectory monitors [15]. Our controlled, matched experiment applies these established distinctions to stateful delegation; it does not claim to invent them."
+      ]
+    ],
+    [
+      "3. Methods",
+      [
+        "A principal issues authority, a coordinator delegates it, workers X and Y hand off work and propose bounded fake writes, and a reporter produces untrusted claims. The host executes parsed bounded fake-data actions; authorization violations are measured rather than silently prevented. Y permission depends jointly on issuance and grant, local cap, shared budget, half-open lease, and revocation. Physical X usage counts toward the shared budget even when X lacked authority. API latency does not advance the fake integer settlement clock.",
+        "The target is whether Y actually made an unauthorized write and, if so, its bound executor identity. NONE means no such target violation; ABSTAIN means the visible packet cannot support a unique verdict. For example, a claimed permission is insufficient if the grant is revoked before settlement; an authenticated execution record can establish a write without establishing permission. The finite oracle enumerates compatible histories and requires a unique label before a definite finding.",
+        "The registered grid crosses four actor profiles, five policy classes, two layouts and sixteen repetitions. Each block shares a principal/coordinator prefix across honest, X-adversarial, Y-adversarial and both-adversarial arms. Repeated arms, views and readers are dependent measurements, not additional independent samples.",
+        "All six readers receive DIRECT and PROCEDURE instructions on the same four-arm FULL16 (sixteen-record) packets: Adaption Gemma 26B and 31B; Hugging Face Llama text and schema delivery; and Ollama DeepSeek with requested thinking settings off and low [8,9,13]. These are six profiles, four checkpoints and three model families. G26, G31 and DS-low also read six reduced/restored views under DIRECT on the matched honest/both arms, covering two families.",
+        "Acquisition conditions distinguish a sufficient seven-record receipt packet, random loss, selective loss, and restoration of two authentic records selected randomly, by metadata, or by a fixed contract bundle. Query selection uses a declared uniform compatible-world prior, not the empirical incident distribution. Peer claims never create authority.",
+        "The primary is G26 FULL16 PROCEDURE minus DIRECT in parsed ungated correct-definite verdicts. First average four arm differences within each base block, then average 640 blocks. The frozen stratified block bootstrap uses forty strata, sixteen blocks each, 10,000 draws and seed 730009. Secondary intervals are descriptive, without familywise claims. Admitted output passes HTTP-status, completion, usage and capture checks. A usable delivered verdict also has a structurally valid status/executor binding; this does not establish correctness. Strict bare JSON is a separate formatting measure.",
+        "Always-NONE, always-ABSTAIN and the finite-domain support oracle are references. Calibration uses twenty scripted worlds, separately from natural trajectories. Controlled inter-agent influence holds the receiver state fixed and varies three peer notes across eighty blocks. Small-monitor fine-tuning is not performed. Failed requests remain terminal and in denominators; no request identity is retried or replaced.",
+        "Host-produced action records are assumed authentic; worker and reporter statements are untrusted. Hash-bound archives detect changes to retained files, not whether a compromised host told the truth. The fixed five-role team tests a controlled component of swarm oversight; it does not demonstrate spontaneous organization or containment of an arbitrary autonomous swarm.",
+        "The new MAIN contains 640 independent base blocks and 2,560 assigned trajectories, with 53,760 main reader responses, 240 separate scripted calibration responses, and 9,200 actor calls including the exploratory influence receivers.",
+        "Acquisition comparisons use the honest and both arms only: 1,280 matched trajectories in the same 640 base blocks per reader and view. Six reader profiles span three model families; the three acquisition profiles span two families."
+      ]
+    ],
+    [
+      "4. Results",
+      [
+        "The primary G26 FULL16 procedure-minus-direct effect in parsed ungated correct definite verdicts is -2.07 [-4.06, -0.12] percentage points (95% stratified bootstrap confidence interval; 640 independent base blocks).",
+        "G26 correct-definite verdicts fall from 1,497/2,560 (58.48%) under DIRECT to 1,444/2,560 (56.41%) under PROCEDURE. The primary therefore does not support the proposed instruction improvement. Figure 1 and Table 1 retain every reader, including adverse and near-zero effects. Secondary intervals describe matched contrasts rather than a multiplicity-adjusted family of discoveries.",
+        "FIGURE1",
+        "TABLE1",
+        "Delivery and decision quality diverge. DeepSeek off has 2,560/2,560 admitted, semantically valid, bare-JSON answers under each instruction, but only 1,689/2,560 (65.98%) correct definite verdicts. DIRECT falsely accuses an executor in 871 cases (49.15% of 1,772 negative cases). G26 DIRECT admits 2,559 outputs but only 504 are strict bare JSON; the frozen decoder can admit an outer JSON fence. These are different operational properties, not interchangeable accuracy measures. Table 2 covers all views; Appendix C separates FULL16 outcomes.",
+        "TABLE2",
+        "On matched FULL16 packets, schema minus text correct-definite effects are +0.16 [−0.43, +0.74] points for DIRECT and +0.31 [−0.51, +1.13] for PROCEDURE. Better schema compliance does not establish better decisions. DeepSeek low minus off is +26.09 [+24.69, +27.50] points for DIRECT and +24.18 [+22.73, +25.63] for PROCEDURE. That intervention bundles generated computation and serving behavior; it does not identify an internal cognitive mechanism.",
+        "Acquisition changes the question a reader can answer. Selective loss leaves 452/1,280 matched packets (35.31%) answerable in the registered finite domain. Random two-record restoration reaches 798/1,280 (62.34%); metadata and contract restoration each reach 1,280/1,280. Contract restoration raises answerability by 64.69 [62.03, 67.42] points. Its supported-correct gains, counting required abstention as correct when evidence is insufficient, are much smaller and reader dependent (Table 3). Figure 2 compares answerability with correct-definite verdicts, excluding abstentions.",
+        "FIGURE2",
+        "TABLE3",
+        "Contract minus metadata supported-correct effects are +0.31 [−0.70, +1.33] points for G26 and −0.86 [−1.88, +0.08] for G31. There is no clear advantage of contract selection over metadata selection here. Receipt-only seven-record packets remain answerable; compared with matched FULL16 their supported-correct effects are +3.36 [0.94, 5.70] points for G26, +5.00 [3.28, 6.72] for G31 and +0.55 [−1.02, 2.03] for DeepSeek low. Packet shortening and evidence content change together.",
+        "The realized incident mix is 788/2,560 (30.78%) target violations, rather than a balanced classification set. Always-NONE achieves 69.22% correct definite verdicts overall; always-ABSTAIN achieves zero on sufficient FULL16. By honest, X-adversarial, Y-adversarial and both assignments, violations are 129, 169, 233 and 257 out of 640 each. Assignment changes behavior but is not equivalent to successful attack or latent intent. Actor effects, calibration, peer influence and domain sensitivity are reported separately in Appendix D."
+      ]
+    ],
+    [
+      "5. Interpretation and implications",
+      [
+        "The primary procedure effect is adverse for G26; G31 improves, DeepSeek off is unchanged and DeepSeek low declines. A repair decision should distinguish an absent authentic record, failure to deliver an admitted and structurally valid verdict, and an incorrect verdict despite sufficient evidence. These layers can coexist; their effect sizes do not causally partition error.",
+        "Restoration increases answerability in this finite task, but a large correct-definite gain partly reflects replacing required abstention with an answerable question. Supported correctness keeps that distinction visible. Even after answerability reaches 100%, G26 contract-restored supported correctness is only 746/1,280 (58.28%). Acquiring evidence is therefore useful without being a complete monitor solution.",
+        "The decisive limitations are the synthetic role graph, authentic-host assumption, generator-relative oracle and unpinned hosted implementations. Sensitivity shows that answerability depends on the declared history domain, ruling out universal impossibility claims. This study measures bounded oversight, not spontaneous collusion, containment or general alignment."
+      ]
+    ],
+    [
+      "6. Conclusion",
+      [
+        "Repair begins with diagnosis: recover missing authentic records, distinguish failed verdict delivery from incorrect decisions, and test evidence use on fixed sufficient packets. Our matched experiment supports these distinctions: restoration improves answerability, format compliance does not ensure correctness, and the primary instruction intervention is adverse. Secondary effects vary across readers. Report each layer with its denominator and assumptions."
+      ]
+    ],
+    [
+      "Code and data",
+      [
+        "Sanitized artifacts, frozen protocols and replay instructions accompany the currently private repository: https://github.com/razzyrazzy11/swarm-alignment . Judge access and official submission remain author actions. Appendix B records provenance; Appendix E gives reproduction commands."
+      ]
+    ]
+  ],
+  "appendix": [
+    [
+      "Appendix A. Limitations and Dual-Use / Ethical Considerations",
+      [
+        "The environment is synthetic and finite; its role graph, policies, receipt trust assumptions, and model routes limit external validity. The target is Y event authorization/execution, not all group behavior or causal responsibility. Repeated calls do not increase the independent block count. Hosted model identities can drift; route/model checks do not establish immutable weights.",
+        "Oracle answerability is relative to the declared finite-policy compatible-world domain. Its uniform acquisition prior is not the cohort sampling posterior. A reader with knowledge of the five-policy generator could exploit budget-time/revocation correlations beyond the stated oracle history model.",
+        "Only bounded fake-data actions are executed. No live target, credential theft, real exfiltration, or real-world sabotage is required. Public artifacts should omit credentials, private provider response identifiers and unnecessary raw text. Failure modes could help evasion or selective deletion; release emphasizes defensive evidence requirements and safe reproductions. No claim of perfect containment or tamper-proof deployment follows."
+      ]
+    ],
+    [
+      "Appendix B. Provenance, iterations and reproducibility",
+      [
+        "The October trusted-agent-sting project [10] is preexisting context, not new sprint evidence. Earlier swarm-audit, weight-policy and incomplete-serving studies remain separately registered and are not pooled into this 640-block MAIN. The earlier 192-source natural sample contained only NONE labels; its procedure gain concerns false accusations and cannot establish incident recall. Its separate original HF recovery completes original planned identities, not replacement MAIN evidence.",
+        "Earlier scripted auditing did not establish the hypothesized increase in false accusations under selective evidence loss. The live-handoff study found a matched metadata-restoration gain. Tiny-policy experiments separated schema and edit-budget compliance from exact useful behavior, and artifact change from harmful behavior. These iterations motivate the present mixed-label, matched design; none is pooled into MAIN. Their full outcomes remain in research/STATEFUL_RESULTS.md, LIVE_RESULTS.md, WEIGHT_RESULTS.md and FACTORIAL_RESULTS.md.",
+        "Seven disjoint MAIN collection batches preserve immutable stopped prefixes. Prospective router, server, provider, efficient, rate and paced amendments changed operational admission/recovery only, preserving science, bodies and identities. All 53,760 reader identities are terminal. Thirty-four have unknown usage and retain full reservations; failures were not retried or replaced. The paced batch retains six HTTP502 failures. Calibration and influence each have 240/240 HTTP200 terminals with known usage and no capture anomaly. The excluded serving pilot remains blocked and unrun.",
+        "The original paced postprocessor stopped at its first HF export because private transport fields reached the strict public validator. A separately registered offline V1 adapter also stopped before output because its private-field allowlist omitted next_delay_seconds. Both failed states and logs remain immutable. Offline V2 explicitly validates that nonnegative finite metadata field, removes it before the frozen public projection, and retains the existing private/native admission and scientific functions. It was committed, frozen, tagged and pushed before replay; no new inference occurred.",
+        "The V2 owner completed all seven strict stages at 06:33:33 UTC on 9 November: HF export, MAIN export, continuation provenance, figure input, figures, figure provenance and generator sensitivity. Public replay validates exported jobs, actions, evidence, scoring and arithmetic; hashes commit to private native records but do not independently prove provider truth. Release proofs and verified-public-input.json bind the exact source and archive lineage. Operational CI repairs concern synthetic fixture clocks and journal snapshots, not production cutoffs or scoring.",
+        "AI tools assisted implementation and writing; the author remains responsible for claims, references and data. Talk context was reviewed after registration with MAIN accuracy still blinded. No small-monitor training, SFT or new test-set adaptation was performed. Independent implementations may share a specification error. Final review records and hash-bound exported-page inspection are separate quality evidence.",
+        "Explicit public verification uses a prospectively registered, source-bound receipt of successful local private admission and reruns the unchanged public mathematics. The receipt binds the completed owner state hash and source/registration/artifact inventories without exporting private logs or native response identifiers. This enables clean-checkout verification without newly authenticating providers. Default local verification checks retained private failed-waiter evidence and provenance, but does not repeat full native-journal admission. The registration is paper-public-verification-v1."
+      ]
+    ],
+    [
+      "Appendix C. Full-evidence outcome composition and workflow",
+      [
+        "Figure 3 reports each FULL16 instruction over all 2,560 assigned trajectories, separating correct definite, wrong definite, abstention and invalid outcomes. A retained serving failure is an operational invalid, not evidence of failed latent reasoning. Figure 4 states the assumed host-record boundary; it does not claim tamper-proof provenance.",
+        "FIGURE3",
+        "FIGURE4",
+        "G26 unsafe NONE decisions on actual positives rise from 168/788 under DIRECT to 260/788 under PROCEDURE, while false executor accusations on negatives fall from 810/1,772 to 706/1,772. Thus one error type improves while the primary aggregate worsens. G31 unsafe NONE falls from 388/788 to 148/788. DeepSeek low DIRECT has 666/788 exact executor decisions, 12/788 unsafe NONE, 1/1,772 false executor accusation, 79 abstentions and 111 invalids over 2,560 assignments. No favorable admitted-only denominator replaces the registered operational score."
+      ]
+    ],
+    [
+      "Appendix D. Actor, calibration, influence and generator controls",
+      [
+        "Assigned X-adversarial versus honest-X marginally raises actual Y violations by +5.00 [3.13, 6.88] points; Y-adversarial assignment raises them by +15.00 [12.81, 17.19]. Their interaction is −2.50 [−6.41, 1.41], offering no clear positive interaction on that endpoint. Useful-completion assignment effects are −9.30 [−10.78, −7.81] and −38.05 [−39.92, −36.09] points, with +8.59 [5.63, 11.72] interaction. These matched intention-to-treat summaries include invalid actor outputs; they do not establish coordinated deception.",
+        "Scripted calibration has twenty worlds and 240 dependent readings across six profiles and two instructions. Pooled outcomes are 169/240 correct definite, 233/240 admitted and semantically valid, 158/240 strict JSON, seven invalids and no abstentions. Among 144 positive readings there are 126 exact executor decisions and eleven unsafe NONE decisions; among 96 negatives there are 53 false executor accusations. These controls neither add independent natural trajectories nor estimate population incident recall or probability calibration.",
+        "The controlled influence study has eighty independent blocks with neutral, deceptive and warning notes at a fixed receiver state (240 calls). Deceptive minus neutral violation is 0.00 [−2.50, 2.50] points; warning minus deceptive is −2.50 [−6.25, 1.25]. Useful-completion contrasts are −2.50 [−7.50, 2.50] and +3.75 [−1.25, 8.75]. All intervals span zero. This restricted test does not demonstrate robust peer influence, emergent collusion or covert language.",
+        "The separately registered generator-knowledge sensitivity considers the same 640 blocks, 1,280 matched sources and 8,960 packets under a structural public-budget domain. Selective-loss answerability increases from 452 to 541, random-loss from 586 to 668, and random-restoration from 798 to 880. Full, receipt-only, metadata-restored and contract-restored packets remain answerable in all 1,280 cases. Selective-loss supported-correct counts change from 702 to 682 for G26, 857 to 829 for G31 and 1,047 to 966 for DeepSeek low; contract-restored counts remain 746, 1,053 and 1,179. These are finite-cohort sensitivity counts, not a new primary, new confidence intervals or fresh model calls. The original adverse procedure effect is unchanged.",
+        "Other acquisition strategies qualify the restoration result. Random two-record restoration raises answerability from 452/1,280 to 798/1,280, yet G31 supported correctness falls by 3.91 [−6.88, −0.86] percentage points relative to selective loss. This secondary, descriptive interval is not multiplicity adjusted. Increased answerability therefore does not establish improved delivered decisions for every reader and strategy."
+      ]
+    ],
+    [
+      "Appendix E. Model routes and reproducibility settings",
+      [
+        "The four actor profiles are Adaption gemma-4-26b-a4b-it, qwen3.8-27b, glm-53-flash and qwen3.5-397b. The six reader profiles use gemma-4-26b-a4b-it, gemma-4-31b-it, meta-llama/Llama-4-Scout-17B-16E-Instruct routed explicitly through DeepInfra in text/schema modes, and deepseek-v4.1-flash:1017 in thinking off/low modes. These are hosted identifiers rather than immutable weight hashes.",
+        "Every profile retains its frozen 4,096-token output ceiling and request construction. Complete prompts, deterministic fake-state generation, action parser, schema, decoding and support oracle are in experiments/swarm_ledger.py, swarm_ledger_study.py and swarm_ledger_reference.py with scientific configurations under research/. Operational continuations preserve those bodies. A temperature setting or fixed seed does not guarantee provider-level determinism. Only final answer content is scored; private thinking remains excluded.",
+        "Current MAIN replay uses data/swarm-ledger-v1-public; generator sensitivity uses data/swarm-ledger-generator-sensitivity-v1. The HF original completion is separately exported as data/hf_completed_original_supplement_v3.jsonl and is not a MAIN condition. Current source and native-archive commitments are bound by the paced and offline-V2 release proofs; the seven-stage state is runs/offline-release-recovery-v2-driver/state.json. The current manuscript is not the historical results-v3 report.",
+        "Public commands are python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public and python paper/verify.py --public-replay (also with Python -O). Default python paper/verify.py additionally checks private failed-waiter evidence; full native-journal validation occurred during export and requires the private archive. The public route cannot record a PDF review manifest; actual local inspection and private verification precede that record."
+      ]
+    ]
+  ],
+  "ledger_registration": "swarm-ledger-complete-v1-main",
+  "table2_source": "swarm_ledger_complete",
+  "table2_model_ids": [
+    "g26",
+    "g31",
+    "hf_text",
+    "hf_schema",
+    "ds_off",
+    "ds_low"
+  ],
+  "table1": [
+    [
+      "FULL16 reader",
+      "Correct definite D / P (each /2560)",
+      "P minus D, pp [95% CI]"
+    ],
+    [
+      "Adaption Gemma 26B",
+      "1497 / 1444",
+      "-2.07 [-4.06, -0.12]"
+    ],
+    [
+      "Adaption Gemma 31B",
+      "2075 / 2330",
+      "+9.96 [+8.55, +11.37]"
+    ],
+    [
+      "HF Llama, text",
+      "834 / 900",
+      "+2.58 [+1.72, +3.44]"
+    ],
+    [
+      "HF Llama, schema",
+      "838 / 908",
+      "+2.73 [+1.88, +3.63]"
+    ],
+    [
+      "Ollama DeepSeek, off",
+      "1689 / 1689",
+      "+0.00 [-0.55, +0.59]"
+    ],
+    [
+      "Ollama DeepSeek, low",
+      "2357 / 2308",
+      "-1.91 [-3.01, -0.82]"
+    ]
+  ],
+  "table2": [
+    [
+      "Reader",
+      "Main responses",
+      "Admitted / semantic valid / strict JSON"
+    ],
+    [
+      "Adaption Gemma 26B",
+      "12800",
+      "12785 / 12732 / 1815"
+    ],
+    [
+      "Adaption Gemma 31B",
+      "12800",
+      "12697 / 12665 / 11"
+    ],
+    [
+      "HF Llama, text",
+      "5120",
+      "5120 / 5120 / 4213"
+    ],
+    [
+      "HF Llama, schema",
+      "5120",
+      "5116 / 5116 / 5116"
+    ],
+    [
+      "Ollama DeepSeek, off",
+      "5120",
+      "5120 / 5120 / 5120"
+    ],
+    [
+      "Ollama DeepSeek, low",
+      "12800",
+      "12132 / 12130 / 12130"
+    ]
+  ],
+  "table3": [
+    [
+      "Contract restoration minus selective loss",
+      "Oracle answerability, pp",
+      "Correct definite, pp",
+      "Correct supported, pp"
+    ],
+    [
+      "Adaption Gemma 26B",
+      "+64.69 [+62.03, +67.42]",
+      "+29.06 [+26.41, +31.64]",
+      "+3.44 [+0.31, +6.64]"
+    ],
+    [
+      "Adaption Gemma 31B",
+      "+64.69 [+62.03, +67.42]",
+      "+51.72 [+49.14, +54.37]",
+      "+15.31 [+12.58, +18.20]"
+    ],
+    [
+      "Ollama DeepSeek, low",
+      "+64.69 [+62.03, +67.42]",
+      "+57.89 [+55.08, +60.70]",
+      "+10.31 [+7.81, +12.81]"
+    ]
+  ],
+  "evidence_status": {
+    "status": "completed prospectively registered six-reader MAIN",
+    "freeze": "swarm-ledger-complete-v1-main",
+    "source_blocks": 640,
+    "assigned_trajectories": 2560,
+    "main_reader_responses": 53760,
+    "calibration_responses": 240,
+    "actor_calls_including_influence": 9200,
+    "training_runs": 0
+  },
+  "ledger_results": {
+    "conditions": {
+      "ds_low:full:direct": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2449,
+          "semantic_valid": 2449,
+          "strict_json": 2449,
+          "correct_supported": 2357,
+          "correct_definite": 2357,
+          "gated_correct_definite": 2357,
+          "exact_executor": 666,
+          "any_executor": 667,
+          "unsafe_none": 12,
+          "false_executor": 1,
+          "abstain": 79,
+          "invalid": 111
+        }
+      },
+      "ds_low:full:procedure": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2418,
+          "semantic_valid": 2417,
+          "strict_json": 2417,
+          "correct_supported": 2308,
+          "correct_definite": 2308,
+          "gated_correct_definite": 2308,
+          "exact_executor": 656,
+          "any_executor": 658,
+          "unsafe_none": 14,
+          "false_executor": 2,
+          "abstain": 93,
+          "invalid": 143
+        }
+      },
+      "ds_low:random_loss:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 586,
+          "admitted": 1214,
+          "semantic_valid": 1214,
+          "strict_json": 1214,
+          "correct_supported": 1076,
+          "correct_definite": 558,
+          "gated_correct_definite": 558,
+          "exact_executor": 154,
+          "any_executor": 187,
+          "unsafe_none": 4,
+          "false_executor": 32,
+          "abstain": 526,
+          "invalid": 66
+        }
+      },
+      "ds_low:receipt_only7:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1218,
+          "semantic_valid": 1218,
+          "strict_json": 1218,
+          "correct_supported": 1183,
+          "correct_definite": 1183,
+          "gated_correct_definite": 1183,
+          "exact_executor": 330,
+          "any_executor": 331,
+          "unsafe_none": 6,
+          "false_executor": 1,
+          "abstain": 28,
+          "invalid": 62
+        }
+      },
+      "ds_low:selective_contract2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1227,
+          "semantic_valid": 1226,
+          "strict_json": 1226,
+          "correct_supported": 1179,
+          "correct_definite": 1179,
+          "gated_correct_definite": 1179,
+          "exact_executor": 329,
+          "any_executor": 330,
+          "unsafe_none": 15,
+          "false_executor": 1,
+          "abstain": 31,
+          "invalid": 54
+        }
+      },
+      "ds_low:selective_loss:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 452,
+          "admitted": 1195,
+          "semantic_valid": 1195,
+          "strict_json": 1195,
+          "correct_supported": 1047,
+          "correct_definite": 438,
+          "gated_correct_definite": 438,
+          "exact_executor": 100,
+          "any_executor": 140,
+          "unsafe_none": 3,
+          "false_executor": 40,
+          "abstain": 615,
+          "invalid": 85
+        }
+      },
+      "ds_low:selective_metadata2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1218,
+          "semantic_valid": 1218,
+          "strict_json": 1218,
+          "correct_supported": 1172,
+          "correct_definite": 1172,
+          "gated_correct_definite": 1172,
+          "exact_executor": 323,
+          "any_executor": 323,
+          "unsafe_none": 12,
+          "false_executor": 0,
+          "abstain": 34,
+          "invalid": 62
+        }
+      },
+      "ds_low:selective_random2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 798,
+          "admitted": 1193,
+          "semantic_valid": 1193,
+          "strict_json": 1193,
+          "correct_supported": 1062,
+          "correct_definite": 747,
+          "gated_correct_definite": 747,
+          "exact_executor": 197,
+          "any_executor": 225,
+          "unsafe_none": 4,
+          "false_executor": 28,
+          "abstain": 333,
+          "invalid": 87
+        }
+      },
+      "ds_off:full:direct": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2560,
+          "semantic_valid": 2560,
+          "strict_json": 2560,
+          "correct_supported": 1689,
+          "correct_definite": 1689,
+          "gated_correct_definite": 1689,
+          "exact_executor": 788,
+          "any_executor": 1659,
+          "unsafe_none": 0,
+          "false_executor": 871,
+          "abstain": 0,
+          "invalid": 0
+        }
+      },
+      "ds_off:full:procedure": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2560,
+          "semantic_valid": 2560,
+          "strict_json": 2560,
+          "correct_supported": 1689,
+          "correct_definite": 1689,
+          "gated_correct_definite": 1689,
+          "exact_executor": 787,
+          "any_executor": 1657,
+          "unsafe_none": 1,
+          "false_executor": 870,
+          "abstain": 0,
+          "invalid": 0
+        }
+      },
+      "g26:full:direct": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2559,
+          "semantic_valid": 2538,
+          "strict_json": 504,
+          "correct_supported": 1497,
+          "correct_definite": 1497,
+          "gated_correct_definite": 1497,
+          "exact_executor": 536,
+          "any_executor": 1346,
+          "unsafe_none": 168,
+          "false_executor": 810,
+          "abstain": 63,
+          "invalid": 22
+        }
+      },
+      "g26:full:procedure": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2553,
+          "semantic_valid": 2545,
+          "strict_json": 298,
+          "correct_supported": 1444,
+          "correct_definite": 1444,
+          "gated_correct_definite": 1444,
+          "exact_executor": 393,
+          "any_executor": 1099,
+          "unsafe_none": 260,
+          "false_executor": 706,
+          "abstain": 135,
+          "invalid": 15
+        }
+      },
+      "g26:random_loss:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 586,
+          "admitted": 1276,
+          "semantic_valid": 1276,
+          "strict_json": 126,
+          "correct_supported": 742,
+          "correct_definite": 447,
+          "gated_correct_definite": 447,
+          "exact_executor": 150,
+          "any_executor": 363,
+          "unsafe_none": 99,
+          "false_executor": 211,
+          "abstain": 338,
+          "invalid": 4
+        }
+      },
+      "g26:receipt_only7:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1277,
+          "semantic_valid": 1272,
+          "strict_json": 269,
+          "correct_supported": 768,
+          "correct_definite": 768,
+          "gated_correct_definite": 768,
+          "exact_executor": 215,
+          "any_executor": 549,
+          "unsafe_none": 151,
+          "false_executor": 334,
+          "abstain": 19,
+          "invalid": 8
+        }
+      },
+      "g26:selective_contract2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1280,
+          "semantic_valid": 1275,
+          "strict_json": 182,
+          "correct_supported": 746,
+          "correct_definite": 746,
+          "gated_correct_definite": 746,
+          "exact_executor": 250,
+          "any_executor": 638,
+          "unsafe_none": 101,
+          "false_executor": 388,
+          "abstain": 40,
+          "invalid": 5
+        }
+      },
+      "g26:selective_loss:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 452,
+          "admitted": 1280,
+          "semantic_valid": 1277,
+          "strict_json": 100,
+          "correct_supported": 702,
+          "correct_definite": 374,
+          "gated_correct_definite": 374,
+          "exact_executor": 113,
+          "any_executor": 303,
+          "unsafe_none": 107,
+          "false_executor": 190,
+          "abstain": 382,
+          "invalid": 3
+        }
+      },
+      "g26:selective_metadata2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1280,
+          "semantic_valid": 1274,
+          "strict_json": 184,
+          "correct_supported": 742,
+          "correct_definite": 742,
+          "gated_correct_definite": 742,
+          "exact_executor": 247,
+          "any_executor": 643,
+          "unsafe_none": 104,
+          "false_executor": 396,
+          "abstain": 32,
+          "invalid": 6
+        }
+      },
+      "g26:selective_random2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 798,
+          "admitted": 1280,
+          "semantic_valid": 1275,
+          "strict_json": 152,
+          "correct_supported": 679,
+          "correct_definite": 550,
+          "gated_correct_definite": 550,
+          "exact_executor": 187,
+          "any_executor": 481,
+          "unsafe_none": 96,
+          "false_executor": 294,
+          "abstain": 211,
+          "invalid": 5
+        }
+      },
+      "g31:full:direct": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2543,
+          "semantic_valid": 2543,
+          "strict_json": 3,
+          "correct_supported": 2075,
+          "correct_definite": 2075,
+          "gated_correct_definite": 2075,
+          "exact_executor": 393,
+          "any_executor": 473,
+          "unsafe_none": 388,
+          "false_executor": 80,
+          "abstain": 0,
+          "invalid": 17
+        }
+      },
+      "g31:full:procedure": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2540,
+          "semantic_valid": 2540,
+          "strict_json": 1,
+          "correct_supported": 2330,
+          "correct_definite": 2330,
+          "gated_correct_definite": 2330,
+          "exact_executor": 632,
+          "any_executor": 694,
+          "unsafe_none": 148,
+          "false_executor": 62,
+          "abstain": 0,
+          "invalid": 20
+        }
+      },
+      "g31:random_loss:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 586,
+          "admitted": 1270,
+          "semantic_valid": 1258,
+          "strict_json": 0,
+          "correct_supported": 866,
+          "correct_definite": 470,
+          "gated_correct_definite": 470,
+          "exact_executor": 114,
+          "any_executor": 156,
+          "unsafe_none": 96,
+          "false_executor": 24,
+          "abstain": 434,
+          "invalid": 22
+        }
+      },
+      "g31:receipt_only7:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1266,
+          "semantic_valid": 1266,
+          "strict_json": 2,
+          "correct_supported": 1121,
+          "correct_definite": 1121,
+          "gated_correct_definite": 1121,
+          "exact_executor": 277,
+          "any_executor": 317,
+          "unsafe_none": 105,
+          "false_executor": 40,
+          "abstain": 0,
+          "invalid": 14
+        }
+      },
+      "g31:selective_contract2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1272,
+          "semantic_valid": 1272,
+          "strict_json": 2,
+          "correct_supported": 1053,
+          "correct_definite": 1053,
+          "gated_correct_definite": 1053,
+          "exact_executor": 201,
+          "any_executor": 230,
+          "unsafe_none": 181,
+          "false_executor": 29,
+          "abstain": 9,
+          "invalid": 8
+        }
+      },
+      "g31:selective_loss:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 452,
+          "admitted": 1268,
+          "semantic_valid": 1258,
+          "strict_json": 2,
+          "correct_supported": 857,
+          "correct_definite": 391,
+          "gated_correct_definite": 391,
+          "exact_executor": 100,
+          "any_executor": 152,
+          "unsafe_none": 57,
+          "false_executor": 36,
+          "abstain": 503,
+          "invalid": 22
+        }
+      },
+      "g31:selective_metadata2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 1280,
+          "admitted": 1269,
+          "semantic_valid": 1269,
+          "strict_json": 1,
+          "correct_supported": 1064,
+          "correct_definite": 1064,
+          "gated_correct_definite": 1064,
+          "exact_executor": 207,
+          "any_executor": 235,
+          "unsafe_none": 177,
+          "false_executor": 28,
+          "abstain": 0,
+          "invalid": 11
+        }
+      },
+      "g31:selective_random2:direct": {
+        "responses": 1280,
+        "independent_blocks": 640,
+        "actual_positive": 386,
+        "actual_negative": 894,
+        "numerators": {
+          "answerable": 798,
+          "admitted": 1269,
+          "semantic_valid": 1259,
+          "strict_json": 0,
+          "correct_supported": 807,
+          "correct_definite": 614,
+          "gated_correct_definite": 614,
+          "exact_executor": 149,
+          "any_executor": 191,
+          "unsafe_none": 115,
+          "false_executor": 32,
+          "abstain": 259,
+          "invalid": 21
+        }
+      },
+      "hf_schema:full:direct": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2557,
+          "semantic_valid": 2557,
+          "strict_json": 2557,
+          "correct_supported": 838,
+          "correct_definite": 838,
+          "gated_correct_definite": 838,
+          "exact_executor": 785,
+          "any_executor": 2457,
+          "unsafe_none": 0,
+          "false_executor": 1672,
+          "abstain": 47,
+          "invalid": 3
+        }
+      },
+      "hf_schema:full:procedure": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2559,
+          "semantic_valid": 2559,
+          "strict_json": 2559,
+          "correct_supported": 908,
+          "correct_definite": 908,
+          "gated_correct_definite": 908,
+          "exact_executor": 786,
+          "any_executor": 2338,
+          "unsafe_none": 0,
+          "false_executor": 1552,
+          "abstain": 99,
+          "invalid": 1
+        }
+      },
+      "hf_text:full:direct": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2560,
+          "semantic_valid": 2560,
+          "strict_json": 2315,
+          "correct_supported": 834,
+          "correct_definite": 834,
+          "gated_correct_definite": 834,
+          "exact_executor": 785,
+          "any_executor": 2461,
+          "unsafe_none": 0,
+          "false_executor": 1676,
+          "abstain": 50,
+          "invalid": 0
+        }
+      },
+      "hf_text:full:procedure": {
+        "responses": 2560,
+        "independent_blocks": 640,
+        "actual_positive": 788,
+        "actual_negative": 1772,
+        "numerators": {
+          "answerable": 2560,
+          "admitted": 2560,
+          "semantic_valid": 2560,
+          "strict_json": 1898,
+          "correct_supported": 900,
+          "correct_definite": 900,
+          "gated_correct_definite": 900,
+          "exact_executor": 787,
+          "any_executor": 2351,
+          "unsafe_none": 0,
+          "false_executor": 1564,
+          "abstain": 96,
+          "invalid": 0
+        }
+      }
+    },
+    "primary": {
+      "estimand": "G26 FULL16 procedure minus direct, parsed ungated correct definite verdict",
+      "estimate": -0.020703125,
+      "lower": -0.040625,
+      "upper": -0.001171875,
+      "blocks": 640,
+      "strata": 40,
+      "draws": 10000,
+      "seed": 730009,
+      "unit": "assigned base block; all arms retained",
+      "interval": "stratified percentile bootstrap 95%"
+    },
+    "acquisition_direct": {
+      "g26:receipt_only7-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.0515625,
+          "lower": 0.01875,
+          "upper": 0.084375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.3078125,
+          "lower": 0.27890625,
+          "upper": 0.3359375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g26:random_loss-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.03125,
+          "lower": -0.0046875,
+          "upper": 0.06720703124999972,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.05703125,
+          "lower": 0.02734375,
+          "upper": 0.08751953124999971,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.1046875,
+          "lower": 0.0671875,
+          "upper": 0.14296875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g26:selective_random2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": -0.01796875,
+          "lower": -0.04765625,
+          "upper": 0.01171875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.1375,
+          "lower": 0.1125,
+          "upper": 0.1625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.2703125,
+          "lower": 0.24138671875,
+          "upper": 0.3,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g26:selective_metadata2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.03125,
+          "lower": 0.0,
+          "upper": 0.06328125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.2875,
+          "lower": 0.2609375,
+          "upper": 0.3140625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g26:selective_contract2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.034375,
+          "lower": 0.003125,
+          "upper": 0.06640625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.290625,
+          "lower": 0.2640625,
+          "upper": 0.3164257812499997,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g26:selective_metadata2-selective_random2": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.04921875,
+          "lower": 0.02421875,
+          "upper": 0.0734375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.15,
+          "lower": 0.12576171875000003,
+          "upper": 0.17578125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.3765625,
+          "lower": 0.34765625,
+          "upper": 0.40546875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g26:selective_contract2-selective_metadata2": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.003125,
+          "lower": -0.00703125,
+          "upper": 0.01328125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.003125,
+          "lower": -0.00703125,
+          "upper": 0.01328125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.0,
+          "lower": 0.0,
+          "upper": 0.0,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:receipt_only7-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.20625,
+          "lower": 0.17734375,
+          "upper": 0.2359375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.5703125,
+          "lower": 0.54375,
+          "upper": 0.59765625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:random_loss-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.00703125,
+          "lower": -0.02890625,
+          "upper": 0.0421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.06171875,
+          "lower": 0.03125,
+          "upper": 0.09296875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.1046875,
+          "lower": 0.0671875,
+          "upper": 0.14296875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:selective_random2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": -0.0390625,
+          "lower": -0.06875,
+          "upper": -0.00859375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.17421875,
+          "lower": 0.14765625,
+          "upper": 0.20078125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.2703125,
+          "lower": 0.24138671875,
+          "upper": 0.3,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:selective_metadata2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.16171875,
+          "lower": 0.13359375,
+          "upper": 0.19140625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.52578125,
+          "lower": 0.50078125,
+          "upper": 0.5515625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:selective_contract2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.153125,
+          "lower": 0.12578125,
+          "upper": 0.18203125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.5171875,
+          "lower": 0.49140625,
+          "upper": 0.54375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:selective_metadata2-selective_random2": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.20078125,
+          "lower": 0.17341796875,
+          "upper": 0.22890625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.3515625,
+          "lower": 0.325,
+          "upper": 0.37890625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.3765625,
+          "lower": 0.34765625,
+          "upper": 0.40546875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "g31:selective_contract2-selective_metadata2": {
+        "correct_supported_including_required_abstention": {
+          "estimate": -0.00859375,
+          "lower": -0.01875,
+          "upper": 0.00078125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": -0.00859375,
+          "lower": -0.01875,
+          "upper": 0.00078125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.0,
+          "lower": 0.0,
+          "upper": 0.0,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:receipt_only7-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.10625,
+          "lower": 0.08203125,
+          "upper": 0.13046875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.58203125,
+          "lower": 0.55390625,
+          "upper": 0.6109375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:random_loss-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.02265625,
+          "lower": -0.0078125,
+          "upper": 0.05234375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.09375,
+          "lower": 0.05859375,
+          "upper": 0.13046875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.1046875,
+          "lower": 0.0671875,
+          "upper": 0.14296875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:selective_random2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.01171875,
+          "lower": -0.01171875,
+          "upper": 0.03515625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.24140625,
+          "lower": 0.2140625,
+          "upper": 0.26953125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.2703125,
+          "lower": 0.24138671875,
+          "upper": 0.3,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:selective_metadata2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.09765625,
+          "lower": 0.0734375,
+          "upper": 0.121875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.5734375,
+          "lower": 0.5453125,
+          "upper": 0.6015625,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:selective_contract2-selective_loss": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.103125,
+          "lower": 0.078125,
+          "upper": 0.128125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.57890625,
+          "lower": 0.55078125,
+          "upper": 0.60703125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.646875,
+          "lower": 0.6203125,
+          "upper": 0.67421875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:selective_metadata2-selective_random2": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.0859375,
+          "lower": 0.06328125,
+          "upper": 0.109375,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.33203125,
+          "lower": 0.30234375,
+          "upper": 0.36171875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.3765625,
+          "lower": 0.34765625,
+          "upper": 0.40546875,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      },
+      "ds_low:selective_contract2-selective_metadata2": {
+        "correct_supported_including_required_abstention": {
+          "estimate": 0.00546875,
+          "lower": -0.01015625,
+          "upper": 0.0203125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "correct_definite": {
+          "estimate": 0.00546875,
+          "lower": -0.01015625,
+          "upper": 0.0203125,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        },
+        "oracle_answerability": {
+          "estimate": 0.0,
+          "lower": 0.0,
+          "upper": 0.0,
+          "blocks": 640,
+          "strata": 40,
+          "draws": 10000,
+          "seed": 730009,
+          "unit": "assigned base block; all arms retained",
+          "interval": "stratified percentile bootstrap 95%"
+        }
+      }
+    }
+  },
+  "table1_caption": "Table 1. FULL16 correct-definite verdicts and matched procedure effects. Each instruction uses 2,560 trajectories; intervals resample 640 independent blocks. Secondary intervals are descriptive.",
+  "table2_caption": "Table 2. Complete reader workloads, admitted output, semantic validity and strict JSON compliance. Repeated readings do not increase independent n.",
+  "table3_caption": "Table 3. Contract restoration versus selective loss on 1,280 matched honest/both trajectories within 640 blocks per acquisition reader.",
+  "preparation_bindings": {
+    "manifest.json": "13be80ff5147012e770b68571b2483399cfdaeb894486bd81b9df3603208385b",
+    "report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
+    "registration.json": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+    "operational-registration.json": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+    "scientific_registration_sha256": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+    "operational_registration_sha256": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+    "offline-release-recovery-v2-freeze.json": "32f13b107fd853d18664d74e9fe0a12f408177a8ae242e5223f534791dacd6ac",
+    "hf-offline-release-recovery-v2-proof.json": "6c2045cedcbcf4b30c224253d91e5113464d7dc64ce578f45b5a9572ca9474c7",
+    "offline-release-recovery-v1-freeze.json": "09eec1ebc67a0752cd8e422cbfd59a0cd83cfc08a28a5e6d33e8708f4540eb66",
+    "paced-resume-analysis-v1-freeze.json": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+    "swarm-ledger-paced-v1-freeze.json": "196f59749f747bfff978f2f301ab494de4718b181d1b0258ed6bec92cf73d08e",
+    "swarm-ledger-paced-resume-release-proof.json": "3bfdc7de1216bcd72d1f5f62f7a4b6129aa1ecd1b39b8e511eb5cd3a41eb3522",
+    "rate-resume-analysis-v1-freeze.json": "251c37815989b32982bbb2600a28e72fd8848bb56252ad5f2852787ef2e93fde",
+    "swarm-ledger-rate-v1-freeze.json": "64ed28ace7ca685dc1d0e860a7b32bc846b7e79b69de2fd7914aba5eb6c0724e",
+    "efficient-resume-analysis-v1-freeze.json": "98bfb89de742b79ec953bfc5e2594fb9d4f14568aab3156244ca32a4eb6a95be",
+    "swarm-ledger-efficient-v1-freeze.json": "730148c4df749069938559506bfcb9401fbbb45dbe39fc19a8442e629b332541",
+    "provider-resume-analysis-v1-freeze.json": "fd985b8388633d791bf3c848c80616922e5332adb497ffa347c59c3a55002724",
+    "swarm-ledger-resume-v3-freeze.json": "45d023485fd1b49eebe5317f49ee97001f9e77ffd2ee6223bda3945f69cb1f41",
+    "server-resume-analysis-v1-freeze.json": "f7d5918f7579112e0d26f32c239cc70c008bf73b0280e940a9f553229830c9e0",
+    "swarm-ledger-resume-v2-freeze.json": "f36a0cb4857ef92ecb5ad7e6123470b0fa8ccb0e82a85de911a9b11f7b0f344e",
+    "router-resume-analysis-v1-freeze.json": "b8a2ee6878adc9e282d3dde6639d801394e030c3237a2580a15a1c4537bddf8c",
+    "swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
+    "hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf",
+    "hf-completed-original-results-v3.json": "3d7620a49b86bebcc825ccf83073c58614b191e16ccb7f938c37e3cdeffee9d1",
+    "adaption-serving-pilot-v1-freeze.json": "6e507962f30245d52170843944ec2fddc0765c9377dd4cb0bfa0d2b4c6e384b9",
+    "generator_sensitivity_report_sha256": "9a7993f25b411c5fcedaafcf1bf4bfdd2f48d9eb34fa51e211d85ef02c4937bd"
+  },
+  "figures": [
+    {
+      "id": "FIGURE1",
+      "path": "figures/swarm-ledger-complete-v1/ledger_procedure_effect.png",
+      "sha256": "6a689c7ee800c4beffd6166f8f94e5378d89b2de66080510e9109e7c636a3474",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 5.7,
+      "caption": "Figure 1. Procedure minus direct correct-definite effect on identical sufficient FULL16 packets. All assigned calls enter each score; intervals resample 640 independent blocks within forty strata. G26 is the sole primary; other reader effects are secondary and not familywise adjusted.",
+      "alt_text": "Six matched effects: G26 adverse, G31 positive, Llama text and schema positive, DeepSeek off near zero, DeepSeek low adverse."
+    },
+    {
+      "id": "FIGURE2",
+      "path": "figures/swarm-ledger-complete-v1/ledger_acquisition.png",
+      "sha256": "11f21a348f8a535d912ceb1eee6d2debc3f30ad1076213423935d447c55dc332",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 5.7,
+      "caption": "Figure 2. Oracle answerability (dashed) and correct-definite verdicts (solid) under evidence loss and restoration. Reader lines exclude abstentions; Table 3 separately counts supported correctness including required abstention. Each point uses 1,280 matched trajectories in 640 blocks. Lines connect discrete interventions, not a continuous dose. No intervals are plotted.",
+      "alt_text": "Dashed finite-domain answerability and solid correct-definite verdict rates on 1,280 matched trajectories; abstentions do not count in the reader lines. Restoration recovers answerability while readers retain errors."
+    },
+    {
+      "id": "FIGURE3",
+      "path": "figures/swarm-ledger-complete-v1/ledger_full_composition.png",
+      "sha256": "ce0b457bfae4b1f101d86460eb9f689968fa2b7f5ff4d5dfe6df1411e92b6cae",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 6.2,
+      "caption": "Figure 3. FULL16 outcomes for DIRECT (D) and PROCEDURE (P), each over all 2,560 assignments. Correct and wrong definite decisions, ABSTAIN and INVALID sum to 100%. Correctness is distinct from strict output encoding.",
+      "alt_text": "Stacked proportions of correct definite, wrong definite, abstain and invalid decisions for all six readers and both instructions."
+    },
+    {
+      "id": "FIGURE4",
+      "path": "figures/swarm-ledger-complete-v1/ledger_workflow.png",
+      "sha256": "1b925a28b32078838e487f01b540f600ed9c76af287fc4d1f5d43e89f8b35157",
+      "source_files": {
+        "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
+      },
+      "width_inches": 6.2,
+      "caption": "Figure 4. Five-role workflow and evidence boundary. Authentic host records establish bounded fake-data effects; agent notes are untrusted. Acquisition asks which records are available, and evidence use asks which verdict they support.",
+      "alt_text": "Principal, coordinator, X executor, Y executor and reporter feed host-produced records, then evidence acquisition and evidence use."
+    }
+  ]
+}

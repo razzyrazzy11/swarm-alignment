@@ -1,0 +1,64 @@
+{
+  "status": "Exploratory post-release diagnostic; not a new confirmatory endpoint",
+  "source_clusters": 192,
+  "dependent_pairs_per_reader": 384,
+  "data_sha256": "272170c8c7a485d54c00e79af8e479b967791350ca43d5123deb16e886604074",
+  "report_sha256": "739f175bddb03dc3573fec691a87f419a3545126dc054f048d6438192195625b",
+  "caveat": "Strata depend on realized evidence support under both policies. Conditional counts are descriptive, not isolated causal effects. Information selection is the intended acquisition mechanism; different semantic information does not invalidate the original estimand. Bytes are not tokens or full acquisition cost. No new provider calls.",
+  "analysis": {
+    "gemma-4-26b-a4b-it": {
+      "both_singleton": {
+        "pairs": 324,
+        "metadata_correct": 221,
+        "random_correct": 247,
+        "gain": -26,
+        "metadata_bytes": 59765,
+        "random_bytes": 65010
+      },
+      "metadata_only_singleton": {
+        "pairs": 60,
+        "metadata_correct": 48,
+        "random_correct": 0,
+        "gain": 48,
+        "metadata_bytes": 11382,
+        "random_bytes": 12285
+      }
+    },
+    "gemma-4-31b-it": {
+      "both_singleton": {
+        "pairs": 324,
+        "metadata_correct": 279,
+        "random_correct": 293,
+        "gain": -14,
+        "metadata_bytes": 59765,
+        "random_bytes": 65010
+      },
+      "metadata_only_singleton": {
+        "pairs": 60,
+        "metadata_correct": 56,
+        "random_correct": 0,
+        "gain": 56,
+        "metadata_bytes": 11382,
+        "random_bytes": 12285
+      }
+    },
+    "meta-llama/Llama-3.3-70B-Instruct:novita": {
+      "both_singleton": {
+        "pairs": 324,
+        "metadata_correct": 173,
+        "random_correct": 173,
+        "gain": 0,
+        "metadata_bytes": 59765,
+        "random_bytes": 65010
+      },
+      "metadata_only_singleton": {
+        "pairs": 60,
+        "metadata_correct": 44,
+        "random_correct": 9,
+        "gain": 35,
+        "metadata_bytes": 11382,
+        "random_bytes": 12285
+      }
+    }
+  }
+}

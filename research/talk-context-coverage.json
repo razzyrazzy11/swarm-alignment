@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "reviewed_date": "2026-11-08",
+  "archive_sha256": "15be7e6eab822cf4091f8c4ae63f9e7ab5371727382081e12da627d82721d8da",
+  "total_entries": 43,
+  "sessions": 11,
+  "transcripts": 11,
+  "caption_variants": 9,
+  "chats": 11,
+  "link_documents": 1,
+  "audio_files": 11,
+  "audio_hours": 8.820758518518518,
+  "limits": "Transcript and caption ASR is not independently verified audio accuracy. Near-matching endpoints do not prove all spoken content was transcribed. No full audio or video/slide review. Raw files remain ignored. MAIN outcomes were not inspected; no freeze or estimator changed.",
+  "entries": [
+    {
+      "name": "GMT20261106-223214_Recording.cc.vtt",
+      "bytes": 29490,
+      "sha256": "26326b44ba1a069709d661d16f47378152b683516896454f64071fdfc6d947d0",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 280,
+      "first_cue_seconds": 2.0,
+      "last_cue_seconds": 1735.0
+    },
+    {
+      "name": "GMT20261106-223214_Recording.m4a",
+      "bytes": 18275649,
+      "sha256": "89d7f6eba4705b8bf878586b12f20289e49c9ebee0d2f2d4a26523c03464d489",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 1735.4453333333333,
+      "transcript_last_cue_seconds": 1733.26,
+      "uncovered_tail_seconds": 2.185,
+      "cues": 262,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261106-223214_Recording.transcript.vtt",
+      "bytes": 33371,
+      "sha256": "b3fcd2e63363daeb3d0955812c092b941ed97607fd0b07610f2b8eb2d7662353",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 262,
+      "first_cue_seconds": 2.85,
+      "last_cue_seconds": 1733.26
+    },
+    {
+      "name": "GMT20261106-223214_RecordingnewChat.txt",
+      "bytes": 617,
+      "sha256": "4ac89884eed74d8781761816ed7623d293b2ed34396a49bea9ce18cd1d50897a",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261107-130140_Recording.cc.vtt",
+      "bytes": 24229,
+      "sha256": "3a18e44afd95ddf9f0661511d45d7d3e646efb23de2356a5338e1a5a49dfacce",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 202,
+      "first_cue_seconds": 18.0,
+      "last_cue_seconds": 1404.0
+    },
+    {
+      "name": "GMT20261107-130140_Recording.m4a",
+      "bytes": 15470976,
+      "sha256": "6e0b3e5fd9a87cec8a1840d6ea236a24d50f50129cc2628044ed9f700fdef27b",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 1403.7333333333333,
+      "transcript_last_cue_seconds": 1403.04,
+      "uncovered_tail_seconds": 0.693,
+      "cues": 202,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261107-130140_Recording.transcript.vtt",
+      "bytes": 28595,
+      "sha256": "9582c234b9ae1996b633f96e6a5781c3624ae00afc90ff1bf20ac5a610802345",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 202,
+      "first_cue_seconds": 2.59,
+      "last_cue_seconds": 1403.04
+    },
+    {
+      "name": "GMT20261107-130140_RecordingnewChat.txt",
+      "bytes": 1762,
+      "sha256": "9137051d908f1f2db4a0d8037d1a07a5b588c3a1002965dcc719e48b58d67732",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261107-190141_Recording.cc.vtt",
+      "bytes": 72573,
+      "sha256": "84fc72407f4fe84d78e99a99dc63e8347f75accc0f7d26a575404a9a7a39696f",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 646,
+      "first_cue_seconds": 12.0,
+      "last_cue_seconds": 3571.0
+    },
+    {
+      "name": "GMT20261107-190141_Recording.m4a",
+      "bytes": 37884937,
+      "sha256": "165fce8ae2cca70dd2e8adbbae49e32572e245bab844ae94825580ca3d27abd6",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 3570.816,
+      "transcript_last_cue_seconds": 3569.35,
+      "uncovered_tail_seconds": 1.466,
+      "cues": 600,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261107-190141_Recording.transcript.vtt",
+      "bytes": 86143,
+      "sha256": "5fa6584c9431b38224d080d54afc563e82646061e2f8d4011c343be1b29221b3",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 600,
+      "first_cue_seconds": 2.37,
+      "last_cue_seconds": 3569.35
+    },
+    {
+      "name": "GMT20261107-190141_RecordingnewChat.txt",
+      "bytes": 5458,
+      "sha256": "79c52eaecc28b0a5f52b387e56b40a0589328932aaf22e858e516cb5e367b6bf",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "Getting Started with Swarm Incidents_ Links.docx",
+      "bytes": 8174,
+      "sha256": "66ad28ed74a40d6508574584381778a0d4057daf2ccf1bcc4a00bbd5aecc814b",
+      "kind": "docx",
+      "review": "All document text and external relationship targets read; linked public sources checked separately"
+    },
+    {
+      "name": "GMT20261105-131625_Recording.m4a",
+      "bytes": 37185219,
+      "sha256": "fcbbda475a91bfbf360473d84b24cec57d88f1295d979f71b8b7c31574ba5aa8",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 3343.5306666666665,
+      "transcript_last_cue_seconds": 3339.63,
+      "uncovered_tail_seconds": 3.901,
+      "cues": 306,
+      "cc_present": false
+    },
+    {
+      "name": "GMT20261105-131625_Recording.transcript.vtt",
+      "bytes": 62751,
+      "sha256": "29f81a9d2a7d5f8261a90c9e6cf35e6a92928df90aac2eb75971999defd65c56",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 306,
+      "first_cue_seconds": 5.24,
+      "last_cue_seconds": 3339.63
+    },
+    {
+      "name": "GMT20261105-131625_RecordingnewChat.txt",
+      "bytes": 2621,
+      "sha256": "4bfe3f39d25f0db0ad0772d22717f8ae995464bccced11ff94a32fec4839679c",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261105-150214_Recording.cc.vtt",
+      "bytes": 50146,
+      "sha256": "cc775f78e9cba647cd2f366de886b54782b2bf25c00ee6cbee131a139ccbd0d6",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 246,
+      "first_cue_seconds": 600.0,
+      "last_cue_seconds": 3603.0
+    },
+    {
+      "name": "GMT20261105-150214_Recording.m4a",
+      "bytes": 38455063,
+      "sha256": "ab5beaadbce27516d6fa1e5bc8161d60b9018b8de26a77f09c8371712902af88",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 3602.538666666667,
+      "transcript_last_cue_seconds": 3600.679,
+      "uncovered_tail_seconds": 1.86,
+      "cues": 295,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261105-150214_Recording.transcript.vtt",
+      "bytes": 67303,
+      "sha256": "85246fac93556bb58c9d4792cb8c6d7195f16fe4e1a61f20244c188229dd9946",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 295,
+      "first_cue_seconds": 3.18,
+      "last_cue_seconds": 3600.679
+    },
+    {
+      "name": "GMT20261105-150214_RecordingnewChat.txt",
+      "bytes": 6351,
+      "sha256": "38ba7fc447bb2b4536bb72dd473f152de728dd7927250610878d4cf2b60ec2e9",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261105-220129_Recording.cc.vtt",
+      "bytes": 59714,
+      "sha256": "e76e2b470fa2c61fd2a6ce083e8903ff8833c9e2535670ee0d0765ffd1431e79",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 402,
+      "first_cue_seconds": 379.0,
+      "last_cue_seconds": 3496.0
+    },
+    {
+      "name": "GMT20261105-220129_Recording.m4a",
+      "bytes": 34481607,
+      "sha256": "b74be66eb858bb104eb4432dd2a43b6d0caeae045f410b32e94447e11536f5d3",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 3495.2746666666667,
+      "transcript_last_cue_seconds": 3493.63,
+      "uncovered_tail_seconds": 1.645,
+      "cues": 451,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261105-220129_Recording.transcript.vtt",
+      "bytes": 76830,
+      "sha256": "38aff978a4babfe31655b78f4fc8d93963d2ca3f3ecc8ecd4566999c77c4788d",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 451,
+      "first_cue_seconds": 4.61,
+      "last_cue_seconds": 3493.63
+    },
+    {
+      "name": "GMT20261105-220129_RecordingnewChat.txt",
+      "bytes": 2035,
+      "sha256": "e6abf65c3eff7f2cea61684438fadadd34851d9620c6c647225f49521f1ec16c",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261106-133326_Recording.cc.vtt",
+      "bytes": 59089,
+      "sha256": "666d76253363a765e6b82be025209377788d89dae9d889f98757319e2bbe631e",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 532,
+      "first_cue_seconds": 0.0,
+      "last_cue_seconds": 3536.0
+    },
+    {
+      "name": "GMT20261106-133326_Recording.m4a",
+      "bytes": 38570081,
+      "sha256": "a59a855187aaac3f13d7b4f03ada9809e8e55f855e5ecb6f7e4caf0a93e7d21f",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 3536.021333333333,
+      "transcript_last_cue_seconds": 3531.27,
+      "uncovered_tail_seconds": 4.751,
+      "cues": 494,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261106-133326_Recording.transcript.vtt",
+      "bytes": 67650,
+      "sha256": "2ee9d5ccfb705d3a0629460876b4ce1975f11566ec45b39d6638117f69b53dce",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 494,
+      "first_cue_seconds": 7.68,
+      "last_cue_seconds": 3531.27
+    },
+    {
+      "name": "GMT20261106-133326_RecordingnewChat.txt",
+      "bytes": 17929,
+      "sha256": "627f4774e9bdc4bb6b5a4f6d210e5ae6291bfbb0ead2e19d9a043c60bf03ec25",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261106-180254_Recording.m4a",
+      "bytes": 18474928,
+      "sha256": "24232eaad8bde3b6eccc1a69ea3b83591cdbecb0bb8a13128f2b27d3de9b93b4",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 1703.744,
+      "transcript_last_cue_seconds": 1702.48,
+      "uncovered_tail_seconds": 1.264,
+      "cues": 189,
+      "cc_present": false
+    },
+    {
+      "name": "GMT20261106-180254_Recording.transcript.vtt",
+      "bytes": 38529,
+      "sha256": "0875db04c469b489cbb8f861be19e4ff4e5e5e80e760b9176d62d92b485d93df",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 189,
+      "first_cue_seconds": 2.92,
+      "last_cue_seconds": 1702.48
+    },
+    {
+      "name": "GMT20261106-180254_RecordingnewChat.txt",
+      "bytes": 4304,
+      "sha256": "d5b2e49a2487d340f209efc117db2bbcaee33ba2e8a63609c78021bb5c7b0905",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261106-190316_Recording.cc.vtt",
+      "bytes": 38397,
+      "sha256": "5856f5de6c5c7f5b46ea780a92d122373d88a02e35b33a32cf181f7c88b898ea",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 233,
+      "first_cue_seconds": 992.0,
+      "last_cue_seconds": 2937.0
+    },
+    {
+      "name": "GMT20261106-190316_Recording.m4a",
+      "bytes": 32066986,
+      "sha256": "05d54a1fc7e50c55875993a89cf95d4bc07fb1744ef875116097d06a7264d76d",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 2937.1946666666668,
+      "transcript_last_cue_seconds": 2935.96,
+      "uncovered_tail_seconds": 1.235,
+      "cues": 327,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261106-190316_Recording.transcript.vtt",
+      "bytes": 63333,
+      "sha256": "b6f713f64b6f655319248162d89402b162589f81c293de0cee412b95194ffe69",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 327,
+      "first_cue_seconds": 2.37,
+      "last_cue_seconds": 2935.96
+    },
+    {
+      "name": "GMT20261106-190316_RecordingnewChat.txt",
+      "bytes": 1511,
+      "sha256": "741a48b7dbe60ca1f3d65c11176563a50034fd777a9c2a57f2d809484a9c48b6",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261106-201618_Recording.cc.vtt",
+      "bytes": 61606,
+      "sha256": "c84eaaa280a7e515853ce9449442f418d940c5789a1a6c5fb707f7a6660b5ff1",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 295,
+      "first_cue_seconds": 0.0,
+      "last_cue_seconds": 3492.0
+    },
+    {
+      "name": "GMT20261106-201618_Recording.m4a",
+      "bytes": 35235781,
+      "sha256": "34da04fdd1acd39660c737132b875ee99af82ad4149f3bbe3e28ff7e2038c664",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 3491.8186666666666,
+      "transcript_last_cue_seconds": 3491.55,
+      "uncovered_tail_seconds": 0.269,
+      "cues": 321,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261106-201618_Recording.transcript.vtt",
+      "bytes": 71583,
+      "sha256": "44334ec89a20c1121ec025a99654b61d4eb8642150356c6a532c1b1ac6332662",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 321,
+      "first_cue_seconds": 2.52,
+      "last_cue_seconds": 3491.55
+    },
+    {
+      "name": "GMT20261106-201618_RecordingnewChat.txt",
+      "bytes": 845,
+      "sha256": "bd0a7c847cd956d5dd106a671d8c80a400f05511e4cb9968ceff0226bcc81dab",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    },
+    {
+      "name": "GMT20261106-213533_Recording.cc.vtt",
+      "bytes": 49581,
+      "sha256": "120a50945ed6628a8bf916059ded1c153e35ad644272e551755d242916d7bb89",
+      "kind": "text",
+      "review": "Complete paired-caption comparison; matching transcript text and all differing lexical spans reviewed",
+      "cues": 237,
+      "first_cue_seconds": 3.0,
+      "last_cue_seconds": 2935.0
+    },
+    {
+      "name": "GMT20261106-213533_Recording.m4a",
+      "bytes": 29764784,
+      "sha256": "6e59276f047eddbc7fdc806efd276f5a418d0273819daf77a39f9d8f2823389b",
+      "kind": "audio_container",
+      "review": "MP4 duration and paired transcript coverage checked; no full audio listening",
+      "audio_seconds": 2934.6133333333332,
+      "transcript_last_cue_seconds": 2929.6,
+      "uncovered_tail_seconds": 5.013,
+      "cues": 257,
+      "cc_present": true
+    },
+    {
+      "name": "GMT20261106-213533_Recording.transcript.vtt",
+      "bytes": 54323,
+      "sha256": "e82283b743bd8ba3fa29c704fb21733aad8f3ad176f9abdd671aff311cf67f59",
+      "kind": "text",
+      "review": "Entire cue text read through mechanically checked timestamp-preserving export",
+      "cues": 257,
+      "first_cue_seconds": 2.78,
+      "last_cue_seconds": 2929.6
+    },
+    {
+      "name": "GMT20261106-213533_RecordingnewChat.txt",
+      "bytes": 6776,
+      "sha256": "8dde00cdd796f93f246ab0675513bad5fd8b8ec461377e58490e6f97ca363e7a",
+      "kind": "text",
+      "review": "Entire chat read as untrusted context; private participant messages not republished"
+    }
+  ]
+}

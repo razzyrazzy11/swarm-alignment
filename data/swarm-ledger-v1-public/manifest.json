@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "study_id": "swarm-ledger-v1",
+  "registration_prefix": "swarm-ledger-complete-v1",
+  "scope": "Completed prospectively registered six-reader MAIN; original eight-reader engineering retained separately; no legacy pooling",
+  "artifacts": {
+    "cases:ds_low": [
+      {
+        "file": "cases-ds_low-0000.jsonl",
+        "bytes": 16814673,
+        "rows": 12800,
+        "sha256": "4b4f42b490df7b608e55f0137fcfce76f12ed4f1a27794c756014d7a05ad54c9"
+      }
+    ],
+    "cases:ds_off": [
+      {
+        "file": "cases-ds_off-0000.jsonl",
+        "bytes": 6613052,
+        "rows": 5120,
+        "sha256": "5cb5b8f01f64feb64651dfa152dfb8afd15ef275389016a3778e8a9cb6cfcf6e"
+      }
+    ],
+    "cases:g26": [
+      {
+        "file": "cases-g26-0000.jsonl",
+        "bytes": 17017457,
+        "rows": 12800,
+        "sha256": "2576f97e9c388255d344cff52886e400e3c34d09594d52556ac6e5a3f3d498bb"
+      }
+    ],
+    "cases:g31": [
+      {
+        "file": "cases-g31-0000.jsonl",
+        "bytes": 18456291,
+        "rows": 12800,
+        "sha256": "61633a249f0120870193a6c4ca28f676e0973163a0a0af1b4791c89132877642"
+      }
+    ],
+    "cases:hf_schema": [
+      {
+        "file": "cases-hf_schema-0000.jsonl",
+        "bytes": 6727335,
+        "rows": 5120,
+        "sha256": "75ada02b437d9f3c56ae4225a6f548fb0843845f9e9989438376725704bfc662"
+      }
+    ],
+    "cases:hf_text": [
+      {
+        "file": "cases-hf_text-0000.jsonl",
+        "bytes": 6742412,
+        "rows": 5120,
+        "sha256": "ee791760c41d521297da0a3922f8bef24a82871d0b3179bacb5cb376deb2a31d"
+      }
+    ],
+    "contexts": [
+      {
+        "file": "contexts-0000.jsonl",
+        "bytes": 244043,
+        "rows": 640,
+        "sha256": "9a797cc8c757139579779120ef690ed3e3b1fa731e8b12858b44d563c33e5a6a"
+      }
+    ],
+    "worlds": [
+      {
+        "file": "worlds-0000.jsonl",
+        "bytes": 2682575,
+        "rows": 2560,
+        "sha256": "a9c29cf574be7fb20f3648a2d601b01a918986d6dc6305ccbb5419fc3827a65c"
+      }
+    ],
+    "influence": [
+      {
+        "file": "influence-0000.jsonl",
+        "bytes": 270164,
+        "rows": 240,
+        "sha256": "e69e19fc8244c02219f2d5c99a6e8c0982740415d0060bc1c647f8970814607c"
+      }
+    ],
+    "calibration": [
+      {
+        "file": "calibration-0000.jsonl",
+        "bytes": 314771,
+        "rows": 240,
+        "sha256": "1e2c4b0cd5c1df2e8e985b1afdfd65e319eefb3a9790c40cf1b8549cef7eff45"
+      }
+    ],
+    "actors": [
+      {
+        "file": "actors-0000.jsonl",
+        "bytes": 6932786,
+        "rows": 8960,
+        "sha256": "e3100d9efe656069d7c81f392493bc6cc29326ef472520b795484d31a55758a5"
+      }
+    ],
+    "influence_receivers": [
+      {
+        "file": "influence-receivers-0000.jsonl",
+        "bytes": 215228,
+        "rows": 240,
+        "sha256": "9851c2e5feea9d0cdbbe50833124eb0184c6e6b04179abbb7be23e286adf1d84"
+      }
+    ],
+    "engineering_contexts": [
+      {
+        "file": "engineering-contexts-0000.jsonl",
+        "bytes": 31047,
+        "rows": 80,
+        "sha256": "9fd56a00a2ef913717790df3ee210283d37a662dcd7d5fabd02551c062aeea01"
+      }
+    ],
+    "engineering_technical": [
+      {
+        "file": "engineering-technical-0000.jsonl",
+        "bytes": 5801,
+        "rows": 10,
+        "sha256": "be80676622aa9682114930b950d6e4cd47dc2aaf3042ed782692effc43ef9d7f"
+      }
+    ],
+    "engineering_actors": [
+      {
+        "file": "engineering-actors-0000.jsonl",
+        "bytes": 877058,
+        "rows": 1120,
+        "sha256": "c7d814deee715b77ac8418942da8608b3c9ad0feba4a6e021a465a7117f7ac35"
+      }
+    ],
+    "engineering_readers": [
+      {
+        "file": "engineering-readers-0000.jsonl",
+        "bytes": 249411,
+        "rows": 256,
+        "sha256": "ef24ffb25cac4364e4af88838700b081e8d6554747063e776e7666723ad1895b"
+      }
+    ]
+  },
+  "report_sha256": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
+  "configuration_sha256": "eb7aadfc45aa973c1c8b215119ffd3a6fd55d689177a55129b67d8f205f37cf4",
+  "registration_sha256": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+  "engineering_configuration_sha256": "8aca135fc324f5ff648bc481eaaa1523938fd024765f05f047fd9abc67764d94",
+  "operational_registration_sha256": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+  "provenance_limit": "Public replay verifies exported jobs/actions/evidence/scoring. HTTP/native authenticity requires the private archive; receipt hashes commit to those archived bytes."
+}

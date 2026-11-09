@@ -1,0 +1,68 @@
+{
+  "created": "2026-11-06T19:51:46.827687+00:00",
+  "base_commit": "2367951a3a10904fb2416532b921c89602a25ab4",
+  "source_sha256": {
+    "experiments/stateful.py": "175be7a8fd6b990c937b617e55b6257d7ee8f0dfe92fd6ff2a55a052a8c8cf57",
+    "experiments/stateful_reference.py": "a91d2360455ab2c62b0fe58a82a4089a07c7b280ab3f673e206db129234863bb",
+    "experiments/stateful_study.py": "7d96ecbe3c050caa915d84c60a3754f4ff6cc3e5114de4c769d06c439371ee6b",
+    "experiments/stateful_analysis.py": "62021280fe0588444247b45c45c951103c6aa71f3f353a042e2aee06cf99dc05",
+    "experiments/stateful_influence.py": "db1b4dcfc223c3204dd5cd459b988037d6bcb062ab247c2db9d03209d7b68b30",
+    "experiments/access.py": "eb5c041520978ee7047d5528ede8a737a3d2b5d5a5e407a1d4a07e37d3447bf8",
+    "experiments/pilot.py": "b722a9ea5b52d7845e9f1e3e82922aebd05e43d32dd2d7806864262de047acfa",
+    "experiments/tests/test_stateful.py": "ca64958a89ce5dcc908cb225fc1be3c9bdf41a7d7a20ff57f5dd551c0a90d715",
+    "experiments/tests/test_stateful_runner.py": "ee642e267f0fc2f7de749a78b414afd429983897839e167ef4d4cbcc0e1b55c7",
+    "research/stateful-config.json": "94358079bbc1f9f731553458141e465fb1a22f30321800181f2ea2e6895fa829",
+    "research/STATEFUL_PROTOCOL.md": "acd4408ae47c8d6463aa9cc8fb1134dbd07ddf2e6b4c6a0c0218352469bba130"
+  },
+  "prompt_sha256": "79ddc1153684afd2e78eff0aafc3df8b6843e6a7324051156c9bbbe88a6459d5",
+  "config": {
+    "study_id": "stateful-main-v2",
+    "response_encoding": "Bare JSON or one exact outer json code fence; retain strict raw validity. No semantic repair or duplicate keys.",
+    "primary_model": "gemma-4-26b-a4b-it",
+    "models": [
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it"
+    ],
+    "max_output_tokens": 4096,
+    "input_byte_cap": 18000,
+    "concurrency": 4,
+    "request_order_seed": 619103,
+    "bootstrap_seed": 619104,
+    "bootstrap_resamples": 10000,
+    "heldout_family": "approval_join",
+    "stages": {
+      "qualification": {
+        "families": [
+          "sequential",
+          "deferred"
+        ],
+        "episodes_per_family": 2,
+        "seed_start": 1200000,
+        "nominal_credit_cap": "1"
+      },
+      "main": {
+        "families": [
+          "sequential",
+          "deferred",
+          "approval_join"
+        ],
+        "episodes_per_family": 64,
+        "seed_start": 2200000,
+        "nominal_credit_cap": "20"
+      }
+    },
+    "influence": {
+      "seed_start": 3200000,
+      "source_episodes": 24,
+      "model": "gemma-4-26b-a4b-it",
+      "max_output_tokens": 512,
+      "nominal_credit_cap": "1"
+    },
+    "stopping": "STOP file; missing usage; model mismatch; usage bound; auth/billing/rate error; third incomplete. Drain started calls. No retries or outcome-based stopping.",
+    "training": {
+      "status": "conditional secondary; not part of frozen main inference",
+      "launch": false
+    }
+  },
+  "status": "Prospective freeze; not evidence that inference completed"
+}

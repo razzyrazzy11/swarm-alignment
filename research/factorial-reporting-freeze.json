@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "registration_tag": "factorial-reporting-v1",
+  "base_commit": "8ef7fcbdde94d3843005f430df6c523a490bbb60",
+  "original_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "original_checkpoint_sha256": "b55f795a0ac26a66b5d47582ab4714279d8ded035363a61be0fd5a410b4d601a",
+  "extension_freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0",
+  "source_sha256": {
+    "experiments/factorial_reporting.py": "0867cee88cfeefda6d33092575189ed8d5e428a4a47a0c2ea019ec2875b06aa2",
+    "experiments/tests/test_factorial_reporting.py": "664daa336cf5ce3ae1c50b44d97d9e59cf07e100dc7f1e6f274fd94e05aefe35",
+    "experiments/factorial_bounds.py": "4e5e1017b87f342cc2471398f8739aea3221630e074f2f6628225d52c52be883",
+    "experiments/tests/test_factorial_bounds.py": "2c562ca071d15685bb90db0db6ec85d77172a148ecf4b123a2c304e1647caa66",
+    "research/FACTORIAL_REPORTING_AMENDMENT.md": "31e4f784f96e01a0cd8360bff2f0773cc229613e4885a86dcee43ab25278daa8",
+    "experiments/factorial_analysis.py": "463a9d4b8a3ccf39c237f05c43b05267740ff4b7871477350fd1070dd5bdc13f",
+    "paper/factorial_report_contract.py": "8b2a5f18ab48b18240e434d174190f11f56b4991b65a515e15a23e14f689dc35",
+    "paper/tests/test_factorial_reporting_contract.py": "0e498ede42ebb2cdc72ab2a2e3e87926569e11ce927182ff2b5da002f61c60f0"
+  }
+}

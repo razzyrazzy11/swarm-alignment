@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "created": "2026-11-07T08:45:04.040274+00:00",
+  "registration_tag": "factorial-audit-v1-rate-continuation",
+  "original_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "source_sha256": {
+    "experiments/factorial_continue.py": "8c9162b1ea641d8e04c3c80dabfadacfde9b85157c444f2bf86846423ea79a29",
+    "experiments/tests/test_factorial_continue.py": "577b0ab84da8c7198cf4bceb87d2bc4cfc75cdf10ea52271793c49fdc0e0b6a6",
+    "research/FACTORIAL_RATE_CONTINUATION.md": "674bfae664cfdea92855220e024d8c63a50804147c60d26f15396eaa71219a20"
+  },
+  "output_directory": "runs/factorial-audit-v1-audits",
+  "starting": {
+    "attempts_sha256": "ba9de85aecfe7ffa73655eb4063d8a7fb147aac92b08ce4c489c21972f762952",
+    "responses_sha256": "f58cdb181a600788a5362e52cfc1bea69aa126399330c70077126cec0be7ffc7",
+    "attempt_count": 9711,
+    "response_count": 9711,
+    "started_ids_sha256": "ca92e51449c5e400846b3f91073c63bc4364c9489826e53742dd35386d9d0d55",
+    "terminal_ids_sha256": "ca92e51449c5e400846b3f91073c63bc4364c9489826e53742dd35386d9d0d55",
+    "plan_sha256": "3827464811aa4db473a30b08e9ec775b13a3a4ed0214f99815053863e49ac531"
+  },
+  "historical_429_ids": [
+    "audit-6100077-random_contract-procedure-meta-llama/Llama-3.3-70B-Instruct:novita"
+  ],
+  "starting_summary_sha256": "0ec9c69e8fc0b948f099eb1aaa34c5d277f651fdc3609599e316bb0c40124677",
+  "limits": {
+    "min_start_interval_seconds": 12,
+    "cooldown_seconds": 300,
+    "max_total_429": 5,
+    "hf_phase_cap": "2"
+  },
+  "jobs_ids_sha256": "2c412b21be694f2e2819421d897dc116ae1b0f4e55061f40de20f6a322bf2987"
+}

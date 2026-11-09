@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "config": {
+    "capacity_id": "hf-capacity-v1",
+    "registration_tag": "hf-capacity-v1",
+    "model": "meta-llama/Llama-3.3-70B-Instruct:novita",
+    "hf_input_rate": "0.135",
+    "hf_output_rate": "0.40",
+    "n": 24,
+    "temperature": 0,
+    "max_tokens": 4096,
+    "stream": false,
+    "input_byte_cap": 24000,
+    "minimum_input_tokens": 1579,
+    "maximum_input_tokens": 24000,
+    "filler_repeats": 2091,
+    "initial_pause_seconds": 60,
+    "minimum_start_interval_seconds": 30,
+    "cap_usd": "0.12",
+    "retries": 0,
+    "output_directory": "runs/hf-capacity-v1"
+  },
+  "source_sha256": {
+    "experiments/hf_capacity.py": "6e87a3ce44226ac5a79193a9e5b334b3b9dd40a33ec97fefed208bed6040a9ca",
+    "experiments/tests/test_hf_capacity.py": "81eeecdf7feb55502cd51e79f84ff93d01702a137c4c78c467ad19b8327c2149",
+    "research/HF_CAPACITY_PROTOCOL.md": "1b8e248956f843583f037d4415a83a3d670675ee8f341fb66eaa65eb99a194f5",
+    "research/hf-capacity-config.json": "e36b77de8d9816fcdb69754c7404afe03286488e4496a881dfda21b816ba656f",
+    "experiments/hf_diagnostic.py": "b5cb430d2b86c23629c710de87c338c0bfae06914f8b1560916605060d7be4bf",
+    "experiments/factorial_continue.py": "8c9162b1ea641d8e04c3c80dabfadacfde9b85157c444f2bf86846423ea79a29"
+  },
+  "original_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
+  "base_commit": "8fcb6facb6abd8cb9733dcb09e549d47e4ae4ec1"
+}

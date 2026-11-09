@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "analysis_tag": "paced-resume-analysis-v1",
+  "analysis_freeze_sha256": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+  "continuation_freeze_sha256": "196f59749f747bfff978f2f301ab494de4718b181d1b0258ed6bec92cf73d08e",
+  "prior_continuation_freeze_sha256": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
+  "server_continuation_freeze_sha256": "f36a0cb4857ef92ecb5ad7e6123470b0fa8ccb0e82a85de911a9b11f7b0f344e",
+  "provider_continuation_freeze_sha256": "45d023485fd1b49eebe5317f49ee97001f9e77ffd2ee6223bda3945f69cb1f41",
+  "efficient_continuation_freeze_sha256": "730148c4df749069938559506bfcb9401fbbb45dbe39fc19a8442e629b332541",
+  "rate_continuation_freeze_sha256": "64ed28ace7ca685dc1d0e860a7b32bc846b7e79b69de2fd7914aba5eb6c0724e",
+  "driver_state_sha256": {
+    "runs/swarm-ledger-v1-main-driver/state.json": "849d5b57122167d58ab36cde5e45ec07c1080e1a0751b2492c26641fd89c9d6d",
+    "runs/swarm-ledger-resume-v1-driver/state.json": "25542026ac5a54357f8f5fd521e6220641def5a874d335c96f1c8a17dade10a2",
+    "runs/swarm-ledger-resume-v2-driver/state.json": "6cb9857af1352ff92195f3248f390e9af0679db8dc22a4fbab43cbd38d1fabdc",
+    "runs/swarm-ledger-resume-v3-driver/state.json": "52b77f0d4603b08a3261ae735e0e71cc9d1a8c03709fe0d376e281a138b996e1",
+    "runs/swarm-ledger-efficient-v1-driver/state.json": "79d2caef479c25ff1a44c0a3932a3a97f3ddf59008ad66e3543f4de24a3debb0",
+    "runs/swarm-ledger-rate-v1-driver/state.json": "f17f7e2f53936a345d02bbdcc357263b4a5b45737f5eac48d9a0ec988e7c114f",
+    "runs/swarm-ledger-paced-v1-driver/state.json": "d4d4e1607e07bb70cc38d3c56be8c7766c9530863a671a72bda46b1709ab1307"
+  },
+  "public_manifest_sha256": "13be80ff5147012e770b68571b2483399cfdaeb894486bd81b9df3603208385b",
+  "public_report_sha256": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
+  "unchanged_scientific_serializer": true,
+  "verification": {
+    "valid": true,
+    "scope": "offline public source/job/action/evidence/scoring/report replay",
+    "main_blocks": 640,
+    "main_reader_terminals": 53760,
+    "native_provenance_limit": "Public replay verifies exported jobs/actions/evidence/scoring. HTTP/native authenticity requires the private archive; receipt hashes commit to those archived bytes."
+  },
+  "inference_calls": 0
+}

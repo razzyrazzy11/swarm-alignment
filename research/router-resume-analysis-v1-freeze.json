@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "tag": "router-resume-analysis-v1",
+  "created": "2026-11-08T06:59:54.271473+00:00",
+  "base_commit": "fc9fd3a9895a8cd50f235bf5d41a932090200f4a",
+  "source_sha256": {
+    "experiments/router_resume_analysis.py": "bdc95f9e74fca645495f1b51f2b5aca4fc7af8c589af94056c8d86f25eaf2770",
+    "experiments/tests/test_router_resume_analysis.py": "dcfe3798f33dc6a7e3deb20b129282c06c8541ca84c46626a2b6ea95b0e45dea",
+    "research/ROUTER_RESUME_ANALYSIS_PROTOCOL.md": "ee69a5f42d6064e342ac980629a03f0204422fd834daa3b1bd4a275116d1796b"
+  },
+  "parent_registration_sha256": {
+    "research/swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
+    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf"
+  },
+  "method": "Same frozen scientific functions; new actual-driver and disjoint-journal admission; all failures retained"
+}
