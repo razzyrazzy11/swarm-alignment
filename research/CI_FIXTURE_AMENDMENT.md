@@ -60,6 +60,31 @@ unchanged original test method. No CI assertion is skipped or retried.
 
 ## Effect on the study
 
+### Explicit scenario clocks after the collection cutoff
+
+Runs 42570952592 (PR), 42570945270 (branch push) and 42570945149 (tag push)
+at 964dfde ran after the original 9 November 05:59 UTC collection cutoff.
+Their synthetic experiment suite encountered wall-clock-dependent fixtures:
+three metadata-availability methods in each of the efficient/resume-v3 tests
+and one wallet-cache method in each of the forecast/v2 tests. The metadata
+fixtures reached the real cutoff guard before their intended mocked
+transient/funding/wait scenarios; the forecast fixtures used a real generated-at
+timestamp after the cutoff. This is a test-clock defect, not permission to
+extend collection or evidence that offline processing needs inference.
+
+The nonfrozen runner now gives only those eight named methods an explicit
+8 November 00:00 UTC synthetic scenario time. Metadata tests receive a
+module-local clock proxy: the process-global clock is untouched, and the
+original tests' nested cutoff/wait clock patches still override the baseline.
+Forecast tests pin only the generated-at helper; wallet-cache freshness retains
+the original clock and fresh/stale assertions. All four original fixture files
+are SHA-pinned and unchanged. Missing methods or changed files fail closed.
+The adapter restores both references even if an assertion fails. New focused
+regressions execute every original assertion, verify restoration/nested patches,
+and verify that the unmodified real cutoff guard still rejects a late request
+before calling even a mocked transport. No deadline, frozen policy, live
+process, empirical record or failed CI run is changed.
+
 These CI failures prevented later steps in the Ubuntu job from running; their
 checks must pass on the repaired branch before claiming current CI validation.
 They did not stop the independent local collectors, dispatch requests, change

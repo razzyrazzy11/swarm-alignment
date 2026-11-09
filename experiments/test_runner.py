@@ -5,17 +5,36 @@ See research/CI_FIXTURE_AMENDMENT.md. No credentials or inference are used.
 """
 import hashlib
 from contextlib import contextmanager, ExitStack
+from datetime import datetime
 from functools import wraps
 from pathlib import Path
 import tempfile
 import threading
 import time
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
 FIXTURE_SHA256 = '58340e8ed2b58e34af88ae611377a61960f19e9769ff605b6ce1d3fdb909ac8d'
 DISPATCH_FIXTURE_SHA256 = '32ac534ceecf2ffe2cfc0abff882b64f6419a6f326ec28072400fb3b8fd3683e'
 DISPATCH_TEST = 'test_pilot_preserves_reservation_and_does_not_gate_json_accuracy'
+FIXTURE_UTC = '2026-11-08T00:00:00+00:00'
+FIXTURE_EPOCH = datetime.fromisoformat(FIXTURE_UTC).timestamp()
+METADATA_CLOCK_METHODS = (
+    'test_metadata_transient_read_only_backoff_then_success',
+    'test_metadata_funding_fails_without_sleep_or_retry',
+    'test_late_metadata_success_is_not_admission')
+CLOCK_FIXTURES = (
+    ('test_swarm_ledger_efficient', 'AvailabilityTests', METADATA_CLOCK_METHODS, 'metadata',
+     '2386d634f34b250e8c16a948b3982a8eecbea5cb85a2c680d4f099275eed1201'),
+    ('test_swarm_ledger_resume_v3', 'AvailabilityTests', METADATA_CLOCK_METHODS, 'metadata',
+     '7df6af71199cad5c5b6dec06791b3a32a383e18056dcf2de82ed50265fa8bce2'),
+    ('test_swarm_ledger_forecast', 'WalletIntegrationTests',
+     ('test_one_shared_cache_check_not_one_get_per_candidate',), 'forecast',
+     '20e9fd0443df2718c8a0e8c47ee38fb21f31ef502457aca65dab5b12ef8ae3e1'),
+    ('test_swarm_ledger_forecast_v2', 'WalletIntegrationTests',
+     ('test_one_shared_cache_check_not_one_get_per_candidate',), 'forecast',
+     '4efbdffc5e383f4612ba6f9ab1e8c1ae0b784de8ae14d492af9e3e825e6668a5'))
 
 
 class ScriptedTransport:
@@ -107,6 +126,50 @@ def verify_fixture(root, relative, expected):
         raise RuntimeError('Frozen fixture changed; compatibility amendment needs review: '+relative)
 
 
+def clock_fixture_adapter(module, original, kind):
+    """Pin only a synthetic scenario's ambient clock, never its cutoff policy.
+
+    Explicit patches inside the original tests remain innermost and override
+    this baseline. Metadata uses a module-local proxy, not the global time
+    module. Forecasts receive only a fixed generated-at string; wallet cache
+    freshness continues using the original real-clock comparisons.
+    """
+    if kind not in ('metadata', 'forecast'):
+        raise ValueError('Unknown synthetic clock fixture kind')
+    @wraps(original)
+    def run(case):
+        if kind == 'metadata':
+            actual = module.r.time
+            clock = SimpleNamespace(time=lambda: FIXTURE_EPOCH,
+                monotonic=actual.monotonic, sleep=actual.sleep)
+            with patch.object(module.r, 'time', clock):
+                return original(case)
+        with patch.object(module.f.s, 'now', return_value=FIXTURE_UTC):
+            return original(case)
+    return run
+
+
+def install_clock_fixtures(suite, stack, root):
+    """Fail closed on fixture identity, class inventory and named test methods."""
+    import sys
+    for name, class_name, methods, kind, expected in CLOCK_FIXTURES:
+        verify_fixture(root, 'experiments/tests/'+name+'.py', expected)
+        matches = {type(case) for case in cases(suite)
+                   if type(case).__module__.rsplit('.',1)[-1] == name
+                   and type(case).__name__ == class_name}
+        if len(matches) != 1:
+            raise RuntimeError('Expected exactly one clock fixture class: '+name)
+        cls = matches.pop()
+        module = sys.modules[cls.__module__]
+        selected = {case._testMethodName for case in cases(suite) if type(case) is cls}
+        if not set(methods) <= selected:
+            raise RuntimeError('Expected all eight named clock fixture methods')
+        for method in methods:
+            original = getattr(cls, method)
+            stack.enter_context(patch.object(cls, method,
+                clock_fixture_adapter(module, original, kind)))
+
+
 def main():
     import sys
     root = Path(__file__).resolve().parents[1]
@@ -128,11 +191,12 @@ def main():
     dispatch_cls = dispatch_matches.pop()
     dispatch_module = sys.modules[dispatch_cls.__module__]
     original = getattr(dispatch_cls, DISPATCH_TEST)
-    print('CI fixture amendments: deterministic synthetic call ordinal and test-only atomic journal snapshot; all discovered tests retained.', flush=True)
+    print('CI fixture amendments: deterministic synthetic call ordinal, test-only atomic journal snapshot, and eight explicit scenario clocks; all discovered tests retained.', flush=True)
     with ExitStack() as stack:
         stack.enter_context(patch.object(cls, 'run_fixture', fixture_adapter(module)))
         stack.enter_context(patch.object(dispatch_cls, DISPATCH_TEST,
             dispatch_fixture_adapter(dispatch_module, original)))
+        install_clock_fixtures(suite, stack, root)
         result = unittest.TextTestRunner(verbosity=2).run(suite)
     return 0 if result.wasSuccessful() else 1
 
