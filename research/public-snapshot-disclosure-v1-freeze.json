@@ -1,0 +1,30 @@
+{
+  "canonical_commit": "7c3f570fb89ffa685e495dce46349cc9caee4876",
+  "canonical_tree": "4f4a08d4c60361dfc68c945ab93be544a48a4bbb",
+  "created": "2026-11-09T15:00:23.647761+00:00",
+  "schema_version": 1,
+  "source_sha256": {
+    "public_snapshot/.gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+    "public_snapshot/__init__.py": "41c70dbd7902a895476d54eda1f491f3830a0a8c0866b6aad3427bc743f5d0ea",
+    "public_snapshot/admission.py": "93211b38f36aa0c42c8ed182d92682014c39a230ae74d1c394095bebb3d4d38b",
+    "public_snapshot/artifacts.py": "25a6ad30de092b015a6dd76f5d6115cf47ccc0cd2ea07029ba3387460bdfd2df",
+    "public_snapshot/disclosure_rebinding.py": "fc2926ef6580a335fbc56556de18cecbb7b997130810d240db434f72b3b453d1",
+    "public_snapshot/export_snapshot.py": "a4882f15df2c9163e2f5e29f3614e20be962b08be1f25aed0fb047d7818a2d97",
+    "public_snapshot/privacy_policy.py": "cb968af332cbab5b55178c6abe586887377f4228839acd24425b8db72f9765d3",
+    "public_snapshot/snapshot_legacy.py": "886ff02f457aeed33780dbdf76c31852be382840639b14f1274e29f877f0ef4d",
+    "public_snapshot/snapshot_math.py": "76290dab04ed3d1a5bf19a7d0257bd670089da5597a974e4c498f03638137e9d",
+    "public_snapshot/test_admission.py": "e8570288ec099b2c5f9d53b81cc5632c7849854d26bb846be4e8238273282b11",
+    "public_snapshot/test_artifacts.py": "a29ccfb86158056e4c108d75a3a8658db7bd6704f45831448974e738547eecf8",
+    "public_snapshot/test_disclosure_rebinding.py": "888b800804ddf3e6eb0c624ff2282e7415ceb29a95276094ad17be73f1c4c8d5",
+    "public_snapshot/test_export_snapshot.py": "a7789cf89fafd89ff9316bdb747b79dcd09227459c61e74fee6696e3756582f5",
+    "public_snapshot/test_launcher.py": "2a16b439949523d19f6e450d861b575bf05085db7318598737d9a4cb5c5e236f",
+    "public_snapshot/test_privacy_containers.py": "5b365b57f9a6e8d6ea79c289b9eba3f00fe7668c26b9cd8178f222223220223e",
+    "public_snapshot/test_privacy_policy.py": "2e858705668b4b3d4fb087a30d61a15da726d5100de35f30f0233a5f8def76d2",
+    "public_snapshot/test_snapshot_legacy.py": "5aa2ca2ead47adcb9844b4cb70b706fc654a647ad7aa6bf283013de87768d710",
+    "public_snapshot/test_snapshot_math.py": "261794d0343fec057961726689ceb407016558a6e122585fceadb9d1774ff2df",
+    "public_snapshot/verify.py": "a3797cd75aecb30879c1931e792d11850fe42b97e7ff1036047289bddd453c51",
+    "research/PUBLIC_SNAPSHOT_DISCLOSURE_PROTOCOL.md": "de5d71e2b82e55c76ac8e49bdb5ac745a1bbd62569f3246f75e2f26807e04feb"
+  },
+  "tag": "public-snapshot-disclosure-v1",
+  "tooling_source_commit": "c70df9abe5e68b685c035ff9264fb3e2b7da09ab"
+}
