@@ -93,6 +93,45 @@ scientific results are correct: complete collection, strict replay, paper
 integration and final visual review remain separate gates. No inference request
 is repeated to repair this test failure. The original failed tag is preserved.
 
+### Rate and paced synthetic scenarios after the final admission cutoff
+
+The public-verification source/freeze commit `bd9e713` failed in PR run
+42583659194, branch run 42583653014 and tag run 42583653036. The retained
+experiment log reports 1,022 tests with 12 failures and 8 errors at 08:13 UTC,
+after both rate/paced scheduler admission cutoffs. All twenty failures are
+the same ten scenario methods in each of the rate and paced fixture files:
+three metadata-availability methods and seven union-execution methods. They
+reach the real ambient cutoff before their intended mocked recovery, fatal
+capture/parse or provider-cap assertion. This is distinct from the earlier
+eight-method fixture amendment; the failed runs remain visible.
+
+The nonfrozen runner extends its exact method inventory by these twenty
+methods, for 28 named scenario methods across six SHA-pinned original files.
+The three metadata methods in each file use the existing module-local time
+proxy. The seven execution methods use only a module-local `datetime`
+subclass overriding `now()` to the same 8 November 00:00 UTC scenario time.
+Their original fixtures mock the shared dispatch module's time gate but the
+newer rate/paced implementations also have their own admission gate; the
+method-scoped scenario clock lets those unchanged original assertions run.
+Explicit `at` arguments and nested clock patches retain precedence. The real
+process-global `time` and `datetime` behavior, live/production clock references,
+cutoff values, policies, caps, assertions and original fixture bytes are unchanged.
+
+The additional original-file pins are:
+
+- `test_swarm_ledger_rate.py`:
+  `7594d160b120e5a60994b414190bad1b45ad34b16021dc277994bf4c7415f692`
+- `test_swarm_ledger_paced.py`:
+  `6e7b820fd140814ef45135b01e39e23c32d2db967f5a8d16cf600cf11871c4c5`
+
+Focused regressions execute all 28 named original methods with every original
+assertion, reject missing/changed fixtures, check module-local clock isolation,
+verify nested override/restoration even after exceptions, and prove explicit or
+nested future clocks still trigger the real rate/paced cutoff guards. No full
+local experiment rerun or inference is needed for this test-only repair.
+Green synthetic checks do not replace current empirical public replay, actual
+PDF verification, final exact-commit CI or the separately queued reviews.
+
 ## Primary references
 
 - [Python 3.12 lock objects](https://docs.python.org/3.12/library/threading.html#lock-objects):

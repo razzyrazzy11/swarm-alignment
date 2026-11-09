@@ -1,6 +1,6 @@
 """Explicit scenario clocks for frozen synthetic tests; no provider calls."""
 from contextlib import ExitStack
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import importlib
 from pathlib import Path
 import tempfile
@@ -46,18 +46,57 @@ class FixtureClockTests(unittest.TestCase):
             runner.clock_fixture_adapter(module,original,'forecast')(self)
         self.assertIs(module.f.s.now,actual)
 
-    def test_all_eight_original_methods_pass_with_all_assertions(self):
-        suite=selected_suite();self.assertEqual(suite.countTestCases(),8)
+    def test_all_named_original_methods_pass_with_all_assertions(self):
+        suite=selected_suite();self.assertEqual(suite.countTestCases(),28)
         # Keep each distinct method, not merely the final method of each class.
         methods=[(type(case),case._testMethodName,getattr(type(case),case._testMethodName))
                  for case in runner.cases(suite)]
         with ExitStack() as stack:
             runner.install_clock_fixtures(suite,stack,Path(__file__).resolve().parents[2])
             result=unittest.TestResult();suite.run(result)
-        self.assertEqual(result.testsRun,8)
+        self.assertEqual(result.testsRun,28)
         self.assertEqual(result.errors,[]);self.assertEqual(result.failures,[])
         self.assertEqual(result.skipped,[])
         for cls,name,original in methods:self.assertIs(getattr(cls,name),original)
+
+    def test_execution_datetime_is_local_nested_patch_overrides_and_restores(self):
+        module=SimpleNamespace(r=SimpleNamespace(datetime=datetime))
+        actual=datetime
+        class ExplicitDatetime(datetime):
+            @classmethod
+            def now(cls,tz=None):return datetime.fromtimestamp(runner.FIXTURE_EPOCH+100,tz)
+        def original(case):
+            case.assertIs(datetime,actual)
+            case.assertIsNot(module.r.datetime,actual)
+            case.assertEqual(module.r.datetime.now(timezone.utc).timestamp(),runner.FIXTURE_EPOCH)
+            case.assertEqual(module.r.datetime.fromisoformat(runner.FIXTURE_UTC),datetime.fromisoformat(runner.FIXTURE_UTC))
+            with patch.object(module.r,'datetime',ExplicitDatetime):
+                case.assertEqual(module.r.datetime.now(timezone.utc).timestamp(),runner.FIXTURE_EPOCH+100)
+            case.assertEqual(module.r.datetime.now(timezone.utc).timestamp(),runner.FIXTURE_EPOCH)
+            raise RuntimeError('synthetic failure')
+        with self.assertRaisesRegex(RuntimeError,'synthetic failure'):
+            runner.clock_fixture_adapter(module,original,'execution')(self)
+        self.assertIs(module.r.datetime,actual)
+
+    def test_rate_and_paced_real_cutoffs_remain_active_inside_scenario_adapter(self):
+        for name in ('swarm_ledger_rate','swarm_ledger_paced'):
+            module=importlib.import_module('experiments.'+name)
+            fixture=SimpleNamespace(r=module)
+            cutoff=datetime.fromisoformat(module.policy['cutoff_utc'])
+            actual=module.datetime
+            def original(case):
+                # A fixed ambient scenario does not relax an explicitly late
+                # admission, and a nested future clock overrides the fixture.
+                with case.assertRaisesRegex(ValueError,'last dispatch'):
+                    module.dispatch_time_gate(at=cutoff)
+                class LateDatetime(datetime):
+                    @classmethod
+                    def now(cls,tz=None):return cutoff+timedelta(seconds=1)
+                with patch.object(module,'datetime',LateDatetime):
+                    with case.assertRaisesRegex(ValueError,'last dispatch'):module.dispatch_time_gate()
+            with self.subTest(module=name):
+                runner.clock_fixture_adapter(fixture,original,'execution')(self)
+                self.assertIs(module.datetime,actual)
 
     def test_real_cutoff_guard_still_blocks_before_any_request(self):
         module=importlib.import_module('experiments.swarm_ledger_resume_v3')
