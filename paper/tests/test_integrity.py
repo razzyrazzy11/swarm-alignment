@@ -1,4 +1,5 @@
 """Regression tests for stale artifacts and guards that must survive -O."""
+import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -14,15 +15,41 @@ from build import assemble
 from verify import verify, validate_source, validate_results, build_manifest
 
 
+HISTORICAL_FIXTURE=PAPER/'tests/fixtures/results-v3'
+HISTORICAL_SOURCE_COMMIT='166da1cd1d5b725455b03fb9a47aaf1e2b8dabe5'
+HISTORICAL_MANIFEST_SHA256='68359087a58a5e3df4fdae4f3f4fb687130eabaa94beb6339776d3ea4140a4fa'
+HISTORICAL_FILES={'content.json','out/swarm_audit_scoping.docx','out/swarm_audit_scoping.pdf',
+                  'out/build-check.json','out/pdf-check.json'}
+
+
+def verified_historical_fixture(root=HISTORICAL_FIXTURE):
+    """Pin the last green legacy paper; never read the live manuscript as a toy."""
+    root=Path(root)
+    raw=(root/'manifest.json').read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=HISTORICAL_MANIFEST_SHA256:
+        raise ValueError('Historical paper fixture manifest hash differs')
+    manifest=json.loads(raw)
+    if (manifest.get('schema_version')!=1 or manifest.get('source_commit')!=HISTORICAL_SOURCE_COMMIT
+            or set(manifest.get('files_sha256',{}))!=HISTORICAL_FILES):
+        raise ValueError('Historical paper fixture manifest differs')
+    for name,expected in manifest['files_sha256'].items():
+        path=root/name
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=expected:
+            raise ValueError('Historical paper fixture hash differs: '+name)
+    return root
+
+
 class IntegrityTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)/'paper'
         self.root.mkdir()
-        for name in ('content.json','official-template.docx','build.py','verify.py'):
+        historical=verified_historical_fixture()
+        shutil.copy2(historical/'content.json',self.root/'content.json')
+        for name in ('official-template.docx','build.py','verify.py'):
             shutil.copy2(PAPER/name,self.root/name)
-        shutil.copytree(PAPER/'out',self.root/'out')
+        shutil.copytree(historical/'out',self.root/'out')
         (self.root.parent/'research').mkdir()
         shutil.copy2(PAPER.parent/'research/pilot-results.json',self.root.parent/'research/pilot-results.json')
         for name in ('stateful-config.json','stateful-main-v2-freeze.json','stateful-main-v2-continuation-v1-freeze.json','stateful-qualification.json','hf-stateful-config.json','stateful-hf-v3-freeze.json','stateful-results.json'):

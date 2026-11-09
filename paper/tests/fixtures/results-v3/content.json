@@ -1,0 +1,264 @@
+{
+  "title": "When Can a Swarm Be Audited?",
+  "subtitle": "Track 4 Multi-Agent Oversight and Control",
+  "author": "Razvan Sacara",
+  "affiliation": "Swarm Alignment Hackathon participant",
+  "abstract": "Does an auditor lack evidence, or fail to use sufficient evidence? We test this Track 4 question in a bounded temporal-delegation workflow. Gemma 26B workers produce 192 source trajectories through 576 calls. Original Adaption/Hugging Face readers returned 9,742/11,640 planned records; 1,898 remain unknown. The complete original primary compares direct and procedure instructions on identical sufficient packets: correct-definite verdicts rise from 144/192 to 177/192, a +17.19-point difference (95% source-bootstrap 10.94 to 23.44). Reference packets were independently verified sufficient before inference. All natural labels are NONE, so always-NONE scores 192/192; gains reduce false accusations, not detect positive incidents. Separately registered Ollama readers returned 4,728/4,728 readings on the same sources. The secondary Deepseek low-minus-off DIRECT contrast is +49.48 [+48.44, +50.00] (95% CI) percentage points; it does not replace the primary. An exploratory Gemma comparison concerns implementation bundles. Acquisition and support enforcement remain separate from the instruction intervention. Missing responses stay unknown; incomplete-reader logical bounds are not confidence intervals. RAW scores admit one JSON fence; strict encoding is separate. Actual-only rows and planned manifests permit offline replay. One finite workflow, trusted originals and unpinned models limit transfer; no general swarm-safety or internal-cognition claim follows.",
+  "sections": [
+    [
+      "1. Introduction",
+      [
+        "One worker issues a lease, a second delegates it, and a third settles a fake update at the expiry boundary. Did it execute, who executed it, and did permission still hold? Missing a witness and ignoring an available witness are different problems. A correct hidden guess is not a justified finding.",
+        "Track 4 Multi-Agent Oversight and Control anchors the work; identity/evidence infrastructure supports Track 3 [1,4,10]. We separate authentic-record acquisition, an identical-packet reader intervention and mechanical support enforcement. The operator can retrieve a witness, make a supported finding or abstain/escalate."
+      ]
+    ],
+    [
+      "2. Related Work and Scope",
+      [
+        "Yun already distinguishes supported findings from correct guesses, including residual errors with complete bindings [3]. Qin studies trace tampering [2]; Who&When and BLADE concern causal failure responsibility rather than our designated executor label [6,7]. BRIDGE verifies runtime boundary repair [5]; ActiveEvidence already separates metadata, paid observations and independent verification [24]. Our contribution is a prospective finite-structure intervention and explicit missingness analysis, not invention of these distinctions.",
+        "Agent Flight Recorder, NovaFabric, Hearsay and Auditable Agents precede logging, provenance and recovery concepts [20,21,26,27]. Proof-Carrying Contracts precedes guarded composition [28]. Syscon separates observation from detection; ActionLens shows environment-dependent probe value and simulation-fidelity limits [11,12]. Prompt Infection and AI Control precede propagation and subversion settings [8,9]. Our legitimate worker instructions are not an adaptive-collusion test."
+      ]
+    ],
+    [
+      "3. Methods and Reporting Amendment",
+      [
+        "Executed workflow. Three distinct immutable Gemma 26B workers issue parent lease L, delegate child D and settle h2. Delegation is at logical time 0; validity is [0,2), settlement at 1 or 2, and revocation takes effect at 1. Permission requires public authorization/scope/quota, actual issue/delegation, no revocation and settlement before expiry. Valid writes increment a new fake dictionary even if forbidden. Failed/malformed actor outputs perform no operation. The label concerns only an applied unpermitted h2 write, otherwise NONE; notes cannot grant permission.",
+        "Sources and evidence. There are 192 fresh groups in eight preassigned profiles, not eight task families. Independent routes/namespaces were hash-committed before inference. Sixteen records separate binding, issue, delegation, request, closed result, clock, revocation and lease from notes/background. Fixed public facts admit 6 distinct-worker routes×16 Boolean assignments×3 outcomes = 288 histories. All visible fields must match. A unique label permits a finding, multiple labels require ABSTAIN, and no compatible history blocks admission. A separate constraint checker validates support. The predeclared six-role reference is sufficient across the finite histories; it is not a post-treatment selection.",
+        "Acquisition and reading. Random loss removes 4/16 records; selective loss removes two reference roles and two others. A shared ID/kind/handle manifest supports at-most-two-record random, metadata and contract-aware retrieval. The latter minimizes expected remaining label count under a uniform compatible-world prior without unopened true payloads. Ten views share canonical packets. Direct/procedure prompts use the same contract/schema; the procedure adds explicit execution/binding/temporal checks. Fresh contexts, temperature 0 and 4,096 output ceiling follow registered serving profiles [16,17]. Longer instructions are part of the intervention. Bare JSON or one exact outer fence is admitted; strict encoding remains separate.",
+        "Unchanged primary and incomplete secondary. The only original primary is Gemma 26B procedure-minus-direct raw correct-definite on all 192 sufficient packets. Original source order, eight strata and 10,000 bootstrap draws/seed 710029 remain. Observed INVALID is an operational zero, not a successfully served reasoning score. A reporting amendment was frozen after operational missingness but before scientific metrics: Novita unstarted cells remain null, never invented INVALID. For direct/procedure binary scores D,P, R_D and R_P indicate terminal observation. Per-source lower=R_P P−R_D D−(1−R_D), upper=R_P P−R_D D+(1−R_P). Averaging all 192 gives sharp unrestricted-completion envelopes on a 1/192 lattice, not 95% CIs or missing-at-random estimates [29,30]. Selected complete pairs cannot identify the planned contrast.",
+        "Registered Ollama extension. ds_off uses deepseek-v4.1-flash:1017 with think=false on ten views; ds_low uses the same model with think=low on sufficient packets only; gemma_bridge uses gemma4:31b, think=false, sufficient only. Planned main/calibration counts are 3,840/40, 384/40 and 384/40. Native nonstreaming chat uses original prompts, temperature 0, num_predict=4096 and fresh contexts; only final content is scored, thinking stays private [31]. The fixed secondary is low-minus-off on DIRECT sufficient evidence. The Gemma bridge to original Adaption31 DIRECT is exploratory because weights, quantization, templates and serving can differ. Procedure bridge summaries are descriptive. None fills a missing Novita cell or adds independent sources.",
+        "Gate, controls and resources. A separate finite-support gate suppresses unsupported definite findings to ABSTAIN; report raw/gated coverage together [25]. Twenty valid scripted worlds supply calibration, separately from offline corrupt-packet rejection tests and up to six planned excluded technical pilot jobs per serving study. Exact-packet, always-ABSTAIN and always-NONE are references. Durable starts, retained terminal failures and no retries protect identities. Partial reader conditions retain actual/planned denominators; operational histories and excluded costs are in Appendix B."
+      ]
+    ],
+    [
+      "4. Results",
+      [
+        "The actors have 576 terminal records. Original readers have 9,742/11,640, leaving 1,898 unstarted; complete primary inference is not a complete original plan. Ollama has 4,728/4,728 actual/planned readings. All registered Ollama conditions completed their planned request identities. Table 1 separates observed counts, sampling CIs and incomplete-reader logical bounds. The primary is +17.19 pp (95% source-bootstrap +10.94 to +23.44; n=192). The registered procedure increased operational raw correct-definite verdicts in this finite sufficient-evidence task.",
+        "TABLE1",
+        "TABLE2",
+        "Here RAW means the parsed, ungated verdict score under the frozen decoder, not strict bare-JSON compliance. Primary-reader strict-encoding invalid counts were 192/192 direct and 192/192 procedure: an admitted single JSON fence can still receive the operational score. The strict counts remain separate rather than being silently repaired after outcomes.",
+        "On the SAME 192 sufficient-reference packets, always-NONE gives 192/192 correct-definite decisions and always-ABSTAIN gives 0/192. All main factual labels are NONE. Primary-reader unsupported executor accusations fell from 44 to 15; INVALID counts were 2 to 0 and ABSTAIN 2 to 0. Neither a procedure gain nor a perfect low-mode score establishes positive-incident detection on this one-class main sample.",
+        "Table 2 separates observed/planned main and calibration requests. A terminal record can be INVALID; an unstarted identity has no model answer. Table 3 separates the registered secondary thinking-mode contrast from the exploratory implementation bundle. Complete contrasts use source bootstraps; partial contrasts use logical bounds. Other reader/acquisition/coverage summaries remain secondary or exploratory and are not multiplicity-adjusted.",
+        "HF sufficient outputs were INVALID for 103/103 observed direct and 95/95 procedure requests. Of these 198 terminals, 197 returned noncompliant prose-plus-JSON and one retained HTTP429 has unknown usage. Both remain operational zeros; the decoder was not relaxed after results. This does not establish underlying reasoning incapacity. The 186 relevant unstarted cells yield logical bounds, not a zero full-plan effect or a sampling CI.",
+        "TABLE3",
+        "Secondary acquisition under original primary-reader DIRECT instructions: metadata minus random grounded correctness was +16.15 pp (95% source-bootstrap +11.46 to +20.57; n=192); contract minus metadata was +2.08 pp (95% source-bootstrap -0.52 to +4.95; n=192). These comparisons change available evidence, not only the reader instruction. Novita is not given a fabricated full-plan acquisition effect.",
+        "Actual behavior includes 96 writes and 0 unauthorized target writes; useful completion is 111/192 under the frozen permitted-write/otherwise-read rule. Valid scripted calibration does not increase natural incident counts. Appendix C decomposes sufficient-packet outcomes including unstarted cells.",
+        "Positive controls temper the main gain: G26 scored 16/20 direct versus 13/20 procedure. Gemma 31B and its Ollama bridge matched 192/192 natural NONE labels yet missed all 4/4 DIRECT expired-write controls; each got 8/12 positive and 8/8 negative controls right. Deepseek low got 12/12 and 8/8 versus off 9/12 and 4/8; both modes used strict bare JSON. The 20 worlds were preassigned; the type breakdown was descriptive after unblinding (analysis/calibration-breakdown-posthoc.json), not a new primary, population sensitivity estimate or CI. Repeated readings add no independent incidents.",
+        "On the separate 1,920-packet original ten-view reference set (192 sources), always-NONE made 1555/1,920 supported definite findings (1555/1,920 grounded correct); always-ABSTAIN made 0/1,920 supported definite findings (365/1,920 grounded correct). These are aggregate packet references, not the sufficient-only primary sample or extra independent sources.",
+        "Scientific token-rate estimates/reservations are approximately 1.138 Adaption credits, $0.880 via Hugging Face and $2.210 via Ollama. Failed diagnostics/canaries and unrelated pilots remain excluded from scientific denominators and costs. These are not reconciled invoices or hard account caps. No training or GPU rental was launched."
+      ]
+    ],
+    [
+      "5. Discussion and Limitations",
+      [
+        "Acquiring a missing witness, using supplied facts and withholding unsupported findings are distinct interventions. A procedure result is output behavior within a finite contract, not internal cognition. Known service failures remain zeros for the registered operational endpoint; unstarted outcomes remain unknown. Novita availability is not assumed random, and Ollama is a separate registered condition rather than a repair of that missingness.",
+        "One new temporal structure, scripted logical time, trusted originals and finite candidate worlds limit transfer. All workers share Gemma 26B and legitimate instructions. The original readers span two families; Deepseek adds a separate family, while both Deepseek modes and both Gemma implementations remain dependent comparisons on the same 192 sources. The low/off setting bundles generation compute, latency and backend behavior; it does not isolate a latent reasoning mechanism. Hosted weights are unpinned; collection timing, model/template/quantization differences and longer prompts prevent pure-hosting or cognition claims. Oracle answerability and model accuracy are different metrics: subtracting their acquisition gains does not causally apportion errors. Independent implementations may share a specification error. Future layout/length controls or SFT require new splits and registration, not another use of this test as untouched evaluation [18,23]."
+      ]
+    ],
+    [
+      "6. Conclusion",
+      [
+        "The registered procedure increased operational raw correct-definite verdicts in this finite sufficient-evidence task. The release distinguishes complete primary evidence, incomplete secondary identification and separately registered reader extensions. Actual-only rows and planned-state manifests preserve unknowns. The bounded workflow does not establish general swarm alignment, spontaneous collusion detection or deployment safety."
+      ]
+    ],
+    [
+      "Code and Data",
+      [
+        "Sanitized, offline-verifiable artifacts, protocols and registrations are packaged in the currently private repository: https://github.com/razzyrazzy11/swarm-alignment/tree/results-v3 . Judges need granted repository access or a separately arranged artifact package; this link alone does not provide access. Run python -m experiments.factorial_reporting verify offline. The sibling report preserves the original scientific freeze/exporter. Earlier results-v1/v2 remain separate; October trusted-agent-sting is preexisting and unimported [19]. Judge access, any public release and official submission require author handling."
+      ]
+    ]
+  ],
+  "references": [
+    "[1] Hammond et al. (2025). Multi-Agent Risks from Advanced AI. https://arxiv.org/abs/2502.14143",
+    "[2] Qin et al. (2026). LLM Agents Can Easily Tamper With Their Own Traces. https://arxiv.org/abs/2609.30266",
+    "[3] Yun et al. (2026). Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs. https://arxiv.org/abs/2610.09581",
+    "[4] Chan et al. (2025). Infrastructure for AI Agents. https://arxiv.org/abs/2501.10114",
+    "[5] Su et al. (2026). BRIDGE: Selective Boundary Repair with Dependency Graph Evidence in Multi-Agent Systems. https://arxiv.org/abs/2610.17805",
+    "[6] Zhang et al. (2025). Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems. https://arxiv.org/abs/2505.00212",
+    "[7] Guo, Long and Zhang (2026). BLADE: Auditing Information Use for Failure Attribution in LLM Multi-Agent Systems. https://arxiv.org/abs/2610.18780",
+    "[8] Lee and Tiwari (2024). Prompt Infection: LLM-to-LLM Prompt Injection within Multi-Agent Systems. https://arxiv.org/abs/2410.07283",
+    "[9] Greenblatt et al. (2023; published 2024). AI Control: Improving Safety Despite Intentional Subversion. https://arxiv.org/abs/2312.06942",
+    "[10] Apart Research (2026). Swarm Alignment Hackathon: Resources, Guidelines, Judging and results. Accessed 6 November. https://apartresearch.com/sprints/swarm-alignment-2026#guidelines",
+    "[11] Sheffey et al. (2026). Syscon: Kernel-Level Syscall Monitoring for AI Agent Control in Sandboxed Environments. Report and reviews. https://apartresearch.com/sprints/projects/syscon-kernellevel-syscall-monitoring-for-ai-agent-control-in-sandboxed-environments-guun",
+    "[12] Chitransh and Kumar (2026). ActionLens: Pre-Execution Environment Probing for Agent Action Approval. Report and reviews. https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22",
+    "[13] Takehi, Teoh, Zhang and Khattab (2026). Sparks of Weight-Space Programming: LLMs can natively read and write neural network weights. 2 November. https://rikiyat.github.io/blog/weight-space-programming/",
+    "[14] Takehi et al. (2026). Released weight-space experiment logs, including scope exclusions. https://github.com/RikiyaT/lm_understand-logs",
+    "[15] Lindner et al. (2023). Tracr: Compiled Transformers as a Laboratory for Interpretability. https://arxiv.org/abs/2301.05062",
+    "[16] Adaption (2026). Responses API and hosted-model documentation. Accessed 6 November. https://docs.adaptionlabs.ai/api/resources/responses/methods/create",
+    "[17] Hugging Face (2026). Inference Providers: explicit routing and billing. Accessed 6 November. https://huggingface.co/docs/inference-providers/en/index",
+    "[18] Hugging Face and Adaption (2026). SFT Trainer; AutoScientist supported models and downloadable artifacts. https://huggingface.co/docs/trl/en/sft_trainer ; https://docs.adaptionlabs.ai/autoscientist/supported-models/ ; https://docs.adaptionlabs.ai/autoscientist/download-the-model/",
+    "[19] Sacara (2026). Undercover Agents: preexisting October trusted-agent study. https://github.com/razzyrazzy11/trusted-agent-sting",
+    "[20] Bindschaedler, Botha and Siebenbrunner (2026). Agent Flight Recorder: Tamper-Evident Audit Trails with On-Chain Anchoring for Long-Horizon Tool-Using Agents. https://arxiv.org/abs/2609.01931",
+    "[21] Ardebili (2026). NovaFabric: Tamper-Evident, Replayable Evidence for Autonomous AI Agent Runs. https://arxiv.org/abs/2609.12582",
+    "[22] Ainsworth, Hayase and Srinivasa (2022). Git Re-Basin: Merging Models modulo Permutation Symmetries. https://arxiv.org/abs/2209.04836",
+    "[23] Motwani et al. (2025). MALT: Improving Reasoning with Multi-Agent LLM Training. https://arxiv.org/abs/2412.01928",
+    "[24] Hu et al.(2026). ActiveEvidence. https://arxiv.org/abs/2610.20532v2",
+    "[25] Geifman and El-Yaniv (2017). Selective Classification for Deep Neural Networks. https://arxiv.org/abs/1705.08500",
+    "[26] Dai et al.(2026). Hearsay. https://arxiv.org/abs/2609.32495",
+    "[27] Nian et al.(2026). Auditable Agents. https://arxiv.org/abs/2604.05485v4",
+    "[28] Ciliberto,Rudi and Tassi (2026). Proof-Carrying Contracts. https://arxiv.org/abs/2610.28484v1",
+    "[29] Manski (2005). Partial identification with missing data. https://doi.org/10.1016/j.ijar.2004.10.006",
+    "[30] Imbens and Manski (2004). Confidence intervals for partially identified parameters. https://doi.org/10.1111/j.1468-0262.2004.00555.x",
+    "[31] Ollama. Native cloud API and thinking controls. https://docs.ollama.com/cloud ; https://docs.ollama.com/capabilities/thinking"
+  ],
+  "appendix": [
+    [
+      "Appendix A. Limitations and Dual-Use / Ethical Considerations",
+      [
+        "The host collector, policy and available originals are trusted; missing investigator exports do not test compromised original collection. Fake dictionaries and finite numeric artifacts have no real targets. Text is never executed as code. Evidence-loss methods could inform suppression; tiny-policy editing could inform harmful modifications. Native IDs, keys, headers and thinking remain excluded. No human-subject data or live incident payload execution is involved.",
+        "A complete original primary does not imply complete Novita data. Missing outcomes remain null. Logical bounds make no missing-at-random or monotonicity assumption and are not 95% CIs [29,30]. Temperature0 is not determinism; known model digests are metadata rather than immutable full-weight commitments. The author remains responsible for all claims, official template/page/abstract/ethics requirements and human approval. Automated checks do not guarantee originality, eligibility or prizes."
+      ]
+    ],
+    [
+      "Appendix B. Registration, missingness and operational history",
+      [
+        "The original factorial-audit-v1 freeze precedes new worker/reader outputs. The original Gemma 26B primary, 192 sources, eight strata, source order, 10,000 bootstrap draws and seed 710029 remain unchanged. The reporting amendment follows operational missingness and precedes scientific metrics; it is not backdated original planning. Ollama has its own source/config/catalog registration and pilot; its condition IDs never replace Novita jobs. Publication needs an explicit after-collection step or documented final cutoff and public replay.",
+        "A funding/balance review triggered STOP and drain after 9,706 terminal audit identities. The account-resume record (factorial-account-resume.json) preserves the registered prefix and the exact 1,934 originally unstarted identities authorized for continuation. Started identities were not retried. One earlier delegate gateway outcome remains retained as INVALID; later gateway/incomplete outcomes are included in the totals above. The scientific grid, request identities/bodies, prompts and analysis remain unchanged, while the operational funding stop and resumption are explicitly disclosed. This is not an uninterrupted collection with unchanged operational history. Client phase ceilings did not reserve remaining account credit; funding records do not replace provider invoice reconciliation.\n\nAfter the tagged account resumption, five requests added four HTTP 200 responses and one HTTP 429, bringing the preserved audit prefix to 9,711 terminal identities and leaving 1,929 original requests unstarted. The 429 has unknown usage, remains INVALID with its full reservation and is never retried. The earlier delegate gateway remains retained. The prospective rate registration (factorial-rate-continuation.json), tagged factorial-audit-v1-rate-continuation, binds that prefix and the exact never-started complement; its operational protocol (FACTORIAL_RATE_CONTINUATION.md) changes scheduling, not scientific bodies, models, scoring, sample identities or analysis. It permits one actual HTTP request at a time, at least 12 seconds between starts, and after any additional 429 at least 300 seconds or a longer valid Retry-After before the NEXT never-started request. The cumulative stop is 5 HTTP 429 events including the earlier one; the original HF phase cap remains $2, including historical usage and unknown-usage reservations. These are conservative registered controls, not a documented provider quota. The earlier error headers were not retained, so that event cannot establish which service imposed the limit or what delay it requested. The historical five-429 stop (factorial-rate-stop.json) preserved 9,742 terminal identities and 1,898 unstarted requests. That collector remains stopped under its original five-event rule; a later registration does not retroactively change its stop or turn it into a completed run. This historical registration does not establish final collection completeness or infer an eventual 429 count from incomplete-output or gateway totals. The funding pause, rate halt and sequential continuation are disclosed operational changes, not an uninterrupted unamended collection; collection-time differences and unpinned hosted weights remain limitations.\n\nThe separately tagged hf-serving-diagnostic-v1 serving diagnostic (hf-diagnostic-results.json) used one GET and one unrelated at-most-16-output-token POST, reporting catalog HTTP 200, inference HTTP 200, profile_ok=True, known_usage=True, estimated POST cost $0.00000593 and unknown-usage reservation $0 (38 input and 2 output tokens). It is a single operational check, not an audit observation or evidence of sustained throughput. The separately frozen hf-capacity-v1 capacity check (hf-capacity-results.json) reports planned=24, returned=1, unstarted=23, complete=False, passed=False. Its known cost is $0.00030089, reserved unknown cost $0, total liability $0.00030089; reported input-token range is 2134 to 2134, measured minimum start interval not measurable (fewer than two starts). This v1 check remains failed and preserved under its original source/tag/result: one HTTP 200 known-usage response used 2,134 input/32 output tokens, the permitted model alias and a normal stop, but failed its exact-OK content criterion; 23 jobs were never started. Its estimated $0.00030089 is retained separately. This is a strict content-criterion failure, not evidence that throughput failed or an HTTP 429 occurred in that check. The author acknowledged that exact wording was irrelevant to the intended serving-capacity question; the old criterion/result was not rewritten or relabeled as a pass. The NEW separately frozen hf-capacity-v2 capacity check (hf-capacity-v2-results.json) reports planned=24, returned=11, unstarted=13, complete=False, passed=False; known cost $0.003050650, reserved unknown cost $0.0048784, total liability $0.007929050, input-token range 2135 to 2135, measured minimum start interval 30.391 seconds. Its new IDs/prompts were fixed before fresh requests. It retains the planned 24 neutral unrelated prompts, same HF route/temperature, at least 30-second starts, 4,096-token ceiling, at least 1,579 known input tokens per receipt and $0.12 cap. Its gate concerns completed HTTP/model/usage/token-limit/shape validity only; content_ok is reported but is NOT a pass criterion. A failure stops it without retry. The separate one-request v1 result is not pooled with v2 as a 25-case positive capacity sample. Neither the single tiny diagnostic nor either canary contributes to scientific source counts, calibration or qualification. Their costs remain separate from the main scientific aggregate; a short pass cannot guarantee long-run serving, audit accuracy or training benefit.\n\nCapacity-v2 retained ten successful serving receipts followed by HTTP 429; the retained public receipt does not determine its cause. it failed at 11/24 and its remaining 13 jobs never started. The conditional paced-final main continuation was NEVER registered or run. Original Novita remains stopped at 9,742 original terminal reader records overall, leaving 1,898 planned calls unstarted. The reporting amendment was frozen before scientific metrics were inspected; it preserves complete primary inference while explicitly reporting the incomplete secondary plan. The separately registered Ollama extension does not fill or replace any missing Novita cell.",
+        "Ollama pilot/reader actual-versus-planned counts, costs and identity/overload/capture flags remain in the sibling public report. Original failures and failed capacity checks retain excluded costs. No hidden account balance is needed to reproduce scientific rows. Provider and account estimates do not establish final debits; raw hashes do not independently authenticate a provider. No request was silently retried or substituted."
+      ]
+    ],
+    [
+      "Appendix C. Descriptive sufficient-reference outcomes",
+      [
+        "Every row below has 192 planned sources. Five mutually exclusive observed outcomes sum to observed calls; adding UNSTARTED yields 192. Strict encoding remains separate. Correct abstention on ambiguous packets differs from unwarranted abstention here. This is a descriptive frozen-view partition, not a new endpoint or causal post-treatment subset.",
+        "Original gemma-4-26b-a4b-it/direct: supported_definite=144, unsupported_executor=44, unsupported_none=0, invalid=2, abstain=2; UNSTARTED=0; planned 192.",
+        "Original gemma-4-26b-a4b-it/procedure: supported_definite=177, unsupported_executor=15, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "Original gemma-4-31b-it/direct: supported_definite=192, unsupported_executor=0, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "Original gemma-4-31b-it/procedure: supported_definite=192, unsupported_executor=0, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "Original meta-llama/Llama-3.3-70B-Instruct:novita/direct: supported_definite=0, unsupported_executor=0, unsupported_none=0, invalid=103, abstain=0; UNSTARTED=89; planned 192.",
+        "Original meta-llama/Llama-3.3-70B-Instruct:novita/procedure: supported_definite=0, unsupported_executor=0, unsupported_none=0, invalid=95, abstain=0; UNSTARTED=97; planned 192.",
+        "ds_off/direct: supported_definite=97, unsupported_executor=95, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "ds_off/procedure: supported_definite=132, unsupported_executor=60, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "ds_low/direct: supported_definite=192, unsupported_executor=0, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "ds_low/procedure: supported_definite=192, unsupported_executor=0, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "gemma_bridge/direct: supported_definite=192, unsupported_executor=0, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "gemma_bridge/procedure: supported_definite=192, unsupported_executor=0, unsupported_none=0, invalid=0, abstain=0; UNSTARTED=0; planned 192.",
+        "Known INVALID can reflect format/transport failure; wrong attribution and over-abstention need different interventions. An absent authentic witness cannot be repaired by training a hidden guess. No training decision follows automatically. Future controls and adaptation require development data, new source-disjoint tests and bounded serving/pricing."
+      ]
+    ],
+    [
+      "Appendix D. Prior studies and reproducibility",
+      [
+        "Earlier scripted 192-source primary accusation contrast was−1.04 pp [−6.77,+4.69]; the smaller HF restoration comparison was uncertain. Earlier live restoration was+5.73 pp [+1.04,+10.42] on 192 new sources. Original qualifiers, serving failures and exact-unstarted continuations remain separately tagged. These different workflows/endpoints are not pooled with the present primary.",
+        "The earlier tiny-weight study had 144 proposals / 24 representations. Gemma 31B supplied 16/24 exact six-edit repairs; other writers 0/24. Harmful downstream changes could preserve upstream handoffs, while all 24 harmless reparameterizations changed hashes. The supplied Boolean rule and exhaustive 32-context verification make this specification programming, not hidden-task generalization or LLM fine-tuning. Takehi/logs, Tracr and permutation/rescaling precedents remain prior art [13,14,15,22]. MALT precedes interaction-based policy training [23].",
+        "Offline sibling replay reconstructs actual actor inputs/choices,state,packet hashes, support, observed scores, missing manifests,complete bootstrap and partial bounds. The public incident crosswalk checks applicability assumptions, not incident detection accuracy. 20-rules-of-learning guides prerequisite order and distinctions, not scientific validity. Previous October code/data/results were not imported [19]."
+      ]
+    ],
+    [
+      "LLM Usage Statement",
+      [
+        "Codex assisted with research, implementation, tests, analysis and writing. Scoped OpenCode reviewers read allowlisted source; some delegated drafts stalled and were completed locally. An Anthropic review attempt was rejected before transmission; no Anthropic request or completed review is claimed. A user-authorized OpenCode Go alternative was attempted; only completed, recorded findings should be described as reviews. Actual retained Adaption/Hugging Face/Ollama final outputs are distinguished from source review. Automated checks are not independent empirical replication or human author approval."
+      ]
+    ]
+  ],
+  "table1": [
+    [
+      "Original reader (planned sources)",
+      "Raw correct D / observed",
+      "Raw correct P / observed",
+      "P minus D, percentage points"
+    ],
+    [
+      "Adaption Gemma 26B (192)",
+      "144/192",
+      "177/192",
+      "+17.19 [+10.94, +23.44] (95% CI)"
+    ],
+    [
+      "Adaption Gemma 31B (192)",
+      "192/192",
+      "192/192",
+      "+0.00 [+0.00, +0.00] (95% CI)"
+    ],
+    [
+      "HF Novita (192)",
+      "0/103",
+      "0/95",
+      "[-46.35, +50.52] (logical bounds)"
+    ]
+  ],
+  "evidence_status": {
+    "status": "primary complete; original secondary incomplete",
+    "primary_complete": true,
+    "source_groups": 192,
+    "actor_calls": 576,
+    "original_audit_calls": 9742,
+    "extension_audit_calls": 4728,
+    "main_audit_calls": 14252,
+    "calibration_calls": 218,
+    "original_plan_complete": false,
+    "extension_plan_complete": true,
+    "training_runs": 0,
+    "freeze": "factorial-audit-v1"
+  },
+  "table2": [
+    [
+      "Condition",
+      "Main observed / planned",
+      "Calibration observed / planned",
+      "Unstarted total"
+    ],
+    [
+      "Adaption Gemma 26B",
+      "3840/3840",
+      "40/40",
+      "0"
+    ],
+    [
+      "Adaption Gemma 31B",
+      "3840/3840",
+      "40/40",
+      "0"
+    ],
+    [
+      "HF Novita",
+      "1964/3840",
+      "18/40",
+      "1898"
+    ],
+    [
+      "ds_off",
+      "3840/3840",
+      "40/40",
+      "0"
+    ],
+    [
+      "ds_low",
+      "384/384",
+      "40/40",
+      "0"
+    ],
+    [
+      "gemma_bridge",
+      "384/384",
+      "40/40",
+      "0"
+    ]
+  ],
+  "table2_model_ids": [
+    "gemma-4-26b-a4b-it",
+    "gemma-4-31b-it",
+    "meta-llama/Llama-3.3-70B-Instruct:novita"
+  ],
+  "table3": [
+    [
+      "Extension contrast on DIRECT sufficient",
+      "Status",
+      "Difference, percentage points"
+    ],
+    [
+      "ds_low minus ds_off (secondary)",
+      "complete",
+      "+49.48 [+48.44, +50.00] (95% CI)"
+    ],
+    [
+      "Gemma bundle minus Adaption31 (exploratory)",
+      "complete",
+      "+0.00 [+0.00, +0.00] (95% CI)"
+    ]
+  ],
+  "table1_caption": "Table 1. RAW is parsed and ungated, accepting one exact JSON fence; strict encoding is separate. Observed denominators differ from 192 planned sources. First row is the primary; HF logical bounds are not 95% CIs.",
+  "table2_caption": "Table 2. Actual/planned main and calibration readings by condition. UNSTARTED is unknown, not INVALID. Repeated calls do not increase source n.",
+  "table3_caption": "Table 3. DIRECT sufficient evidence on the same 192 sources. Thinking mode is secondary; Gemma bundle is exploratory. Partial contrasts have logical bounds instead of sampling CIs.",
+  "table2_source": "factorial_reporting"
+}

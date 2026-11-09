@@ -98,7 +98,7 @@ class FigureTests(unittest.TestCase):
 
     def test_owned_parts_original_furniture_and_byte_identical_legacy(self):
         legacy_content=deepcopy(self.content);legacy_content.pop('figures');legacy_content['sections'][0][1].remove('FIGURE2')
-        with zipfile.ZipFile(PAPER/'out/swarm_audit_scoping.docx') as z:
+        with zipfile.ZipFile(self.root/'out/swarm_audit_scoping.docx') as z:
             original_output={n:z.read(n) for n in z.namelist()}
         self.assertEqual(build.assemble(legacy_content,self.root/'official-template.docx'),original_output)
         parts=self.built()
