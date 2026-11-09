@@ -1,12 +1,8 @@
 # When Can a Swarm Be Audited?
 
-> **Version notice — 9 November 2026 (post-deadline housekeeping).**
->
-> The [PDF delivered for submission at 11:57 UTC](https://github.com/razzyrazzy11/swarm-alignment/blob/7c3f570fb89ffa685e495dce46349cc9caee4876/paper/out/swarm_audit_scoping.pdf) is the pre-housekeeping deadline version. Its SHA-256 is `418c27f6e9d5b7ecfc4e76f1c7bbb76ca412370d15c3ff5ff7741be1ea6fd193`.
->
-> The current repository PDF (15 pages; 14 references) is a post-deadline editorial copy, not that original version. Changes after 11:59 UTC remove unrelated references and process notes, clarify access instructions, update verification paths and metadata, and improve test compatibility across platforms. The experimental data, original experiment code, statistical calculations, figure images, abstract and conclusions are unchanged.
-> Verification reruns recompute the same recorded results. The original submission-version PDF linked above remains unchanged; the repository editorial copy is labelled separately.
-
+> **Housekeeping — 9 November 2026.** Changes after 11:59 UTC remove unrelated
+> references and process notes and update repository verification. The submitted
+> paper, experimental data, results and conclusions are unchanged.
 
 **Multi-Agent Oversight and Control.** Which part of oversight needs repair:
 acquiring authentic evidence, delivering a usable verdict, or using sufficient
@@ -57,11 +53,6 @@ partition failures into independent components.
 - [Generator sensitivity](data/swarm-ledger-generator-sensitivity-v1/report.json) and [figure provenance](paper/figures/swarm-ledger-complete-v1/ledger_figures_provenance.json).
 - [Current paper QA](research/editorial-paper-qa-v1.json) and [publication revision protocol](research/PUBLICATION_EDITORIAL_REVISION_V1_PROTOCOL.md).
 
-This repository edition removes unrelated context and editorial process notes.
-The data, recorded study final responses, scientific functions, estimands and
-results are preserved. The revised paper has its own native export and complete
-page inspection; the previously delivered paper remains a historical edition.
-
 Protocol and review documents are publication copies. Original registrations and
 Git history remain preserved; these edited documents are not presented as the
 original registered bytes. The [revision manifest](publication_revision/manifest.json)
@@ -71,7 +62,7 @@ verification uses the explicit route below.
 ## Reproduce the results
 
 Use a fresh checkout and Python 3.12. Obtain the manifest and launcher SHA-256
-values from the [author-controlled verification section of the housekeeping PR](https://github.com/razzyrazzy11/swarm-alignment/pull/3). Values inside this checkout
+values from the [author-controlled verification section of the housekeeping PR](https://github.com/razzyrazzy11/swarm-alignment/pull/4). Values inside this checkout
 are not independent trust anchors. Check the launcher before executing it or
 installing dependencies; replace the two placeholders with those external pins.
 
