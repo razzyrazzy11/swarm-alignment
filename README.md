@@ -48,7 +48,7 @@ partition failures into independent components.
 
 ## Report and data
 
-- [Repository editorial PDF (post-deadline)](paper/out/swarm_audit_scoping.pdf) and [editable editorial DOCX](paper/out/swarm_audit_scoping.docx).
+- [Research report (PDF)](paper/out/swarm_audit_scoping.pdf).
 - [Complete MAIN report](data/swarm-ledger-v1-public/report.json) and [study protocol](research/SWARM_LEDGER_COMPLETE_PROTOCOL.md).
 - [Generator sensitivity](data/swarm-ledger-generator-sensitivity-v1/report.json) and [figure provenance](paper/figures/swarm-ledger-complete-v1/ledger_figures_provenance.json).
 - [Current paper QA](research/editorial-paper-qa-v1.json) and [publication revision protocol](research/PUBLICATION_EDITORIAL_REVISION_V1_PROTOCOL.md).
@@ -62,7 +62,7 @@ verification uses the explicit route below.
 ## Reproduce the results
 
 Use a fresh checkout and Python 3.12. Obtain the manifest and launcher SHA-256
-values from the [author-controlled verification section of the housekeeping PR](https://github.com/razzyrazzy11/swarm-alignment/pull/4). Values inside this checkout
+values from the [author-controlled verification section of the housekeeping PR](https://github.com/razzyrazzy11/swarm-alignment/pull/5). Values inside this checkout
 are not independent trust anchors. Check the launcher before executing it or
 installing dependencies; replace the two placeholders with those external pins.
 
