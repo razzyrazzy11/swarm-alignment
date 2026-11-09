@@ -119,7 +119,7 @@ def validate_manuscript(content,report):
     return True
 
 
-def load_completed(root,replay=True):
+def load_completed(root,replay=True,*,public_replay=False):
     """Read future completed PUBLIC release only, behind explicit manuscript flag.
 
     Full frozen replay validates scientific arithmetic, completeness and native
@@ -131,17 +131,22 @@ def load_completed(root,replay=True):
     from experiments import swarm_ledger_complete_analysis as analysis
     directory=Path(root).parent/'data/swarm-ledger-v1-public'
     require(directory.is_dir(),'Completed public release required; planned/toy report is insufficient')
-    recovery_v2=(Path(root).parent/'research/offline-release-recovery-v2-freeze.json').is_file()
-    recovered=recovery_v2 or (Path(root).parent/'research/offline-release-recovery-v1-freeze.json').is_file()
-    if recovered:
-        require((Path(root).parent/'research/swarm-ledger-paced-v1-freeze.json').is_file(),
-                'Offline recovery requires the paced scientific lineage')
-        if recovery_v2:
-            from experiments import offline_release_recovery_v2 as recovery
-        else:
-            from experiments import offline_release_recovery as recovery
-        recovery.verify()
-        recovery.verify_projection(replay=False)
+    require(type(public_replay) is bool,'Public replay mode must be an explicit boolean')
+    if public_replay:
+        from paper.public_replay import verify_public_admission
+        verify_public_admission(Path(root))
+    else:
+        recovery_v2=(Path(root).parent/'research/offline-release-recovery-v2-freeze.json').is_file()
+        recovered=recovery_v2 or (Path(root).parent/'research/offline-release-recovery-v1-freeze.json').is_file()
+        if recovered:
+            require((Path(root).parent/'research/swarm-ledger-paced-v1-freeze.json').is_file(),
+                    'Offline recovery requires the paced scientific lineage')
+            if recovery_v2:
+                from experiments import offline_release_recovery_v2 as recovery
+            else:
+                from experiments import offline_release_recovery as recovery
+            recovery.verify()
+            recovery.verify_projection(replay=False)
     if (Path(root).parent/'research/swarm-ledger-paced-v1-freeze.json').exists():
         from experiments import paced_resume_analysis as continuation
         continuation.verify_main(directory,replay=False)

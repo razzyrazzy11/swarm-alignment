@@ -22,7 +22,7 @@ def source_hash(content):
 def builder_hash(root):
     return hashlib.sha256((root/'build.py').read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 
-def build_manifest(root,content):
+def build_manifest(root,content,*,public_replay=False):
     results={} if content.get('ledger_registration') else json.loads((root.parent/'research/pilot-results.json').read_text(encoding='utf-8'))
     manifest=dict(abstract_words=len(content['abstract'].split()),template_sha256=SHA,
                 content_sha256=source_hash(content),builder_sha256=builder_hash(root),
@@ -31,7 +31,7 @@ def build_manifest(root,content):
     if content.get('ledger_registration'):
         from complete_report_contract import REGISTRATION, load_completed
         require(content['ledger_registration']==REGISTRATION,'Unknown completed ledger manuscript registration')
-        _,bindings=load_completed(root,replay=False)
+        _,bindings=load_completed(root,replay=False,**({'public_replay':True} if public_replay else {}))
         manifest.pop('results_sha256')
         manifest['ledger_sources']=bindings
         manifest['complete_report_contract_sha256']=hashlib.sha256((root/'complete_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
@@ -56,10 +56,10 @@ def build_manifest(root,content):
         manifest['figure_verifier_sha256']=hashlib.sha256((root/'verify.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     return manifest
 
-def validate_results(root,content):
+def validate_results(root,content,*,public_replay=False):
     if content.get('ledger_registration'):
         from complete_report_contract import load_completed, validate_manuscript
-        report,_=load_completed(root,replay=True)
+        report,_=load_completed(root,replay=True,**({'public_replay':True} if public_replay else {}))
         validate_manuscript(content,report)
         return
     if content.get('table2_source')=='factorial_reporting':
@@ -198,7 +198,7 @@ def validate_source(content):
         require(content['evidence_status']['status']=='development pilot', 'Report evidence status must stay explicit')
         require('development' in content['abstract'].lower(), 'Development boundary missing from abstract')
 
-def check_docx(root,content):
+def check_docx(root,content,*,public_replay=False):
     if content.get('figures'):
         from figure_build import assemble as figure_assemble
         expected=figure_assemble(content,root/'official-template.docx')
@@ -218,7 +218,7 @@ def check_docx(root,content):
         require(placeholder not in manuscript, 'Template placeholder remains: '+placeholder)
     require(not re.search(r'\b(?:TABLE|FIGURE)\d+\b',manuscript), 'Unresolved content marker')
     actual=json.loads((root/'out/build-check.json').read_text(encoding='utf-8'))
-    require(actual==build_manifest(root,content), 'Stale build manifest')
+    require(actual==build_manifest(root,content,public_replay=public_replay), 'Stale build manifest')
     return paragraphs
 
 def painted_image_count(reader):
@@ -267,7 +267,7 @@ def figure_pdf_evidence(root,content,reader,path):
                 figure_identity_limit='Image objects establish presence; Word recompression prevents a general pixel-identity guarantee. All pages require visual inspection.')
 
 
-def pdf_manifest(root,content,paragraphs):
+def pdf_manifest(root,content,paragraphs,*,public_replay=False):
     path=root/'out/swarm_audit_scoping.pdf'
     require(path.stat().st_size<=25_000_000, 'PDF exceeds 25 MB')
     reader=PdfReader(path)
@@ -302,7 +302,7 @@ def pdf_manifest(root,content,paragraphs):
                 builder_sha256=builder_hash(root),docx_sha256=sha(root/'out/swarm_audit_scoping.docx'),pdf_sha256=sha(path))
     if content.get('ledger_registration'):
         from complete_report_contract import load_completed
-        _,bindings=load_completed(root,replay=False)
+        _,bindings=load_completed(root,replay=False,**({'public_replay':True} if public_replay else {}))
         manifest['ledger_sources']=bindings
         manifest['complete_report_contract_sha256']=hashlib.sha256((root/'complete_report_contract.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
         manifest['ledger_layout_sha256']=hashlib.sha256((root/'ledger_layout.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
@@ -318,12 +318,18 @@ def check_ignores(root):
     require(result.returncode==0 and set(result.stdout.splitlines())==set(protected), 'Secret/raw-output exclusions failed')
     require(subprocess.run(['git','check-ignore','--no-index','.env.example'],cwd=root.parent,capture_output=True).returncode==1, 'Example environment must stay trackable')
 
-def verify(root=ROOT,record_pdf=False,git_checks=True):
+def verify(root=ROOT,record_pdf=False,git_checks=True,*,public_replay=False):
+    require(type(public_replay) is bool,'Public replay mode must be an explicit boolean')
+    require(not (public_replay and record_pdf),'Public replay cannot record a PDF manifest; use local private admission')
     content=json.loads((root/'content.json').read_text(encoding='utf-8'))
+    if public_replay:
+        from complete_report_contract import REGISTRATION
+        require(content.get('ledger_registration')==REGISTRATION and content.get('table2_source')=='swarm_ledger_complete',
+                'Public replay requires the completed ledger manuscript')
     validate_source(content)
-    validate_results(root,content)
-    paragraphs=check_docx(root,content)
-    manifest=pdf_manifest(root,content,paragraphs)
+    validate_results(root,content,public_replay=public_replay)
+    paragraphs=check_docx(root,content,public_replay=public_replay)
+    manifest=pdf_manifest(root,content,paragraphs,public_replay=public_replay)
     target=root/'out/pdf-check.json'
     if git_checks:
         check_ignores(root)
@@ -338,9 +344,12 @@ def verify(root=ROOT,record_pdf=False,git_checks=True):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--record-pdf',action='store_true')
+    parser.add_argument('--public-replay',action='store_true',help='Verify preserved public admission and unchanged scientific replay; cannot record PDF metadata')
     args=parser.parse_args()
+    if args.public_replay and args.record_pdf:
+        parser.error('--public-replay cannot be combined with --record-pdf')
     try:
-        result=verify(record_pdf=args.record_pdf)
+        result=verify(record_pdf=args.record_pdf,public_replay=args.public_replay)
     except (ValueError,OSError,KeyError,zipfile.BadZipFile) as exc:
         raise SystemExit('FAIL: '+str(exc)) from exc
     print('PASS: current DOCX/PDF text, hashes, template, citations and exclusions; '+str(result['main_pages'])+' main pages')

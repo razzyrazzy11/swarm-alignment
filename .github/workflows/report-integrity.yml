@@ -14,8 +14,25 @@ jobs:
           python-version: '3.12'
       - name: Install verifier and final-authoring preparation dependencies
         run: python -m pip install -r paper/preparation-requirements.txt
-      - run: python paper/verify.py
-      - run: python -O paper/verify.py
+      - name: Verify current paper with its explicit admission mode
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+          content = json.loads(Path('paper/content.json').read_text(encoding='utf-8'))
+          registration = content.get('ledger_registration')
+          source = content.get('table2_source')
+          if registration == 'swarm-ledger-complete-v1-main' and source == 'swarm_ledger_complete':
+              flags = ['--public-replay']
+          elif registration is None and source == 'factorial_reporting':
+              flags = []
+          else:
+              raise SystemExit('Unrecognized or mismatched paper release format')
+          for optimization in ([], ['-O']):
+              subprocess.run([sys.executable, *optimization, 'paper/verify.py', *flags], check=True)
+          PY
       - run: python -m unittest discover -s paper/tests -v
       - name: Run all experiment tests with documented frozen-fixture amendment
         run: python -m experiments.test_runner
@@ -41,7 +58,21 @@ jobs:
             python -m experiments.router_resume_analysis verify-main --output data/swarm-ledger-v1-public
           fi
           if [ -f research/hf-completed-original-results-v3.json ]; then
-            python -m experiments.router_resume_analysis verify-hf
+            python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+          report = json.loads(Path('research/hf-completed-original-results-v3.json').read_text(encoding='utf-8'))
+          routes = {
+              'router-resume-analysis-v1': 'experiments.router_resume_analysis',
+              'paced-resume-analysis-v1': 'experiments.paced_resume_analysis',
+          }
+          tag = report.get('analysis_tag')
+          if not isinstance(tag, str) or tag not in routes:
+              raise SystemExit('Unrecognized original HF analysis_tag')
+          subprocess.run([sys.executable, '-m', routes[tag], 'verify-hf'], check=True)
+          PY
           fi
       - name: Verify prospective stateful freeze when present
         run: |

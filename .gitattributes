@@ -35,3 +35,12 @@
 /experiments/tests/test_adaption_serving*.py text eol=lf
 /research/ADAPTION_SERVING_PILOT_PROTOCOL.md text eol=lf
 /research/adaption-serving-pilot-catalog.json text eol=lf
+/data/swarm-ledger-generator-sensitivity-v1/** text eol=lf
+/research/hf-completed-original-results-v3.json text eol=lf
+/research/hf-offline-release-recovery-v2-proof.json text eol=lf
+/research/swarm-ledger-paced-resume-release-proof.json text eol=lf
+/research/paper-public-figure-input.json text eol=lf
+/research/paper-public-release-admission.json text eol=lf
+/paper/figures/swarm-ledger-complete-v1/*.json text eol=lf
+/paper/figures/swarm-ledger-complete-v1/*.svg -text
+/paper/figures/swarm-ledger-complete-v1/*.png -text
