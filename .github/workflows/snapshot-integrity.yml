@@ -57,6 +57,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Use canonical Windows temporary directories
+        shell: bash
+        run: |
+          python -I -B - <<'PY'
+          import os,tempfile
+          from pathlib import Path
+          canonical_temp_path=str(Path(tempfile.gettempdir()).resolve(strict=True))
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8',newline='\n') as stream:
+              for name in ('TEMP','TMP','TMPDIR'):
+                  stream.write(name+'='+canonical_temp_path+'\n')
+          PY
       - name: Authenticate launcher and inventory before dependencies
         shell: bash
         run: |

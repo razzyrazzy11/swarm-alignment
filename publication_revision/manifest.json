@@ -91,8 +91,8 @@
       "sha256": "27dc246445da96812684e9b968f78cc8eddbb27d15f352e7911fb9d7d6c4c15a"
     },
     ".github/workflows/snapshot-integrity.yml": {
-      "bytes": 4447,
-      "sha256": "3b497ba93186991f492ba02ed6775452d3f381543d3cff54a009b2138bf5e8e5"
+      "bytes": 4941,
+      "sha256": "3dcc2d265defdfed8ad0783306fd1a0f9fa8bca04e684b75f6ca95e63929245f"
     },
     ".gitignore": {
       "bytes": 5003,
@@ -107,8 +107,8 @@
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     },
     "README.md": {
-      "bytes": 7260,
-      "sha256": "5ef1c371bfe179ad926209bb39fcef7bb57ab935ea575492bfc8248afe61efca"
+      "bytes": 8372,
+      "sha256": "4d7e7b77452b6e38cbd8233a26c903e6fc41a174753b26cf7466ebb98e9b1b8b"
     },
     "SECURITY.md": {
       "bytes": 2179,
