@@ -1,14 +1,6 @@
-# Authorized four-file OpenCode/Ollama review and local dispositions
+# Four-file source review and dispositions
 
-Completed 7 November 2026 through an isolated task-local OpenCode server,
-`security-reviewer` with catalog-confirmed `ollama-cloud/deepseek-v4-pro`.
-Task `dd60d595-00e6-4c6d-b15e-e81d3bd25b61`; final run
-`36795dd2-2424-4b19-a2dc-c3109bb7c4a6`. The first read turn produced no final
-text; one text-only continuation completed the report. The owned server was
-stopped. Only the four explicitly authorized V1 files were supplied; they were
-read fully (709, 308, 43 and 143 lines), with no mutating tools. V2 files, raw
-runs, keys and account data were excluded. This is a bounded static review,
-not empirical validation or a scientific primary source.
+Completed 7 November 2026 as a bounded static source review. The four explicitly authorized V1 files were read fully (709, 308, 43 and 143 lines), without edits. V2 files, raw runs, credentials and account data were excluded. This is not empirical validation or a scientific primary source.
 
 | Authorized file | LF-normalized SHA-256 |
 |---|---|

@@ -111,5 +111,4 @@ Ethical Considerations appendix remains required.
   retries must not be accidentally introduced into this explicitly no-retry study.
 - [Apart guidelines and Judging and results](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):
   transparent provenance and consistent claims support execution quality and
-  clarity. The 20-rules-of-learning skill guides the explanation, not empirical
-  evidence or a guarantee of judging scores.
+  clarity.

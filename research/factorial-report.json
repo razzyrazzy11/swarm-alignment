@@ -81,8 +81,8 @@
     "cost_basis": "published_peak_uncached_estimate_not_invoice"
   },
   "freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
-  "reporting_freeze_sha256": "3aa651c7786180bd02ad97f4e2371b632679cedbf0b23224ccdff2ca4448ef6f",
-  "extension_freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0",
+  "reporting_freeze_sha256": "77527a04c86c735a2ab7ee503e5c62413440f2cadf16cdbb7670216d6e1d886e",
+  "extension_freeze_sha256": "cef46de10d0e40b01acf9e523779c08c2aed2a03c3ffd890e7efe55c4ce63083",
   "original_checkpoint_sha256": "b55f795a0ac26a66b5d47582ab4714279d8ded035363a61be0fd5a410b4d601a",
   "artifacts": {
     "data/factorial_contexts.json": "5e386a7f4dccf3737e2a8f740b4f69d5bf841e2dc871257d85f43861044380b3",
@@ -206,7 +206,7 @@
         "incomplete": 0,
         "estimated_cost": "0.00043054",
         "cost_basis": "published_peak_uncached_estimate_not_invoice",
-        "freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0"
+        "freeze_sha256": "cef46de10d0e40b01acf9e523779c08c2aed2a03c3ffd890e7efe55c4ce63083"
       },
       "readers": {
         "planned": 4728,
@@ -219,7 +219,7 @@
         "incomplete": 0,
         "estimated_cost": "2.21024212",
         "cost_basis": "published_peak_uncached_estimate_not_invoice",
-        "freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0"
+        "freeze_sha256": "cef46de10d0e40b01acf9e523779c08c2aed2a03c3ffd890e7efe55c4ce63083"
       }
     }
   },

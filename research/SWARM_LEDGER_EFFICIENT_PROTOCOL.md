@@ -111,6 +111,3 @@ use of sufficient evidence?
 - Apart guidelines/Judging and results: transparent empirical accounting and
   clear claims support execution quality and presentation; no score is promised.
   https://apartresearch.com/sprints/swarm-alignment-2026#guidelines
-- 20-rules-of-learning is used editorially: identify the concrete bottleneck,
-  explain one bounded repair, then connect each invariant to its test and limit.
-  It supplies no scientific evidence or authority to alter registered outcomes.

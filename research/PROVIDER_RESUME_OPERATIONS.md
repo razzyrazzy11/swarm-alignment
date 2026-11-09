@@ -61,10 +61,7 @@ appendices excluded. No unfinished empirical outcome is selected or scored
 during operations. The optional serving pilot remains blocked/unrun; the four
 queued scientific reviews remain after validation and paper integration.
 
-The 20-rules-of-learning explanation sequence remains concrete handoff,
-evidence/delivery/use distinctions, matched comparisons, findings and limits.
-Operational failures are delivery outcomes, not evidence of deficient reasoning
-or swarm misconduct. A health check is not scientific validation.
+Operational failures are delivery outcomes, not evidence of deficient reasoning or swarm misconduct. A health check is not scientific validation.
 
 Primary sources:
 

@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-11-09T18:03:44.465814+00:00",
+  "kind": "publication_editorial_revision_v1_source_freeze",
+  "parent_manifest_sha256": "93a801f3f07b1178b8e631de66ab4738ebedb4acfdf33a007aefdd5692dc21b4",
+  "source_commit": "1797b541db1fac491835e589d67000af2de0c301",
+  "source_sha256": {
+    "publication_revision/__init__.py": "acc6af0c8d0b562dd6fbb27d4826f9fee8d66e9ab074bdcceef31d7edd540a13",
+    "publication_revision/admission.py": "e414931bcb5009c2aca8f1710ee056b22f3233398d71e78b84ab21e2ccd8b792",
+    "publication_revision/artifacts.py": "f58c5da3e29422f28a9a06042bcacacb6268d7377541dac9b3ea1f140e6d3e3e",
+    "publication_revision/test_revision.py": "28087473663884fafcaf0da2a7616f469d351c895d0fd49f511683d9da4d4c4b",
+    "publication_revision/verify.py": "cb02afbe97964eb423645ee98c0ea0cdb3e4d4a5dcb1987ad922f35128cea969",
+    "research/PUBLICATION_EDITORIAL_REVISION_V1_PROTOCOL.md": "086cae1cabc854750a18ec34f8c3f16891a0af5374e1c8e93a4a07ed31f315ab"
+  },
+  "tag": "publication-editorial-revision-v1"
+}

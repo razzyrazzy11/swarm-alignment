@@ -14,7 +14,7 @@ This is my feasibility-and-impact judgment, not a forecast of winning. All track
 
 | Rank | Track and project | Potential contribution | Weekend risk | Decision |
 |---|---|---|---|---|
-| 1 | 4 + 3: evidence loss × identity churn | Evidence-matched stress test; false attribution and coverage tradeoff; minimum trustworthy records | Overlap with recent forensics papers; answerability oracle must be correct | Best continuation of the sting study's calibrated audit practices |
+| 1 | 4 + 3: evidence loss × identity churn | Evidence-matched stress test; false attribution and coverage tradeoff; minimum trustworthy records | Overlap with recent forensics papers; answerability oracle must be correct | Supports calibrated audit practices and explicit false-accusation reporting |
 | 2 | 3 + 4: delegation scope enforcement | Compare agent-side permission checks with an external interpreter in the same fake-record task | Can become a conventional access-control demo | Fallback if forensic labels are not reliable by Saturday noon |
 | 3 | 2: one compromised worker in chain/star/dense networks | Causal spread and containment across network shapes | Infection studies already exist; topology and token budget confound | Good only with a mechanism or intervention beyond topology plots |
 | 4 | 1: cheap-model proxy validity | Measure where cheap agents preserve or reverse safety conclusions | Needs at least one credible expensive reference; sponsor training credits may not cover it | Useful extension after the core protocol works |
@@ -80,15 +80,6 @@ Use the current linked template; the attached October template has the old sprin
 
 [Submission terms](https://apartresearch.com/sprints/prize-terms): obtain every named teammate's agreement to submission; review the content license and prize conditions yourself. [Responsible disclosure policy](https://apartresearch.com/info/responsible-disclosure-policy): assess operational details before release; provide a benign reproduction where possible.
 
-## 20-rules-of-learning: a small working knowledge set
+## Historical clean-control calculation
 
-Anchor to the sting study: retain clean controls and report false accusations, but do not transfer its calibrated false-positive threshold to this unrun task. With 60 independent clean episodes, zero events leaves a one-sided 95% upper bound of about 4.87%; the new 300-clean-episode candidate gives about 0.994% if all are eligible and have zero events. Exact binomial interpretation assumes common risk; the zero-event mean-risk bound is conservative under independent heterogeneity. Keep one distinction per note, date volatile facts and connect claims to sources. Revisit these questions before the protocol freeze, analysis and abstract:
-
-1. Why does a valid hash chain fail to prove that every relevant event was recorded?
-2. What is the difference between a correct guess and a supported attribution?
-3. Which clean example would make a monitor that always abstains look falsely successful?
-4. Why might selective export loss differ from random loss, and why would that not establish spontaneous agent coordination?
-5. Which comparison isolates monitor reasoning from extra instrumentation?
-6. What exact new result would remain if the fine-tuned monitor did not improve?
-
-The skill structures learning and notes; it is not evidence that a research design is novel or scientifically valid.
+With 60 independent clean episodes, zero events leaves a one-sided 95% upper bound of about 4.87%; the new 300-clean-episode candidate gives about 0.994% if all are eligible and have zero events. Exact binomial interpretation assumes common risk; the zero-event mean-risk bound is conservative under independent heterogeneity.

@@ -10,7 +10,7 @@
   },
   "snapshot_tag": "results-v3",
   "anchors": {
-    "research/factorial-report.json": "ae633f065f6831fbe04358983a40106a3c10cfc927e738b871fe150b59bbf923",
+    "research/factorial-report.json": "54cc7cb2c5a0245bc013f5190f38364eb4f91ed9195fadf6891f49ec70acd0d0",
     "data/factorial_contexts.json": "5e386a7f4dccf3737e2a8f740b4f69d5bf841e2dc871257d85f43861044380b3",
     "data/factorial_report_actors.jsonl": "8fb47ddd64fea332936ff78ae8fa1e4df6661935d27dd4b141f322e7c84298f2",
     "data/factorial_report_trajectories.json": "bf9be467c9e19d2faaa9bb37eb23edb2be5d5f6cac5839242b2c61f6ea032bce",

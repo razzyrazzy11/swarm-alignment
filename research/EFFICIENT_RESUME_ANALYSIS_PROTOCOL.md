@@ -93,12 +93,7 @@ the paper or attest visual QA. Final interpretation and every actual PDF page
 still require review; the four queued post-integration investigations retain
 their existing order after validation and integration.
 
-Use the sprint's Impact Potential and Innovation, Execution Quality, and
-Presentation and Clarity criteria to prioritize complete empirical evidence,
-reproducibility and clearly scoped implications. The 20-rules-of-learning skill
-supports concrete-example → definition → method → result → limitation flow;
-it supplies no empirical evidence or judging-score guarantee. Preserve the
-required Limitations and Dual-Use / Ethical Considerations appendix.
+The sprint's Impact Potential and Innovation, Execution Quality, and Presentation and Clarity criteria prioritize complete empirical evidence, reproducibility and scoped implications. The required Limitations and Dual-Use / Ethical Considerations appendix remains part of the report.
 
 Primary conventions: [RFC9110 §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2)
 limits automatic retries of non-idempotent requests;

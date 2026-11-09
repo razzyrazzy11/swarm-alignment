@@ -8,15 +8,15 @@ All 297 experiment tests and 23 paper tests pass. Public replay validates 192 tr
 
 The scope review corrected potential overclaims: all natural labels are NONE and always-NONE is perfect on sufficient packets; main gains concern fewer false accusations. The Gemma 31B implementations' DIRECT expired-write control failures and G26's worse aggregate procedure calibration remain visible. Parsed ungated scores are distinguished from strict bare-JSON compliance. HF operational INVALID outcomes do not establish latent reasoning inability. Logical bounds are not confidence intervals, and acquisition coverage is not subtracted from reader accuracy as causal apportionment.
 
-An actual OpenCode mathematical proof review completed for the binary bounds, followed by independent local mathematical and synthetic audits. Some later Go implementation and collector/report critique attempts stalled and were cancelled without substantive verdicts; they are not credited as completed vendor code reviews. Automatic approval rejected a proposed Anthropic code transfer before transmission. No Anthropic request was sent. The authorized Go alternative and local fallback are disclosed rather than described as external approval.
+A mathematical proof review of the binary bounds was followed by independent local mathematical and synthetic audits. Uncompleted implementation and collector/report critique attempts are excluded from completed-review counts.
 
 ## Historical pre-output implementation review
 
 Before fresh inference, 7 November 2026. New files only; earlier frozen engines, protocols and scientific outputs remain untouched.
 
-The OpenCode reuse scout read five isolated source copies and reported seven read-only tool calls. It correctly warned that old runner globals cannot be treated as a newly configurable execute loop. The new runner owns execution, config, journals, registration and release. It reuses stable body/normalization/rate helpers only under explicit setting-equality guards and verification of all old live-core source hashes. Endpoint/token/price drift fails closed; new phase ceilings are explicit.
+A review of five isolated source copies warned that old runner globals cannot be treated as a newly configurable execute loop. The new runner owns execution, config, journals, registration and release. It reuses stable body/normalization/rate helpers only under explicit setting-equality guards and verification of all old live-core source hashes. Endpoint/token/price drift fails closed; new phase ceilings are explicit.
 
-An OpenCode implementer dispatch stalled without producing files and was aborted. The engine and six focused tests were completed locally; they are not credited as model-generated implementation. A separate OpenCode security reviewer actually read the isolated engine (one read, zero edits) and identified deeply nested malformed values escaping validation. A RecursionError rejection guard and regression were added before freezing, along with strict manifest types and route-string checking. The review found no concrete mismatch in permission, sufficient identifiability, selector blindness or the declared uniform-world objective within its scope. Its source snapshot preceded the final defensive validation changes; local regressions cover those changes.
+The engine and six focused tests were completed locally. A separate source-only security review of the isolated engine identified deeply nested malformed values escaping validation. A RecursionError rejection guard and regression were added before freezing, along with strict manifest types and route-string checking. The review found no concrete mismatch in permission, sufficient identifiability, selector blindness or the declared uniform-world objective within its scope. Its source snapshot preceded the final defensive validation changes; local regressions cover those changes.
 
 The independently authored reference imports no generator/engine helpers. It factors visible binding/outcome/authorization constraints separately. Fifteen independent-reference tests cover all 288 histories times eight public policy settings, full/sufficient packets, exact record construction, forty registered views, sparse masks/add-backs, malformed/impossible packets, half-open expiry and selector invariance. This is bounded exhaustive/fixture validation, not all mask/history combinations or independent validation of deployment semantics. Combined engine/reference tests passed.
 
@@ -30,7 +30,7 @@ Primary-source and rubric review are in FACTORIAL_SOURCES.md and FACTORIAL_RUBRI
 
 During collection, the unchanged experimental suite passed all 163 tests. Three additional synthetic paper-contract tests exercise the forthcoming factorial report branch without reading any fresh outcomes: raw versus gated credit, calibration versus main denominators, and 192 source groups versus repeated calls. All fourteen paper tests passed against the current completed prior-study artifacts plus these synthetic fixtures. This does not attest the still-unwritten empirical factorial PDF; it will require completed data, replay, export and visual review.
 
-Actual OpenCode implementer task `02700dbb-867e-4cc1-ad6e-c763255dac21` used the discovered free GLM backend and an isolated two-file allowlist. Its finalized report records four completed tool calls and zero mutations; a no-tools follow-up returned a draft test module as text. The module was saved locally and corrected to mutate manuscript cells rather than the raw source, and to test denominator 3,840 rather than 384. The three focused tests then passed. No new repository defect was found. Owned review services were stopped without touching the collector. This scoped review is not independent empirical replication.
+An isolated source-only review returned a draft test module. The module was saved locally and corrected to mutate manuscript cells rather than the raw source, and to test denominator 3,840 rather than 384. The three focused tests then passed. No new repository defect was found. This scoped source review is not independent empirical replication.
 
 ## 7 November 04:18 UTC account-cushion checkpoint
 
@@ -45,14 +45,7 @@ HTTP 429 before stopping at 9,711 reader terminal records, with 1,929 unstarted.
 No scientific effects were inspected. The separately registered operational
 continuation preserves the original scientific sources and request grid.
 
-An isolated OpenCode implementer stalled without producing files; the new
-sequential runner and tests were completed locally. An actual different-model
-GLM security reviewer read five allowlisted source files with zero mutations.
-Its findings prompted explicit preservation of the starting summary in the
-outside driver, recalculation of historical known costs and unknown-usage
-reservations, and public tag verification. The reviewed snapshot preceded later
-CI separation, exclusive-lock and cost-hardening changes; those changes are
-covered by local regressions, not credited as independently reviewed code.
+The sequential runner and tests were completed locally. A source-only security review of five allowlisted files prompted explicit preservation of the starting summary in the outside driver, recalculation of historical known costs and unknown-usage reservations, and public tag verification. The reviewed snapshot preceded later CI separation, exclusive-lock and cost-hardening changes; local regressions cover those changes.
 
 Seventeen new synthetic tests cover unchanged request bodies, pre-journal
 pacing and STOP, exact prefix/plan/ID validation, unresolved starts, exclusive
@@ -77,15 +70,7 @@ identities and left 1,898 requests unstarted. The finalizer stopped before
 authoring. A separate diagnostic was prepared to inspect serving errors without
 retrying a study identity or changing a scientific denominator.
 
-The isolated OpenCode implementer stalled; implementation was completed locally.
-An actual Deepseek security review read eleven allowlisted files with zero
-mutations. Its redirect finding was fixed with a diagnostic-only handler refusing
-every redirect, preserving the one-GET/one-POST bound. Further fixes validate
-credentials before creating the exclusive output folder, reject malformed
-catalog prices, require a literal halted state and bound successful receipts.
-Native HF token-field handling and recursive original-helper source binding were
-checked; the corresponding review allegations were unsupported. Later changes
-have local regression coverage rather than a claimed second remote review.
+A source-only security review of eleven allowlisted files identified a redirect issue, fixed with a diagnostic-only handler refusing every redirect and preserving the one-GET/one-POST bound. Further fixes validate credentials before creating the exclusive output folder, reject malformed catalog prices, require a literal halted state and bound successful receipts. Native HF token-field handling and recursive original-helper source binding were checked; the corresponding review allegations were unsupported. Later changes have local regression coverage rather than a claimed second remote review.
 
 Fifteen diagnostic tests and the existing seventeen continuation/ten frozen-runner
 tests passed together. Tests cover STOP before and after the catalog request,

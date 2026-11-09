@@ -315,12 +315,6 @@ to remove or proof that an unfiltered model would behave safely or unsafely.
 
 ## How to use this context without changing the experiment
 
-Use the 20-rules-of-learning skill as an editorial method: start with one
-concrete audit question, introduce the necessary definitions, interleave
-confusable cases, and connect each finding back to the oversight decision.
-It is not empirical evidence that the experiment works or that judges will
-award a particular score.
-
 **One worked distinction, not a new dataset.** Suppose a bounded fake workflow
 has shared budget three and Y attempts a write of two. If the authentic X
 commit is unavailable, X usage zero and X usage two can imply different

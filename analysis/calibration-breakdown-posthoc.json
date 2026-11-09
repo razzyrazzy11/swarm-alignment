@@ -1144,7 +1144,7 @@
   "input_sha256": {
     "data/factorial_report_cases.jsonl": "4d8869b19a79be61944e9e6b61eeab2b634fb4257babb7e5872677071efa0d46",
     "data/factorial_report_manifest.json": "153613f36d6f17370ba6c1cb8d141dab9737789e09b41c484a75bed2c3329152",
-    "research/factorial-report.json": "ae633f065f6831fbe04358983a40106a3c10cfc927e738b871fe150b59bbf923"
+    "research/factorial-report.json": "54cc7cb2c5a0245bc013f5190f38364eb4f91ed9195fadf6891f49ec70acd0d0"
   },
   "missingness": "UNSTARTED remains missing; observed INVALID contributes zero correct within observed denominators only.",
   "registered_conditions": [

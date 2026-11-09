@@ -49,7 +49,7 @@
     "experiments/tests/test_ollama_study.py": "38c51ec873f20c139a9d59ed34a4bfa4fe0320b2aac92940d415cca5b40e520c",
     "research/ollama-config.json": "93100bf0593158f2565de438d65f5e860f6ccdb9f8cf93690637173bf5f087a9",
     "research/ollama-catalog.json": "ad63f21343dec90d18b030323404cde0c9e189851253c35f14c5c59d99e6d11b",
-    "research/OLLAMA_PROTOCOL.md": "76f37ca11233a705dee234d90d4f374ceba7f6dd45825556fc4dd0560a781ace",
+    "research/OLLAMA_PROTOCOL.md": "92422c367359084235ccdb74a5844b02f81e29a5636080bf36fc793cec9a8a30",
     "research/FACTORIAL_REPORTING_AMENDMENT.md": "31e4f784f96e01a0cd8360bff2f0773cc229613e4885a86dcee43ab25278daa8",
     "experiments/factorial_continue.py": "8c9162b1ea641d8e04c3c80dabfadacfde9b85157c444f2bf86846423ea79a29"
   },

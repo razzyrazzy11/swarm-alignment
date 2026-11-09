@@ -1,70 +1,127 @@
 # When Can a Swarm Be Audited?
 
-**Multi-Agent Oversight and Control.** Which part of swarm oversight needs repair: acquiring authentic evidence, delivering a usable verdict, or using sufficient evidence correctly?
+> **Version notice — 9 November 2026 (post-deadline housekeeping).**
+>
+> The [PDF delivered for submission at 11:57 UTC](https://github.com/razzyrazzy11/swarm-alignment/blob/7c3f570fb89ffa685e495dce46349cc9caee4876/paper/out/swarm_audit_scoping.pdf) is the pre-housekeeping deadline version. Its SHA-256 is `418c27f6e9d5b7ecfc4e76f1c7bbb76ca412370d15c3ff5ff7741be1ea6fd193`.
+>
+> The current repository PDF (15 pages; 14 references) is a post-deadline editorial copy, not that original version. Changes after 11:59 UTC remove unrelated references and process notes, clarify access instructions, update verification paths and metadata, and improve test compatibility across platforms. The experimental data, original experiment code, statistical calculations, figure images, abstract and conclusions are unchanged.
+> Verification reruns recompute the same recorded results. The original submission-version PDF linked above remains unchanged; the repository editorial copy is labelled separately.
 
-A worker claiming that a delegated update completed does not establish who acted or whether permission still held. We test those distinctions in a bounded five-role fake-data workflow with authentic host records and untrusted agent notes.
 
-## Completed MAIN
+**Multi-Agent Oversight and Control.** Which part of oversight needs repair:
+acquiring authentic evidence, delivering a usable verdict, or using sufficient
+evidence correctly?
 
-Collection completed on 9 November 2026 at 05:33:56 UTC. Registered offline V2 completed all seven strict stages at 06:33:33 and terminated. The independent paper-candidate gate subsequently passed frozen MAIN/HF replay, provenance, figures and generator sensitivity. There are **640 independent blocks, 2,560 matched trajectories and 53,760 MAIN reader responses**, plus 240 separate scripted calibration and 240 exploratory influence calls. Repeated arms, views and readers do not add independent blocks.
+We study these distinctions in a controlled, matched experiment with a five-role
+fake-data delegation workflow. Authentic host records are separated from
+untrusted agent claims. The contribution is the matched experiment and its
+measurements; the underlying distinctions build on existing work.
 
-The paper integrates the complete MAIN. The corrected native Word PDF has 16 total pages, eight main pages and a 196-word abstract; every page was visually inspected. The four ordered, scoped reviews are recorded below. They corrected the Figure 2 endpoint description and clarified export-time native admission versus later verification. The earlier results-v3 paper is historical; no official submission is implied. Exact-commit validation is visible in [Report integrity checks](https://github.com/razzyrazzy11/swarm-alignment/actions/workflows/report-integrity.yml); older green checks do not validate a changed artifact.
+## Findings
 
-The [claim/source consistency review](research/OVERSIGHT_REPAIR_CONSISTENCY_REVIEW.md) keeps all four earlier review prompts active. The contribution is a controlled, matched experiment using established distinctions: instruction comparisons hold evidence fixed, restoration comparisons match source trajectories, and delivery is measured separately. The study does not identify a universal repair policy or three independent causal components. All 15 primary references were checked at the relevant claim passages, with access and coverage limits recorded.
+The MAIN study contains **640 independent blocks, 2,560 matched trajectories and
+53,760 planned reader calls**, all terminal, across six serving profiles.
+Scripted calibration (240 calls) and exploratory peer influence (240 calls) are
+separate. Repeated arms, views and readers do not increase the independent sample.
+Failed calls remain in their assigned denominators and are never replaced.
 
-The primary Gemma 26B FULL16 PROCEDURE-minus-DIRECT effect is **−2.07 percentage points [−4.06,−0.12]**, a 95% stratified block-bootstrap interval. Correct-definite verdicts fall from 1,497/2,560 to 1,444/2,560. The proposed procedure did not improve the primary endpoint. Secondary effects vary:
+The primary Gemma 26B PROCEDURE-minus-DIRECT effect on identical sufficient
+FULL16 packets is **−2.07 percentage points [−4.06, −0.12]**, a 95% stratified
+block-bootstrap interval. Correct-definite verdicts fall from 1,497/2,560 to
+1,444/2,560. The proposed procedure did not improve the primary endpoint.
 
-| Reader | Correct definite DIRECT / PROCEDURE, each /2560 | P minus D, pp [95% CI] |
+| Reader | Correct definite DIRECT / PROCEDURE, each /2,560 | Difference, pp [95% CI] |
 |---|---:|---:|
-| Adaption Gemma 26B, primary |1497 /1444|−2.07 [−4.06,−0.12]|
-| Adaption Gemma 31B |2075 /2330|+9.96 [+8.55,+11.37]|
-| HF Llama text |834 /900|+2.58 [+1.72,+3.44]|
-| HF Llama schema |838 /908|+2.73 [+1.88,+3.63]|
-| Ollama DeepSeek off |1689 /1689|0.00 [−0.55,+0.59]|
-| Ollama DeepSeek low |2357 /2308|−1.91 [−3.01,−0.82]|
+| Adaption Gemma 26B, primary | 1,497 / 1,444 | −2.07 [−4.06, −0.12] |
+| Adaption Gemma 31B | 2,075 / 2,330 | +9.96 [+8.55, +11.37] |
+| HF Llama text | 834 / 900 | +2.58 [+1.72, +3.44] |
+| HF Llama schema | 838 / 908 | +2.73 [+1.88, +3.63] |
+| Ollama DeepSeek off | 1,689 / 1,689 | 0.00 [−0.55, +0.59] |
+| Ollama DeepSeek low | 2,357 / 2,308 | −1.91 [−3.01, −0.82] |
 
-Secondary intervals are descriptive, not familywise-adjusted discoveries. Six profiles span four checkpoints and three families. G26/G31/DeepSeek low also read six reduced/restored views on 1,280 matched honest/both-arm trajectories within the same 640 blocks.
+Secondary intervals are descriptive, without familywise adjustment. Contract-record
+restoration raises finite-domain answerability from 452/1,280 to 1,280/1,280.
+Supported-correct gains, including required abstention, are 3.44, 15.31 and 10.31
+percentage points for Gemma 26B, Gemma 31B and DeepSeek low, respectively.
 
-Contract-record restoration raises finite-domain answerability from 452/1,280 to 1,280/1,280. Supported-correct gains including required abstention are 3.44, 15.31 and 10.31 points for those three readers. Changing available evidence is distinct from improving evidence use. DeepSeek off delivers valid bare JSON throughout FULL16 but makes 871 false executor accusations in 2,560 DIRECT readings. Format compliance is not correctness. The 788 actual target violations imply an always-NONE baseline of 69.22%; scripted calibration and peer influence remain separate.
+Delivery and correctness remain distinct: DeepSeek off returns valid bare JSON
+throughout FULL16 but makes 871 false executor accusations in 2,560 DIRECT
+readings. The 788 actual target violations imply an always-NONE baseline of
+69.22%. These results do not identify a universal repair policy or causally
+partition failures into independent components.
 
-## Read and reproduce
+## Report and data
 
-Start with the [integrated PDF](paper/out/swarm_audit_scoping.pdf), [DOCX](paper/out/swarm_audit_scoping.docx), [aggregate report](data/swarm-ledger-v1-public/report.json), [scientific protocol](research/SWARM_LEDGER_COMPLETE_PROTOCOL.md), [generator sensitivity](data/swarm-ledger-generator-sensitivity-v1/report.json) and [figure provenance](paper/figures/swarm-ledger-complete-v1/ledger_figures_provenance.json). Current QA status is stated above.
+- [Repository editorial PDF (post-deadline)](paper/out/swarm_audit_scoping.pdf) and [editable editorial DOCX](paper/out/swarm_audit_scoping.docx).
+- [Complete MAIN report](data/swarm-ledger-v1-public/report.json) and [study protocol](research/SWARM_LEDGER_COMPLETE_PROTOCOL.md).
+- [Generator sensitivity](data/swarm-ledger-generator-sensitivity-v1/report.json) and [figure provenance](paper/figures/swarm-ledger-complete-v1/ledger_figures_provenance.json).
+- [Current paper QA](research/editorial-paper-qa-v1.json) and [publication revision protocol](research/PUBLICATION_EDITORIAL_REVISION_V1_PROTOCOL.md).
 
-Use a full Git checkout with the registration tags. CI uses Python 3.12 and installs the verification dependencies before running the public checks:
+This repository edition removes unrelated context and editorial process notes.
+The data, recorded study final responses, scientific functions, estimands and
+results are preserved. The revised paper has its own native export and complete
+page inspection; the previously delivered paper remains a historical edition.
 
-```powershell
+Protocol and review documents are publication copies. Original registrations and
+Git history remain preserved; these edited documents are not presented as the
+original registered bytes. The [revision manifest](publication_revision/manifest.json)
+records the reviewed changes against the earlier verified snapshot. Current
+verification uses the explicit route below.
+
+## Reproduce the results
+
+Use a fresh checkout and Python 3.12. Obtain the manifest and launcher SHA-256
+values from the [author-controlled verification section of the housekeeping PR](https://github.com/razzyrazzy11/swarm-alignment/pull/3). Values inside this checkout
+are not independent trust anchors. Check the launcher before executing it or
+installing dependencies; replace the two placeholders with those external pins.
+
+```text
+python -I -B -c "import hashlib,pathlib,sys; p=pathlib.Path('publication_revision/verify.py'); sys.exit(0 if hashlib.sha256(p.read_bytes()).hexdigest()==sys.argv[1] else 'Launcher pin mismatch')" EXTERNAL_LAUNCHER_SHA256
+python -I -B publication_revision/verify.py --expected-manifest-sha256 EXTERNAL_MANIFEST_SHA256 --preflight-only
 python -m pip install -r paper/preparation-requirements.txt
-python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public
-python -m experiments.test_runner
-python paper/verify.py --public-replay
-python -O paper/verify.py --public-replay
+python -I -B publication_revision/verify.py --expected-manifest-sha256 EXTERNAL_MANIFEST_SHA256 --tests-only
+python -I -B -O publication_revision/verify.py --expected-manifest-sha256 EXTERNAL_MANIFEST_SHA256 --tests-only
+python -I -B publication_revision/verify.py --expected-manifest-sha256 EXTERNAL_MANIFEST_SHA256
+python -I -B -O publication_revision/verify.py --expected-manifest-sha256 EXTERNAL_MANIFEST_SHA256
 ```
 
-Public replay verifies exported jobs, actions, evidence, scores and arithmetic. Native-journal validation occurred during export; a fresh full native-journal check requires the private archive and admission path. The default paper verifier checks retained private failed-waiter evidence and provenance plus public replay, rather than repeating every native-journal check. Neither hashes nor replay independently authenticate a provider. See the [verification-scope erratum](research/PUBLIC_VERIFICATION_SCOPE_ERRATUM.md). Paper verification binds the current DOCX/PDF, aggregate tables, figure sources and actual all-page inspection receipt. CI alone is not visual inspection.
+This route checks the file inventory, reviewed editorial changes, host simulation,
+parsing, scores, bootstrap statistics, sensitivity results, paper and figures.
+Original private-protocol admission is separately attested. Public replay does not
+independently authenticate provider-native records, immutable model weights or a
+host's truthfulness. Hashes detect changes to retained files; they do not establish
+that every relevant event was recorded.
 
-The following local checks additionally require the retained private failed-waiter states and logs and process-termination evidence. They are not clean-checkout reproduction commands and do not repeat full native-journal admission:
+CI uses the author-controlled `PUBLICATION_MANIFEST_SHA256` and
+`PUBLICATION_LAUNCHER_SHA256` repository variables before importing project code.
+The original whole-tree commands and workflows preserved under `provenance/`
+describe earlier editions and are not the current reproduction route.
 
-```powershell
-python -m experiments.offline_release_recovery_v2 verify
-python paper/verify.py
-python -O paper/verify.py
-```
+## Earlier studies and limits
 
-Seven disjoint collection batches preserve stopped prefixes and never retry/replace failed identities. All 53,760 planned MAIN reader identities are terminal; 34 retain unknown-usage reservations. Both auxiliaries have 240/240 HTTP200 terminals, known usage and zero capture anomalies. The excluded serving pilot is blocked/unrun. No new inference is needed.
+The earlier 192-source natural sample contained only NONE labels; its procedure
+gain concerns false accusations and cannot establish incident recall. Original
+HF completion recovers original identities and is not substituted into MAIN.
+Earlier [scripted](research/STATEFUL_RESULTS.md), [live](research/LIVE_RESULTS.md),
+[weight-policy](research/WEIGHT_RESULTS.md) and [factorial](research/FACTORIAL_RESULTS.md)
+studies remain separate.
 
-The original paced HF export and registered offline V1 both failed before release; their states/logs/source/freezes remain immutable. V2 validates the omitted finite nonnegative next_delay_seconds metadata, then projects after frozen private/native admission. Public validation, rows/failures, costs, identities and scientific functions remain unchanged. See the [MAIN release proof](research/swarm-ledger-paced-resume-release-proof.json) and [HF recovery proof](research/hf-offline-release-recovery-v2-proof.json).
+The ordered reviews cover [serving history](research/FINAL_REVIEW_1_SERVING_HISTORY.md),
+[CI history](research/FINAL_REVIEW_2_HISTORICAL_CI.md),
+[mathematics](research/FINAL_REVIEW_3_MATH.md),
+[code and provenance](research/FINAL_REVIEW_3_CODE_PROVENANCE.md),
+[primary sources](research/FINAL_REVIEW_3_PAPER_SOURCES.md), and
+[narrative and visual checks](research/FINAL_REVIEW_4_NARRATIVE_VISUAL.md).
+They are scoped, AI-assisted checks rather than independent empirical
+replications or certification of originality. Current artifact status is bound
+by the new QA receipt linked above. AI assistance and author responsibility are
+disclosed in the report.
 
-The [CI fixture amendment](research/CI_FIXTURE_AMENDMENT.md) preserves frozen test bytes/assertions while stabilizing explicit synthetic clocks, completion observation and journal snapshots. It covers 34 exact calendar methods, a single fault-first synthetic scenario and the documented journal ordinal fixture. Production clocks, cutoffs, caps and science are unchanged; the real optional serving pilot remains blocked and unrun. Historical red runs remain preserved. New artifact checks must pass at their own commit.
+A synthetic role graph, authentic-host assumption, generator-relative oracle,
+dependent views and unpinned serving limit transfer. No internal mechanism,
+spontaneous collusion, general swarm safety or deployment guarantee is established.
 
-The four ordered reviews cover [historical serving failures](research/FINAL_REVIEW_1_SERVING_HISTORY.md), [attached historical CI failures](research/FINAL_REVIEW_2_HISTORICAL_CI.md), [mathematics](research/FINAL_REVIEW_3_MATH.md), [code/provenance](research/FINAL_REVIEW_3_CODE_PROVENANCE.md), [paper/primary sources](research/FINAL_REVIEW_3_PAPER_SOURCES.md), and [final narrative/template/visual QA](research/FINAL_REVIEW_4_NARRATIVE_VISUAL.md). Review 3 used native Codex Astra, Terra and Sol models as the documented fallback because OpenCode was unavailable. These are scoped reviews with explicit coverage gaps, not independent-vendor certification or exhaustive proof of originality.
-
-## Historical work and limits
-
-The [results-v3 snapshot](https://github.com/razzyrazzy11/swarm-alignment/tree/results-v3) preserves the earlier 192-source report. Its natural labels were all NONE, so its procedure gain concerns false accusations, not incident recall. Original HF completion recovers original identities and is not substituted into MAIN. Earlier [scripted](research/STATEFUL_RESULTS.md), [live](research/LIVE_RESULTS.md), [weight-policy](research/WEIGHT_RESULTS.md) and [factorial](research/FACTORIAL_RESULTS.md) studies remain separate.
-
-Razvan Sacara's October 2026 [trusted-agent-sting](https://github.com/razzyrazzy11/trusted-agent-sting) is preexisting work; its code/data/results were not imported. AI tools assisted code and writing; the author remains responsible. The [talk-context synthesis](research/TALK_CONTEXT_SYNTHESIS.md) is contextual, not empirical evidence. The 20-rules-of-learning skill guides concrete examples and distinctions, not science.
-
-A synthetic role graph, authentic-host assumption, generator-relative oracle, repeated sources and unpinned serving limit transfer. Layers can coexist; effect sizes do not causally partition errors. No universal prompting remedy, internal mechanism, spontaneous collusion, general swarm safety or judging outcome is established.
-
-Keys, native IDs, headers, raw reasoning and raw runs remain excluded; see [SECURITY.md](SECURITY.md). The repository remains private. The completed study, public replay data, code and documentation were merged through protected PR #1; final presentation changes receive their own verification and protected PR. Judge access, official upload and a change to public visibility remain author actions.
+Recorded final responses to the bounded fake-data tasks support parser replay;
+credentials, private provider records and hidden reasoning are excluded from the
+publication snapshot. See [SECURITY.md](SECURITY.md). Cleaning the current files
+does not rewrite historical commits or remove previously downloaded copies.

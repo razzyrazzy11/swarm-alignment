@@ -45,10 +45,7 @@ defined by COLLECTION_CONNECTIVITY_PROTOCOL.md and the two collectors, with the
 original collection cutoff retained. These changes require new registration;
 they never retroactively turn the old frozen stops into successful runs.
 
-Use the sprint's Judging and results criteria to prioritize reproducible actual
-findings, clear failure accounting and evidence-versus-reasoning interpretation.
-Use 20-rules-of-learning for the example/definition/method/result/limitation flow,
-not as scientific evidence. Required limitations and dual-use disclosure remain.
+The sprint's judging criteria prioritize reproducible actual findings, clear failure accounting and evidence-versus-reasoning interpretation. Required limitations and dual-use disclosure remain.
 
 Primary conventions: HTTP RFC9110 section9.2.2 cautions against ambiguous POST
 retries; Python urllib.error documents recoverable exception classification;

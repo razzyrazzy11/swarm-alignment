@@ -71,12 +71,7 @@ The new collector's conservative server-error policy is defined in
 model, budget or scientific-condition changes. A failed or incomplete new
 continuation blocks offline publication and final paper integration.
 
-Use the sprint's Impact Potential and Innovation, Execution Quality, and
-Presentation and Clarity criteria to prioritize a reproducible matched diagnosis,
-complete failure accounting, and scoped claims. The 20-rules-of-learning skill
-supports concrete-example → definition → matched-method → result → limitation
-flow; it is not scientific evidence. Preserve the required Limitations and
-Dual-Use / Ethical Considerations appendix.
+The sprint's Impact Potential and Innovation, Execution Quality, and Presentation and Clarity criteria prioritize a reproducible matched diagnosis, complete failure accounting and scoped claims. The required Limitations and Dual-Use / Ethical Considerations appendix is preserved.
 
 Primary conventions: [RFC 9110 §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2)
 limits automatic retries of non-idempotent requests;

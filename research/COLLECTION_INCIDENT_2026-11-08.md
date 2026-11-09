@@ -174,6 +174,3 @@ does not create a new independent sample or justify changing the primary endpoin
   clear limitations support execution quality and clarity; more requests or a
   hidden retry do not themselves establish research impact.
 
-The 20-rules-of-learning skill guides this explanation's ordering: concrete event,
-failure mechanism, implications and next actions. It supplies no empirical evidence
-for the experiment or guarantee of judging scores.

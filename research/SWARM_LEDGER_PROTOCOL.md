@@ -377,13 +377,4 @@ will discuss evasion insights, controlled attacker instructions, trusted-log
 assumptions, synthetic data, provider/data privacy and restrictions on transfer
 to live agents. Do not publish operational attacks on real systems.
 
-The paper will use the official template and at most eight main pages, with
-references and appendices separate. Following the 20-rules-of-learning skill as
-an editorial aid, introduce the shared-budget example, define evidence and
-verdicts once, and connect each intervention to the failure it addresses. Planned
-visuals are a workflow/evidence diagram, paired effect intervals with explicit
-block n, and separate positive/negative/delivery failure panels. Every plotted
-value must be generated from retained empirical records. Prior work and
-pre-weekend code remain labeled; weekend additions, AI assistance and source
-provenance remain explicit. No guaranteed score or originality assurance is
-claimed, and no incomplete condition may be described as complete.
+The paper will use the official template and at most eight main pages, with references and appendices separate. Planned visuals are a workflow/evidence diagram, paired effect intervals with explicit block n, and separate positive/negative/delivery failure panels. Every plotted value must be generated from retained empirical records. Earlier study iterations, AI assistance and source provenance remain explicit. No guaranteed score or originality assurance is claimed, and no incomplete condition may be described as complete.

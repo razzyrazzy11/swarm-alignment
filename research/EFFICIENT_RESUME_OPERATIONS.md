@@ -73,6 +73,4 @@ The implementation and its synthetic equivalence tests are the primary sources
 for the eligibility claim. [Python futures semantics](https://docs.python.org/3.12/library/concurrent.futures.html)
 distinguish submitted/running/completed work; faster bookkeeping does not make a
 running request unstarted. [Apart guidelines and judging](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines)
-remain the execution/impact/clarity reference. Use the20-rules-of-learning sequence
-to explain the concrete bottleneck, invariant, scoped repair and limitations;
-the editorial skill is not scientific evidence.
+remain the execution/impact/clarity reference.

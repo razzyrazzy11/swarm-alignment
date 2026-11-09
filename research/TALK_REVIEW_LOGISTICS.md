@@ -21,7 +21,7 @@ grace-period and private-repository passages agree materially across renditions.
 |---|---|---|
 | 13:33 recording, 05:05–08:15; 22:32 recording, 08:14–09:25 and 16:22–17:05 | One concrete research question, sound execution, and a readable report matter. A judge may decline an unclear report. | Keep Track 4 explicit; distinguish acquisition, delivery and reasoning before showing effects. Show the matched comparison and its denominator beside each claim. |
 | 13:33, 18:11–18:29 and 24:45–25:56 | Build an experiment, not only an idea or an elaborate product. Methodology matters more than technical display. | Complete the registered six-reader comparison and reproducible evidence. More infrastructure or unneeded fine-tuning is not itself a stronger research claim. |
-| 13:33, 06:30–07:08 and 39:41–40:43; 22:32, 05:17–06:28 | Clearly separate earlier work, weekend contributions and supported references. AI assistance is permitted; authors remain responsible. | Keep the October sting project and earlier swarm-audit iterations separate from the new 640-block primary. Credit prior evidence-aware monitoring and the talks' question; do not claim to invent the distinction. |
+| 13:33, 06:30–07:08 and 39:41–40:43; 22:32, 05:17–06:28 | Clearly separate earlier work, weekend contributions and supported references. AI assistance is permitted; authors remain responsible. | Keep earlier swarm-audit iterations separate from the new 640-block primary. Credit prior evidence-aware monitoring and the talks' question; do not claim to invent the distinction. |
 | 13:33, 33:14–35:44; 22:32, 06:57–08:12 | Start the report early and use same-title resubmission before the deadline. | The existing result-blind preparation is useful. An unfinished draft must be labeled honestly; no submission was made by this review. |
 | 13:33, 40:49–41:34 | In response to the author's repository question, the organizer advises keeping potentially hazardous code private unless contacted. | Keep the current private repository and judge-access/publication decisions explicit. This is not permission to publish or send repository code to external reviewers. |
 
@@ -57,12 +57,3 @@ They are the rules reference; offhand speech and participant chat are context.
   not verified as technical claims. Improve wording for accuracy and human
   comprehension; do not optimize the paper for evading a detector.
 
-## Reading structure using 20-rules-of-learning
-
-Begin with a single investigator's task. Define sufficient evidence within the
-finite history model. Contrast retrieval with interpretation using the same
-example. Introduce the matched estimands, then the actual results, baselines and
-limits. Keep one scientific distinction per paragraph. Supporting figures and
-iteration details can move to appendices; the required ethical discussion stays
-explicit. These are editorial choices, not evidence for an empirical finding or
-a forecast of judges' scores.

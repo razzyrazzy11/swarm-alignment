@@ -132,7 +132,7 @@ calibration, not naturally produced attacks. This motivates the new assigned-arm
 study; it does not invalidate or rename the original primary. Do not carry old
 reader values into a new-cohort results table.
 
-Move the chronology to an appendix: earlier sting foundations; temporal/weight
+Move the chronology to an appendix: temporal/weight
 and influence explorations; original factorial/all-NONE behavior; original
 scripted controls; complete original/extension results as independently verified;
 and the current new ledger design. Keep the original HF endpoint completion
@@ -178,12 +178,6 @@ Fixed serving aliases and deterministic job ordering also leave temporal and
 provider-wide dependence outside a source-block bootstrap's guarantees.
 
 ## 6. Editorial and rules checklist
-
-Apply 20-rules-of-learning as an editorial discipline: one distinction per
-paragraph, the same budget example across sections, stable labels, explicit
-transitions, and figures that reconnect metrics to the research question. Do
-not describe this as a learning-science intervention or evidence of reader
-comprehension.
 
 Before submission, check the current [guidelines and judging/results](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):
 official PDF template, at most eight main pages, abstract length, authors and

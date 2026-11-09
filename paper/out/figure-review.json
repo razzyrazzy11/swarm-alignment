@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "pdf_sha256": "418c27f6e9d5b7ecfc4e76f1c7bbb76ca412370d15c3ff5ff7741be1ea6fd193",
+  "pdf_sha256": "71e2c857790a8c85ab259f05d92cb012c461764787bcde0ec272cc3486c9b2eb",
   "figure_sha256": {
     "FIGURE1": "6a689c7ee800c4beffd6166f8f94e5378d89b2de66080510e9109e7c636a3474",
     "FIGURE2": "11f21a348f8a535d912ceb1eee6d2debc3f30ad1076213423935d447c55dc332",
@@ -22,10 +22,9 @@
     12,
     13,
     14,
-    15,
-    16
+    15
   ],
   "inspected_all_pages": true,
-  "reviewer": "Codex coordinator: every actual native Word PDF page 1 through 16 inspected; exact delivered PDF retained",
-  "reviewed_at": "2026-11-09T11:57:45.136824+00:00"
+  "reviewer": "Codex, actual inspection of every rendered page",
+  "reviewed_at": "2026-11-09T17:30:57.567903+00:00"
 }

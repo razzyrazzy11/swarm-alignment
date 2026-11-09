@@ -1,6 +1,6 @@
 # Remaining research gaps and contribution test
 
-Checked 6 November 2026 against the current build and the source ledger. Start with the question, then distinguish what is known, what this project could add, and the evidence needed. This applies the 20-rules-of-learning skill as an explanation method; it does not establish novelty or eligibility.
+Checked 6 November 2026 against the current build and the source ledger. This analysis distinguishes existing evidence, the proposed contribution and the evidence needed to establish it; it does not establish novelty or eligibility.
 
 Update after development: the small oracle and real model pilots now exist (PILOT_RESULTS.md). Their limited grammar, negative influence result and absent positive selective-loss effect leave the richer-mechanism/confirmatory gates open. The earlier statement below that there is no executable oracle is superseded; it remains history of the gap that motivated implementation.
 

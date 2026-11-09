@@ -24,7 +24,7 @@
     "experiments/tests/test_hf_completion_v2.py": "5874f371d65f24b622c886244e13c112062d34c17bba56a28fa0771c283bf398",
     "research/HF_COMPLETION_V2_PROTOCOL.md": "91b65330f268700a26934da60f518c47f5a2ea4f3a109c958397f03fb1d05c08"
   },
-  "analysis_freeze_sha256": "9047eb5ebcaeca18029ae7a54a0bc5abf579da3bd369b4cf43893303ef614faa",
+  "analysis_freeze_sha256": "f85e10b42e3154bfa13e0163d5041ba9423cf9e5dbcbf7b636d56ef42d7cd702",
   "original_completion_freeze_sha256": "0b6ac98e12896b1802f7fb432e2b9a1b25a4648ef01fd8b7730aa196d6f98d83",
   "prior_raw_sha256": {
     "plan.json": "e589739663ffd06e48878cfb9e23d4e532edf73a7d63e94994a6384e211029f5",

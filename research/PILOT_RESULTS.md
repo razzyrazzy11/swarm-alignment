@@ -46,7 +46,7 @@ Four HF calls on the same grammar through explicitly selected `Qwen/Qwen3.8-27B:
 
 ## Credit/access evidence and remaining uncertainty
 
-Adaption authentication, six hosted IDs, training catalog and dataset-list reads worked. The signed-in UI showed Builder as the current plan, a 1,500-credit starting balance and 1 credit=$1. A later mid-pilot view showed 1,499.832 credits. This, successful inference and returned usage/cost fields establish operational inference/credit use; catalog reads alone would not. The user then authorized the entire available Adaption balance as the research ceiling, without top-ups or plan changes.
+Adaption authentication, six hosted IDs, training catalog and dataset-list reads worked. The signed-in UI showed Builder as the current plan, a 1,500-credit starting balance and [private account value withheld] credit=$1. A later mid-pilot view showed 1,499.832 credits. This, successful inference and returned usage/cost fields establish operational inference/credit use; catalog reads alone would not. The user then authorized the entire available Adaption balance as the research ceiling, without top-ups or plan changes.
 
 Known retained Adaption request records report approximately 0.26418926 credits in aggregate; the completed v4 batch reports approximately 0.00542373. These are reported amounts, not a reconciled final invoice. Unknown v1 calls and v2 gateway failures remain explicit. Final balance refresh became unavailable when the browser connection stopped working; no final total debit is claimed. HF identity confirmed Pro and its UI showed $2 available with no automatic recharge. Paid training/adaptation coverage, exact job cost and custom-checkpoint serving have not been tested.
 

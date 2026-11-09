@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "kind": "publication_editorial_revision_qa_v1",
+  "editions": {
+    "current": {
+      "content": "paper/content.json",
+      "content_sha256": "0424d0a8f259bc4a86cf0b7e5cfe5f1c7d01d76452519794ff2bc491fe30505c",
+      "docx": "paper/out/swarm_audit_scoping.docx",
+      "docx_sha256": "e4ee1946d99bfea5b22d17c203b45b3072c9b79c6d454507b2f44ef22986d045",
+      "pdf": "paper/out/swarm_audit_scoping.pdf",
+      "pdf_sha256": "71e2c857790a8c85ab259f05d92cb012c461764787bcde0ec272cc3486c9b2eb",
+      "builder_sha256": "1492622094820f5d21aa08342ed8a1b7a30b0bc0a30e5a51e8dc38b9a16452e3",
+      "export_engine": "Microsoft Word",
+      "export_source_unchanged": true,
+      "export_owned_instance_verified": true,
+      "pages": 15,
+      "main_pages": 8,
+      "abstract_words": 196,
+      "rendered_page_sha256": [
+        "de0f02cffb2fc4cc111295779bdff0154fb01babc1ba6a322e2ca10d62f98525",
+        "28cd7bd9d0aca82c5f6589f39224e2589869e2f850bfbabf2fb1efbace6810bd",
+        "d29eea987bc93d06a983b024de6639558c709cf3ef12d72b61266886c530f761",
+        "8788c3c291050dd4588af0f9e5fbe733ef1f396d4f08d84512d0888f4179f740",
+        "80eae3740902db74909dd3021177e3fb1b7fc53f3b940d8a4801c738ad0d21bd",
+        "e1e0560752c023587bcf9d1218d242d7c386a653be0f18b8bc377623ddd2a249",
+        "7a902cd2fdddd643a63584115cdf6204740d75e5b6c89f1de0b1f4314eb25d5c",
+        "99f9a79284eac0cc13b90f9fc135b09eb253ebe77254603ba23e869875205783",
+        "f84658921393d19eedd98c0a17f13fd2e2fcaec644c27d69dd723a5f83493cb9",
+        "ca0dfc0eb62c978ccd5291c0588707237d64ee0eed62df1c0c6720c745ed49be",
+        "ed5653aa76eb250a2029bcd4e72357e7fa165c2c4e9093072e06e34aa493414b",
+        "7055d38f0bf3779a17122533f0b3445cbdf6096b2c804922f8992b70203ae704",
+        "aa7bf4462a028bce298b50ca1c30d379904ffe22db69e7145215090e1fc022a6",
+        "ff3cdfe4dde74d05fc9ae573250e35524f6448f85dc7332a1377aa66ac8c794e",
+        "f8f8d2ccc0662b4a5e026f6ff3791c8b9c2cf9438ff3bf7648821dab85036bfc"
+      ],
+      "visual_review": {
+        "complete": true,
+        "reviewer": "Codex, actual inspection of every rendered page",
+        "reviewed_at_utc": "2026-11-09T17:30:57.567903+00:00",
+        "inspected_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      }
+    },
+    "fixture": {
+      "content": "paper/tests/fixtures/results-v3/content.json",
+      "content_sha256": "887fc7150e70be4236876633340dacea2cce89a70fb333680078ded90868e628",
+      "docx": "paper/tests/fixtures/results-v3/out/swarm_audit_scoping.docx",
+      "docx_sha256": "7c3094dbdb5b4967cb55c2fa3a5ebb53191cde054ccc97a6c09cd3d40f322881",
+      "pdf": "paper/tests/fixtures/results-v3/out/swarm_audit_scoping.pdf",
+      "pdf_sha256": "9b1626d42511ea641221c7ec844160bc9128a20d48e9a1ed61e9b3671ad3028d",
+      "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
+      "export_engine": "Microsoft Word",
+      "export_source_unchanged": true,
+      "export_owned_instance_verified": true,
+      "pages": 13,
+      "main_pages": 7,
+      "abstract_words": 190,
+      "rendered_page_sha256": [
+        "2211ebb20e08fffa2887a4411711617a6298b4168f2ed405f55cfaac832f7766",
+        "0a5918e120268bf0ef43d9ae4fbd2c58c15eb30f3ce9a724b4211a4228212891",
+        "239811af7e8e27177ef1e6520a2d4f2b2041e4e16cf44fba1832609523480a67",
+        "7c95cc42c2cfaa8505314634567825c66c3ffa16fcee63149c29c5eaa6a1b278",
+        "698e8793a80bbc02683cb8a09df5e244fec0430933cbdd3da81eb393a69b3f0f",
+        "fedda9ed6f3c7df9d0ebb1fbd905dc7bd2cd45b88a4d2ee40d94c845e0c9dc8e",
+        "bbba152050e5e0f42db718a1f52c946cf4b7b406c3f73302ed8d452608ac6a41",
+        "97e6f416b85fa106bc0da181fdc9bb346da6903b633e768bb4c70251be3b4989",
+        "853595cc229de7a1aaafe692eb02b2094242bff9fb42a80a54f0812cecddad4a",
+        "7e57b8150cd1c1aa9925f739fcec396e26cf4842e5b945c4f97c755dff550e5a",
+        "5b39435e5b4c7646bf9005480ba98b8ffb4c873b09808e8de53e9c98b6b6dcf7",
+        "895c36ecb019c7ac3abd83f3b2210487ecbcb95236871f0e57e84a418262e257",
+        "0f9252c6c0105c48223da3d8d09c317b10064d37dedf67f0db04d4f3df0eb75d"
+      ],
+      "visual_review": {
+        "complete": true,
+        "reviewer": "Codex, actual inspection of every rendered page",
+        "reviewed_at_utc": "2026-11-09T17:39:03.644387+00:00",
+        "inspected_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      }
+    }
+  }
+}

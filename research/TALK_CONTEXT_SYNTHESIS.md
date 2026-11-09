@@ -124,11 +124,7 @@ eligibility, a prize or absence of undiscovered prior art.
   Move engineering chronology and supporting plots to appendices. Keep the
   required limitations/dual-use appendix explicit.
 
-This applies the user's 20-rules-of-learning as editorial guidance: context before
-compression, one distinction at a time, concrete examples, contrasted related
-concepts and source attribution. It is not scientific evidence. Current written
-[guidelines and Judging and results](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines)
-remain the rules reference when speech/ASR differs.
+Current written [guidelines and Judging and results](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines) remain the rules reference when speech or ASR differs.
 
 ## Coverage and repository changes
 

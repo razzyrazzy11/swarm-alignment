@@ -11,8 +11,8 @@
     "experiments/tests/test_offline_release_supervisor.py": "7b9afe092e05841edbc59b231c35803a71383665ced7cc0e4915709b9993a2c4"
   },
   "parent_registration_sha256": {
-    "research/paced-resume-analysis-v1-freeze.json": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
-    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf"
+    "research/paced-resume-analysis-v1-freeze.json": "453111c78b460ffe37402e68daa245650e676dbf2d9f1d8d27eed07b659c29ed",
+    "research/hf-completion-v3-freeze.json": "aa9fd5247e483a80c8a1c2e08846e9c9bc779a06c556b692df2a2c700f2a4ff6"
   },
   "failed_waiter_sha256": {
     "runs/paced-resume-postprocess-driver/state.json": "b6c109a996be404a58b264ce937538cf54f24c1d5d8f8c49bfe4a5a3973cab2f",

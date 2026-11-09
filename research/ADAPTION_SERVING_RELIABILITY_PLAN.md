@@ -146,6 +146,3 @@ error-body hash aggregates; no real-user data or credentials are involved.
   matched diagnostic comparison with honest reliability denominators serves that
   goal better than adding uncontrolled calls or hiding unavailable results.
 
-The explanation follows the project's20-rules-of-learning editorial convention:
-concrete failure, distinct mechanism, evidence limits, then controlled action.
-It is not evidence that a particular serving change will work or score higher.

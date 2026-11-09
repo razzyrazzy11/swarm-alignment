@@ -111,5 +111,3 @@ all-NONE results, scripted calibration and MAIN are separate populations.
   provider/billing differences. https://huggingface.co/docs/inference-providers/index
 - Apart guidelines/Judging and results require clear empirical methods and
   limitations: https://apartresearch.com/sprints/swarm-alignment-2026#guidelines
-- 20-rules-of-learning guides the concrete stop→precise distinction→bounded repair
-  explanation. It supplies no scientific evidence or judging-score guarantee.

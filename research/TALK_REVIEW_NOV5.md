@@ -219,11 +219,7 @@ inoculation prompting or that such training would improve the frozen monitors.
 
 ## Manuscript changes that preserve the study
 
-Use one concrete fake-data handoff example before formal definitions, then revisit
-it when introducing missing evidence, sufficient evidence and restoration. This
-applies the 20-rules-of-learning principles of comprehension first, minimum information,
-distinguishing confusable concepts, and connecting each new section to a prior example.
-Those principles guide exposition; they are not empirical evidence.
+A concrete fake-data handoff distinguishes missing evidence, sufficient evidence and restoration. These concepts frame the proposed comparisons; they are not empirical findings.
 
 | Manuscript location | Use from this review | Boundary to keep beside it |
 |---|---|---|

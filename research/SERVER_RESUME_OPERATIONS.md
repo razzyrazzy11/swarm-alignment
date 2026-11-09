@@ -50,7 +50,4 @@ Sources: [Ollama error documentation](https://docs.ollama.com/api/errors) identi
 performed or billed. [HTTP semantics §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2)
 does not justify automatically repeating an ambiguous non-idempotent POST.
 [Apart judging and guidelines](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines)
-require clarity and sound execution. The 20-rules-of-learning skill informs
-explanation: distinguish delivery, acquisition and evidence use, then connect
-each reported contrast to its denominator and limitation; it is not evidence
-of model performance.
+require clarity and sound execution.

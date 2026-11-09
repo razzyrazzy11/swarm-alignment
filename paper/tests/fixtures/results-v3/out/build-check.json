@@ -1,9 +1,9 @@
 {
   "abstract_words": 190,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "5eb956892b2560f780cc274e0c8bda800d73d1ed955768657db7b4030083b2c1",
+  "content_sha256": "1fa37ed2ac6167e13f06fc98b1b470279a85402999572d47e032c5c1e23e8018",
   "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
-  "docx_sha256": "7554cd2f9a9baa9bfacbe3a6693e303a997678e663d14a72c10c1db096c1b810",
+  "docx_sha256": "7c3094dbdb5b4967cb55c2fa3a5ebb53191cde054ccc97a6c09cd3d40f322881",
   "changed_package_parts": [
     "word/document.xml"
   ],
@@ -25,9 +25,9 @@
   "factorial_reporting_sources": {
     "factorial-config.json": "0b516c576ef1381675588950dd9d92db3dd57bd0fc2e455acf1a3aa7a24e3f27",
     "factorial-audit-v1-freeze.json": "41216a87860884bb503837d9b5f8d89259588c14ad20af976d71444d0b6bd57e",
-    "factorial-reporting-freeze.json": "fc655afb73bb73c410e6634ad862f1ab31afc4e1552f6dffb33d695abcbdde2f",
-    "factorial-report.json": "af7314a8d83c0c5273800a93e75c76f34320811f00d338ab02d2aa7b8a72b89f",
-    "ollama-reader-v1-freeze.json": "56c5592106f40160c0b0478d4d80fb1684c037a80e1fb7119ef292f9ed1ff87d",
+    "factorial-reporting-freeze.json": "84566c2f93ec4542a6f46cb82d6529ce4a295372fbae13b64fa002557b345c5b",
+    "factorial-report.json": "bd195fb2d5afa6273fa7029b1816a2d52974d3872e35edee51caed4577276aa3",
+    "ollama-reader-v1-freeze.json": "35494fd7094176889749369095b0296e1037aa8a128b8c24521f63167f41a6f4",
     "live-results.json": "01f4dff0d3d87f826bd50aad3111d97059a2af9c5de008dd4128867d875bf299",
     "weight-results.json": "85e1519943edad879c813c33045cc16ef25cbdba7eabb579b91b394dba63609a",
     "stateful-results.json": "f234123f460ca018eb4eacb65414c23af0d06d55cd29c77679c715f23b1306e2"

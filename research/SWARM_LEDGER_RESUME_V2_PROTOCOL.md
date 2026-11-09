@@ -91,6 +91,3 @@ inspection remain necessary. Existing queued research reviews keep their order.
   https://apartresearch.com/sprints/swarm-alignment-2026#guidelines.
   Complete conditions, explicit denominators, preserved provenance and clear
   limitations support execution quality and clarity without promising a score.
-- 20-rules-of-learning is used editorially: explain the observed stop, distinguish
-  server delivery from reasoning, then state the bounded repair and its limits.
-  It supplies neither empirical evidence nor permission to revise frozen outcomes.

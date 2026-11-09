@@ -1,0 +1,98 @@
+name: Report integrity
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+env:
+  PUBLICATION_MANIFEST_SHA256: ${{ vars.PUBLICATION_MANIFEST_SHA256 }}
+  PUBLICATION_LAUNCHER_SHA256: ${{ vars.PUBLICATION_LAUNCHER_SHA256 }}
+jobs:
+  report-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate launcher and inventory before dependencies
+        shell: bash
+        run: |
+          python -I -B - <<'PY'
+          import hashlib,os,pathlib,re,subprocess,sys
+          path=pathlib.Path('publication_revision/verify.py')
+          launcher=os.environ.get('PUBLICATION_LAUNCHER_SHA256','')
+          manifest=os.environ.get('PUBLICATION_MANIFEST_SHA256','')
+          if not all(re.fullmatch('[0-9a-f]{64}',v) for v in (launcher,manifest)):
+              raise SystemExit('External publication pins are required')
+          if hashlib.sha256(path.read_bytes()).hexdigest()!=launcher:
+              raise SystemExit('Launcher pin mismatch')
+          subprocess.run([sys.executable,'-I','-B',str(path),'--expected-manifest-sha256',manifest,'--preflight-only'],check=True)
+          PY
+      - name: Install admitted verification dependencies
+        run: python -m pip install -r paper/preparation-requirements.txt
+      - name: Check admission and code tests
+        shell: bash
+        run: |
+          python -I -B publication_revision/verify.py --expected-manifest-sha256 "$PUBLICATION_MANIFEST_SHA256" --tests-only --report-json "$RUNNER_TEMP/publication-tests.json"
+          python -I -B -O publication_revision/verify.py --expected-manifest-sha256 "$PUBLICATION_MANIFEST_SHA256" --tests-only --report-json "$RUNNER_TEMP/publication-tests-optimized.json"
+      - name: Replay mathematics and verify revised paper
+        shell: bash
+        run: |
+          python -I -B publication_revision/verify.py --expected-manifest-sha256 "$PUBLICATION_MANIFEST_SHA256" --report-json "$RUNNER_TEMP/publication-normal.json"
+          python -I -B -O publication_revision/verify.py --expected-manifest-sha256 "$PUBLICATION_MANIFEST_SHA256" --report-json "$RUNNER_TEMP/publication-optimized.json"
+      - name: Retain verification receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-verification
+          path: ${{ runner.temp }}/publication-*.json
+          if-no-files-found: ignore
+  windows-release-guards:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Use canonical Windows temporary directories
+        shell: bash
+        run: |
+          python -I -B - <<'PY'
+          import os,tempfile
+          from pathlib import Path
+          canonical_temp_path=str(Path(tempfile.gettempdir()).resolve(strict=True))
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8',newline='\n') as stream:
+              for name in ('TEMP','TMP','TMPDIR'):
+                  stream.write(name+'='+canonical_temp_path+'\n')
+          PY
+      - name: Authenticate launcher and inventory before dependencies
+        shell: bash
+        run: |
+          python -I -B - <<'PY'
+          import hashlib,os,pathlib,re,subprocess,sys
+          path=pathlib.Path('publication_revision/verify.py')
+          launcher=os.environ.get('PUBLICATION_LAUNCHER_SHA256','')
+          manifest=os.environ.get('PUBLICATION_MANIFEST_SHA256','')
+          if not all(re.fullmatch('[0-9a-f]{64}',v) for v in (launcher,manifest)):
+              raise SystemExit('External publication pins are required')
+          if hashlib.sha256(path.read_bytes()).hexdigest()!=launcher:
+              raise SystemExit('Launcher pin mismatch')
+          subprocess.run([sys.executable,'-I','-B',str(path),'--expected-manifest-sha256',manifest,'--preflight-only'],check=True)
+          PY
+      - name: Install admitted verification dependencies
+        run: python -m pip install -r paper/preparation-requirements.txt
+      - name: Check Windows admission and code tests
+        shell: bash
+        run: |
+          python -I -B publication_revision/verify.py --expected-manifest-sha256 "$PUBLICATION_MANIFEST_SHA256" --tests-only --report-json "$RUNNER_TEMP/publication-windows-tests.json"
+          python -I -B -O publication_revision/verify.py --expected-manifest-sha256 "$PUBLICATION_MANIFEST_SHA256" --tests-only --report-json "$RUNNER_TEMP/publication-windows-tests-optimized.json"
+      - name: Retain Windows receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-windows-guards
+          path: ${{ runner.temp }}/publication-*.json
+          if-no-files-found: ignore

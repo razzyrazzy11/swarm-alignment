@@ -151,5 +151,3 @@ reviews and final PDF inspection remain outstanding until actually performed.
   https://docs.python.org/3.12/library/concurrent.futures.html#concurrent.futures.wait
 - Apart guidelines/Judging and results:
   https://apartresearch.com/sprints/swarm-alignment-2026#guidelines
-- 20-rules-of-learning guides the concrete bottleneck→bounded change→test→limit
-  explanation; it is not empirical evidence or a judging-score guarantee.

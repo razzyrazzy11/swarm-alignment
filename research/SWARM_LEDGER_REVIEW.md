@@ -4,46 +4,11 @@ Date: 7 November 2026. This is an engineering/design review record, not new
 experimental evidence or a guarantee of correctness. Main-study results must
 come from retained empirical records under the registered protocol.
 
-## What was actually reviewed
+## What was reviewed
 
-A completed OpenCode cross-model **design** critique used the enabled
-`security-reviewer` agent with the exact discovered model
-`ollama-cloud/deepseek-v4-pro`.
+A completed design critique examined an abstract description of the sampling, estimands, bootstrap, spending guards, unknown-send handling and journal design. No source files, credentials, study contexts, raw receipts or experimental outcomes were included in that design review.
 
-- Task: `5ca45d05-e6de-47c2-a18a-6f3feaceb6db`.
-- Run: `488bbd1e-73cf-4583-b815-8ffd205824a3`.
-- Result: completed, with a written critique; zero tool calls.
-- Payload: a compact abstract description of the sampling, estimands, bootstrap,
-  spending guards, unknown-send handling and journal design. No source files,
-  credentials, study contexts, raw receipts or experimental outcomes were sent.
-- Runtime provenance: `.opencode-recovery/ledger_cloud_result.json` outside the
-  research repository. The owned server and bridge were stopped afterwards.
-
-The fresh locally saved Ollama credential was supplied only through a child
-process environment and task-local `{env:OLLAMA_API_KEY}` configuration. No global
-authentication setting was changed. Configuration support was checked against
-the [official environment-substitution documentation](https://opencode.ai/docs/config/)
-and the versioned
-[v1 provider schema](https://github.com/anomalyco/opencode/blob/v1.19.5/packages/core/src/v1/config/provider.ts).
-The provider/model identifier came from the running server's actual catalogue.
-
-Earlier free-GLM discovery and OpenCode-Go Qwen design-review attempts produced no
-text or tool calls and were cancelled after bounded waits. They are **not**
-successful reviews and do not establish a particular quota or authentication
-failure. The later fresh-key Ollama design review did produce a result.
-
-A subsequent request for an actual source-code review was blocked by automatic
-approval review **before launch or upload**. Its stated reason was that uploading
-private repository source files to Ollama Cloud required authorization for that
-payload and destination beyond experiment access. Three allowlisted files were
-copied locally, but no source-code payload was sent. This restriction was not
-bypassed. At that point no external code review had completed.
-The user subsequently replied, “Authorize these three files for Ollama Cloud
-review,” authorizing exactly `swarm_ledger_study.py`, `swarm_ledger.py` and
-`SWARM_LEDGER_PROTOCOL.md`, excluding credentials, raw runs and account data.
-The retry passed automatic approval. A fresh isolated review was then requested
-using the same discovered Ollama model and child-environment credential route.
-Its source snapshot is:
+A subsequent source-only review examined exactly `swarm_ledger_study.py`, `swarm_ledger.py` and `SWARM_LEDGER_PROTOCOL.md`. Credentials, raw runs and account data were excluded. Uncompleted attempts are excluded from completed-review counts. The reviewed source snapshot was:
 
 | Authorized file | SHA-256 of supplied local copy |
 |---|---|
@@ -51,16 +16,7 @@ Its source snapshot is:
 | `swarm_ledger.py` | `79ca3d15d57c315f1c6eca39cadcec400ccff49957395955b9041c97dc706aab` |
 | `SWARM_LEDGER_PROTOCOL.md` | `79334ba3f14244bd40b8ad312a0829263358acd954d87d39cfa7b552836dd668` |
 
-Task `d5754529-df0d-4841-85aa-59d6fb7762fb` is the separate actual-code review.
-Initial run `69b88444-aca5-4d96-9926-075477a22c99` completed four read-tool calls
-but returned no final text. One text-only continuation, run
-`e16dd7dc-81ff-49f4-9738-0cd3cc9db8bd`, returned a written review using the
-already-read files and no further tools. The reviewer reported reading the
-collector through line 863, the complete finite engine, and the complete
-protocol. The whole review finished within approximately four minutes. Final
-runtime provenance is `.opencode-recovery/ledger_code_result_final.json`, outside
-the research repository. The owned server and credential-bearing child process
-were stopped afterwards.
+The reviewer read the collector through line 863, the complete finite engine and the complete protocol. This is bounded source review, not empirical validation. The findings and later local fixes are distinguished below.
 
 ### Actual-code findings and dispositions
 

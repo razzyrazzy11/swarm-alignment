@@ -92,10 +92,7 @@ and gates that failed under their original window remain historical evidence.
 
 ## Safe preparation and readiness limits
 
-Keep acquisition, usable-verdict delivery and use of sufficient evidence distinct;
-they can fail together. Apply 20-rules-of-learning through concrete examples,
-atomic checks and consistent terminology, not as scientific evidence. Preparation
-must not inspect unfinished outcomes or choose favorable findings.
+Acquisition, usable-verdict delivery and use of sufficient evidence are distinct; they can fail together. Preparation must not inspect unfinished outcomes or choose favorable findings.
 
 Neither plan is bound by a scientific freeze. However, `PAPER_COMPLETION_PLAN.md`
 is a committed input to `paper/completion_handoff.py`. **Commit its update before

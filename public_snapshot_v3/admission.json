@@ -1,0 +1,27 @@
+{
+  "artifact_hashes": {
+    "paper/out/swarm_audit_scoping.docx": "2f91e32f28c3941af64e913a5868a805cc27e8d1383b45f08f9e01852c2221a7",
+    "paper/out/swarm_audit_scoping.pdf": "418c27f6e9d5b7ecfc4e76f1c7bbb76ca412370d15c3ff5ff7741be1ea6fd193"
+  },
+  "authority": "author_attested_private_canonical_verification",
+  "canonical_commit": "7c3f570fb89ffa685e495dce46349cc9caee4876",
+  "kind": "private_canonical_admission_attestation_v1",
+  "manifest_sha256": "93a801f3f07b1178b8e631de66ab4738ebedb4acfdf33a007aefdd5692dc21b4",
+  "original_verification": {
+    "master_ci": 42620835573,
+    "master_ci_commit": "7c3f570fb89ffa685e495dce46349cc9caee4876",
+    "normal_private": "PASS",
+    "optimized_private": "PASS"
+  },
+  "privacy_checks": {
+    "known_credential_matches": 0,
+    "known_credential_values_checked": 3,
+    "policy_version": 1,
+    "reviewed_files": 9,
+    "reviewed_spans": 10,
+    "structured_fields_checked": true,
+    "unknown_secret_absence_claimed": false
+  },
+  "private_original_protocol_admission": "attested_not_publicly_repeated",
+  "schema_version": 1
+}

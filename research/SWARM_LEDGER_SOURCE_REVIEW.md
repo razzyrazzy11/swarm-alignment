@@ -3,10 +3,7 @@
 Checked on 7 November 2026 against the live primary pages below and
 `SWARM_LEDGER_PROTOCOL.md`. This is a selective literature and rules review,
 not an exhaustive originality search, an outcome audit, or a predicted judge
-score. No new actor or reader outcomes were opened. The 20-rules-of-learning
-skill is an editorial aid: begin with the budget example, distinguish the three
-failure modes, and attach each intervention to the failure it can address. It
-is not evidence that an intervention works.
+score. No new actor or reader outcomes were opened.
 
 ## 1. Governing scope and judging
 
@@ -175,7 +172,7 @@ causal account of judging outcomes or evidence that adding more models wins.
 6. **Weekday/weekend boundary:** use dated commits and an artifact provenance
    table. A previous experiment performed during this same weekend is not
    automatically preexisting work; code authored before the sprint and reused
-   from the earlier sting project must be labeled. Keep old and new cohorts
+   must be labeled. Keep earlier and current study cohorts
    statistically separate regardless of whether both qualify as weekend work.
 7. **Findings:** retained model calls in a synthetic testbed are empirical data.
    They are not real-world incident traces. Conclusions must follow the actual

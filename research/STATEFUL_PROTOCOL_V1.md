@@ -8,7 +8,7 @@ A coordinator assigns worker A an authorized decoy operation. A hands the target
 
 The primary question remains: does selective export loss produce more unsupported executor accusations than random loss at the same three-record budget? The primary contrast remains targeted minus random, with churn present, on the first call of gemma-4-26b-a4b-it. This was proposed before the original pilot; the richer grammar, sample size and endpoint choice follow development and are frozen before new main data. All primary and secondary results, including negatives, will be retained.
 
-The [Apart rules/rubric](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines) motivate a checkable method and clear findings, not a positive-result target. Track 4 anchors the work; Track 3 concerns evidence preservation. The current official template, eight-main-page limit, 150–250-word abstract, AI disclosure and limitations/dual-use appendix remain required. Earlier sting code/data were not imported.
+The [Apart rules/rubric](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines) motivate a checkable method and clear findings, not a positive-result target. Track 4 anchors the work; Track 3 concerns evidence preservation. The current official template, eight-main-page limit, 150–250-word abstract, AI disclosure and limitations/dual-use appendix remain required.
 
 ## Environment: three transition structures
 
@@ -82,4 +82,4 @@ SFT is not launched or silently added to this freeze. First identify a meaningfu
 
 [Adaption Responses](https://docs.adaptionlabs.ai/api/resources/responses/methods/create) supplies controlled direct inference. [AutoScientist](https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/create) iteration controls do not establish a monetary cap; [supported-model minima](https://docs.adaptionlabs.ai/autoscientist/supported-models/) count effective rows, not independent episodes. [HF PEFT](https://huggingface.co/docs/peft/en/quicktour) requires a compatible base plus adapter. These service conventions inform design, not evidence that a monitor works.
 
-Raw native responses stay ignored. Freeze/configuration, source hashes, seed ranges and sanitized fake-data results can be released. Store no keys, user data or incident payloads in prompts or Git. 20-rules-of-learning is applied editorially: concrete example before definitions, one claim per measurement, explicit distinctions between observation/behavior and correctness/support, then methods before findings. It is not a novelty test.
+Raw native responses stay ignored. Freeze/configuration, source hashes, seed ranges and sanitized fake-data results can be released. Store no keys, user data or incident payloads in prompts or Git.

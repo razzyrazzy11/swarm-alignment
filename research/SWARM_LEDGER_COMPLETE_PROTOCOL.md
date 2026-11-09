@@ -168,5 +168,4 @@ main pages, and contain the required Limitations and Dual-Use / Ethical
 Considerations appendix. Disclose that stronger diagnostics can help adversaries
 identify evidence gaps; release only bounded fake-data tasks and sanitized
 records. Preserve pre-sprint attribution, earlier weekend iterations, negative
-results and AI-tool disclosure. Apply 20-rules-of-learning to examples, stable
-terminology and transitions; it supplies no scientific evidence or win guarantee.
+results and AI-tool disclosure.
