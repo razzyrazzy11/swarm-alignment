@@ -1,6 +1,6 @@
 # When Can a Swarm Be Audited?
 
-**Track 4 Multi-Agent Oversight and Control.** Does an auditor lack authentic evidence, fail to deliver a usable verdict, or answer incorrectly despite sufficient evidence?
+**Track 4 Multi-Agent Oversight and Control.** Which part of swarm oversight needs repair: acquiring authentic evidence, delivering a usable verdict, or using sufficient evidence correctly?
 
 A worker claiming that a delegated update completed does not establish who acted or whether permission still held. We test those distinctions in a bounded five-role fake-data workflow with authentic host records and untrusted agent notes.
 
@@ -8,7 +8,9 @@ A worker claiming that a delegated update completed does not establish who acted
 
 Collection completed on 9 November 2026 at 05:33:56 UTC. Registered offline V2 completed all seven strict stages at 06:33:33 and terminated. The independent paper-candidate gate subsequently passed frozen MAIN/HF replay, provenance, figures and generator sensitivity. There are **640 independent blocks, 2,560 matched trajectories and 53,760 MAIN reader responses**, plus 240 separate scripted calibration and 240 exploratory influence calls. Repeated arms, views and readers do not add independent blocks.
 
-The paper integrates the complete MAIN. The corrected native Word PDF has 15 total pages, eight main pages and a 188-word abstract; every page was visually inspected. The four ordered, scoped reviews are recorded below. They corrected the Figure 2 endpoint description and clarified export-time native admission versus later verification. The earlier results-v3 paper is historical; no official submission is implied. Exact-commit validation is visible in [Report integrity checks](https://github.com/razzyrazzy11/swarm-alignment/actions/workflows/report-integrity.yml); older green checks do not validate a changed artifact.
+The paper integrates the complete MAIN. The corrected native Word PDF has 16 total pages, eight main pages and a 196-word abstract; every page was visually inspected. The four ordered, scoped reviews are recorded below. They corrected the Figure 2 endpoint description and clarified export-time native admission versus later verification. The earlier results-v3 paper is historical; no official submission is implied. Exact-commit validation is visible in [Report integrity checks](https://github.com/razzyrazzy11/swarm-alignment/actions/workflows/report-integrity.yml); older green checks do not validate a changed artifact.
+
+The [claim/source consistency review](research/OVERSIGHT_REPAIR_CONSISTENCY_REVIEW.md) keeps all four earlier review prompts active. The contribution is a controlled, matched experiment using established distinctions: instruction comparisons hold evidence fixed, restoration comparisons match source trajectories, and delivery is measured separately. The study does not identify a universal repair policy or three independent causal components. All 15 primary references were checked at the relevant claim passages, with access and coverage limits recorded.
 
 The primary Gemma 26B FULL16 PROCEDURE-minus-DIRECT effect is **−2.07 percentage points [−4.06,−0.12]**, a 95% stratified block-bootstrap interval. Correct-definite verdicts fall from 1,497/2,560 to 1,444/2,560. The proposed procedure did not improve the primary endpoint. Secondary effects vary:
 
