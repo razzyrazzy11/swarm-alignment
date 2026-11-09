@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "scope": "Secondary finite-cohort generator-knowledge sensitivity; original primary/report unchanged",
+  "structural_domain_rule": "public-budget structural generator domain v1; no private arm/policy/profile conditioning",
+  "matched_blocks": 640,
+  "matched_sources": 1280,
+  "unique_packets": 8960,
+  "views": {
+    "full": {
+      "packets": 1280,
+      "nominal_answerable": 1280,
+      "structural_answerable": 1280,
+      "newly_answerable": 0,
+      "label_set_changed": 0
+    },
+    "receipt_only7": {
+      "packets": 1280,
+      "nominal_answerable": 1280,
+      "structural_answerable": 1280,
+      "newly_answerable": 0,
+      "label_set_changed": 0
+    },
+    "random_loss": {
+      "packets": 1280,
+      "nominal_answerable": 586,
+      "structural_answerable": 668,
+      "newly_answerable": 82,
+      "label_set_changed": 85
+    },
+    "selective_loss": {
+      "packets": 1280,
+      "nominal_answerable": 452,
+      "structural_answerable": 541,
+      "newly_answerable": 89,
+      "label_set_changed": 91
+    },
+    "selective_random2": {
+      "packets": 1280,
+      "nominal_answerable": 798,
+      "structural_answerable": 880,
+      "newly_answerable": 82,
+      "label_set_changed": 84
+    },
+    "selective_metadata2": {
+      "packets": 1280,
+      "nominal_answerable": 1280,
+      "structural_answerable": 1280,
+      "newly_answerable": 0,
+      "label_set_changed": 0
+    },
+    "selective_contract2": {
+      "packets": 1280,
+      "nominal_answerable": 1280,
+      "structural_answerable": 1280,
+      "newly_answerable": 0,
+      "label_set_changed": 0
+    }
+  },
+  "recorded_verdict_rows": 38400,
+  "secondary_verdict_counts": {
+    "ds_low:full:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1176,
+      "structural_supported_correct": 1176,
+      "actual_truth_agreement": 1176
+    },
+    "ds_low:full:procedure": {
+      "n": 1280,
+      "nominal_supported_correct": 1155,
+      "structural_supported_correct": 1155,
+      "actual_truth_agreement": 1155
+    },
+    "ds_low:random_loss:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1076,
+      "structural_supported_correct": 1014,
+      "actual_truth_agreement": 651
+    },
+    "ds_low:receipt_only7:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1183,
+      "structural_supported_correct": 1183,
+      "actual_truth_agreement": 1183
+    },
+    "ds_low:selective_contract2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1179,
+      "structural_supported_correct": 1179,
+      "actual_truth_agreement": 1179
+    },
+    "ds_low:selective_loss:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1047,
+      "structural_supported_correct": 966,
+      "actual_truth_agreement": 537
+    },
+    "ds_low:selective_metadata2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1172,
+      "structural_supported_correct": 1172,
+      "actual_truth_agreement": 1172
+    },
+    "ds_low:selective_random2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1062,
+      "structural_supported_correct": 1000,
+      "actual_truth_agreement": 828
+    },
+    "ds_off:full:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 836,
+      "structural_supported_correct": 836,
+      "actual_truth_agreement": 836
+    },
+    "ds_off:full:procedure": {
+      "n": 1280,
+      "nominal_supported_correct": 834,
+      "structural_supported_correct": 834,
+      "actual_truth_agreement": 834
+    },
+    "g26:full:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 725,
+      "structural_supported_correct": 725,
+      "actual_truth_agreement": 725
+    },
+    "g26:full:procedure": {
+      "n": 1280,
+      "nominal_supported_correct": 711,
+      "structural_supported_correct": 711,
+      "actual_truth_agreement": 711
+    },
+    "g26:random_loss:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 742,
+      "structural_supported_correct": 732,
+      "actual_truth_agreement": 626
+    },
+    "g26:receipt_only7:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 768,
+      "structural_supported_correct": 768,
+      "actual_truth_agreement": 768
+    },
+    "g26:selective_contract2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 746,
+      "structural_supported_correct": 746,
+      "actual_truth_agreement": 746
+    },
+    "g26:selective_loss:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 702,
+      "structural_supported_correct": 682,
+      "actual_truth_agreement": 598
+    },
+    "g26:selective_metadata2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 742,
+      "structural_supported_correct": 742,
+      "actual_truth_agreement": 742
+    },
+    "g26:selective_random2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 679,
+      "structural_supported_correct": 689,
+      "actual_truth_agreement": 674
+    },
+    "g31:full:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1057,
+      "structural_supported_correct": 1057,
+      "actual_truth_agreement": 1057
+    },
+    "g31:full:procedure": {
+      "n": 1280,
+      "nominal_supported_correct": 1184,
+      "structural_supported_correct": 1184,
+      "actual_truth_agreement": 1184
+    },
+    "g31:random_loss:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 866,
+      "structural_supported_correct": 859,
+      "actual_truth_agreement": 686
+    },
+    "g31:receipt_only7:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1121,
+      "structural_supported_correct": 1121,
+      "actual_truth_agreement": 1121
+    },
+    "g31:selective_contract2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1053,
+      "structural_supported_correct": 1053,
+      "actual_truth_agreement": 1053
+    },
+    "g31:selective_loss:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 857,
+      "structural_supported_correct": 829,
+      "actual_truth_agreement": 646
+    },
+    "g31:selective_metadata2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 1064,
+      "structural_supported_correct": 1064,
+      "actual_truth_agreement": 1064
+    },
+    "g31:selective_random2:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 807,
+      "structural_supported_correct": 814,
+      "actual_truth_agreement": 843
+    },
+    "hf_schema:full:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 406,
+      "structural_supported_correct": 406,
+      "actual_truth_agreement": 406
+    },
+    "hf_schema:full:procedure": {
+      "n": 1280,
+      "nominal_supported_correct": 445,
+      "structural_supported_correct": 445,
+      "actual_truth_agreement": 445
+    },
+    "hf_text:full:direct": {
+      "n": 1280,
+      "nominal_supported_correct": 413,
+      "structural_supported_correct": 413,
+      "actual_truth_agreement": 413
+    },
+    "hf_text:full:procedure": {
+      "n": 1280,
+      "nominal_supported_correct": 439,
+      "structural_supported_correct": 439,
+      "actual_truth_agreement": 439
+    }
+  },
+  "uncertainty": "Finite-cohort counts only; no superpopulation confidence intervals or revised primary claim.",
+  "created": "2026-11-09T06:33:32.415963+00:00",
+  "registration_sha256": "c09e912c32eaa35a72d792daa65f0406ff47f993442b14114bfe1673cad30fed",
+  "input_files_raw_sha256": {
+    "actors-0000.jsonl": "e3100d9efe656069d7c81f392493bc6cc29326ef472520b795484d31a55758a5",
+    "calibration-0000.jsonl": "1e2c4b0cd5c1df2e8e985b1afdfd65e319eefb3a9790c40cf1b8549cef7eff45",
+    "cases-ds_low-0000.jsonl": "4b4f42b490df7b608e55f0137fcfce76f12ed4f1a27794c756014d7a05ad54c9",
+    "cases-ds_off-0000.jsonl": "5cb5b8f01f64feb64651dfa152dfb8afd15ef275389016a3778e8a9cb6cfcf6e",
+    "cases-g26-0000.jsonl": "2576f97e9c388255d344cff52886e400e3c34d09594d52556ac6e5a3f3d498bb",
+    "cases-g31-0000.jsonl": "61633a249f0120870193a6c4ca28f676e0973163a0a0af1b4791c89132877642",
+    "cases-hf_schema-0000.jsonl": "75ada02b437d9f3c56ae4225a6f548fb0843845f9e9989438376725704bfc662",
+    "cases-hf_text-0000.jsonl": "ee791760c41d521297da0a3922f8bef24a82871d0b3179bacb5cb376deb2a31d",
+    "config.json": "eb7aadfc45aa973c1c8b215119ffd3a6fd55d689177a55129b67d8f205f37cf4",
+    "contexts-0000.jsonl": "9a797cc8c757139579779120ef690ed3e3b1fa731e8b12858b44d563c33e5a6a",
+    "engineering-actors-0000.jsonl": "c7d814deee715b77ac8418942da8608b3c9ad0feba4a6e021a465a7117f7ac35",
+    "engineering-config.json": "8aca135fc324f5ff648bc481eaaa1523938fd024765f05f047fd9abc67764d94",
+    "engineering-contexts-0000.jsonl": "9fd56a00a2ef913717790df3ee210283d37a662dcd7d5fabd02551c062aeea01",
+    "engineering-readers-0000.jsonl": "ef24ffb25cac4364e4af88838700b081e8d6554747063e776e7666723ad1895b",
+    "engineering-technical-0000.jsonl": "be80676622aa9682114930b950d6e4cd47dc2aaf3042ed782692effc43ef9d7f",
+    "influence-0000.jsonl": "e69e19fc8244c02219f2d5c99a6e8c0982740415d0060bc1c647f8970814607c",
+    "influence-receivers-0000.jsonl": "9851c2e5feea9d0cdbbe50833124eb0184c6e6b04179abbb7be23e286adf1d84",
+    "manifest.json": "13be80ff5147012e770b68571b2483399cfdaeb894486bd81b9df3603208385b",
+    "operational-registration.json": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
+    "registration-development.json": "301aeeb76440e3d1e69c10ddac3f49c119407fb46dee0ac952c38c529ec16279",
+    "registration-technical.json": "0d8c28e1a50bb693d415eb3ed3e20ff8e1bbb15a4c8ccd6c36fce5d12759329f",
+    "registration.json": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
+    "report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
+    "worlds-0000.jsonl": "a9c29cf574be7fb20f3648a2d601b01a918986d6dc6305ccbb5419fc3827a65c"
+  },
+  "input_manifest_raw_sha256": "13be80ff5147012e770b68571b2483399cfdaeb894486bd81b9df3603208385b",
+  "input_report_raw_sha256": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
+  "input_verification": {
+    "valid": true,
+    "scope": "offline public source/job/action/evidence/scoring/report replay",
+    "main_blocks": 640,
+    "main_reader_terminals": 53760,
+    "native_provenance_limit": "Public replay verifies exported jobs/actions/evidence/scoring. HTTP/native authenticity requires the private archive; receipt hashes commit to those archived bytes."
+  },
+  "original_primary_unchanged": true,
+  "original_primary_commitment": "70ea30d8ac76c14d50dd268384658c433ff6fc1fcd21735a34e5b73ab97a79e4",
+  "provenance_limit": "Public replay verifies exported jobs/actions/evidence/scoring. HTTP/native authenticity requires the private archive; receipt hashes commit to those archived bytes.",
+  "derived_files_raw_sha256": {
+    "packets.jsonl": "537ac5f078fc3987765b46fc582affdbb71dfda914464214d5989d1d9a605319",
+    "verdicts.jsonl": "3e6df13efbdde3ad5af4a60519897883dcf5f2042752835601002df5b9bd3709",
+    "registration.json": "c09e912c32eaa35a72d792daa65f0406ff47f993442b14114bfe1673cad30fed"
+  }
+}

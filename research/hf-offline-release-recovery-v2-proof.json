@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "recovery_tag": "offline-release-recovery-v2",
+  "recovery_freeze_sha256": "32f13b107fd853d18664d74e9fe0a12f408177a8ae242e5223f534791dacd6ac",
+  "paced_analysis_freeze_sha256": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+  "projection_rule": "validated-next-delay-and-private-transport-to-frozen-public-schema-v2",
+  "public_report_sha256": "3d7620a49b86bebcc825ccf83073c58614b191e16ccb7f938c37e3cdeffee9d1",
+  "public_supplement_sha256": "014ee0e95b82fe86d239322538c4e31702a101f6fbe68a6d960c401688aec746",
+  "raw_batches_sha256": {
+    "hf-completion-v1": {
+      "plan.json": "e589739663ffd06e48878cfb9e23d4e532edf73a7d63e94994a6384e211029f5",
+      "attempts.jsonl": "b0d054776f7bc7ead873c304de6b425c7788a92125e6f527aca6ffb1a113956a",
+      "responses.jsonl": "bc0bdb9e5e895edcb48470b14489a52557a08bb7be31c9ce4931690c9cb77475",
+      "summary.json": "f0da8f4cc82d28cefc027a75ed0ba45e008e0e6254bde45b394f8ffe59fa5b2d"
+    },
+    "hf-completion-v2": {
+      "plan.json": "f785d7a99d7c572ed497a7431830ab644cd3a2560ef2ba20a11cb74d1c6a4dd2",
+      "attempts.jsonl": "7359f783793f9e550aa40982d71cef3b4a47672fa07a06aa96804dc25424b664",
+      "responses.jsonl": "e8158ca3bede8778f5473d70056aadd7c8d890816e0be643ec7830f15ecaa121",
+      "summary.json": "9842eb5ce3f61877d9f9b769b0bc9be5d7cd16254bc81eecef40145a6e7fe141"
+    },
+    "hf-completion-v3": {
+      "plan.json": "5b6e2c3d67771b84242bc63262632abdb9b34995a48e0ad316b553af47ffe5db",
+      "attempts.jsonl": "9ca513c07b9ff82c907d04c093527d704aa23fd80143fcd5affebc587e8749cb",
+      "responses.jsonl": "c5c66d35799e7d4e456ded079580f70293b7a215910aa0b4cf34e56e8136eb74",
+      "summary.json": "97b5a9fe554bf4e550bcf095c7db91937e208f3435fb41b4ce778c7396141d20"
+    }
+  },
+  "driver_state_sha256": {
+    "runs/factorial-driver-v1/state.json": "20a27cb9489e316bd358048594dce8866db36611fb0a0126825e22fb13de2479",
+    "runs/hf-completion-driver-v1/state.json": "03a86c85f8827cabea8f8f7d8154ec3eaddf674afbd6f9ae04728b3915fa754e",
+    "runs/hf-completion-v2-driver/state.json": "817e4939b9d498d6eb872e24bdaf34686ddf249b4d33448f878165eba366bfb1",
+    "runs/hf-completion-v3-driver/state.json": "b35878f008318ebe9b1752327e5e506c2c322d8ef3c5cd0291f8bfaf63a4c19a"
+  },
+  "frozen_verification": {
+    "valid": true,
+    "original_terminals": 11640,
+    "supplement_terminals": 1898,
+    "inference_calls": 0
+  },
+  "inference_calls": 0
+}
