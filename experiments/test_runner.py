@@ -18,6 +18,10 @@ from unittest.mock import patch
 FIXTURE_SHA256 = '58340e8ed2b58e34af88ae611377a61960f19e9769ff605b6ce1d3fdb909ac8d'
 DISPATCH_FIXTURE_SHA256 = '32ac534ceecf2ffe2cfc0abff882b64f6419a6f326ec28072400fb3b8fd3683e'
 DISPATCH_TEST = 'test_pilot_preserves_reservation_and_does_not_gate_json_accuracy'
+DISPATCH_FIXTURES=(
+    ('test_swarm_ledger_dispatch','DispatchCollectorTests',DISPATCH_TEST,DISPATCH_FIXTURE_SHA256),
+    ('test_swarm_ledger_dispatch_v2','DispatchCollectorTests',DISPATCH_TEST,
+     '9a4c9979d497cf879015266109a320caae1a603ea5ee971ce7f3ea4bfaeceeca'))
 FIXTURE_UTC = '2026-11-08T00:00:00+00:00'
 FIXTURE_EPOCH = datetime.fromisoformat(FIXTURE_UTC).timestamp()
 METADATA_CLOCK_METHODS = (
@@ -239,6 +243,20 @@ def install_clock_fixtures(suite, stack, root):
                 clock_fixture_adapter(module, original, kind)))
 
 
+def install_dispatch_fixtures(suite,stack,root):
+    """Pin and synchronize only the two original synthetic snapshot methods."""
+    import sys
+    for name,class_name,method,expected in DISPATCH_FIXTURES:
+        verify_fixture(root,'experiments/tests/'+name+'.py',expected)
+        matches={type(case) for case in cases(suite)
+                 if type(case).__module__.rsplit('.',1)[-1]==name and type(case).__name__==class_name}
+        if len(matches)!=1:raise RuntimeError('Expected one dispatch snapshot fixture class: '+name)
+        cls=matches.pop();module=sys.modules[cls.__module__]
+        if not any(type(case) is cls and case._testMethodName==method for case in cases(suite)):
+            raise RuntimeError('Expected original dispatch snapshot method: '+name+'.'+method)
+        stack.enter_context(patch.object(cls,method,dispatch_fixture_adapter(module,getattr(cls,method))))
+
+
 def main():
     import sys
     root = Path(__file__).resolve().parents[1]
@@ -252,20 +270,11 @@ def main():
         raise RuntimeError('Expected exactly one original pilot test class')
     cls = matches.pop()
     module = sys.modules[cls.__module__]
-    dispatch_matches = {type(case) for case in cases(suite)
-                        if type(case).__module__ == 'test_swarm_ledger_dispatch'
-                        and type(case).__name__ == 'DispatchCollectorTests'}
-    if len(dispatch_matches) != 1:
-        raise RuntimeError('Expected exactly one original dispatch test class')
-    dispatch_cls = dispatch_matches.pop()
-    dispatch_module = sys.modules[dispatch_cls.__module__]
-    original = getattr(dispatch_cls, DISPATCH_TEST)
     clock_count=sum(len(methods) for _,_,methods,_,_ in CLOCK_FIXTURES)
     print('CI fixture amendments: deterministic synthetic call ordinal, test-only atomic journal snapshot, and '+str(clock_count)+' explicit scenario clocks; all discovered tests retained.', flush=True)
     with ExitStack() as stack:
         stack.enter_context(patch.object(cls, 'run_fixture', fixture_adapter(module)))
-        stack.enter_context(patch.object(dispatch_cls, DISPATCH_TEST,
-            dispatch_fixture_adapter(dispatch_module, original)))
+        install_dispatch_fixtures(suite,stack,root)
         install_clock_fixtures(suite, stack, root)
         result = unittest.TextTestRunner(verbosity=2).run(suite)
     return 0 if result.wasSuccessful() else 1

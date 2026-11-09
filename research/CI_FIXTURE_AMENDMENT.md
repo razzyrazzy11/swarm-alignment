@@ -46,7 +46,8 @@ append reproduces the same outer stop with `JSONDecodeError` captured inside.
 The other three runs of the same source passed; this is consistent with the
 scheduling-sensitive explanation, rather than proof of a production defect.
 
-The existing nonfrozen runner now wraps only this one original test method.
+The initial nonfrozen runner amendment wrapped only this one original test
+method; V2 coverage is documented separately below.
 Within that method, a shared reentrant lock protects the synthetic dispatcher
 append and the fake worker's snapshot. The original method, strict parser,
 assertions, test count and collector source are retained; both wrappers restore
@@ -62,7 +63,7 @@ unchanged original test method. No CI assertion is skipped or retried.
 
 ### Explicit scenario clocks after the collection cutoff
 
-Runs 42570952592 (PR), 42570945270 (branch push) and 42570945149 (tag push)
+Runs 42570952592 (PR), 42570945149 (branch push) and 42570945270 (tag push)
 at 964dfde ran after the original 9 November 05:59 UTC collection cutoff.
 Their synthetic experiment suite encountered wall-clock-dependent fixtures:
 three metadata-availability methods in each of the efficient/resume-v3 tests
@@ -207,6 +208,46 @@ or patched times. No additional ambient calendar override was justified. This
 is a source-based prospective check, not a guarantee against unrelated failures.
 The real excluded serving pilot remains blocked and unrun. No pilot process,
 POST, empirical response or new serving experiment is launched by these tests.
+
+### Historical V2 dispatch snapshot fixture
+
+The attached-failure audit identified an additional error in the historical
+`offline-release-recovery-v2` tag run 42570945270 at `964dfde`: four failures
+and seven errors, versus four failures and six errors in branch run 42570945149
+and PR run 42570952592. The extra error is the original V2 dispatch fixture
+`test_pilot_preserves_reservation_and_does_not_gate_json_accuracy`. Its GitHub
+trace retains only the generic provider-integrity stop at V2 source line 784;
+the historical inner exception is not logged. Run event labels above are
+corrected from the actual retained workflow metadata, not inferred from run IDs.
+
+The original V2 fake worker snapshots the attempts JSONL inside an assertion
+while the dispatcher can append another start. A new controlled reproduction
+invokes that unchanged original test method, splits the second append, and
+gates the first worker snapshot into the partial-write interval. It records
+`JSONDecodeError` from the unchanged strict parser and from the actual V2
+capture-failure metadata, followed by the same generic outer integrity stop.
+Under the identical forced schedule, the existing test-only journal lock lets
+the parser enter only after the append completes and all original 64-call,
+reservation, cap, exactly-once and no-accuracy-gate assertions pass. This proves
+a causal fixture mechanism consistent with the historical outer trace; it does
+**not** recover or establish that historical inner exception.
+
+The runner now applies the existing synchronized-snapshot fixture adapter to
+the exact original V1 and V2 methods, with separate strict class/method/file
+inventory checks. The new V2 file pin is
+`9a4c9979d497cf879015266109a320caae1a603ea5ee971ce7f3ea4bfaeceeca`.
+No original test/source bytes, assertions, parser, collector serialization,
+policies, operational caps or empirical records change. Missing classes/methods
+and changed fixtures fail closed; both aliases restore when the scoped test
+ends. Existing malformed-record/disk-error rejection tests remain active.
+
+Python removes the original fake worker's snapshot expression under `-O`
+because it is a bare assert. The deterministic causal-control regression then
+runs that exact original method in an explicitly unoptimized child interpreter
+(`-E`, verified optimization flag 0); no test is skipped. The separate adapted
+original-method test and both original unittest assertion sets still execute
+under the optimized parent. No real journal, credential, model response or
+provider request is used. The real excluded pilot remains blocked and unrun.
 
 ## Primary references
 
