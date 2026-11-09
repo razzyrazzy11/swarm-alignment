@@ -1,9 +1,9 @@
 {
   "abstract_words": 196,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "a22f2ef71961e1cac59a39bc32796eafc7e8e79089f41e5f936b275b90c1ce00",
+  "content_sha256": "b19742707b037a5da490c41c0400497520ff6566786b18c040ab6cfc00b0ba81",
   "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
-  "docx_sha256": "f5631cbc9e7da217dcd068784a51b3a2afdc13a18d5b5a72db11467e2fc1d399",
+  "docx_sha256": "2f91e32f28c3941af64e913a5868a805cc27e8d1383b45f08f9e01852c2221a7",
   "changed_package_parts": [
     "[Content_Types].xml",
     "word/_rels/document.xml.rels",
@@ -124,6 +124,6 @@
       "relationship_id": "rIdSwarmFigure4"
     }
   ],
-  "figure_builder_sha256": "ab03159a5b20ee009e8e874815fdb0648bd2175173e5f921434a7ea55023247c",
+  "figure_builder_sha256": "1492622094820f5d21aa08342ed8a1b7a30b0bc0a30e5a51e8dc38b9a16452e3",
   "figure_verifier_sha256": "15ff8a91661c76825224928750ceb5a737e49cc69b4bf997ade99d9bb2f0c42c"
 }
