@@ -1,7 +1,7 @@
 {
   "pages": 15,
   "main_pages": 8,
-  "pdf_bytes": 512686,
+  "pdf_bytes": 512748,
   "abstract_words": 188,
   "render_engine": "Microsoft Word",
   "evidence_status": {
@@ -15,10 +15,10 @@
     "training_runs": 0
   },
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "72d2b7279b57397f059488578d784b8d3398ffbbd01c75cb3456ac6e9f98afd4",
+  "content_sha256": "48ef7fffa3e5e94e495c820551f0889bf94ac4227f254821c63126eea18db33c",
   "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
-  "docx_sha256": "3cf2dbacf5b580aaf3f1bba4af903b75e439bf0c5ee89d936b9b2ad8c4115f8b",
-  "pdf_sha256": "b9f11baa189bfae76f85a9a1a192ffdca7b53ff9ff894aab576b026a58646bd1",
+  "docx_sha256": "7c38f220321a4794870006b81b847b5012ffe316a0977c19b81c667d5a101631",
+  "pdf_sha256": "15b9676156bbe73d198a7202e42bde169ff4afef4457b6aa9bed18b3b3955f20",
   "ledger_sources": {
     "manifest.json": "13be80ff5147012e770b68571b2483399cfdaeb894486bd81b9df3603208385b",
     "report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72",
@@ -65,7 +65,7 @@
     1,
     0
   ],
-  "figure_review_sha256": "d05e9899608cb1f4b4d1ed32218cc866a126ea2d2f0275193721c1a4a3d2fbc2",
+  "figure_review_sha256": "6892d74ad17d20cc8bdc63c0b3f0a98d84cf556ae3c0f67a23e35e93b369f369",
   "figure_identity_limit": "Image objects establish presence; Word recompression prevents a general pixel-identity guarantee. All pages require visual inspection.",
   "figure_builder_sha256": "ab03159a5b20ee009e8e874815fdb0648bd2175173e5f921434a7ea55023247c",
   "figures": {

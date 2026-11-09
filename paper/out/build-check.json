@@ -1,9 +1,9 @@
 {
   "abstract_words": 188,
   "template_sha256": "20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d",
-  "content_sha256": "72d2b7279b57397f059488578d784b8d3398ffbbd01c75cb3456ac6e9f98afd4",
+  "content_sha256": "48ef7fffa3e5e94e495c820551f0889bf94ac4227f254821c63126eea18db33c",
   "builder_sha256": "db5f506395426a9a718e91616380c3f7a4c8a3e694c5f6cbc916a8407ba8716e",
-  "docx_sha256": "3cf2dbacf5b580aaf3f1bba4af903b75e439bf0c5ee89d936b9b2ad8c4115f8b",
+  "docx_sha256": "7c38f220321a4794870006b81b847b5012ffe316a0977c19b81c667d5a101631",
   "changed_package_parts": [
     "[Content_Types].xml",
     "word/_rels/document.xml.rels",
@@ -80,8 +80,8 @@
         "data/swarm-ledger-v1-public/report.json": "a360be994fe6edabadcb9fc3d73f5e37daa8a498a5bf8eb41d931c9f23a6fd72"
       },
       "width_inches": 5.7,
-      "caption": "Figure 2. Oracle answerability (dashed) and supported correctness, including required abstention, under evidence loss and restoration. Each point uses the same 1,280 honest/both-arm trajectories in 640 blocks. Lines connect discrete interventions, not a continuous dose. No intervals are plotted; matched intervals appear in Table 3.",
-      "alt_text": "Selective deletion reduces finite-domain answerability; metadata and contract restoration recover it, while readers retain errors.",
+      "caption": "Figure 2. Oracle answerability (dashed) and correct-definite verdicts (solid) under evidence loss and restoration. Reader lines exclude abstentions; Table 3 separately counts supported correctness including required abstention. Each point uses 1,280 matched trajectories in 640 blocks. Lines connect discrete interventions, not a continuous dose. No intervals are plotted.",
+      "alt_text": "Dashed finite-domain answerability and solid correct-definite verdict rates on 1,280 matched trajectories; abstentions do not count in the reader lines. Restoration recovers answerability while readers retain errors.",
       "pixel_width": 1950,
       "pixel_height": 1470,
       "width_emu": 5212080,
