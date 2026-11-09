@@ -6,6 +6,7 @@ from pathlib import Path
 import tempfile
 import time
 from types import SimpleNamespace
+from concurrent.futures import wait as real_wait
 import unittest
 from unittest.mock import patch
 from experiments import test_runner as runner
@@ -114,6 +115,72 @@ class FixtureClockTests(unittest.TestCase):
         incomplete=unittest.TestSuite(list(runner.cases(suite))[:-1])
         with ExitStack() as stack,self.assertRaises(RuntimeError):
             runner.install_clock_fixtures(incomplete,stack,Path(__file__).resolve().parents[2])
+
+    def test_scripted_success_first_reproduces_original_recovery_assumption(self):
+        module=importlib.import_module('experiments.tests.test_swarm_ledger_paced')
+        cls=module.UnionTests;name=runner.CONNECTION_ORDER_FIXTURE[2]
+        original=getattr(cls,name);case=cls(name)
+        observed=[]
+        def success_first(futures,*args,**kwargs):
+            if isinstance(futures,dict):
+                preferred=next((future for ident in ('new-good','new-later','new-connection')
+                    for future,job in futures.items() if job['id']==ident),None)
+                if preferred is not None:
+                    completed,_=real_wait((preferred,),*args,**kwargs)
+                    observed.extend(futures[f]['id'] for f in completed)
+                    return completed,set(futures)-set(completed)
+            return real_wait(futures,*args,**kwargs)
+        case.setUp()
+        try:
+            with patch.object(module.r,'wait',success_first),self.assertRaisesRegex(AssertionError,'1 not greater than or equal to 2'):
+                runner.clock_fixture_adapter(module,original,'execution')(case)
+        finally:
+            case.tearDown();case.doCleanups()
+        self.assertEqual(observed,['new-good','new-later','new-connection'])
+
+        # The adapter changes only observation order and retains ALL original
+        # assertions even when the underlying fake wait prefers successes.
+        for nested in (False,True):
+            case=cls(name);observed.clear();case.setUp();actual=module.r.wait
+            method=runner.connection_fixture_adapter(module,original)
+            if nested:method=runner.connection_fixture_adapter(module,method)
+            try:
+                with patch.object(module.r,'wait',success_first):
+                    runner.clock_fixture_adapter(module,method,'execution')(case)
+            finally:
+                case.tearDown();case.doCleanups()
+            self.assertIs(module.r.wait,actual)
+
+    def test_connection_observation_alias_restores_after_failure(self):
+        def actual(*args,**kwargs):raise RuntimeError('synthetic wait failure')
+        module=SimpleNamespace(r=SimpleNamespace(wait=actual))
+        future=object()
+        def original(case):module.r.wait({future:{'id':'new-connection'}})
+        with self.assertRaisesRegex(RuntimeError,'synthetic wait failure'):
+            runner.connection_fixture_adapter(module,original)(self)
+        self.assertIs(module.r.wait,actual)
+
+    def test_connection_observation_preserves_wait_arguments_and_remaining_futures(self):
+        failed,other=object(),object();mode=object();calls=[]
+        def actual(futures,*args,**kwargs):
+            calls.append((tuple(futures),args,kwargs));return {failed},set()
+        module=SimpleNamespace(r=SimpleNamespace(wait=actual))
+        def original(case):
+            completed,remaining=module.r.wait({failed:{'id':'new-connection'},other:{'id':'new-good'}},
+                                            timeout=.25,return_when=mode)
+            case.assertEqual(completed,{failed});case.assertEqual(remaining,{other})
+        runner.connection_fixture_adapter(module,original)(self)
+        self.assertEqual(calls,[((failed,),(),{'timeout':.25,'return_when':mode})])
+        self.assertIs(module.r.wait,actual)
+
+    def test_connection_order_adapter_is_selected_only_for_exact_pinned_method(self):
+        suite=selected_suite();actual=runner.connection_fixture_adapter
+        with ExitStack() as stack,patch.object(runner,'connection_fixture_adapter',wraps=actual) as selected:
+            runner.install_clock_fixtures(suite,stack,Path(__file__).resolve().parents[2])
+            selected.assert_called_once()
+            module,original=selected.call_args.args
+            self.assertEqual(module.__name__.rsplit('.',1)[-1],runner.CONNECTION_ORDER_FIXTURE[0])
+            self.assertEqual(original.__name__,runner.CONNECTION_ORDER_FIXTURE[2])
 
 
 if __name__=='__main__':unittest.main()

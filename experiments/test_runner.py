@@ -32,6 +32,8 @@ EXECUTION_CLOCK_METHODS = (
     'test_500_known_usage_is_fatal_even_without_anomaly_flag',
     'test_500_pauses_unstarted_until_new_health_cycle',
     'test_provider_cap_stops_before_any_send')
+CONNECTION_ORDER_FIXTURE=('test_swarm_ledger_paced','UnionTests',
+    'test_connection_failure_is_retained_once_and_only_unstarted_continue')
 CLOCK_FIXTURES = (
     ('test_swarm_ledger_efficient', 'AvailabilityTests', METADATA_CLOCK_METHODS, 'metadata',
      '2386d634f34b250e8c16a948b3982a8eecbea5cb85a2c680d4f099275eed1201'),
@@ -175,6 +177,30 @@ def clock_fixture_adapter(module, original, kind):
     return run
 
 
+def connection_fixture_adapter(module,original):
+    """Observe the scripted connection failure before other fake completions.
+
+    The unchanged fixture's recovery assertion assumes never-started work is
+    still pending when that failure is observed. Futures still execute under
+    the original caps; this controls only the test's observation order. Every
+    returned completion comes from the original wait, with no fabricated rows,
+    health calls or future state, and the module-local alias is restored.
+    """
+    @wraps(original)
+    def run(case):
+        actual=module.r.wait
+        def observe_failure_first(futures,*args,**kwargs):
+            if isinstance(futures,dict):
+                failed=[future for future,job in futures.items() if job['id']=='new-connection']
+                if failed:
+                    if len(failed)!=1:raise RuntimeError('Expected one scripted connection failure')
+                    completed,_=actual((failed[0],),*args,**kwargs)
+                    return completed,set(futures)-set(completed)
+            return actual(futures,*args,**kwargs)
+        with patch.object(module.r,'wait',observe_failure_first):return original(case)
+    return run
+
+
 def install_clock_fixtures(suite, stack, root):
     """Fail closed on fixture identity, class inventory and named test methods."""
     import sys
@@ -192,6 +218,8 @@ def install_clock_fixtures(suite, stack, root):
             raise RuntimeError('Expected all named clock fixture methods: '+name+'.'+class_name)
         for method in methods:
             original = getattr(cls, method)
+            if (name,class_name,method)==CONNECTION_ORDER_FIXTURE:
+                original=connection_fixture_adapter(module,original)
             stack.enter_context(patch.object(cls, method,
                 clock_fixture_adapter(module, original, kind)))
 

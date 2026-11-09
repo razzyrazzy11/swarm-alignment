@@ -132,6 +132,43 @@ local experiment rerun or inference is needed for this test-only repair.
 Green synthetic checks do not replace current empirical public replay, actual
 PDF verification, final exact-commit CI or the separately queued reviews.
 
+### Scripted connection completion order
+
+The artifact commit `49027a8` has a retained failing push run 42591399764 and
+a successful PR run 42591409383. The push's only failure among 1,024 tests is
+the nested original paced connection fixture's `gate.checks >= 2` assertion.
+The same artifact's successful PR is consistent with an intermittent fixture
+schedule, not a deterministic cutoff failure or permission to ignore the red run.
+
+That fixture supplies three never-started fake jobs with a per-model cap of
+two. If a success is observed before the connection failure, the third job can
+be admitted before the failure is observed. Once every job is admitted, there
+need not be pending work that requires another health cycle. The original
+assertion implicitly assumes the connection failure is observed while a later
+job remains never started. Production recovery behavior and caps are unchanged.
+
+Only the existing SHA-pinned
+`test_swarm_ledger_paced.UnionTests.test_connection_failure_is_retained_once_and_only_unstarted_continue`
+now receives a scoped fixture adapter controlling observed completion order.
+It uses the genuine original `wait` on the scripted `new-connection` future
+first; other real fake futures remain in flight and their results are consumed
+after the fault. No future, result, health call, reservation, cap or assertion
+is invented, altered or skipped. The production collector and process-global
+executor/wait functions are untouched. The owning module's alias is restored
+even on failure; nested adapters retain the same observation semantics.
+
+A deterministic adversarial order observes good and later successes before the
+failure and reproduces the original `checks == 1` assertion failure. The same
+order with the adapter passes every unchanged original assertion, including
+one retained failure, full unknown reservation, exactly-once calls and unchanged
+old journal bytes. Regression coverage checks normal/nested wrapping and
+exception restoration. This repairs a synthetic scenario assumption, not a
+production outage or empirical observation. Eleven focused regression tests
+pass normally and under optimized Python. The deterministic failure/control
+test also passed 25 consecutive repetitions in each mode; this exercises the
+original failing ordering and normal/nested adapted controls each time, rather
+than rerunning the entire experiment suite or retrying a failed CI job.
+
 ## Primary references
 
 - [Python 3.12 lock objects](https://docs.python.org/3.12/library/threading.html#lock-objects):
