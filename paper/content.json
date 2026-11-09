@@ -11,12 +11,11 @@
     "[7] Chitransh and Kumar (2026). ActionLens: Pre-Execution Environment Probing for Agent Action Approval. Report and reviews. https://apartresearch.com/sprints/projects/actionlens-preexecution-environment-probing-for-agent-action-approval-xy22",
     "[8] Adaption (2026). Responses API and hosted-model documentation. Accessed 6 November. https://docs.adaptionlabs.ai/api/resources/responses/methods/create",
     "[9] Hugging Face (2026). Inference Providers: explicit routing and billing. Accessed 6 November. https://huggingface.co/docs/inference-providers/en/index",
-    "[10] Sacara (2026). Undercover Agents: preexisting October trusted-agent study. https://github.com/razzyrazzy11/trusted-agent-sting",
-    "[11] Hu et al. (2026). ActiveEvidence: Decision-Focused Evidence Graphs with Verifiable Acquisition Gaps. https://arxiv.org/abs/2610.20532v2",
-    "[12] Geifman and El-Yaniv (2017). Selective Classification for Deep Neural Networks. https://arxiv.org/abs/1705.08500",
-    "[13] Ollama. Native cloud API and thinking controls. https://docs.ollama.com/cloud ; https://docs.ollama.com/capabilities/thinking",
-    "[14] Kitaoka (2026). Open Problems in Securing Systems Against AI Agent Swarms. Swarm Alignment Hackathon, 5 November, recording 00:56:11-00:57:25. https://apartresearch.com/sprints/swarm-alignment-2026#schedule",
-    "[15] Kitaoka, Pham, Giudice and Merizian (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. MiniLab. https://arxiv.org/abs/2610.24052v1"
+    "[10] Hu et al. (2026). ActiveEvidence: Decision-Focused Evidence Graphs with Verifiable Acquisition Gaps. https://arxiv.org/abs/2610.20532v2",
+    "[11] Geifman and El-Yaniv (2017). Selective Classification for Deep Neural Networks. https://arxiv.org/abs/1705.08500",
+    "[12] Ollama. Native cloud API and thinking controls. https://docs.ollama.com/cloud ; https://docs.ollama.com/capabilities/thinking",
+    "[13] Kitaoka (2026). Open Problems in Securing Systems Against AI Agent Swarms. Swarm Alignment Hackathon, 5 November, recording 00:56:11-00:57:25. https://apartresearch.com/sprints/swarm-alignment-2026#schedule",
+    "[14] Kitaoka, Pham, Giudice and Merizian (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. MiniLab. https://arxiv.org/abs/2610.24052v1"
   ],
   "title": "When Can a Swarm Be Audited?",
   "subtitle": "Multi-Agent Oversight and Control",
@@ -34,9 +33,9 @@
     [
       "2. Related work and contribution",
       [
-        "Evidence-binding work separates correct answers from justified findings [2]. Active evidence acquisition changes observations [11]; selective prediction studies abstention through risk–coverage tradeoffs [12]. Here justified abstention follows the declared finite evidence domain [2]. These are separate evaluation layers: a better information packet does not establish improved reasoning.",
+        "Evidence-binding work separates correct answers from justified findings [2]. Active evidence acquisition changes observations [10]; selective prediction studies abstention through risk–coverage tradeoffs [11]. Here justified abstention follows the declared finite evidence domain [2]. These are separate evaluation layers: a better information packet does not establish improved reasoning.",
         "Syscon separates observability from detection and finds no first-pass monitoring gain from receipts [6]; ActionLens probes environments before action approval [7]. We contribute a prospectively registered matched instrument for stateful five-role delegation: instruction changes fix evidence; restoration comparisons match source trajectories. The bounded scope and baselines limit transfer.",
-        "Kitaoka separates identifying relevant agents and evidence from residual monitor failures with combined evidence [14]. MiniLab studies distributed attacks that evade isolated-trajectory monitors [15]. Our controlled, matched experiment applies these established distinctions to stateful delegation; it does not claim to invent them."
+        "Kitaoka separates identifying relevant agents and evidence from residual monitor failures with combined evidence [13]. MiniLab studies distributed attacks that evade isolated-trajectory monitors [14]. Our controlled, matched experiment applies these established distinctions to stateful delegation; it does not claim to invent them."
       ]
     ],
     [
@@ -45,7 +44,7 @@
         "A principal issues authority, a coordinator delegates it, workers X and Y hand off work and propose bounded fake writes, and a reporter produces untrusted claims. The host executes parsed bounded fake-data actions; authorization violations are measured rather than silently prevented. Y permission depends jointly on issuance and grant, local cap, shared budget, half-open lease, and revocation. Physical X usage counts toward the shared budget even when X lacked authority. API latency does not advance the fake integer settlement clock.",
         "The target is whether Y actually made an unauthorized write and, if so, its bound executor identity. NONE means no such target violation; ABSTAIN means the visible packet cannot support a unique verdict. For example, a claimed permission is insufficient if the grant is revoked before settlement; an authenticated execution record can establish a write without establishing permission. The finite oracle enumerates compatible histories and requires a unique label before a definite finding.",
         "The registered grid crosses four actor profiles, five policy classes, two layouts and sixteen repetitions. Each block shares a principal/coordinator prefix across honest, X-adversarial, Y-adversarial and both-adversarial arms. Repeated arms, views and readers are dependent measurements, not additional independent samples.",
-        "All six readers receive DIRECT and PROCEDURE instructions on the same four-arm FULL16 (sixteen-record) packets: Adaption Gemma 26B and 31B; Hugging Face Llama text and schema delivery; and Ollama DeepSeek with requested thinking settings off and low [8,9,13]. These are six profiles, four checkpoints and three model families. G26, G31 and DS-low also read six reduced/restored views under DIRECT on the matched honest/both arms, covering two families.",
+        "All six readers receive DIRECT and PROCEDURE instructions on the same four-arm FULL16 (sixteen-record) packets: Adaption Gemma 26B and 31B; Hugging Face Llama text and schema delivery; and Ollama DeepSeek with requested thinking settings off and low [8,9,12]. These are six profiles, four checkpoints and three model families. G26, G31 and DS-low also read six reduced/restored views under DIRECT on the matched honest/both arms, covering two families.",
         "Acquisition conditions distinguish a sufficient seven-record receipt packet, random loss, selective loss, and restoration of two authentic records selected randomly, by metadata, or by a fixed contract bundle. Query selection uses a declared uniform compatible-world prior, not the empirical incident distribution. Peer claims never create authority.",
         "The primary is G26 FULL16 PROCEDURE minus DIRECT in parsed ungated correct-definite verdicts. First average four arm differences within each base block, then average 640 blocks. The frozen stratified block bootstrap uses forty strata, sixteen blocks each, 10,000 draws and seed 730009. Secondary intervals are descriptive, without familywise claims. Admitted output passes HTTP-status, completion, usage and capture checks. A usable delivered verdict also has a structurally valid status/executor binding; this does not establish correctness. Strict bare JSON is a separate formatting measure.",
         "Always-NONE, always-ABSTAIN and the finite-domain support oracle are references. Calibration uses twenty scripted worlds, separately from natural trajectories. Controlled inter-agent influence holds the receiver state fixed and varies three peer notes across eighty blocks. Small-monitor fine-tuning is not performed. Failed requests remain terminal and in denominators; no request identity is retried or replaced.",
@@ -88,7 +87,7 @@
     [
       "Code and data",
       [
-        "Sanitized artifacts, frozen protocols and replay instructions accompany the currently private repository: https://github.com/razzyrazzy11/swarm-alignment . Judge access and official submission remain author actions. Appendix B records provenance; Appendix E gives reproduction commands."
+        "Code, sanitized data and reproduction instructions are available at https://github.com/razzyrazzy11/swarm-alignment . Appendix B separates the study iterations; Appendix E describes the model routes and verification settings."
       ]
     ]
   ],
@@ -104,13 +103,13 @@
     [
       "Appendix B. Provenance, iterations and reproducibility",
       [
-        "The October trusted-agent-sting project [10] is preexisting context, not new sprint evidence. Earlier swarm-audit, weight-policy and incomplete-serving studies remain separately registered and are not pooled into this 640-block MAIN. The earlier 192-source natural sample contained only NONE labels; its procedure gain concerns false accusations and cannot establish incident recall. Its separate original HF recovery completes original planned identities, not replacement MAIN evidence.",
+        "Earlier swarm-audit, weight-policy and incomplete-serving studies remain separately registered and are not pooled into this 640-block MAIN. The earlier 192-source natural sample contained only NONE labels; its procedure gain concerns false accusations and cannot establish incident recall. Its separate original HF recovery completes original planned identities, not replacement MAIN evidence.",
         "Earlier scripted auditing did not establish the hypothesized increase in false accusations under selective evidence loss. The live-handoff study found a matched metadata-restoration gain. Tiny-policy experiments separated schema and edit-budget compliance from exact useful behavior, and artifact change from harmful behavior. These iterations motivate the present mixed-label, matched design; none is pooled into MAIN. Their full outcomes remain in research/STATEFUL_RESULTS.md, LIVE_RESULTS.md, WEIGHT_RESULTS.md and FACTORIAL_RESULTS.md.",
         "Seven disjoint MAIN collection batches preserve immutable stopped prefixes. Prospective router, server, provider, efficient, rate and paced amendments changed operational admission/recovery only, preserving science, bodies and identities. All 53,760 reader identities are terminal. Thirty-four have unknown usage and retain full reservations; failures were not retried or replaced. The paced batch retains six HTTP502 failures. Calibration and influence each have 240/240 HTTP200 terminals with known usage and no capture anomaly. The excluded serving pilot remains blocked and unrun.",
         "The original paced postprocessor stopped at its first HF export because private transport fields reached the strict public validator. A separately registered offline V1 adapter also stopped before output because its private-field allowlist omitted next_delay_seconds. Both failed states and logs remain immutable. Offline V2 explicitly validates that nonnegative finite metadata field, removes it before the frozen public projection, and retains the existing private/native admission and scientific functions. It was committed, frozen, tagged and pushed before replay; no new inference occurred.",
         "The V2 owner completed all seven strict stages at 06:33:33 UTC on 9 November: HF export, MAIN export, continuation provenance, figure input, figures, figure provenance and generator sensitivity. Public replay validates exported jobs, actions, evidence, scoring and arithmetic; hashes commit to private native records but do not independently prove provider truth. Release proofs and verified-public-input.json bind the exact source and archive lineage. Operational CI repairs concern synthetic fixture clocks and journal snapshots, not production cutoffs or scoring.",
-        "AI tools assisted implementation and writing; the author remains responsible for claims, references and data. Talk context was reviewed after registration with MAIN accuracy still blinded. No small-monitor training, SFT or new test-set adaptation was performed. Independent implementations may share a specification error. Final review records and hash-bound exported-page inspection are separate quality evidence.",
-        "Explicit public verification uses a prospectively registered, source-bound receipt of successful local private admission and reruns the unchanged public mathematics. The receipt binds the completed owner state hash and source/registration/artifact inventories without exporting private logs or native response identifiers. This enables clean-checkout verification without newly authenticating providers. Default local verification checks retained private failed-waiter evidence and provenance, but does not repeat full native-journal admission. The registration is paper-public-verification-v1."
+        "Talk context was reviewed after registration with MAIN accuracy still blinded. No small-monitor training, SFT or new test-set adaptation was performed. Independent implementations may share a specification error.",
+        "The original paper-public-verification-v1 route recorded successful private admission and replayed the public mathematics without exporting private logs or native response identifiers. This repository edition records its editorial changes separately and preserves the scientific inputs and calculations. See the README for its current source-bound verification route. Public replay and hashes do not independently authenticate provider history."
       ]
     ],
     [
@@ -138,7 +137,7 @@
         "The four actor profiles are Adaption gemma-4-26b-a4b-it, qwen3.8-27b, glm-53-flash and qwen3.5-397b. The six reader profiles use gemma-4-26b-a4b-it, gemma-4-31b-it, meta-llama/Llama-4-Scout-17B-16E-Instruct routed explicitly through DeepInfra in text/schema modes, and deepseek-v4.1-flash:1017 in thinking off/low modes. These are hosted identifiers rather than immutable weight hashes.",
         "Every profile retains its frozen 4,096-token output ceiling and request construction. Complete prompts, deterministic fake-state generation, action parser, schema, decoding and support oracle are in experiments/swarm_ledger.py, swarm_ledger_study.py and swarm_ledger_reference.py with scientific configurations under research/. Operational continuations preserve those bodies. A temperature setting or fixed seed does not guarantee provider-level determinism. Only final answer content is scored; private thinking remains excluded.",
         "Current MAIN replay uses data/swarm-ledger-v1-public; generator sensitivity uses data/swarm-ledger-generator-sensitivity-v1. The HF original completion is separately exported as data/hf_completed_original_supplement_v3.jsonl and is not a MAIN condition. Current source and native-archive commitments are bound by the paced and offline-V2 release proofs; the seven-stage state is runs/offline-release-recovery-v2-driver/state.json. The current manuscript is not the historical results-v3 report.",
-        "Public commands are python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public and python paper/verify.py --public-replay (also with Python -O). Default python paper/verify.py additionally checks private failed-waiter evidence; full native-journal validation occurred during export and requires the private archive. The public route cannot record a PDF review manifest; actual local inspection and private verification precede that record."
+        "Reproduce this repository edition using the README's externally pinned verification instructions, in normal and optimized Python modes. The verifier replays released evidence, scores and statistics without new provider calls. Public replay does not independently authenticate native provider records; that authentication depends on the privately retained archive."
       ]
     ],
     [
@@ -1661,25 +1660,25 @@
     "operational-registration.json": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
     "scientific_registration_sha256": "7217221f9e341653ceb63a11259a4f656d8da844182aeda43a64dba09a6e123f",
     "operational_registration_sha256": "77149d235c5d0cfb1c260f1989cd9d387d3f60bc61068f22280ca1397c6f74da",
-    "offline-release-recovery-v2-freeze.json": "32f13b107fd853d18664d74e9fe0a12f408177a8ae242e5223f534791dacd6ac",
-    "hf-offline-release-recovery-v2-proof.json": "6c2045cedcbcf4b30c224253d91e5113464d7dc64ce578f45b5a9572ca9474c7",
-    "offline-release-recovery-v1-freeze.json": "09eec1ebc67a0752cd8e422cbfd59a0cd83cfc08a28a5e6d33e8708f4540eb66",
-    "paced-resume-analysis-v1-freeze.json": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+    "offline-release-recovery-v2-freeze.json": "205944b1f253e1a44d31b7ce1aafbccc70cc79c6c99f79b5be2456c9b72d229c",
+    "hf-offline-release-recovery-v2-proof.json": "646221579529202fb5bf0259d759287247257ea53efd27e5c0959c36385e13e3",
+    "offline-release-recovery-v1-freeze.json": "0c7346b19f66b8d5cab024a32bd4e1fff4e172022353fed830e1b5fdfcc1b022",
+    "paced-resume-analysis-v1-freeze.json": "453111c78b460ffe37402e68daa245650e676dbf2d9f1d8d27eed07b659c29ed",
     "swarm-ledger-paced-v1-freeze.json": "196f59749f747bfff978f2f301ab494de4718b181d1b0258ed6bec92cf73d08e",
-    "swarm-ledger-paced-resume-release-proof.json": "3bfdc7de1216bcd72d1f5f62f7a4b6129aa1ecd1b39b8e511eb5cd3a41eb3522",
-    "rate-resume-analysis-v1-freeze.json": "251c37815989b32982bbb2600a28e72fd8848bb56252ad5f2852787ef2e93fde",
+    "swarm-ledger-paced-resume-release-proof.json": "e01e4b99600cea6a6f060bb7991c49b74c9d48d505b89a58fe6e3da4574c6dd0",
+    "rate-resume-analysis-v1-freeze.json": "2cec9a24061366ffb1c768eeb52a4e1a133868978c2b7cdcf69b850b8ebff959",
     "swarm-ledger-rate-v1-freeze.json": "64ed28ace7ca685dc1d0e860a7b32bc846b7e79b69de2fd7914aba5eb6c0724e",
-    "efficient-resume-analysis-v1-freeze.json": "98bfb89de742b79ec953bfc5e2594fb9d4f14568aab3156244ca32a4eb6a95be",
+    "efficient-resume-analysis-v1-freeze.json": "7277082ba5d794531616805b58bb57a766bff76b091730ad88f16984358903cb",
     "swarm-ledger-efficient-v1-freeze.json": "730148c4df749069938559506bfcb9401fbbb45dbe39fc19a8442e629b332541",
-    "provider-resume-analysis-v1-freeze.json": "fd985b8388633d791bf3c848c80616922e5332adb497ffa347c59c3a55002724",
+    "provider-resume-analysis-v1-freeze.json": "4278d34e21501de95f0913efceff948fb78579c77e061bdacb01dfd863d22f05",
     "swarm-ledger-resume-v3-freeze.json": "45d023485fd1b49eebe5317f49ee97001f9e77ffd2ee6223bda3945f69cb1f41",
-    "server-resume-analysis-v1-freeze.json": "f7d5918f7579112e0d26f32c239cc70c008bf73b0280e940a9f553229830c9e0",
+    "server-resume-analysis-v1-freeze.json": "09c8f157d091744a048752fb74c6d500483223baa7224e3b1715ea788d05224f",
     "swarm-ledger-resume-v2-freeze.json": "f36a0cb4857ef92ecb5ad7e6123470b0fa8ccb0e82a85de911a9b11f7b0f344e",
-    "router-resume-analysis-v1-freeze.json": "b8a2ee6878adc9e282d3dde6639d801394e030c3237a2580a15a1c4537bddf8c",
+    "router-resume-analysis-v1-freeze.json": "83d511109238798e076869dc8717b73979fa82358b66017a265dc0fd30a8a1ff",
     "swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
-    "hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf",
-    "hf-completed-original-results-v3.json": "3d7620a49b86bebcc825ccf83073c58614b191e16ccb7f938c37e3cdeffee9d1",
-    "adaption-serving-pilot-v1-freeze.json": "6e507962f30245d52170843944ec2fddc0765c9377dd4cb0bfa0d2b4c6e384b9",
+    "hf-completion-v3-freeze.json": "aa9fd5247e483a80c8a1c2e08846e9c9bc779a06c556b692df2a2c700f2a4ff6",
+    "hf-completed-original-results-v3.json": "079c98868597d2180d2e616650a7828fec632175ef1373bfc6f55aa2c538a88f",
+    "adaption-serving-pilot-v1-freeze.json": "1a87cf139a14b31f4d57917172b4338e2384ba6608cabc2adf9a752240b6dfc6",
     "generator_sensitivity_report_sha256": "9a7993f25b411c5fcedaafcf1bf4bfdd2f48d9eb34fa51e211d85ef02c4937bd"
   },
   "figures": [

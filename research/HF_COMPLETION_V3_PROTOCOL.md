@@ -86,5 +86,4 @@ Sources: [HTTP non-idempotent retry guidance](https://www.rfc-editor.org/rfc/rfc
 [Adaption SDK retries](https://docs.adaptionlabs.ai/api/python) (not used here),
 and the [Apart guidelines/Judging and results](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines).
 The recovery preserves the Track 4 acquisition-versus-reasoning objective and
-transparent execution.20-rules-of-learning guides concrete explanation and precise
-distinctions; it is not empirical evidence or a guarantee of judging scores.
+transparent execution.

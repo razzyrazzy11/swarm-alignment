@@ -114,11 +114,7 @@ sensitivity, keeping previous all-NONE iterations and separate HF recovery
 distinct from MAIN. Preserve prior-art credit and the required Limitations and
 Dual-Use / Ethical Considerations appendix.
 
-Use Apart's Impact Potential and Innovation, Execution Quality, and Presentation
-and Clarity dimensions to prioritize complete reproducible evidence, explicit
-failure accounting and scoped implications. Use 20-rules-of-learning for
-concrete example → definition → matched method → result → limitation flow;
-it is not scientific evidence or a promise of a prize.
+Apart's Impact Potential and Innovation, Execution Quality, and Presentation and Clarity dimensions prioritize complete reproducible evidence, explicit failure accounting and scoped implications.
 
 Primary conventions: [RFC6585 §4](https://www.rfc-editor.org/rfc/rfc6585.html#section-4)
 defines429 and optional Retry-After; status alone neither proves an unapplied

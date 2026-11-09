@@ -1,10 +1,12 @@
 # Template execution contract
 
+This is a historical record for the edition and review time described below. The current publication edition has a separate [source-bound paper QA record](../research/editorial-paper-qa-v1.json). Its updated presentation does not change the experimental data or results.
+
 Reference: `paper/official-template.docx`, downloaded from the current Guidelines link on 6 November 2026. SHA-256: `20bb4d221e722f7eca33c7bd3add4c749ddc76d346b12cdb9ada271083e3a36d`. Original attached template remains untouched outside this repository. Current reference rendered to `../template-qa/current.pdf`, five pages; all pages inspected.
 
 One portrait US Letter section, 8.5 × 11 inches, 1 inch margins. Preserve final sectPr exactly. Embedded Old Standard TT regular, bold and italic; preserve font parts, font table, theme, numbering and styles byte-for-byte. Body uses normal style with source font and source run size; remove italic guidance emphasis from replacement prose. Preserve heading patterns (Heading2 with explicit 14pt run properties, Heading3 14pt) and title (20pt bold centered). Do not shrink text to fit. Original title borders and footnote are source furniture, retained despite a generic preference against rules. Preserve the event footnote and its hyperlink.
 
-Editable locations: word/document.xml body table 0 title paragraph; author table inside table 0 row 1; abstract guidance paragraph; body paragraphs from Introduction through LLM Usage Statement; body table 1 (remove guidance box). Replace six author placeholders with a single centered source-derived author paragraph, using the provided prior-project name and truthful participant affiliation. Preserve With Apart Research and Abstract headings. Remove optional unused author-contribution heading rather than invent participation. Replace all guidance, examples and placeholder references. Clone source normal and heading paragraphs for expanded content; clear inherited list numbering and bookmarks from clones to avoid duplicate IDs. New table/figure content may use source-derived body text in simple fixed-width cells. References and appendix begin on new pages; extra pages are expected.
+Editable locations: word/document.xml body table 0 title paragraph; author table inside table 0 row 1; abstract guidance paragraph; body paragraphs from Introduction through LLM Usage Statement; body table 1 (remove guidance box). Replace six author placeholders with a single centered source-derived author paragraph, using the author’s stated name and affiliation. Preserve With Apart Research and Abstract headings. Remove optional unused author-contribution heading rather than invent participation. Replace all guidance, examples and placeholder references. Clone source normal and heading paragraphs for expanded content; clear inherited list numbering and bookmarks from clones to avoid duplicate IDs. New table/figure content may use source-derived body text in simple fixed-width cells. References and appendix begin on new pages; extra pages are expected.
 
 Package changes allowed: word/document.xml only. All other zip parts including styles.xml, numbering.xml, settings.xml, footnotes, relationships, embedded fonts and theme must remain byte-identical. The source document contains no image slots or content controls; no drawings added. No existing TOC/REF/PAGE field refresh is needed. Title footnote reference must be retained. Tables and text boxes are inspected through XML, including nested author placeholders.
 
@@ -14,17 +16,16 @@ Current evidence status, 7 November 2026: completed original factorial primary a
 
 Historical checkpoint: at 7 November 04:18 UTC the factorial integration had not been authored. That checkpoint preserved 576 worker and 9,706 reader terminals, with 1,934 reader requests unstarted. The then-deferred writer required complete phases. The later disclosed reporting amendment permits complete-primary/incomplete-secondary reporting and logical bounds; it does not turn that historical plan into a completed original study.
 
-Final Word export: 190-word abstract, seven main pages, two reference pages and four appendix/disclosure pages (13 total), 120,809-byte PDF. Normal and optimized verification pass; all 23 paper regression tests pass. The final 13 PDFium-rendered pages were inspected by the assistant for clipping, missing cells, stale text, misplaced headings and source/template fidelity. Only `word/document.xml` differs from the official DOCX package. The four-column Table 1 has a tested layout branch; legacy three-column layouts remain supported. The single document-operation marker was recorded before authoring and retained through layout continuations; it was not repeated. Local visual evidence is `../paper-qa-review/page-1.png` through `page-13.png`, outside the published package.
+Final Word export: 190-word abstract, seven main pages, two reference pages and four appendix/disclosure pages (13 total), 120,809-byte PDF. Normal and optimized verification pass; all 23 paper regression tests pass. The final 13 PDFium-rendered pages were inspected by the assistant for clipping, missing cells, stale text, misplaced headings and source/template fidelity. Only `word/document.xml` differs from the official DOCX package. The four-column Table 1 has a tested layout branch; legacy three-column layouts remain supported. Local visual evidence is `../paper-qa-review/page-1.png` through `page-13.png`, outside the published package.
 
 ## Prospective scientific PNG figure extension
 
-The user requested scientific visual aids drawn from retained empirical records.
+Scientific visual aids use retained empirical records.
 This extension is opt-in through a `figures` registry; the current manuscript and
 historical DOCX, PDF and manifests remain unchanged. Empty/absent registries keep
 the legacy table-based FIGURE1 behavior and its original builder provenance.
 No new result or illustrative performance figure is created by this pipeline
-work. Synthetic test PNGs are toy fixtures only. The root session already
-recorded the new authoring marker; this continuation does not repeat it.
+work. Synthetic test PNGs are toy fixtures only.
 
 For registered PNGs, the permitted package delta expands narrowly to inline
 drawing markup in `word/document.xml`, exactly the registered owned PNG media

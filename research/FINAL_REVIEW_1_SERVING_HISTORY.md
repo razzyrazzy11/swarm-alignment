@@ -24,7 +24,7 @@ Safe metadata evidence is retained privately at:
 - `runs/final-review-1-serving/development-native-evidence.json`: targeted 320-row private reporter ledger verification and journal hashes.
 - `runs/final-review-1-serving/aggregate-snapshot.json`: independent published-shard aggregate cross-check.
 
-No raw answers, provider-native response IDs, request headers, account balances or credentials were printed or copied into these evidence outputs or this memo. No provider endpoint, model task or inference was invoked. OpenCode was unavailable; this is a local source/metadata investigation, not a completed cross-model audit.
+No raw answers, provider-native response IDs, request headers, account balances or credentials were printed or copied into these evidence outputs or this memo. No provider endpoint, model task or inference was invoked. This local source/metadata investigation is not a completed cross-model audit.
 
 ## DEV reporter failures: real missing delivery, bounded downstream effect
 

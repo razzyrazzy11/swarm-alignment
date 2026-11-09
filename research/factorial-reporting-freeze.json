@@ -4,7 +4,7 @@
   "base_commit": "8ef7fcbdde94d3843005f430df6c523a490bbb60",
   "original_freeze_sha256": "9187cecf85ba40b6004716a2bc4a1705b7607297147143eb4c2192afff923652",
   "original_checkpoint_sha256": "b55f795a0ac26a66b5d47582ab4714279d8ded035363a61be0fd5a410b4d601a",
-  "extension_freeze_sha256": "459f7b0929315bdc7cec1be9465fd5e1dac3959a46898ff19bda1845dab6fbc0",
+  "extension_freeze_sha256": "cef46de10d0e40b01acf9e523779c08c2aed2a03c3ffd890e7efe55c4ce63083",
   "source_sha256": {
     "experiments/factorial_reporting.py": "0867cee88cfeefda6d33092575189ed8d5e428a4a47a0c2ea019ec2875b06aa2",
     "experiments/tests/test_factorial_reporting.py": "664daa336cf5ce3ae1c50b44d97d9e59cf07e100dc7f1e6f274fd94e05aefe35",

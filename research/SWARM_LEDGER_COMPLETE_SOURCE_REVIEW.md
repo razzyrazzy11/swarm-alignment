@@ -96,8 +96,8 @@ These are registered design quantities, not observed outcomes:
   calls are 63,200, not independent n=63,200.
 - Preserve old eight-reader engineering as its own graph. Two failed excluded
   capacity pilots are serving/cost provenance, not validation successes,
-  accuracy evidence, extra positives or MAIN sample size. Pre-sprint sting work
-  and earlier weekend studies need separate attribution and denominators.
+  accuracy evidence, extra positives or MAIN sample size. Earlier study iterations
+  retain separate attribution and denominators.
 
 For evidence-loss plots, show answerability, supported correctness and definite
 correctness together. ABSTAIN under genuine ambiguity can be supported-correct.
@@ -145,28 +145,9 @@ and primary estimand unchanged. Generator-conditioned support would be a
 separate sensitivity analysis requiring explicit labeling and an independently
 specified policy; it must not silently replace the registered result.
 
-## Paper flow using 20-rules-of-learning as editorial guidance
+## Research scope and dual use
 
-The local 20-rules skill is an explanation aid, not scientific evidence for the
-experiment. Use comprehension before compression, one distinction per paragraph,
-and a repeated concrete example to connect sections:
-
-1. Start with a two-write example: local receipts can each look permitted while
-   their sum exceeds the common budget. Define the investigator's target label.
-2. Explain the trust boundary and show the same episode as FULL, loss and
-   authentic restoration views. Define support before introducing accuracy.
-3. State the acquisition contrast and sufficient-evidence procedure contrast as
-   separate questions. Give the primary estimand and its independent unit once.
-4. Present completed results with those same labels, matched populations,
-   baselines and uncertainty. Keep scripted controls and extensions recognizable.
-5. Discuss what each result permits an investigator to conclude, then state the
-   finite-domain, trusted-host, provider/time and synthetic-task limits.
-
-A compact workflow figure plus a paired contrast plot is more useful than a
-product screenshot. Reserve chronology, failed pilots, detailed source mapping
-and secondary tables for appendices. The required ethics discussion should note
-that auditing insights can also expose useful evasion gaps; bounded fake-data
-release limits operational detail but does not eliminate that dual-use concern.
+The analysis separates acquisition from instruction effects on sufficient evidence, with matched populations, baselines and uncertainty. Scripted controls and extensions remain separate. The finite-domain, trusted-host, provider/time and synthetic-task limits remain material. Auditing insights can expose evasion gaps; bounded fake-data release limits operational detail but does not eliminate that dual-use concern.
 
 ## Access and reading-depth record
 

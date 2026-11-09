@@ -17,7 +17,7 @@ from verify import verify, validate_source, validate_results, build_manifest
 
 HISTORICAL_FIXTURE=PAPER/'tests/fixtures/results-v3'
 HISTORICAL_SOURCE_COMMIT='166da1cd1d5b725455b03fb9a47aaf1e2b8dabe5'
-HISTORICAL_MANIFEST_SHA256='68359087a58a5e3df4fdae4f3f4fb687130eabaa94beb6339776d3ea4140a4fa'
+HISTORICAL_MANIFEST_SHA256='5ec2ad883126383e03cf462748e06140ec37213839447308a1a798b3ff1d1c09'
 HISTORICAL_FILES={'content.json','out/swarm_audit_scoping.docx','out/swarm_audit_scoping.pdf',
                   'out/build-check.json','out/pdf-check.json'}
 

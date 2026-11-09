@@ -20,17 +20,17 @@ STAGES = ('hf_export', 'main_export', 'continuation_provenance', 'figure_input',
 
 
 def draft(paper=PAPER):
-    """Use stable historical citation numbering and current author identity."""
+    """Use the editorial reference basis and current author identity."""
     old = json.loads((Path(paper) / 'content.json').read_text(encoding='utf-8'))
     old = deepcopy(old)
     basis = json.loads((Path(paper) / 'complete-reference-basis.json').read_text(encoding='utf-8'))
     if (type(basis.get('schema_version')) is not int or basis['schema_version'] != 1
             or basis.get('source_release') != 'results-v3'
             or not isinstance(basis.get('references'), list)
-            or len(basis['references']) != 31
+            or len(basis['references']) != 30
             or any(not isinstance(text, str) or not text.startswith('['+str(i)+'] ')
                    for i, text in enumerate(basis['references'], 1))):
-        raise ValueError('Historical reference basis requires review')
+        raise ValueError('Editorial reference basis requires review')
     old['references'] = deepcopy(basis['references'])
     additions = [
         'Kitaoka (2026). Open Problems in Securing Systems Against AI Agent Swarms. Swarm Alignment Hackathon, 5 November, recording 00:56:11-00:57:25. https://apartresearch.com/sprints/swarm-alignment-2026#schedule',
@@ -41,7 +41,7 @@ def draft(paper=PAPER):
     old['references'].extend('['+str(talk_id+i)+'] '+text for i,text in enumerate(additions))
     value = {k: deepcopy(old[k]) for k in ('author', 'affiliation', 'references')}
     value.update(title='When Can a Swarm Be Audited?',
-        subtitle='Track 4: Multi-Agent Oversight and Control',
+        subtitle='Multi-Agent Oversight and Control',
         preparation_status='RESULT-BLIND DRAFT — NOT FOR SUBMISSION',
         abstract=PLACEHOLDER,
         sections=[
@@ -49,12 +49,12 @@ def draft(paper=PAPER):
             'A worker reports that a delegated update was completed. An investigator must establish who acted and whether the authority still held. A missing authentic record and a mistaken interpretation of an available record call for different interventions. We ask: does a swarm auditor lack necessary evidence, or fail to use evidence that is already sufficient?',
             'This Track 4 study separates three stages: obtaining trustworthy evidence, delivering a usable verdict, and reasoning from evidence sufficient in a declared finite history model. The setting is bounded fake-data delegation; it does not expose real services to agent actions. Multi-agent risk motivates oversight [1,9,10]; the target here is a specific worker-event label, not intent or causal blame for the entire group [6].']],
           ['2. Related work and contribution', [
-            'Evidence-binding work distinguishes correct answers from justified findings [3]. Active evidence acquisition changes what an investigator observes [24]; selective prediction distinguishes justified abstention from an unsupported definite answer [25]. We use these distinctions as separate evaluation layers rather than treating a better information packet as proof of improved reasoning.',
+            'Evidence-binding work distinguishes correct answers from justified findings [3]. Active evidence acquisition changes what an investigator observes [23]; selective prediction distinguishes justified abstention from an unsupported definite answer [24]. We use these distinctions as separate evaluation layers rather than treating a better information packet as proof of improved reasoning.',
             'Prior Apart projects such as Syscon and ActionLens connect instrumentation to a testable oversight decision [11,12]. Our contribution is a prospectively registered matched comparison within a stateful, five-role workflow: instruction changes keep evidence fixed, while restoration comparisons keep source trajectories matched. The bounded scope and baselines limit claims of transfer.']],
           ['3. Methods', [
             'A principal issues authority, a coordinator delegates it, workers X and Y hand off work and propose bounded fake writes, and a reporter produces untrusted claims. The host executes parsed bounded fake-data actions; authorization violations are measured rather than silently prevented. Y permission depends jointly on issuance and grant, local cap, shared budget, half-open lease, and revocation. Physical X usage counts toward the shared budget even when X lacked authority. API latency does not advance the fake integer settlement clock.',
             'The registered grid has four actor profiles, five policy classes, two layouts and sixteen repetitions. The same principal/coordinator prefix is cloned across honest, X-adversarial, Y-adversarial and both-adversarial arms. Repeated arms, views and readers are dependent measurements, not additional independent samples.',
-            'All six FULL16 readers receive DIRECT and PROCEDURE instructions on the same four-arm evidence: Adaption Gemma 26B and 31B; Hugging Face Llama text and schema delivery; and Ollama DeepSeek thinking off and low [16,17,31]. These are six profiles, four checkpoints and three model families. G26, G31 and DS-low also read six reduced/restored views under DIRECT on the matched honest/both arms, covering two families.',
+            'All six FULL16 readers receive DIRECT and PROCEDURE instructions on the same four-arm evidence: Adaption Gemma 26B and 31B; Hugging Face Llama text and schema delivery; and Ollama DeepSeek thinking off and low [16,17,30]. These are six profiles, four checkpoints and three model families. G26, G31 and DS-low also read six reduced/restored views under DIRECT on the matched honest/both arms, covering two families.',
             'Acquisition conditions distinguish a sufficient seven-record receipt packet, random loss, selective loss, and restoration of two authentic records selected randomly, by metadata, or by a fixed contract bundle. Query selection uses a declared uniform compatible-world prior, not the empirical incident distribution. Peer claims never create authority.',
             'The primary is G26 FULL16 PROCEDURE minus DIRECT in parsed ungated correct-definite verdicts. First average four arm differences within each base block, then average 640 blocks. The frozen stratified block bootstrap uses forty strata, sixteen blocks each, 10,000 draws and seed 730009. Secondary intervals are descriptive, without familywise claims. Semantic validity, strict bare-JSON encoding, admitted output, wrong sufficient-evidence verdicts, and supported abstention remain distinct.',
             'Always-NONE, always-ABSTAIN and the finite-domain support oracle are references. Calibration uses twenty scripted worlds, separately from natural trajectories. Controlled inter-agent influence holds the receiver state fixed and varies three peer notes across eighty blocks. Small-monitor fine-tuning is not performed. Failed requests remain terminal and in denominators; no request identity is retried or replaced.']],
@@ -70,7 +70,7 @@ def draft(paper=PAPER):
             'Oracle answerability is relative to its declared compatible-world domain. The five-policy generator can encode correlations that a generator-aware reader could exploit. The separately registered generator-knowledge sensitivity must be discussed with the primary domain; it does not replace or rescore the original primary. The uniform acquisition prior is not an empirical posterior.',
             'Only bounded fake-data actions are executed. No live target, credential theft, real exfiltration, or real-world sabotage is required. Public artifacts should omit credentials, private provider response identifiers and unnecessary raw text. Failure modes could help evasion or selective deletion; release emphasizes defensive evidence requirements and safe reproductions. No claim of perfect containment or tamper-proof deployment follows.']],
           ['Appendix B. Provenance, iterations and reproducibility', [
-            'The earlier October trusted-agent-sting project [19] is preexisting context, not new sprint evidence. Earlier swarm-audit, weight-policy and incomplete-serving iterations are separately registered and retained; they are not pooled into the new 640-block primary. The original HF completion is a separate recovery of its original planned identities, not a replacement reader in this MAIN.',
+            'Earlier swarm-audit, weight-policy and incomplete-serving iterations are separately registered and retained; they are not pooled into the new 640-block primary. The original HF completion is a separate recovery of its original planned identities, not a replacement reader in this MAIN.',
             'Router-aware continuation preserves stopped-prefix hashes and collects only unstarted identities. Authentic connection and gateway failures remain terminal, retain unknown-cost reservations where needed, and are not reasoning outcomes. Scheduling amendments and excluded capacity/serving pilots are separately labeled. The post-primary serving pilot is feasibility evidence only, not an extra scientific condition.',
             'AI tools assisted implementation and writing; the author is responsible for claims, references and data. Completion requires strict offline public replay, source and registration checks, figure provenance, and actual inspection of every exported PDF page. A successful metadata health check does not establish scientific correctness.']]],
         pending_results=PLACEHOLDER)

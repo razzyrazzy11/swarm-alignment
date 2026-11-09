@@ -8,14 +8,14 @@
     "experiments/tests/test_hf_completion_analysis.py": "801ba0ac4b5055786d1c8cf640e4f28af1b6d003a573d07abf6f4f6129cee344",
     "research/HF_COMPLETION_ANALYSIS.md": "3e3e73c9e2b688949be66ae8af9e388df149ad7e906f0819b14527585c629158",
     "research/HF_COMPLETION_ANALYSIS_REGISTRATION_CORRECTION.md": "a147924a84e65490eeca00a28d738c93914646577cb8d7c823257acc7e50c839",
-    "research/hf-completed-original-analysis-v1-incomplete-freeze.json": "96f74dbc1e29af9c9a9ef80848e871fd8790d5bfe2ff05a8de9aacc4187849ec",
+    "research/hf-completed-original-analysis-v1-incomplete-freeze.json": "212c8a344c94318d1f30dff7917d2e3449eb9ad07b4aafa1d43bffe0ea6fdaa6",
     "experiments/hf_completion_v2.py": "c05bcf099585ce0e5cc0bbdc0bd9619768f9661451ba5e575e032191c03ba153",
     "experiments/tests/test_hf_completion_v2.py": "5874f371d65f24b622c886244e13c112062d34c17bba56a28fa0771c283bf398",
     "research/HF_COMPLETION_V2_PROTOCOL.md": "91b65330f268700a26934da60f518c47f5a2ea4f3a109c958397f03fb1d05c08"
   },
   "snapshot_tag": "results-v3",
   "anchors": {
-    "research/factorial-report.json": "ae633f065f6831fbe04358983a40106a3c10cfc927e738b871fe150b59bbf923",
+    "research/factorial-report.json": "54cc7cb2c5a0245bc013f5190f38364eb4f91ed9195fadf6891f49ec70acd0d0",
     "data/factorial_contexts.json": "5e386a7f4dccf3737e2a8f740b4f69d5bf841e2dc871257d85f43861044380b3",
     "data/factorial_report_actors.jsonl": "8fb47ddd64fea332936ff78ae8fa1e4df6661935d27dd4b141f322e7c84298f2",
     "data/factorial_report_trajectories.json": "bf9be467c9e19d2faaa9bb37eb23edb2be5d5f6cac5839242b2c61f6ea032bce",

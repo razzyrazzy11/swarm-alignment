@@ -106,13 +106,11 @@ deviations disclosed. No submission or publication is authorized here.
 
 ## Sprint relevance
 
-The central scientific framing remains: which part of oversight needs repair—
+The central scientific framing remains: which part of oversight needs repairâ€”
 evidence acquisition, verdict delivery, or use of sufficient evidence? Preserve
 these distinctions throughout the repository and manuscript. The new rate
 failures are delivery metadata; they cannot establish a reasoning mechanism.
-Use concrete examples before abstractions, one evidence-backed claim per
-paragraph, stable terms and explicit scope limits as the20-rules editorial
-method. This is a preparation assessment, not any of the four deferred reviews.
+This is a preparation assessment, not any of the four deferred reviews.
 
 Impact is supported by a reusable diagnosis-to-repair map; execution quality
 requires honest failures, immutable provenance and completed validation;
@@ -125,7 +123,7 @@ completion of this project's stated full-study objective.
 
 - [Apart guidelines, rubric and deadline](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines):
   impact/innovation, execution and clarity; official template, maximum8main
-  pages excluding references/appendices,150–250word abstract and required
+  pages excluding references/appendices,150â€“250word abstract and required
   Limitations and Dual-Use / Ethical Considerations appendix. The confirmed
   submission deadline is9November11:59UTC.
 - [Adaption API error documentation](https://docs.adaptionlabs.ai/api/python/):

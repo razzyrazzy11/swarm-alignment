@@ -37,7 +37,7 @@
   },
   "parent_registration_sha256": {
     "hf-completion-v1-freeze.json": "0b6ac98e12896b1802f7fb432e2b9a1b25a4648ef01fd8b7730aa196d6f98d83",
-    "hf-completion-v2-freeze.json": "195d5487d07b1920e213c6505961e3009358ca971a84ff12ec2496de1a36f1dc"
+    "hf-completion-v2-freeze.json": "4b185e3daa500fa974f267c47fbfd9e5f341beae64304f078fc2666f5630a969"
   },
   "prior_raw_sha256": {
     "runs/hf-completion-v1/plan.json": "e589739663ffd06e48878cfb9e23d4e532edf73a7d63e94994a6384e211029f5",

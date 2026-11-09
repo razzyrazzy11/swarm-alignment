@@ -10,9 +10,9 @@
     "experiments/swarm_ledger_dispatch_v2.py": "aca160fabd9eff96a9f4b4054b4ba44c2dc076bf3f19d78cd13baa32e10e47c9"
   },
   "parent_registration_sha256": {
-    "research/hf-completed-original-analysis-freeze.json": "9047eb5ebcaeca18029ae7a54a0bc5abf579da3bd369b4cf43893303ef614faa",
+    "research/hf-completed-original-analysis-freeze.json": "f85e10b42e3154bfa13e0163d5041ba9423cf9e5dbcbf7b636d56ef42d7cd702",
     "research/hf-completion-v1-freeze.json": "0b6ac98e12896b1802f7fb432e2b9a1b25a4648ef01fd8b7730aa196d6f98d83",
-    "research/hf-completion-v2-freeze.json": "195d5487d07b1920e213c6505961e3009358ca971a84ff12ec2496de1a36f1dc"
+    "research/hf-completion-v2-freeze.json": "4b185e3daa500fa974f267c47fbfd9e5f341beae64304f078fc2666f5630a969"
   },
   "timing": "Operational release guard registered during collection, before supplement answer unblinding; all scientific methods unchanged"
 }

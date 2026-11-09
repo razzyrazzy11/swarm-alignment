@@ -76,12 +76,7 @@ termination before strict export, unchanged scientific replay, source-bound
 plots and registered generator sensitivity. An incomplete or failed new driver
 blocks publication and final paper integration.
 
-Use the sprint's Impact Potential and Innovation, Execution Quality, and
-Presentation and Clarity criteria to prioritize a complete reproducible matched
-diagnosis, explicit failure accounting and scoped claims. The 20-rules-of-learning
-skill supports concrete-example → definition → method → result → limitation
-flow; it is not scientific evidence. Retain the required Limitations and
-Dual-Use / Ethical Considerations appendix.
+The sprint's Impact Potential and Innovation, Execution Quality, and Presentation and Clarity criteria prioritize a complete reproducible matched diagnosis, explicit failure accounting and scoped claims. The required Limitations and Dual-Use / Ethical Considerations appendix is retained.
 
 Primary conventions: [RFC9110 §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2)
 limits automatic retries of non-idempotent requests;

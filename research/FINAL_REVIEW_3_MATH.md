@@ -1,6 +1,6 @@
 # Final review 3 — statistical methods, public arithmetic and figure interpretation
 
-Reviewed 9 November 2026 against the empirical artifact at `49027a8dd4b0cca320d7d803d32262d1c5d694fb`. The native Codex fallback reviewer inspected the local registered sources, public observations, aggregate reports, manuscript source, DOCX and exported PDF. This was a targeted scientific review. OpenCode MCP was unavailable and supplied no review opinion.
+Reviewed 9 November 2026 against the empirical artifact at `49027a8dd4b0cca320d7d803d32262d1c5d694fb`. This targeted AI-assisted scientific review inspected the local registered sources, public observations, aggregate reports, manuscript source, DOCX and exported PDF. No independent-vendor review is claimed.
 
 ## Finding requiring correction before submission
 

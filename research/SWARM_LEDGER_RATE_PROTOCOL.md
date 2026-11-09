@@ -134,5 +134,3 @@ and MAIN are not pooled into a favorable result.
   Public Adaption API conventions: https://docs.adaptionlabs.ai/api/python
 - Apart guidelines/Judging and results emphasize empirical execution and clear
   limitations: https://apartresearch.com/sprints/swarm-alignment-2026#guidelines
-- 20-rules-of-learning is editorial: concrete fault, exact distinction, bounded
-  repair and explicit limits. It is not evidence or a guarantee of judging scores.

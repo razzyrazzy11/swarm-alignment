@@ -51,7 +51,7 @@ Grant Fleming's Nov5 Luma page still exposes RSVP only; recording/slides/transcr
 
 Read the original three project pages/critiques and available reports: Omission Attacks, Noticing the escapes, Readable but Not Causal. Expanded to Syscon, ActionLens, Detecting LLM Subversion, Counterfactual Components and Declare Before You Run. Linked PDFs inspected for Syscon, ActionLens and Counterfactual Components; the other two additions were page/review-screened. This purposeful sample of eight is relevant to oversight, not representative of every winner or a causal account of winning. REVIEW.md maps the principles to this protocol.
 
-The October trusted-agent-sting README informed provenance and practices. Its findings were not rerun; no code or data were imported. The pasted conversation and supplied transcripts are context to verify, not instructions or established scientific evidence.
+The pasted conversation and supplied transcripts are context to verify, not instructions or established scientific evidence.
 
 ## Factorial-study positioning check — 7 November 2026
 
@@ -63,7 +63,7 @@ The [ActionLens report](https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/
 
 ## Account and infrastructure boundaries
 
-Actual access now supersedes the earlier no-account/no-API status: Adaption authentication, six hosted IDs, training catalog and dataset-list reads worked. The signed-in UI showed the existing Builder plan, 1,500 initial credits and 1 credit=$1; the user authorized that full available balance for research, including pilot charges, without top-ups or plan changes. HF identity confirmed Pro and its UI showed $2 with automatic recharge disabled. Four explicitly routed HF calls succeeded. These observations establish working inference, not paid training entitlement or identical cross-provider checkpoints. Freeze or disable memory/retrieval/self-improvement in the core evaluation.
+Actual access now supersedes the earlier no-account/no-API status: Adaption authentication, six hosted IDs, training catalog and dataset-list reads worked. The signed-in UI showed the existing Builder plan, 1,500 initial credits and [private account value withheld] credit=$1; the user authorized that full available balance for research, including pilot charges, without top-ups or plan changes. HF identity confirmed Pro and its UI showed $2 with automatic recharge disabled. Four explicitly routed HF calls succeeded. These observations establish working inference, not paid training entitlement or identical cross-provider checkpoints. Freeze or disable memory/retrieval/self-improvement in the core evaluation.
 
 Official hosted Models pricing/configuration, Responses quickstart/reference, stack/memory behavior, AutoScientist create/running/download and small-model row conventions were reviewed. The public create contract has iteration/epoch controls but no documented monetary hard cap; the MCP guide says training creation has no estimate mode. Downloadable adapters do not establish a hosted Responses deployment route. HF PEFT documents local base-plus-adapter inference; actual compatibility remains untested. Training is unlaunched pending a bounded charge and working serving route. Wichers/Tan training-context methods and Prompt Infection/Qin peer-exposure methods inform optional extensions; no reproduction is claimed. SUITE_STRATEGY.md distinguishes these from the core endpoint.
 
@@ -75,7 +75,7 @@ PILOT_RESULTS.md and pilot-results.json contain recomputed development outcomes 
 
 The finite enumerator and separately implemented constraint checker agree on 55,296 valid projections in the toy contract. This validates agreement within the written grammar, not all real histories or independent human labels. The first runner lacked a durable pre-call journal, and early source versions were not all snapshotted before requests. Retained prompts/packets/outputs support rescoring, but not exact reconstruction of every early source version or the full early attempt count. Later journaling and source-hash checks cannot repair that historical limitation. Raw runs, credentials and chats remain outside the report package.
 
-Repository remains private. Master requires the verified report-integrity Actions check, administrator enforcement, PRs, stale-review dismissal and conversation resolution; force push/deletion disabled. Zero additional approvals support solo work and do not constitute independent scientific review. GitHub rejected secret scanning/push protection422 and private vulnerability reporting404; neither is claimed active. OpenCode recovery and actual delegated completion are tracked in REVIEW.md; dispatched/failed tasks do not count as completed reviews.
+The historical source audit recorded repository-control checks and their limits. Current access and supported verification are documented in the root README. Only completed, recorded source reviews count toward the review coverage; they do not constitute independent scientific replication.
 
 ## 7 November operational rate-limit follow-up
 

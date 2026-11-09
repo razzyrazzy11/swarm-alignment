@@ -1,6 +1,8 @@
 # Final review 3: manuscript sources, evidence and sprint criteria
 
-Reviewed 9 November 2026 against the manuscript integrated at `49027a8dd4b0cca320d7d803d32262d1c5d694fb`. This is a native Codex review fallback. It is not a completed OpenCode backend review, an independent-vendor audit, an exhaustive literature search or a guarantee of originality or judging outcome. Only this new memo is authored by this reviewer; the manuscript, frozen science, data, registrations and figures were not changed.
+This is a historical record for the edition and review time described below. The current publication edition has a separate [source-bound paper QA record](editorial-paper-qa-v1.json). Its updated presentation does not change the experimental data or results.
+
+Reviewed 9 November 2026 against the manuscript integrated at `49027a8dd4b0cca320d7d803d32262d1c5d694fb`. This AI-assisted source review is scoped; it is not an independent empirical replication, independent-vendor audit, exhaustive literature search or certification of originality. Only this memo was authored by that reviewer; the manuscript, frozen science, data, registrations and figures were not changed by the review.
 
 ## Disposition
 
@@ -49,7 +51,7 @@ The official project pages identify Syscon as a LinuxArena track winner and Acti
 
 The official sprint schedule confirms the title, date and speaker of reference [14] and links to the [Kitaoka recording](https://apartresearch.com/sprints/swarm-alignment-2026#schedule). The recording page exposes no usable transcript through web retrieval. The retained local readable transcript was directly checked around 00:56:11–00:57:25: it supports the distinction between identifying relevant agents and a residual gap with combined trajectories. Only that cited passage and surrounding context were freshly checked here; no claim of fresh end-to-end audio or slide inspection is made. `research/TALK_REVIEW_NOV5.md` records the broader earlier review and its ASR/audio limits. The manuscript paraphrases rather than reproduces the ASR as an exact quote.
 
-The author's [preexisting October project repository](https://github.com/razzyrazzy11/trusted-agent-sting) is accessible and identifies the trusted-agent sting study and October sprint. This supports the provenance disclosure, not a fresh audit of that project's data. [Adaption response documentation](https://docs.adaptionlabs.ai/api/resources/responses/methods/create), [HF explicit routing documentation](https://huggingface.co/docs/inference-providers/en/index), and [Ollama cloud](https://docs.ollama.com/cloud)/[thinking controls](https://docs.ollama.com/capabilities/thinking) were accessible and their relevant API/selection text checked. They support interface descriptions, not immutable checkpoint identity, exact historical implementation, or authentication of the retained experiment responses.
+[Adaption response documentation](https://docs.adaptionlabs.ai/api/resources/responses/methods/create), [HF explicit routing documentation](https://huggingface.co/docs/inference-providers/en/index), and [Ollama cloud](https://docs.ollama.com/cloud)/[thinking controls](https://docs.ollama.com/capabilities/thinking) were accessible and their relevant API/selection text checked. They support interface descriptions, not immutable checkpoint identity, exact historical implementation, or authentication of the retained experiment responses.
 
 ## Official sprint criteria and readiness
 

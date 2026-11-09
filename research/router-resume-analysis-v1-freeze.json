@@ -10,7 +10,7 @@
   },
   "parent_registration_sha256": {
     "research/swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
-    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf"
+    "research/hf-completion-v3-freeze.json": "aa9fd5247e483a80c8a1c2e08846e9c9bc779a06c556b692df2a2c700f2a4ff6"
   },
   "method": "Same frozen scientific functions; new actual-driver and disjoint-journal admission; all failures retained"
 }

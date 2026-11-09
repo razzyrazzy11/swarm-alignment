@@ -3,10 +3,10 @@
   "source_commit": "166da1cd1d5b725455b03fb9a47aaf1e2b8dabe5",
   "scientific_snapshot": "historical results-v3 manuscript at latest green pre-promotion commit; not original results-v3 tag bytes",
   "files_sha256": {
-    "content.json": "3656cef6f9ce0b3bfa5f52d5a04ae5f2999a16b0c3bcf6b622f75ffa87a630a0",
-    "out/swarm_audit_scoping.docx": "7554cd2f9a9baa9bfacbe3a6693e303a997678e663d14a72c10c1db096c1b810",
-    "out/swarm_audit_scoping.pdf": "80792e05f0c6b52efd41abfb8efa5ee45ac16be60342170f2be5eac5841f40b8",
-    "out/build-check.json": "9e01925369840e4c0e838f2da070306dd9bf15e630c58eb741bc7e538d2a4577",
-    "out/pdf-check.json": "744a66c221c0f0c45f6ccab9a8de421a9e2521188a6d25dfa286df9b13a7857f"
+    "content.json": "887fc7150e70be4236876633340dacea2cce89a70fb333680078ded90868e628",
+    "out/swarm_audit_scoping.docx": "7c3094dbdb5b4967cb55c2fa3a5ebb53191cde054ccc97a6c09cd3d40f322881",
+    "out/swarm_audit_scoping.pdf": "9b1626d42511ea641221c7ec844160bc9128a20d48e9a1ed61e9b3671ad3028d",
+    "out/build-check.json": "960cc0af36e412ebed591e0f4db166cf700ebd26cd9b4b06f47c3978f36be6ac",
+    "out/pdf-check.json": "849be6bab2c7780f607f8cae6061ea5c180ee2a11c97f0b8fad38b1ec67fa5f6"
   }
 }

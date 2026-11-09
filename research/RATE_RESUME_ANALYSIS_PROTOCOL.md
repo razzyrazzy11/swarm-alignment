@@ -115,12 +115,7 @@ disclosure remain. Dispatch-semantic equivalence for a fixed completion stream
 is distinct from identical empirical serving timing; batch/time variation must
 remain a limitation.
 
-Use the sprint's Impact Potential and Innovation, Execution Quality, and
-Presentation and Clarity criteria to favor complete reproducible evidence and
-scoped conclusions. The 20-rules-of-learning skill organizes concrete example →
-definition → matched method → result → limitation; it is not scientific evidence
-or a prize guarantee. The prospectively registered admission cutoff, science
-budget and no-retry identities may not be relaxed by this analysis module.
+The sprint's Impact Potential and Innovation, Execution Quality, and Presentation and Clarity criteria favor complete reproducible evidence and scoped conclusions. The prospectively registered admission cutoff, science budget and no-retry identities may not be relaxed by this analysis module.
 
 Primary conventions: [RFC6585 §4](https://www.rfc-editor.org/rfc/rfc6585.html#section-4)
 defines HTTP429 and optional Retry-After without making it proof of an unapplied

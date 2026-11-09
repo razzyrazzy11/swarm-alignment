@@ -1,12 +1,14 @@
 # Final review 4: narrative, remaining sections and visual publication check
 
+This is a historical record for the edition and review time described below. The current publication edition has a separate [source-bound paper QA record](editorial-paper-qa-v1.json). Its updated presentation does not change the experimental data or results.
+
 9 November 2026. **Status: review 4 complete within the narrative, template and visual coverage recorded below.** The coordinator completed the actual revised native export and inspected every rendered page; this reviewer checked the corresponding source/receipt identities and attributes that visual inspection to the coordinator. This reviewer did not run a build/verifier/export, interact with Word, or independently inspect all 15 revised page images. Final revised-artifact verification, exact-commit CI and submission remain separate gates.
 
 ## Reviewed version and scope
 
 Read the three completed review-3 memos (`FINAL_REVIEW_3_MATH.md`, `FINAL_REVIEW_3_CODE_PROVENANCE.md`, `FINAL_REVIEW_3_PAPER_SOURCES.md`), the new `PUBLIC_VERIFICATION_SCOPE_ERRATUM.md`, current manuscript sections, appendices, references and captions, and the prose diff against artifact snapshot `49027a8dd4b0cca320d7d803d32262d1c5d694fb`. Inspected the actual unchanged acquisition PNG and its frozen provenance description. The current source raw SHA-256 is `6535bbeaf60ebbcd767b60c0cb73f364bc6d8ca90347709d82f58cb7a031ff26`.
 
-The requested 20-rules-of-learning skill was used as an editorial lens: context before terminology, a concrete example before abstract machinery, stable distinctions, and small claim units. This is publication editing, not a demand to add exercises, change the scientific method, or introduce new evidence. The primary-source access and arithmetic coverage are those explicitly recorded by review 3; this review does not silently convert them into a fresh literature audit or full statistical replay. OpenCode was unavailable and supplied no opinion.
+The primary-source access and arithmetic coverage are those explicitly recorded by review 3; this narrative review does not constitute a fresh literature audit or full statistical replay. No external cross-model opinion was obtained.
 
 Read-only checks and hashes are in `runs/final-review-4-narrative/narrative-source-checks.json`. No paper, data, figure, frozen source, registration, output or historical artifact was edited by this reviewer.
 
@@ -36,7 +38,7 @@ The result-preservation check found no favorable-only rewrite:
 - Appendix D retains actor intention-to-treat effects, nonpositive/uncertain interaction, scripted calibration rather than population recall, and peer-note influence intervals crossing zero. None is promoted into emergent collusion, covert language or an additional independent MAIN sample.
 - Generator-domain sensitivity remains in main-text limitations and Appendix D. It preserves the original adverse primary, qualifies “insufficient” relative to a declared domain, and supplies finite-cohort counts without new sensitivity intervals or model calls.
 - Appendix A retains synthetic/finite scope, authentic-host assumptions, model drift, event-versus-group-blame limits and dual-use/selective-deletion concerns. The manuscript makes no containment or deployment-safety guarantee.
-- Appendix B retains the preexisting October study, earlier all-NONE sample and its incident-recall limitation, separate original HF recovery, failed offline attempts and operational amendments. These are not pooled into MAIN. The optional serving pilot stays blocked/unrun.
+- Appendix B retains the earlier all-NONE sample and its incident-recall limitation, separate original HF recovery, failed offline attempts and operational amendments. These are not pooled into MAIN. The optional serving pilot stays blocked/unrun.
 - Code/data access is described as a currently private repository with judge access and submission left to the author. Appendix E distinguishes hosted route identifiers from immutable weight hashes, fixed request bounds from reproducible provider behavior, final answer scoring from private thinking, and public replay from full native-archive revalidation.
 
 The source remains information-dense, especially in the paired schema/thinking contrast paragraph and operational Appendix B. These are genuine reading-cost tradeoffs under the page ceiling, rather than omissions requiring more claims or tables. No further material narrative blocker was identified in this coverage. This is not a guarantee of judging outcome, exhaustive originality or universal comprehensibility.

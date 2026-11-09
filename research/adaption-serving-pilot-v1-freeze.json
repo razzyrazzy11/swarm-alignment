@@ -16,8 +16,8 @@
   },
   "parent_sha256": {
     "research/swarm-ledger-resume-v1-freeze.json": "fbea54ee59ead37553ccb1702fddb35b83a081bf5a489a0035dd92ae089c2bec",
-    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf",
-    "research/router-resume-analysis-v1-freeze.json": "b8a2ee6878adc9e282d3dde6639d801394e030c3237a2580a15a1c4537bddf8c",
+    "research/hf-completion-v3-freeze.json": "aa9fd5247e483a80c8a1c2e08846e9c9bc779a06c556b692df2a2c700f2a4ff6",
+    "research/router-resume-analysis-v1-freeze.json": "83d511109238798e076869dc8717b73979fa82358b66017a265dc0fd30a8a1ff",
     "research/swarm-ledger-dispatch-v1-stop.json": "70d30e56d0949f91dead03b4b007c270e71674d30aa2e5a79d8487647392dd73",
     "research/swarm-ledger-dispatch-v2-stop.json": "92b6f4764cb884e3fb9e9cdeec0c3b4ffe76d11b8b15404e919a30ee3c53a827"
   },

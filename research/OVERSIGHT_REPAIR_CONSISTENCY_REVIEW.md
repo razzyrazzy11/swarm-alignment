@@ -1,5 +1,7 @@
 # Oversight repair: claim, source and narrative consistency
 
+This is a historical record for the edition and review time described below. The current publication edition has a separate [source-bound paper QA record](editorial-paper-qa-v1.json). Its updated presentation does not change the experimental data or results.
+
 9 November 2026. This review applies the four previously queued prompts to the completed study and the revised manuscript. It preserves the earlier review records and scientific registrations. It authorizes no new inference, retries, merge, publication or submission.
 
 ## Main message and evidence
@@ -29,11 +31,11 @@ Historical scripted, live-handoff, tiny-policy and all-NONE factorial studies ar
 
 ## Source and convention coverage
 
-All 15 bibliography destinations were freshly consulted at primary sources. Reviewers checked the passages supporting the manuscript's claims, not every page of every paper. The talk passage was checked against the retained readable ASR and official schedule; this is not a fresh full-audio audit. Access and scope limits remain in the private source/citation map and earlier public source-review memo.
+The original review consulted all 15 bibliography destinations at primary sources. Reviewers checked the passages supporting the manuscript's claims, not every page of every paper. The talk passage was checked against the retained readable ASR and official schedule; this is not a fresh full-audio audit. Access and scope limits remain in the private source/citation map and earlier public source-review memo.
 
 The official Track 4 guidelines govern the eight-main-page ceiling, abstract and required limitations/ethics appendix. The actual downloaded and repository templates were previously shown to have identical package contents; their geometry and styles are preserved. The [official sprint guidelines](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines) take precedence over generic editing preferences.
 
-The requested 20-rules-of-learning skill guides concrete context before terminology, clear distinctions and linked explanations. The clear-writing skill guides meaning, comprehension and polish passes. [Editors Canada's stylistic standards](https://editors.ca/publications/professional-editorial-standards/stylistic-editing/) support limited, meaning-preserving edits. [Government Analysis Function guidance](https://analysisfunction.civilservice.gov.uk/policy-store/communicating-quality-uncertainty-and-change/) informs explicit uncertainty and careful treatment of null findings. These conventions do not supply scientific evidence, imply a universal sentence-length rule, certify accessibility or replace representative-reader testing. No human reader test is claimed.
+[Editors Canada's stylistic standards](https://editors.ca/publications/professional-editorial-standards/stylistic-editing/) support limited, meaning-preserving edits. [Government Analysis Function guidance](https://analysisfunction.civilservice.gov.uk/policy-store/communicating-quality-uncertainty-and-change/) informs explicit uncertainty and careful treatment of null findings. These conventions do not supply scientific evidence, imply a universal sentence-length rule, certify accessibility or replace representative-reader testing. No human reader test is claimed.
 
 ## Evidence and release scope
 
@@ -49,4 +51,4 @@ The later submission PDF keeps all scientific results, tables, references, figur
 
 The final PDF SHA-256 is `418c27f6e9d5b7ecfc4e76f1c7bbb76ca412370d15c3ff5ff7741be1ea6fd193`; the DOCX SHA-256 is `2f91e32f28c3941af64e913a5868a805cc27e8d1383b45f08f9e01852c2221a7`. Every actual native-exported page was inspected, with the review recorded at 11:57:45 UTC. It retains 16 total pages, eight main pages and a 196-word abstract. The exact delivered bytes are retained at the canonical `paper/out/` paths; local download aliases are not a separate version.
 
-An independent Codex review checked the source diff, exact DOCX package parts and preservation of scientific objects. Three focused layout tests passed normally and under Python optimization, including byte-identical default assembly and fail-closed handling of invalid author layouts. The frozen builder, scientific contracts and verifier are unchanged. OpenCode startup was unavailable, so no independent-vendor review is claimed. Current full artifact verification and exact-commit CI remain separate gates from these focused tests and visual observations.
+An independent AI-assisted review checked the source diff, exact DOCX package parts and preservation of scientific objects. Three focused layout tests passed normally and under Python optimization, including byte-identical default assembly and fail-closed handling of invalid author layouts. The frozen builder, scientific contracts and verifier were unchanged by that review. No independent-vendor review is claimed. Full artifact verification and exact-commit CI are separate gates from those focused tests and visual observations.

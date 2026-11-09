@@ -79,7 +79,7 @@ Primary cutoff remains9November05:59UTC. This separate post-primary pilot has a
 9November09:30UTC cutoff, leaving2hours29minutes before the sprint's11:59UTC
 submission deadline. The complete45minute wall budget must fit before that
 secondary cutoff or the pilot is explicitly deferred with no inference. Shared
-connectivity gating enforces the04:55–05:05UTC router blackout and two healthy
+connectivity gating enforces the04:55â€“05:05UTC router blackout and two healthy
 catalog checks15seconds apart, bounded by a900second pause. Authentication,
 funding, TLS, capture-integrity, unknown transport failures and model substitution
 halt; ordinary bounded gateway/stream-validation failures remain pilot outcomes.
@@ -121,5 +121,4 @@ Primary references: [Adaption SSE/API](https://docs.adaptionlabs.ai/api/resource
 [SDK streaming and retry defaults](https://docs.adaptionlabs.ai/api/python),
 [HTTP retry semantics](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2),
 and [Apart judging guidelines](https://apartresearch.com/sprints/swarm-alignment-2026#guidelines).
-The project uses20-rules-of-learning for concrete examples, clear distinctions
-and connected explanations, not as evidence for serving or scientific effects.
+

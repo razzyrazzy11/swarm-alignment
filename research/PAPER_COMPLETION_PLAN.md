@@ -90,13 +90,7 @@ attest visual review. The candidate is an authoring scaffold, not a finished pap
 | `visual_review` | Actual exported PDF, every page inspected, then a truthful hash-bound review receipt. |
 | `references_originality` | Claim/source alignment, prior art, preexisting work and the new contribution distinguished. |
 
-Apply 20-rules-of-learning through a concrete handoff example before definitions,
-one claim per paragraph, stable terms and an explicit link from each finding to
-its matched contrast and limitation. A hidden authentic grant concerns acquisition;
-no usable returned verdict concerns delivery; a wrong parsed verdict on sufficient
-evidence raises the evidence-use question. This is an illustrative explanation,
-not an empirical case or an exhaustive causal partition. The skill supplies no
-scientific evidence or authority for an extra confirmatory analysis.
+A hidden authentic grant concerns acquisition; no usable returned verdict concerns delivery; a wrong parsed verdict on sufficient evidence raises the evidence-use question. This is an illustrative explanation, not an empirical case or an exhaustive causal partition.
 
 ## Build, export and inspect the actual report
 
@@ -203,8 +197,7 @@ reported honestly. Earlier completion creates additional reserve.
 The new authoring input asks: **does a swarm auditor lack necessary evidence,
 or fail to use evidence that is already sufficient?** Track 4 is explicit.
 The draft follows a concrete handoff example, separates acquisition/delivery/
-reasoning, defines the experiment, then leaves results visibly pending. This
-uses the 20-rules-of-learning skill for clarity, not as scientific evidence.
+reasoning, defines the experiment, then leaves results visibly pending.
 
 `paper/prepare_complete.py` reads only the existing author/reference metadata
 when preparing a draft. It does not inspect unfinished empirical answers,
@@ -373,14 +366,7 @@ materially changes the conclusion in the main text. Retain the required
 Limitations and Dual-Use / Ethical Considerations appendix. Keep earlier
 all-NONE results, scripted cases and MAIN separate rather than pooling them.
 
-Apply 20-rules-of-learning as an editorial method: concrete example before
-definitions; one claim per paragraph; stable terminology across methods,
-tables and discussion; visual comparison of confusable layers; and explicit
-links from each finding to its matched contrast and limitation. This skill
-does not supply scientific evidence or authorize adding confirmatory tests.
-Final authoring remains gated on complete strict replay, then actual PDF
-page-count verification and visual inspection of every page. The existing
-monitoring and four deferred reviews keep their current order.
+Final authoring remains gated on complete strict replay, then actual PDF page-count verification and visual inspection of every page. The existing monitoring and four deferred reviews retain their order.
 
 ## Historical efficient final-data lineage
 

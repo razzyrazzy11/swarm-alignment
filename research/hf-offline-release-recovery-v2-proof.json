@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "recovery_tag": "offline-release-recovery-v2",
-  "recovery_freeze_sha256": "32f13b107fd853d18664d74e9fe0a12f408177a8ae242e5223f534791dacd6ac",
-  "paced_analysis_freeze_sha256": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+  "recovery_freeze_sha256": "205944b1f253e1a44d31b7ce1aafbccc70cc79c6c99f79b5be2456c9b72d229c",
+  "paced_analysis_freeze_sha256": "453111c78b460ffe37402e68daa245650e676dbf2d9f1d8d27eed07b659c29ed",
   "projection_rule": "validated-next-delay-and-private-transport-to-frozen-public-schema-v2",
-  "public_report_sha256": "3d7620a49b86bebcc825ccf83073c58614b191e16ccb7f938c37e3cdeffee9d1",
+  "public_report_sha256": "079c98868597d2180d2e616650a7828fec632175ef1373bfc6f55aa2c538a88f",
   "public_supplement_sha256": "014ee0e95b82fe86d239322538c4e31702a101f6fbe68a6d960c401688aec746",
   "raw_batches_sha256": {
     "hf-completion-v1": {
