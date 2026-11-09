@@ -1,6 +1,6 @@
 # When Can a Swarm Be Audited?
 
-**Track 4 Multi-Agent Oversight and Control.** Which part of swarm oversight needs repair: acquiring authentic evidence, delivering a usable verdict, or using sufficient evidence correctly?
+**Multi-Agent Oversight and Control.** Which part of swarm oversight needs repair: acquiring authentic evidence, delivering a usable verdict, or using sufficient evidence correctly?
 
 A worker claiming that a delegated update completed does not establish who acted or whether permission still held. We test those distinctions in a bounded five-role fake-data workflow with authentic host records and untrusted agent notes.
 
@@ -31,14 +31,25 @@ Contract-record restoration raises finite-domain answerability from 452/1,280 to
 
 Start with the [integrated PDF](paper/out/swarm_audit_scoping.pdf), [DOCX](paper/out/swarm_audit_scoping.docx), [aggregate report](data/swarm-ledger-v1-public/report.json), [scientific protocol](research/SWARM_LEDGER_COMPLETE_PROTOCOL.md), [generator sensitivity](data/swarm-ledger-generator-sensitivity-v1/report.json) and [figure provenance](paper/figures/swarm-ledger-complete-v1/ledger_figures_provenance.json). Current QA status is stated above.
 
+Use a full Git checkout with the registration tags. CI uses Python 3.12 and installs the verification dependencies before running the public checks:
+
 ```powershell
+python -m pip install -r paper/preparation-requirements.txt
 python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public
-python -m experiments.offline_release_recovery_v2 verify
 python -m experiments.test_runner
 python paper/verify.py --public-replay
+python -O paper/verify.py --public-replay
 ```
 
 Public replay verifies exported jobs, actions, evidence, scores and arithmetic. Native-journal validation occurred during export; a fresh full native-journal check requires the private archive and admission path. The default paper verifier checks retained private failed-waiter evidence and provenance plus public replay, rather than repeating every native-journal check. Neither hashes nor replay independently authenticate a provider. See the [verification-scope erratum](research/PUBLIC_VERIFICATION_SCOPE_ERRATUM.md). Paper verification binds the current DOCX/PDF, aggregate tables, figure sources and actual all-page inspection receipt. CI alone is not visual inspection.
+
+The following local checks additionally require the retained private failed-waiter states and logs and process-termination evidence. They are not clean-checkout reproduction commands and do not repeat full native-journal admission:
+
+```powershell
+python -m experiments.offline_release_recovery_v2 verify
+python paper/verify.py
+python -O paper/verify.py
+```
 
 Seven disjoint collection batches preserve stopped prefixes and never retry/replace failed identities. All 53,760 planned MAIN reader identities are terminal; 34 retain unknown-usage reservations. Both auxiliaries have 240/240 HTTP200 terminals, known usage and zero capture anomalies. The excluded serving pilot is blocked/unrun. No new inference is needed.
 
@@ -56,4 +67,4 @@ Razvan Sacara's October 2026 [trusted-agent-sting](https://github.com/razzyrazzy
 
 A synthetic role graph, authentic-host assumption, generator-relative oracle, repeated sources and unpinned serving limit transfer. Layers can coexist; effect sizes do not causally partition errors. No universal prompting remedy, internal mechanism, spontaneous collusion, general swarm safety or judging outcome is established.
 
-Keys, native IDs, headers, raw reasoning and raw runs remain excluded; see [SECURITY.md](SECURITY.md). The repository remains private and the PR a draft. Judge access, official submission, merge and publication remain author actions.
+Keys, native IDs, headers, raw reasoning and raw runs remain excluded; see [SECURITY.md](SECURITY.md). The repository remains private. The completed study, public replay data, code and documentation were merged through protected PR #1; final presentation changes receive their own verification and protected PR. Judge access, official upload and a change to public visibility remain author actions.

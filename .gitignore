@@ -235,3 +235,6 @@ id_ed25519
 # OpenCode orchestration state and browser downloads are not research artifacts
 .swarm/
 .playwright-mcp/
+
+# Local download aliases; verified paper artifacts are tracked in paper/out/.
+paper/submission-*/

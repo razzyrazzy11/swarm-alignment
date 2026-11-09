@@ -1,6 +1,6 @@
 {
   "author": "Razvan Sacara",
-  "affiliation": "Swarm Alignment Hackathon participant",
+  "affiliation": "Independent Researcher",
   "references": [
     "[1] Hammond et al. (2025). Multi-Agent Risks from Advanced AI. https://arxiv.org/abs/2502.14143",
     "[2] Yun et al. (2026). Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs. https://arxiv.org/abs/2610.09581",
@@ -19,7 +19,7 @@
     "[15] Kitaoka, Pham, Giudice and Merizian (2026). Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks. MiniLab. https://arxiv.org/abs/2610.24052v1"
   ],
   "title": "When Can a Swarm Be Audited?",
-  "subtitle": "Track 4: Multi-Agent Oversight and Control",
+  "subtitle": "Multi-Agent Oversight and Control",
   "preparation_status": "REVIEWED SCIENTIFIC MANUSCRIPT; ARTIFACT STATUS IN README AND HASH-BOUND QA RECEIPTS",
   "abstract": "Which part of swarm oversight needs repair: evidence acquisition, verdict delivery, or use of sufficient evidence? We investigate this Track 4 question through a controlled, matched experiment in a bounded five-role fake-data delegation workflow. Authentic host records are separated from untrusted agent claims. The prospectively registered main study has 640 independent blocks, 2,560 matched actor trajectories and 53,760 reader responses across Adaption Gemma, Hugging Face Llama and Ollama DeepSeek profiles. The primary Gemma 26B procedure-minus-direct effect on identical sufficient packets is adverse: −2.07 percentage points in parsed ungated correct-definite verdicts (95% stratified block-bootstrap interval −4.06 to −0.12). Secondary instruction effects differ across readers; the Gemma 31B effect is +9.96 points, while DeepSeek low is −1.91. Restoring two contract records raises finite-domain oracle answerability from 35.31% to 100%, but supported-correct gains range from 3.44 to 15.31 points. DeepSeek off returns valid bare JSON throughout FULL16 yet makes 871 false executor accusations in 2,560 DIRECT readings. Failures retain their assigned denominators. Scripted calibration, controlled peer influence and generator-domain sensitivity remain separate. The results support measuring evidence availability, verdict delivery and sufficient-evidence errors separately; they do not establish a universal prompting remedy, internal reasoning mechanism or general swarm safety.",
   "sections": [
@@ -139,6 +139,12 @@
         "Every profile retains its frozen 4,096-token output ceiling and request construction. Complete prompts, deterministic fake-state generation, action parser, schema, decoding and support oracle are in experiments/swarm_ledger.py, swarm_ledger_study.py and swarm_ledger_reference.py with scientific configurations under research/. Operational continuations preserve those bodies. A temperature setting or fixed seed does not guarantee provider-level determinism. Only final answer content is scored; private thinking remains excluded.",
         "Current MAIN replay uses data/swarm-ledger-v1-public; generator sensitivity uses data/swarm-ledger-generator-sensitivity-v1. The HF original completion is separately exported as data/hf_completed_original_supplement_v3.jsonl and is not a MAIN condition. Current source and native-archive commitments are bound by the paced and offline-V2 release proofs; the seven-stage state is runs/offline-release-recovery-v2-driver/state.json. The current manuscript is not the historical results-v3 report.",
         "Public commands are python -m experiments.swarm_ledger_complete_analysis verify-public --output data/swarm-ledger-v1-public and python paper/verify.py --public-replay (also with Python -O). Default python paper/verify.py additionally checks private failed-waiter evidence; full native-journal validation occurred during export and requires the private archive. The public route cannot record a PDF review manifest; actual local inspection and private verification precede that record."
+      ]
+    ],
+    [
+      "LLM Usage Statement",
+      [
+        "An LLM coding agent was used for scaffolding, implementation and debugging under the author's direction and review. Agentic instances also assisted manuscript drafting, proofreading and checks for errors. The author made the design decisions and directed the experiments and analysis. Agentic tooling executed collection, processing and verification commands under those instructions. The author remains responsible for the research and report."
       ]
     ]
   ],
@@ -1721,5 +1727,6 @@
       "caption": "Figure 4. Five-role workflow and evidence boundary. Authentic host records establish bounded fake-data effects; agent notes are untrusted. Acquisition asks which records are available, and evidence use asks which verdict they support.",
       "alt_text": "Principal, coordinator, X executor, Y executor and reporter feed host-produced records, then evidence acquisition and evidence use."
     }
-  ]
+  ],
+  "author_layout": "stacked"
 }

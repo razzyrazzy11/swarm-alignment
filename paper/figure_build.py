@@ -131,6 +131,32 @@ def _drawing(paragraph,item,rid,number):
     geometry=_sub(shape,A,'prstGeom',prst='rect');_sub(geometry,A,'avLst')
 
 
+def _author_layout(doc,content):
+    """Opt-in author presentation over the template-derived paragraph only."""
+    if 'author_layout' not in content:return
+    require(content['author_layout']=='stacked','Unknown author layout')
+    combined=content['author']+' | '+content['affiliation']
+    matches=[p for p in doc.xpath('//w:p',namespaces=legacy.NS) if legacy.text(p)==combined]
+    require(len(matches)==1,'Stacked author paragraph must be unique and present')
+    original=matches[0]
+    props=original.find(W+'pPr')
+    require(props is not None and props.find(W+'jc') is not None and props.find(W+'jc').get(W+'val')=='center',
+            'Stacked author requires original centered template paragraph')
+    paragraphs=[]
+    for value,bold in ((content['author'],True),(content['affiliation'],False)):
+        paragraph=deepcopy(original);legacy.replace(paragraph,value)
+        run=paragraph.find(W+'r');rprops=run.find(W+'rPr')
+        if rprops is None:rprops=E.Element(W+'rPr');run.insert(0,rprops)
+        for tag in ('b','bCs'):
+            for previous in rprops.findall(W+tag):rprops.remove(previous)
+        # b/bCs follow rFonts in CT_RPr; every existing font/size/property stays.
+        position=sum(child.tag in (W+'rStyle',W+'rFonts') for child in rprops)
+        for offset,tag in enumerate(('b','bCs')):
+            flag=E.Element(W+tag);flag.set(W+'val','1' if bold else '0');rprops.insert(position+offset,flag)
+        paragraphs.append(paragraph)
+    original.getparent().replace(original,paragraphs[0]);paragraphs[0].addnext(paragraphs[1])
+
+
 def assemble(content,template):
     template=Path(template);items=registry(content,template.parent)
     edited=deepcopy(content)
@@ -144,6 +170,7 @@ def assemble(content,template):
     else:
         parts=legacy.assemble(edited,template)
     doc=E.fromstring(parts['word/document.xml']);section=E.tostring(doc.find(W+'body').find(W+'sectPr'))
+    _author_layout(doc,content)
     relname='word/_rels/document.xml.rels';rels=E.fromstring(parts[relname]);old_rels=[E.tostring(v) for v in rels]
     used={v.get('Id') for v in rels};numbers=[int(v) for v in doc.xpath('//*[local-name()="docPr"]/@id')]
     start=max(numbers,default=0)+1
