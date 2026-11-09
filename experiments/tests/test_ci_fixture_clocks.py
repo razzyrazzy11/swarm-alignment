@@ -48,14 +48,14 @@ class FixtureClockTests(unittest.TestCase):
         self.assertIs(module.f.s.now,actual)
 
     def test_all_named_original_methods_pass_with_all_assertions(self):
-        suite=selected_suite();self.assertEqual(suite.countTestCases(),28)
+        suite=selected_suite();self.assertEqual(suite.countTestCases(),34)
         # Keep each distinct method, not merely the final method of each class.
         methods=[(type(case),case._testMethodName,getattr(type(case),case._testMethodName))
                  for case in runner.cases(suite)]
         with ExitStack() as stack:
             runner.install_clock_fixtures(suite,stack,Path(__file__).resolve().parents[2])
             result=unittest.TestResult();suite.run(result)
-        self.assertEqual(result.testsRun,28)
+        self.assertEqual(result.testsRun,34)
         self.assertEqual(result.errors,[]);self.assertEqual(result.failures,[])
         self.assertEqual(result.skipped,[])
         for cls,name,original in methods:self.assertIs(getattr(cls,name),original)
@@ -181,6 +181,42 @@ class FixtureClockTests(unittest.TestCase):
             module,original=selected.call_args.args
             self.assertEqual(module.__name__.rsplit('.',1)[-1],runner.CONNECTION_ORDER_FIXTURE[0])
             self.assertEqual(original.__name__,runner.CONNECTION_ORDER_FIXTURE[2])
+
+    def test_pilot_datetime_is_local_and_nested_late_calendar_still_stops_dispatch(self):
+        module=importlib.import_module('experiments.tests.test_adaption_serving_pilot')
+        actual=module.p.datetime;global_datetime=datetime
+        cutoff=datetime.fromisoformat(module.p.POLICY['cutoff_utc'])
+        class LateDatetime(datetime):
+            @classmethod
+            def now(cls,tz=None):return cutoff+timedelta(seconds=1)
+        def original(case):
+            case.assertIs(datetime,global_datetime)
+            case.assertIsNot(module.p.datetime,actual)
+            case.assertEqual(module.p.datetime.now(timezone.utc).timestamp(),runner.FIXTURE_EPOCH)
+            case.assertFalse(module.p.fits_window(cutoff))
+            with tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);(root/'runs'/module.p.TAG).mkdir(parents=True)
+                freeze=root/'freeze.json';freeze.write_text('{}')
+                clock=module.Clock();gate=module.Gate();calls=[]
+                def forbidden(*args,**kwargs):calls.append(1);raise AssertionError('Late scenario cannot dispatch')
+                with patch.object(module.p,'ROOT',root),patch.object(module.p,'FREEZE',freeze),\
+                     patch.object(module.p,'datetime',LateDatetime):
+                    result=module.p._run(module.p.plan(),'synthetic',forbidden,gate,clock,clock.sleep)
+                case.assertEqual(calls,[]);case.assertEqual(result['started'],0)
+                case.assertEqual(result['stop_reason'],'pilot_cutoff')
+            case.assertEqual(module.p.datetime.now(timezone.utc).timestamp(),runner.FIXTURE_EPOCH)
+            raise RuntimeError('synthetic failure')
+        with self.assertRaisesRegex(RuntimeError,'synthetic failure'):
+            runner.clock_fixture_adapter(module,original,'pilot')(self)
+        self.assertIs(module.p.datetime,actual);self.assertIs(datetime,global_datetime)
+
+    def test_pilot_clock_inventory_excludes_real_run_watchdog_and_explicit_cutoff_tests(self):
+        entry=next(entry for entry in runner.CLOCK_FIXTURES if entry[0]=='test_adaption_serving_pilot')
+        self.assertEqual(len(entry[2]),6);self.assertEqual(entry[3],'pilot');self.assertEqual(entry[4],runner.FIXTURE_SHA256)
+        for name in ('test_run_refuses_before_primary_without_loading_credentials',
+                     'test_watchdog_state_requires_actual_parent_child','test_secondary_cutoff_has_full45minute_reserve',
+                     'test_primary_and_postprocess_must_be_complete_real_states'):
+            self.assertNotIn(name,entry[2])
 
 
 if __name__=='__main__':unittest.main()

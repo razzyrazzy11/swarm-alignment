@@ -24,6 +24,13 @@ METADATA_CLOCK_METHODS = (
     'test_metadata_transient_read_only_backoff_then_success',
     'test_metadata_funding_fails_without_sleep_or_retry',
     'test_late_metadata_success_is_not_admission')
+PILOT_CLOCK_METHODS=(
+    'test_one_shot_matrix_captures16_distinct_attempts',
+    'test_failed_delivery_kept_once_full_reservation_no_retries',
+    'test_fatal_group_stops_later_probes_and_drains_each_send_once',
+    'test_analysis_replays_native_cost_and_retains_failure_counts',
+    'test_analysis_rejects_cost_tamper',
+    'test_watchdog_partial_does_not_invent_terminal_and_holds_reservation')
 EXECUTION_CLOCK_METHODS = (
     'test_connection_failure_is_retained_once_and_only_unstarted_continue',
     'test_unclassified_parse_failure_stops_without_resending',
@@ -52,7 +59,8 @@ CLOCK_FIXTURES = (
     ('test_swarm_ledger_rate', 'UnionTests', EXECUTION_CLOCK_METHODS, 'execution',
      '7594d160b120e5a60994b414190bad1b45ad34b16021dc277994bf4c7415f692'),
     ('test_swarm_ledger_paced', 'UnionTests', EXECUTION_CLOCK_METHODS, 'execution',
-     '6e7b820fd140814ef45135b01e39e23c32d2db967f5a8d16cf600cf11871c4c5'))
+     '6e7b820fd140814ef45135b01e39e23c32d2db967f5a8d16cf600cf11871c4c5'),
+    ('test_adaption_serving_pilot','PilotTests',PILOT_CLOCK_METHODS,'pilot',FIXTURE_SHA256))
 
 
 class ScriptedTransport:
@@ -154,7 +162,7 @@ def clock_fixture_adapter(module, original, kind):
     scenarios replace only the owning module's datetime class with a subclass
     overriding now(); explicit at arguments and nested patches still win.
     """
-    if kind not in ('metadata', 'forecast', 'execution'):
+    if kind not in ('metadata', 'forecast', 'execution', 'pilot'):
         raise ValueError('Unknown synthetic clock fixture kind')
     @wraps(original)
     def run(case):
@@ -164,13 +172,14 @@ def clock_fixture_adapter(module, original, kind):
                 monotonic=actual.monotonic, sleep=actual.sleep)
             with patch.object(module.r, 'time', clock):
                 return original(case)
-        if kind == 'execution':
-            actual = module.r.datetime
+        if kind in ('execution','pilot'):
+            owner=module.r if kind=='execution' else module.p
+            actual = owner.datetime
             class ScenarioDatetime(actual):
                 @classmethod
                 def now(cls, tz=None):
                     return actual.fromtimestamp(FIXTURE_EPOCH, tz)
-            with patch.object(module.r, 'datetime', ScenarioDatetime):
+            with patch.object(owner, 'datetime', ScenarioDatetime):
                 return original(case)
         with patch.object(module.f.s, 'now', return_value=FIXTURE_UTC):
             return original(case)
@@ -213,6 +222,12 @@ def install_clock_fixtures(suite, stack, root):
             raise RuntimeError('Expected exactly one clock fixture class: '+name)
         cls = matches.pop()
         module = sys.modules[cls.__module__]
+        if name=='test_adaption_serving_pilot':
+            # The nested named-method regression imports this frozen fixture
+            # under its package name as well as unittest's bare discovery name.
+            # Retain the SAME previously approved ordinal adapter in either
+            # alias; this is not a new class-wide calendar-clock override.
+            stack.enter_context(patch.object(cls,'run_fixture',fixture_adapter(module)))
         selected = {case._testMethodName for case in cases(suite) if type(case) is cls}
         if not set(methods) <= selected:
             raise RuntimeError('Expected all named clock fixture methods: '+name+'.'+class_name)

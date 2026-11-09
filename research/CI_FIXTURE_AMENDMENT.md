@@ -169,6 +169,45 @@ test also passed 25 consecutive repetitions in each mode; this exercises the
 original failing ordering and normal/nested adapted controls each time, rather
 than rerunning the entire experiment suite or retrying a failed CI job.
 
+### Excluded pilot synthetic calendar scenarios
+
+Commit `0c3996f` push run 42593842807 ran after the excluded pilot's calendar
+cutoff and failed with five failures and one error among 1,028 experiment tests.
+The six affected methods in the frozen `test_adaption_serving_pilot.PilotTests`
+are the matrix, failed-delivery, fatal-drain, native-cost analysis, cost-tamper
+analysis and partial-watchdog analysis scenarios. All construct fake clocks,
+transports and receipts. `_run` nevertheless also reads its owning module's
+`datetime.now()` against the fixed secondary cutoff; after that date it starts
+zero fake requests before the intended assertions. The cost-tamper test then
+indexes an empty synthetic response list. This is not an actual pilot failure.
+
+Only those six named methods now receive the same explicit 8 November 00:00 UTC
+calendar scenario through a module-local `p.datetime` subclass. The existing
+original-file pin remains
+`58340e8ed2b58e34af88ae611377a61960f19e9769ff605b6ce1d3fdb909ac8d`.
+There are now 34 named scenario methods across seven pinned fixture files.
+No original test byte/assertion, policy date, real clock or production code is
+changed. The previously approved ordinal transport adapter is reused for the
+nested package-name pilot class as well as bare unittest discovery, preventing
+the older synthetic `len(calls)` race from returning in the named-method test.
+That reuse does not give the whole class a calendar override.
+
+The real-run priority, actual-parent/watchdog identity and explicit `fits_window`
+boundary tests remain outside the six-method override. A new regression proves
+that a nested future calendar still makes the real synthetic `_run` stop with
+`pilot_cutoff` and zero dispatch, that `fits_window(cutoff)` remains false, and
+that local/global datetime identities restore even on an exception. All 34
+named original methods still execute every original assertion.
+
+The remaining pilot calendar dependencies were inspected through the stated
+11:59 UTC deadline: static past completion timestamps have no upcoming boundary;
+the actual-watchdog fixture fails its explicit identity check; explicit window
+tests use fixed arguments; supervisor cutoff/remaining-time tests supply relative
+or patched times. No additional ambient calendar override was justified. This
+is a source-based prospective check, not a guarantee against unrelated failures.
+The real excluded serving pilot remains blocked and unrun. No pilot process,
+POST, empirical response or new serving experiment is launched by these tests.
+
 ## Primary references
 
 - [Python 3.12 lock objects](https://docs.python.org/3.12/library/threading.html#lock-objects):
