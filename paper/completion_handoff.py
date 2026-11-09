@@ -84,26 +84,32 @@ def pipeline(root):
     efficient=(root/'research/swarm-ledger-efficient-v1-freeze.json').is_file()
     rate=(root/'research/swarm-ledger-rate-v1-freeze.json').is_file()
     paced=(root/'research/swarm-ledger-paced-v1-freeze.json').is_file()
+    recovered=(root/'research/offline-release-recovery-v1-freeze.json').is_file()
+    require(not recovered or paced,'Offline recovery requires the paced scientific lineage')
     analysis_name='experiments.paced_resume_analysis' if paced else 'experiments.rate_resume_analysis' if rate else 'experiments.efficient_resume_analysis' if efficient else 'experiments.provider_resume_analysis'
-    supervisor_name='experiments.paced_resume_supervisor' if paced else 'experiments.rate_resume_supervisor' if rate else 'experiments.efficient_resume_supervisor' if efficient else 'experiments.provider_resume_supervisor'
-    waiter='runs/paced-resume-postprocess-driver' if paced else 'runs/rate-resume-postprocess-driver' if rate else 'runs/efficient-resume-postprocess-driver' if efficient else 'runs/provider-resume-postprocess-driver'
+    supervisor_name='experiments.offline_release_supervisor' if recovered else 'experiments.paced_resume_supervisor' if paced else 'experiments.rate_resume_supervisor' if rate else 'experiments.efficient_resume_supervisor' if efficient else 'experiments.provider_resume_supervisor'
+    waiter='runs/offline-release-recovery-driver' if recovered else 'runs/paced-resume-postprocess-driver' if paced else 'runs/rate-resume-postprocess-driver' if rate else 'runs/efficient-resume-postprocess-driver' if efficient else 'runs/provider-resume-postprocess-driver'
     collector='runs/swarm-ledger-paced-v1-driver' if paced else 'runs/swarm-ledger-rate-v1-driver' if rate else 'runs/swarm-ledger-efficient-v1-driver' if efficient else 'runs/swarm-ledger-resume-v3-driver'
     proof='research/swarm-ledger-paced-resume-release-proof.json' if paced else 'research/swarm-ledger-rate-resume-release-proof.json' if rate else 'research/swarm-ledger-efficient-resume-release-proof.json' if efficient else 'research/swarm-ledger-provider-resume-release-proof.json'
     analysis=importlib.import_module(analysis_name)
     supervisor=importlib.import_module(supervisor_name)
     prepare=importlib.import_module('paper.prepare_complete')
     analysis.verify()  # Frozen source/registration checks only, never aggregate admission.
+    if recovered:
+        importlib.import_module('experiments.offline_release_recovery').verify()
     require(tuple(supervisor.STAGES)==STAGES==tuple(prepare.STAGES),'Offline stage/API drift')
     require('paper' in inspect.signature(prepare.candidate).parameters,'Candidate gate API differs')
     require('replay' in inspect.signature(analysis.verify_main).parameters,'Replay API differs')
     jobs=supervisor.processing_jobs();require(tuple(name for name,_ in jobs)==STAGES,'Offline command ordering differs')
     flat=[' '.join(command) for _,command in jobs]
-    require(analysis_name+' export-hf' in flat[0],'HF admission command differs')
+    hf_analysis_name='experiments.offline_release_recovery' if recovered else analysis_name
+    require(hf_analysis_name+' export-hf' in flat[0],'HF admission command differs')
     require(analysis_name+' export-main' in flat[1],'MAIN admission command differs')
     require(waiter+'/verified-public-input.json' in flat[3],'Figure receipt path differs')
     state_path=root/(waiter+'/state.json')
     state=json.loads(state_path.read_text(encoding='utf-8')) if state_path.exists() else {}
     return dict(analysis_module=analysis_name,
+        hf_analysis_module=hf_analysis_name,
         collector_state=collector+'/state.json',
         postprocessor_state=waiter+'/state.json',
         observed_postprocessor_status=state.get('status','not_started'),
@@ -112,6 +118,8 @@ def pipeline(root):
         strict_ready_required=True,
         complete_public='data/swarm-ledger-v1-public',
         main_proof=proof,
+        offline_recovery_registration='research/offline-release-recovery-v1-freeze.json' if recovered else None,
+        offline_hf_projection_proof='research/hf-offline-release-recovery-proof.json' if recovered else None,
         figure_receipt=waiter+'/verified-public-input.json',
         figures='paper/figures/swarm-ledger-complete-v1',
         sensitivity='data/swarm-ledger-generator-sensitivity-v1')

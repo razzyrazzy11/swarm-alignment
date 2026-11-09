@@ -1,5 +1,29 @@
 # Completing the six-reader study and paper
 
+## Offline recovery after complete collection — 9 November
+
+All six MAIN reader conditions and both 240-call auxiliary phases finished;
+the actual collection driver completed and terminated at 05:33 UTC. The original
+paced waiter then stopped at `hf_export`: private transport diagnostics reached
+the strict public-schema validator. Preserve that failed state and its logs.
+
+The separately named `offline-release-recovery-v1` adapter and one-shot
+`experiments.offline_release_supervisor` are an offline engineering correction,
+activated only after their prospective source commit, freeze, tag and push.
+They project strictly admitted private transport into the unchanged public
+allowlist, retaining all identities, failures, costs and scientific functions.
+The new owner is `runs/offline-release-recovery-driver/state.json`; its figure
+receipt is `verified-public-input.json` in the same directory. The seven stages
+below remain mandatory; the stopped old waiter must never be restarted.
+
+The new HF projection proof is
+`research/hf-offline-release-recovery-proof.json`. Paper readiness must bind this
+proof and the new registration, require actual successful termination of the
+new seven-stage owner, and retain all paced scientific lineage checks. Collection
+completion alone does not admit result authoring. The four reviews remain after
+actual strict validation and paper integration. See
+[the recovery protocol](OFFLINE_RELEASE_RECOVERY_PROTOCOL.md).
+
 ## Current authoritative path — paced seven-batch lineage
 
 Updated on 8 November 2026 using frozen engineering sources and process metadata

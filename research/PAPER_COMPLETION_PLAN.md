@@ -412,3 +412,19 @@ the four queued reviews. No preparation receipt substitutes for those actions.
   makes accidental output replacement fail rather than overwrite an artifact.
 
 </details>
+# Offline recovery binding — 9 November
+
+Complete collection is preserved. The old paced waiter failed its first HF
+export at the private-to-public transport boundary and remains stopped. After
+prospective registration/tag/push, the separately named offline recovery owns
+the same seven strict stages, with state
+`runs/offline-release-recovery-driver/state.json`, figure receipt
+`runs/offline-release-recovery-driver/verified-public-input.json`, and HF
+projection proof `research/hf-offline-release-recovery-proof.json`.
+
+The nonfrozen paper readiness and handoff commands select that registered owner
+and require its actual successful termination, source/freeze identity, companion
+proof, original scientific replay and current figure/sensitivity receipts.
+Historical stopped waiters cannot admit the final candidate. No paper findings,
+visual attestation or queued review is complete merely because collection ended.
+All remaining page/template/slot/review requirements below remain in force.

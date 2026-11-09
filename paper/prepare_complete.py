@@ -108,11 +108,15 @@ def ready(paper=PAPER):
     efficient=(paper.parent/'research/swarm-ledger-efficient-v1-freeze.json').is_file()
     rate=(paper.parent/'research/swarm-ledger-rate-v1-freeze.json').is_file()
     paced=(paper.parent/'research/swarm-ledger-paced-v1-freeze.json').is_file()
-    waiter='paced-resume-postprocess-driver' if paced else 'rate-resume-postprocess-driver' if rate else 'efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
+    recovered=(paper.parent/'research/offline-release-recovery-v1-freeze.json').is_file()
+    if recovered and not paced:
+        raise ValueError('Offline recovery requires the paced scientific lineage')
+    waiter='offline-release-recovery-driver' if recovered else 'paced-resume-postprocess-driver' if paced else 'rate-resume-postprocess-driver' if rate else 'efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
     state_path = paper.parent / ('runs/'+waiter+'/state.json')
     if not state_path.is_file():
         raise ValueError('Actual complete postprocessor state required')
-    state = json.loads(state_path.read_text(encoding='utf-8'))
+    state_raw = state_path.read_bytes()
+    state = json.loads(state_raw)
     if state.get('status') != 'complete' or state.get('completed_stages') != list(STAGES) or state.get('child_pid') is not None:
         raise ValueError('All actual offline postprocessing stages must finish first')
     if paced:
@@ -127,11 +131,31 @@ def ready(paper=PAPER):
         from experiments import server_resume_analysis as continuation
     else:
         from experiments import router_resume_analysis as continuation
+    if recovered:
+        from experiments import offline_release_recovery as recovery
+        recovery.verify()  # New prospective source/tag proof, never inference.
+        expected_source=hashlib.sha256((paper.parent/'experiments/offline_release_supervisor.py').read_bytes()).hexdigest()
+        expected_freeze=hashlib.sha256((paper.parent/'research/offline-release-recovery-v1-freeze.json').read_bytes()).hexdigest()
+        if (state.get('kind')!='offline_release_recovery'
+                or type(state.get('exit_code')) is not int or state['exit_code']!=0
+                or type(state.get('inference_calls')) is not int or state['inference_calls']!=0
+                or state.get('paper_authored') is not False or state.get('visual_qa_complete') is not False
+                or state.get('supervisor_sha256')!=expected_source
+                or state.get('recovery_freeze_sha256')!=expected_freeze):
+            raise ValueError('Offline recovery supervisor/source/registration identity differs')
+        continuation.terminated('runs/paced-resume-postprocess-driver/state.json',stopped=True)
     continuation.terminated('runs/'+waiter+'/state.json', complete=True)
+    if recovered and state_path.read_bytes()!=state_raw:
+        raise ValueError('Offline recovery state changed during admission')
     continuation.drivers('main')
     continuation.drivers('hf')
+    if recovered:
+        recovery.verify_projection(replay=False)  # Metadata/projection proof before any aggregate read.
     report, bindings = contract.load_completed(paper, replay=True)
-    continuation.verify_hf()
+    if recovered:
+        recovery.verify_hf()  # Companion proof plus unchanged frozen HF scientific replay.
+    else:
+        continuation.verify_hf()
     from analysis import ledger_complete_figures as figures
     figures.verify_only(paper.parent / 'data/swarm-ledger-v1-public',
                         paper.parent / ('runs/'+waiter+'/verified-public-input.json'),
