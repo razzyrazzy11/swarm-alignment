@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "tag": "offline-release-recovery-v2",
+  "created": "2026-11-09T06:04:09.667997+00:00",
+  "base_commit": "e21158a1c7928f3ff69ffd85a9b08e1d11c039b6",
+  "source_sha256": {
+    "experiments/offline_release_recovery_v2.py": "8f9dfa9e15115b85bee33c40c35ec19f0bd35e4e36dbac473922613bd5df6e9a",
+    "experiments/tests/test_offline_release_recovery_v2.py": "0c5bcd2216e03666886602c4237944a3553021300e81b932385fc39d5554ac80",
+    "research/OFFLINE_RELEASE_RECOVERY_V2_PROTOCOL.md": "09339bd0afaee6ea58f32cb8d70859d61639675bd9cf4cf6fab13b189dc96abc",
+    "experiments/offline_release_supervisor_v2.py": "52f28b5b2f1a0870a59c5780751df1472b2848f3f5c6cca48b4c8dada7ca0dce",
+    "experiments/tests/test_offline_release_supervisor_v2.py": "b0b2d79dfad55d8814f4948af8b4c5906dab941a7524d197ede2caa96bc7eb93"
+  },
+  "parent_registration_sha256": {
+    "research/offline-release-recovery-v1-freeze.json": "09eec1ebc67a0752cd8e422cbfd59a0cd83cfc08a28a5e6d33e8708f4540eb66",
+    "research/paced-resume-analysis-v1-freeze.json": "e2158b38fb8b9d06cb94c1b85c887a17e2e2bf96afa07a8be276c5cd558c1bfd",
+    "research/hf-completion-v3-freeze.json": "257268282285856d8d7508633c1d726f2b3e41d4602f4007cc3e06505ea3accf"
+  },
+  "failed_waiter_sha256": {
+    "runs/paced-resume-postprocess-driver/state.json": "b6c109a996be404a58b264ce937538cf54f24c1d5d8f8c49bfe4a5a3973cab2f",
+    "runs/paced-resume-postprocess-driver/hf_export.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/paced-resume-postprocess-driver/hf_export.stderr.log": "fc04024e01e70ccdb36fb1eaf12d7b9d4ed74006adca62d738d1dc7be32ec15c",
+    "runs/offline-release-recovery-driver/state.json": "2dcedd548b21c92e8c578746df87b62aef2089980d298beafeb1eb8990b5b970",
+    "runs/offline-release-recovery-driver/hf_export.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/offline-release-recovery-driver/hf_export.stderr.log": "94c53eb0a54e0c69144d352cdfb2a76637a69ca361b8e72146175a9b4b5a7d5b"
+  },
+  "projection_rule": "validated-next-delay-and-private-transport-to-frozen-public-schema-v2",
+  "timing": "After frozen V1 offline release failed on known scheduler metadata; before V2 recovered scoring or output; no new inference"
+}
