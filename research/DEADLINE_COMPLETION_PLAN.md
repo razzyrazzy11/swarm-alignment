@@ -381,3 +381,22 @@ select a favorable window merely to manufacture a passing gate.
   protocols own the experimental definitions, scientific replay and cutoff.
 
 </details>
+
+## Second offline boundary correction — prospective V2
+
+The first offline recovery stopped before writing outputs because its top-level
+allowlist omitted the recorded scheduler field `next_delay_seconds`. Its source,
+freeze, tag, failed state and logs remain preserved. The separately registered
+`offline-release-recovery-v2` validates finite nonnegative scheduler metadata,
+removes only that private field, and then uses the frozen V1 projection and
+unchanged scientific validators. Admission includes an exact metadata-only
+projection of all 1,898 validated HF records before registration; no scoring or
+release writing occurs in that preflight.
+
+When its prospective freeze/tag/push exists, the authoritative offline owner is
+`runs/offline-release-recovery-v2-driver/state.json`, with its own
+`verified-public-input.json` receipt and
+`research/hf-offline-release-recovery-v2-proof.json` companion. Paper gates require
+its successful seven-stage completion and actual termination, both failed
+predecessors stopped and dead, source/freeze identities and original strict
+scientific replay. The four reviews remain after validation and integration.

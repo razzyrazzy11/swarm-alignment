@@ -131,11 +131,15 @@ def load_completed(root,replay=True):
     from experiments import swarm_ledger_complete_analysis as analysis
     directory=Path(root).parent/'data/swarm-ledger-v1-public'
     require(directory.is_dir(),'Completed public release required; planned/toy report is insufficient')
-    recovered=(Path(root).parent/'research/offline-release-recovery-v1-freeze.json').is_file()
+    recovery_v2=(Path(root).parent/'research/offline-release-recovery-v2-freeze.json').is_file()
+    recovered=recovery_v2 or (Path(root).parent/'research/offline-release-recovery-v1-freeze.json').is_file()
     if recovered:
         require((Path(root).parent/'research/swarm-ledger-paced-v1-freeze.json').is_file(),
                 'Offline recovery requires the paced scientific lineage')
-        from experiments import offline_release_recovery as recovery
+        if recovery_v2:
+            from experiments import offline_release_recovery_v2 as recovery
+        else:
+            from experiments import offline_release_recovery as recovery
         recovery.verify()
         recovery.verify_projection(replay=False)
     if (Path(root).parent/'research/swarm-ledger-paced-v1-freeze.json').exists():
@@ -163,7 +167,8 @@ def load_completed(root,replay=True):
               for name in ('manifest.json','report.json','registration.json','operational-registration.json')}
     bindings.update(scientific_registration_sha256=manifest['registration_sha256'],
                     operational_registration_sha256=manifest['operational_registration_sha256'])
-    for name in ('offline-release-recovery-v1-freeze.json','hf-offline-release-recovery-proof.json',
+    for name in ('offline-release-recovery-v2-freeze.json','hf-offline-release-recovery-v2-proof.json',
+                 'offline-release-recovery-v1-freeze.json','hf-offline-release-recovery-proof.json',
                  'paced-resume-analysis-v1-freeze.json','swarm-ledger-paced-v1-freeze.json',
                  'swarm-ledger-paced-resume-release-proof.json',
                  'rate-resume-analysis-v1-freeze.json','swarm-ledger-rate-v1-freeze.json',

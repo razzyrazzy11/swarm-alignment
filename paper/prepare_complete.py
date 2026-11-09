@@ -108,10 +108,11 @@ def ready(paper=PAPER):
     efficient=(paper.parent/'research/swarm-ledger-efficient-v1-freeze.json').is_file()
     rate=(paper.parent/'research/swarm-ledger-rate-v1-freeze.json').is_file()
     paced=(paper.parent/'research/swarm-ledger-paced-v1-freeze.json').is_file()
-    recovered=(paper.parent/'research/offline-release-recovery-v1-freeze.json').is_file()
+    recovery_v2=(paper.parent/'research/offline-release-recovery-v2-freeze.json').is_file()
+    recovered=recovery_v2 or (paper.parent/'research/offline-release-recovery-v1-freeze.json').is_file()
     if recovered and not paced:
         raise ValueError('Offline recovery requires the paced scientific lineage')
-    waiter='offline-release-recovery-driver' if recovered else 'paced-resume-postprocess-driver' if paced else 'rate-resume-postprocess-driver' if rate else 'efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
+    waiter='offline-release-recovery-v2-driver' if recovery_v2 else 'offline-release-recovery-driver' if recovered else 'paced-resume-postprocess-driver' if paced else 'rate-resume-postprocess-driver' if rate else 'efficient-resume-postprocess-driver' if efficient else 'provider-resume-postprocess-driver' if v3 else 'server-resume-postprocess-driver' if v2 else 'router-resume-postprocess-driver'
     state_path = paper.parent / ('runs/'+waiter+'/state.json')
     if not state_path.is_file():
         raise ValueError('Actual complete postprocessor state required')
@@ -132,11 +133,16 @@ def ready(paper=PAPER):
     else:
         from experiments import router_resume_analysis as continuation
     if recovered:
-        from experiments import offline_release_recovery as recovery
+        if recovery_v2:
+            from experiments import offline_release_recovery_v2 as recovery
+        else:
+            from experiments import offline_release_recovery as recovery
         recovery.verify()  # New prospective source/tag proof, never inference.
-        expected_source=hashlib.sha256((paper.parent/'experiments/offline_release_supervisor.py').read_bytes()).hexdigest()
-        expected_freeze=hashlib.sha256((paper.parent/'research/offline-release-recovery-v1-freeze.json').read_bytes()).hexdigest()
-        if (state.get('kind')!='offline_release_recovery'
+        source='experiments/offline_release_supervisor_v2.py' if recovery_v2 else 'experiments/offline_release_supervisor.py'
+        freeze='research/offline-release-recovery-v2-freeze.json' if recovery_v2 else 'research/offline-release-recovery-v1-freeze.json'
+        expected_source=hashlib.sha256((paper.parent/source).read_bytes()).hexdigest()
+        expected_freeze=hashlib.sha256((paper.parent/freeze).read_bytes()).hexdigest()
+        if (state.get('kind')!=('offline_release_recovery_v2' if recovery_v2 else 'offline_release_recovery')
                 or type(state.get('exit_code')) is not int or state['exit_code']!=0
                 or type(state.get('inference_calls')) is not int or state['inference_calls']!=0
                 or state.get('paper_authored') is not False or state.get('visual_qa_complete') is not False
@@ -144,6 +150,8 @@ def ready(paper=PAPER):
                 or state.get('recovery_freeze_sha256')!=expected_freeze):
             raise ValueError('Offline recovery supervisor/source/registration identity differs')
         continuation.terminated('runs/paced-resume-postprocess-driver/state.json',stopped=True)
+        if recovery_v2:
+            continuation.terminated('runs/offline-release-recovery-driver/state.json',stopped=True)
     continuation.terminated('runs/'+waiter+'/state.json', complete=True)
     if recovered and state_path.read_bytes()!=state_raw:
         raise ValueError('Offline recovery state changed during admission')

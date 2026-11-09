@@ -60,8 +60,9 @@ class OfflineRecoveryReadinessTests(unittest.TestCase):
     @contextmanager
     def admission(self):
         with ExitStack() as stack:
-            stack.enter_context(patch.dict(sys.modules, {'experiments.offline_release_recovery': self.recovery}))
-            stack.enter_context(patch.object(experiments, 'offline_release_recovery', self.recovery, create=True))
+            module=getattr(self,'recovery_module','offline_release_recovery')
+            stack.enter_context(patch.dict(sys.modules, {'experiments.'+module: self.recovery}))
+            stack.enter_context(patch.object(experiments, module, self.recovery, create=True))
             self.terminated = stack.enter_context(patch.object(paced, 'terminated'))
             self.drivers = stack.enter_context(patch.object(paced, 'drivers'))
             stack.enter_context(patch.object(paced, 'verify_hf', side_effect=AssertionError('Use registered companion gate')))
@@ -69,6 +70,80 @@ class OfflineRecoveryReadinessTests(unittest.TestCase):
             self.figure = stack.enter_context(patch.object(figures, 'verify_only'))
             stack.enter_context(patch.object(prep, 'verify_sensitivity', return_value='synthetic-sensitivity'))
             yield
+
+    def enable_v2(self):
+        self.recovery_module='offline_release_recovery_v2'
+        freeze=self.root/'research/offline-release-recovery-v2-freeze.json'
+        freeze.write_text('{"synthetic_v2":true}\n',encoding='utf-8')
+        (self.root/'research/hf-offline-release-recovery-v2-proof.json').write_text('{"synthetic_v2":true}\n',encoding='utf-8')
+        source=self.root/'experiments/offline_release_supervisor_v2.py'
+        source.write_text('# Synthetic V2 source only\n',encoding='utf-8')
+        self.state_path=self.root/'runs/offline-release-recovery-v2-driver/state.json'
+        self.state_path.parent.mkdir(parents=True)
+        self.state.update(kind='offline_release_recovery_v2',supervisor_sha256=self.sha(source),
+                          recovery_freeze_sha256=self.sha(freeze))
+        self.save()
+
+    def test_v2_marker_rejects_complete_v1_waiter_instead_of_falling_back(self):
+        self.enable_v2()
+        self.state_path.unlink()
+        with self.admission():
+            with self.assertRaisesRegex(ValueError,'Actual complete postprocessor'):
+                prep.ready(self.paper)
+            self.load.assert_not_called()
+
+    def test_v2_admits_only_new_success_and_both_failed_predecessors_dead(self):
+        self.enable_v2()
+        with self.admission():
+            prep.ready(self.paper)
+            self.assertEqual([(c.args,c.kwargs) for c in self.terminated.call_args_list],[
+                (('runs/paced-resume-postprocess-driver/state.json',),{'stopped':True}),
+                (('runs/offline-release-recovery-driver/state.json',),{'stopped':True}),
+                (('runs/offline-release-recovery-v2-driver/state.json',),{'complete':True})])
+            self.assertEqual(self.figure.call_args.args[1],self.root/'runs/offline-release-recovery-v2-driver/verified-public-input.json')
+            self.recovery.verify_hf.assert_called_once_with()
+        with self.admission():
+            def old_v1_not_dead(path,**kwargs):
+                if path=='runs/offline-release-recovery-driver/state.json':
+                    raise ValueError('Synthetic V1 owner still live')
+            self.terminated.side_effect=old_v1_not_dead
+            with self.assertRaisesRegex(ValueError,'V1 owner still live'):
+                prep.ready(self.paper)
+            self.load.assert_not_called()
+
+    def test_v2_rejects_v1_identity_even_when_all_stages_complete(self):
+        self.enable_v2()
+        for key,value in [('kind','offline_release_recovery'),
+                          ('supervisor_sha256',self.sha(self.root/'experiments/offline_release_supervisor.py')),
+                          ('recovery_freeze_sha256',self.sha(self.root/'research/offline-release-recovery-v1-freeze.json')),
+                          ('completed_stages',list(prep.STAGES[:-1]))]:
+            with self.subTest(key=key):
+                baseline=deepcopy(self.state)
+                self.state[key]=value
+                self.save()
+                with self.admission():
+                    with self.assertRaises(ValueError):prep.ready(self.paper)
+                    self.load.assert_not_called()
+                self.state=baseline
+                self.save()
+
+    def test_v2_handoff_prioritizes_new_adapter_and_receipt_over_v1(self):
+        self.enable_v2()
+        jobs=[(stage,['python','-m','synthetic']) for stage in handoff.STAGES]
+        jobs[0]=('hf_export',['python','-m','experiments.offline_release_recovery_v2','export-hf'])
+        jobs[1]=('main_export',['python','-m','experiments.paced_resume_analysis','export-main'])
+        jobs[3]=('figure_input',['python','runs/offline-release-recovery-v2-driver/verified-public-input.json'])
+        modules={'experiments.paced_resume_analysis':SimpleNamespace(verify=Mock(),verify_main=lambda output,replay=True:None),
+                 'experiments.offline_release_recovery_v2':self.recovery,
+                 'experiments.offline_release_supervisor_v2':SimpleNamespace(STAGES=handoff.STAGES,processing_jobs=lambda:jobs),
+                 'paper.prepare_complete':prep}
+        with patch.object(handoff.importlib,'import_module',side_effect=lambda name:modules[name]):
+            result=handoff.pipeline(self.root)
+            self.assertEqual(result['offline_recovery_registration'],'research/offline-release-recovery-v2-freeze.json')
+            self.assertEqual(result['offline_hf_projection_proof'],'research/hf-offline-release-recovery-v2-proof.json')
+            self.assertEqual(result['postprocessor_state'],'runs/offline-release-recovery-v2-driver/state.json')
+            jobs[0]=('hf_export',['python','-m','experiments.offline_release_recovery','export-hf'])
+            with self.assertRaisesRegex(ValueError,'HF admission command differs'):handoff.pipeline(self.root)
 
     def test_old_waiter_cannot_replace_missing_new_successful_waiter(self):
         self.state_path.unlink()
@@ -159,15 +234,23 @@ class OfflineRecoveryReadinessTests(unittest.TestCase):
         for name in ('manifest.json', 'report.json', 'registration.json', 'operational-registration.json'):
             (public/name).write_text('{"synthetic":true}\n', encoding='utf-8')
         manifest = dict(registration_sha256='synthetic-science', operational_registration_sha256='synthetic-operation')
-        with patch.dict(sys.modules, {'experiments.offline_release_recovery': self.recovery}), \
-                patch.object(experiments, 'offline_release_recovery', self.recovery, create=True), \
+        module=getattr(self,'recovery_module','offline_release_recovery')
+        with patch.dict(sys.modules, {'experiments.'+module: self.recovery}), \
+                patch.object(experiments, module, self.recovery, create=True), \
                 patch.object(paced, 'verify_main'), patch.object(analysis, 'verify_public'), \
                 patch.object(analysis, 'load_public_artifacts', return_value=(None, report, manifest)):
             _, bindings = contract.load_completed(self.paper, replay=True)
         for name in ('offline-release-recovery-v1-freeze.json', 'hf-offline-release-recovery-proof.json'):
             self.assertEqual(bindings[name], self.sha(self.root/'research'/name))
+        if module.endswith('_v2'):
+            for name in ('offline-release-recovery-v2-freeze.json','hf-offline-release-recovery-v2-proof.json'):
+                self.assertEqual(bindings[name],self.sha(self.root/'research'/name))
         self.recovery.verify.assert_called_once_with()
         self.recovery.verify_projection.assert_called_once_with(replay=False)
+
+    def test_v2_manuscript_binds_new_proof_and_registration(self):
+        self.enable_v2()
+        self.test_public_manuscript_bindings_include_recovery_freeze_and_proof()
 
 
 if __name__ == '__main__':
